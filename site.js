@@ -590,6 +590,14 @@ document.querySelectorAll('.nav-item.has-dropdown > a').forEach(function (a) {
           '</div></div>';
         seasonal.innerHTML = inner;
         seasonal.hidden = false;
+        if (banner.href) {
+          seasonal.style.cursor = 'pointer';
+          seasonal.addEventListener('click', function (e) {
+            if (!e.target.closest('a') && !e.target.closest('button')) {
+              window.location.href = banner.href;
+            }
+          });
+        }
       }
     })
     .catch(function () { seasonal.remove(); });
