@@ -16,7 +16,7 @@ function getSections(body: string) {
   });
 }
 
-function InlineImageUpload({ onInsert, bodyContent }: { onInsert: (markdown: string) => void; bodyContent: string }) {
+function InlineImageUpload({ onInsert, bodyContent, onAddMore }: { onInsert: (markdown: string) => void; bodyContent: string; onAddMore?: () => void }) {
   const [busy, setBusy] = useState(false);
   const [sectionIndex, setSectionIndex] = useState(0);
   const [error, setError] = useState("");
@@ -82,6 +82,7 @@ function InlineImageUpload({ onInsert, bodyContent }: { onInsert: (markdown: str
         <input ref={picker} type="file" accept="image/*" hidden onChange={(e) => { const f = e.target.files?.[0]; if (f) upload(f); e.target.value = ""; }} />
       </div>
       {error && <p className="error-text" style={{ margin: "8px 0 0", fontSize: 13 }}>{error}</p>}
+      {onAddMore && <button type="button" className="secondary" onClick={onAddMore} style={{ fontSize: 13, padding: "7px 14px", minHeight: 36, marginTop: 8 }}>+ Add more images</button>}
     </div>
   );
 }
@@ -124,6 +125,8 @@ export function PostEditor({ initial }: { initial?: Post }) {
   const [preview, setPreview] = useState("");
   const [slugTouched, setSlugTouched] = useState(Boolean(initial?.slug));
   const [, setDirty] = useState(false);
+  const [previewMode, setPreviewMode] = useState<"desktop" | "mobile">("desktop");
+  const [imageUploadCount, setImageUploadCount] = useState(1);
   const dirtyRef = useRef(false);
   const idRef = useRef(id);
   const postRef = useRef(post);
@@ -291,9 +294,13 @@ export function PostEditor({ initial }: { initial?: Post }) {
               <li>Leave a blank line between paragraphs.</li>
             </ul>
           </details>
-          <InlineImageUpload bodyContent={post.body} onInsert={(newBody) => {
-            field("body", newBody);
-          }} />
+          {Array.from({ length: imageUploadCount }).map((_, idx) => (
+            <div key={idx}>
+              <InlineImageUpload bodyContent={post.body} onInsert={(newBody) => {
+                field("body", newBody);
+              }} onAddMore={() => setImageUploadCount(c => c + 1)} />
+            </div>
+          ))}
           <label>Sign-off (optional)<input value={post.signoff} onChange={(e) => field("signoff", e.target.value)} /></label>
         </fieldset>
 
@@ -308,9 +315,17 @@ export function PostEditor({ initial }: { initial?: Post }) {
       </form>
 
       <aside className="preview-panel">
-        <div className="preview-toolbar"><strong>Page preview</strong></div>
+        <div className="preview-toolbar">
+          <strong>Page preview</strong>
+          {preview && (
+            <div style={{ display: "flex", gap: 8 }}>
+              <button type="button" className={previewMode === "desktop" ? "active" : ""} onClick={() => setPreviewMode("desktop")} style={{ fontSize: 12, padding: "5px 12px", border: "1px solid var(--line)", background: previewMode === "desktop" ? "var(--line)" : "transparent", borderRadius: 6, cursor: "pointer" }}>Desktop</button>
+              <button type="button" className={previewMode === "mobile" ? "active" : ""} onClick={() => setPreviewMode("mobile")} style={{ fontSize: 12, padding: "5px 12px", border: "1px solid var(--line)", background: previewMode === "mobile" ? "var(--line)" : "transparent", borderRadius: 6, cursor: "pointer" }}>Mobile</button>
+            </div>
+          )}
+        </div>
         {preview
-          ? <iframe title="Post preview" srcDoc={preview} className="desktop" />
+          ? <iframe title="Post preview" srcDoc={preview} className={previewMode} />
           : <div className="preview-empty">Choose Preview to see the finished page.</div>}
       </aside>
     </div>
