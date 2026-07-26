@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>It’s a Hot Latina Summer — chévere</title>
+  <meta name="description" content="From fútbol jerseys becoming the season’s favorite outfit to Shakira and Karol G commanding massive stages, Latin culture is setting the temperature for summer 2026." />
+  <link rel="icon" type="image/png" href="../assets/icon.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,600;1,700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../styles.css?v=20260724-3" />
+  <style>
+    .post-body { font-size: 17px; line-height: 1.8; color: var(--text); }
+    .post-body p { margin-bottom: 16px; }
+    .post-body h2 { font-family: var(--serif); font-size: 24px; color: var(--ink); margin: 32px 0 10px; }
+    .post-body h3 { font-family: var(--serif); font-size: 20px; color: var(--ink); margin: 26px 0 8px; }
+    .post-body strong { display: block; font-family: var(--serif); font-weight: 700; font-size: 20px; color: var(--ink); margin-top: 32px; margin-bottom: 8px; }
+    .post-body em { font-style: italic; }
+    .post-hero { width: 100%; height: auto; border-radius: 10px; margin-bottom: 28px; display: block; }
+    .post-inline-img { width: 100%; height: auto; border-radius: 8px; margin: 22px 0; display: block; }
+    .post-signoff { margin-top: 48px; font-size: 17px; color: var(--gray-soft); }
+    .back-link { display: inline-block; margin-bottom: 24px; font-size: 13px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--brown); transition: opacity .15s ease; }
+    .back-link:hover { opacity: 0.7; }
+  </style>
+</head>
+<body>
+
+  <header class="site-header">
+    <a class="header-logo" href="../index.html" aria-label="chévere home">
+      <img src="../assets/logo.png" alt="chévere" />
+    </a>
+    <div class="header-actions">
+      <button id="mobile-menu-toggle" class="mobile-menu-toggle" type="button" aria-label="Open menu" aria-controls="site-navigation" aria-expanded="false"><i data-lucide="menu" stroke-width="1.8" aria-hidden="true"></i></button>
+      <button id="search-toggle" aria-label="Search" title="Search"><i data-lucide="search" stroke-width="1.8" aria-hidden="true"></i></button>
+      <a class="join-list-button" href="../index.html#newsletter">JOIN THE LIST</a>
+      <a href="https://www.instagram.com/itschevere/" target="_blank" rel="noopener" aria-label="Instagram" title="Instagram">
+        <svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+      </a>
+      <a href="https://www.tiktok.com/@itschevere" target="_blank" rel="noopener" aria-label="TikTok" title="TikTok">
+        <svg class="tiktok-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="19" height="19"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.3 0 .59.05.87.13v-3.5a6.37 6.37 0 0 0-.87-.06A6.34 6.34 0 0 0 3.15 15.3a6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.34-6.34V8.46a8.23 8.23 0 0 0 4.77 1.48v-3.4a4.86 4.86 0 0 1-1.01.15z"/></svg>
+      </a>
+    </div>
+    <div id="search-panel" class="search-panel" role="dialog" aria-label="Search posts">
+      <div class="search-bar-wrap">
+        <i data-lucide="search" class="search-bar-icon" stroke-width="2" aria-hidden="true"></i>
+        <input id="search-input" type="text" placeholder="Search posts..." autocomplete="off" />
+        <button id="search-submit" class="search-action-btn" aria-label="Search" type="button">
+          <i data-lucide="arrow-right" stroke-width="2.5" aria-hidden="true"></i>
+        </button>
+        <button id="search-close" class="search-close-btn" aria-label="Close search" type="button">
+          <i data-lucide="x" stroke-width="2.5" aria-hidden="true"></i>
+        </button>
+      </div>
+      <div id="search-results" class="search-results"></div>
+    </div>
+  </header>
+
+  <nav class="site-nav" id="site-navigation" aria-label="Primary navigation">
+    <a href="../index.html">HOME</a>
+    <div class="nav-item has-dropdown">
+      <a href="../blog.html?cat=culture">CULTURE<i data-lucide="chevron-down" class="chev" stroke-width="2" aria-hidden="true"></i></a>
+      <div class="dropdown">
+        <a href="../blog.html?cat=books">Books</a>
+        <a href="../blog.html?cat=film-tv">Film &amp; TV</a>
+        <a href="../blog.html?cat=music">Music</a>
+        <a href="../blog.html?cat=sports">Sports</a>
+        <a href="../blog.html?cat=pop-culture">Pop Culture</a>
+      </div>
+    </div>
+    <div class="nav-item has-dropdown">
+      <a href="../blog.html?cat=style">STYLE<i data-lucide="chevron-down" class="chev" stroke-width="2" aria-hidden="true"></i></a>
+      <div class="dropdown">
+        <a href="../blog.html?cat=fashion">Fashion</a>
+        <a href="../blog.html?cat=beauty">Beauty</a>
+        <a href="../blog.html?cat=interiors">Interiors</a>
+        <a href="../blog.html?cat=design">Design</a>
+      </div>
+    </div>
+    <div class="nav-item has-dropdown">
+      <a href="../blog.html?cat=life">LIFE<i data-lucide="chevron-down" class="chev" stroke-width="2" aria-hidden="true"></i></a>
+      <div class="dropdown">
+        <a href="../blog.html?cat=food">Food</a>
+        <a href="../blog.html?cat=travel">Travel</a>
+        <a href="../blog.html?cat=life-wellness">Life &amp; Wellness</a>
+      </div>
+    </div>
+    <div class="nav-item has-dropdown">
+      <a href="../blog.html?cat=guides">GUIDES<i data-lucide="chevron-down" class="chev" stroke-width="2" aria-hidden="true"></i></a>
+      <div class="dropdown">
+        <a href="../reading-lists.html">Reading Lists</a>
+        <a href="../blog.html?cat=city-guides">City Guides</a>
+        <a href="../blog.html?cat=seasonal-recommendations">Seasonal Recommendations</a>
+        <a href="../blog.html?cat=restaurant-roundups">Restaurant Roundups</a>
+        <a href="../blog.html?cat=gift-guides">Gift Guides</a>
+      </div>
+    </div>
+    <a href="../about.html">ABOUT</a>
+  </nav>
+
+  <main class="page-main">
+    <a class="back-link" href="../blog.html">&larr; Back to Blog</a>
+    <span class="kicker" style="display:block;margin-bottom:8px">Pop Culture · Music</span>
+    <h1 class="page-title">It’s a Hot Latina Summer</h1>
+    <p class="page-tagline" style="font-size:15px;color:#8e8c88;margin-top:-4px;margin-bottom:28px">Jul 25, 2026</p>
+    <div class="post-body">
+      <img class="post-hero" src="https://xjtnfwnntzonmumlxbyg.supabase.co/storage/v1/object/public/newsletter-images/2026-07/39628669-2e54-4cdd-8009-367df972d5f8.png" alt="It’s a Hot Latina Summer" />
+      <p><em>From fútbol jerseys becoming the season’s favorite outfit to Shakira and Karol G commanding massive stages, Latin culture is setting the temperature for summer 2026.</em></p>
+      <p>Latin culture is shaping the look and energy of summer 2026 through bold color, confident silhouettes and outfits designed to be noticed. From fitted dresses and bright vacation prints to gold jewelry, glossy beauty and statement accessories, the influence feels feminine, expressive and completely unapologetic.</p>
+      <p>Even sporty pieces have become part of that fashion language. Fútbol jerseys are being styled with denim shorts, flowing skirts, sneakers and oversized sunglasses, transforming symbols of national pride into everyday summer outfits. The trend reflects something larger: Latin style has always known how to mix glamour, culture and personality without separating one from the other.</p>
+      <p>That same energy moves beyond clothing and into the music defining the season. The relationship between Latin music, fashion and fútbol has created some of pop culture’s most memorable summer moments—and few artists represent that connection more clearly than Shakira.</p>
+      <img class="post-inline-img" src="https://xjtnfwnntzonmumlxbyg.supabase.co/storage/v1/object/public/newsletter-images/2026-07/709fbfc4-5580-4810-b34b-f5b6d1419384.png" alt="ChatGPT Image Jul 25, 2026, 07 15 12 PM" />
+      <h2>Shakira Remains the Sound of Fútbol</h2>
+      <p>No artist understands the relationship between music, fútbol and global culture quite like Shakira.</p>
+      <p>More than 15 years after “Waka Waka” became inseparable from the 2010 World Cup, her music still feels naturally connected to the excitement and spectacle of the sport.</p>
+      <p>That connection is partly nostalgic. For an entire generation, hearing Shakira at a fútbol event immediately brings back memories of summer, international matches and the rare feeling of millions of people watching the same thing at once.</p>
+      <img class="post-inline-img" src="https://xjtnfwnntzonmumlxbyg.supabase.co/storage/v1/object/public/newsletter-images/2026-07/ee537220-1609-499d-9cce-d3bcf814758b.webp" alt="shakira world cup halftime cr getty images press billboard 1800" />
+      <p>But Shakira’s place in the culture is not based on nostalgia alone.</p>
+      <p>She continues to perform on enormous stages, release music that travels across languages and maintain a career that has stretched across decades without losing its identity. She moves between Latin pop, rock, dance music and global collaborations while remaining unmistakably herself.</p>
+      <p>Her longevity matters.</p>
+      <p>Shakira emerged during a time when Latin artists were often expected to sing in English, reshape their image or prove that they could appeal to audiences outside of Latin America. She did cross between languages and markets, but she never left her Colombian identity behind to do it.</p>
+      <p>Instead, she helped make the world more familiar with it.</p>
+      <p>Her presence this summer feels like a reminder that Latin artists are not new arrivals on the global stage. They have been building it, influencing it and making it more interesting for years.</p>
+      <p>Shakira does not represent a temporary wave of Latin visibility. She represents its staying power.</p>
+      <img class="post-inline-img" src="https://xjtnfwnntzonmumlxbyg.supabase.co/storage/v1/object/public/newsletter-images/2026-07/3a53168f-130a-4e5b-ab54-494e3496edf9.jpg" alt="karol g singing" />
+      <h2>Karol G Is Bringing Latina Energy to the Stadium</h2>
+      <p>If Shakira represents longevity, Karol G represents the confidence of a generation that no longer feels obligated to ask for permission.</p>
+      <p>Karol G has built a world around her music—one filled with reggaetón, heartbreak, friendship, romance, softness, glitter and Colombian pride. It is emotionally open, hyper-feminine and completely comfortable taking up space.</p>
+      <p>That world now belongs in stadiums.</p>
+      <p>Seeing a Latina woman headline venues traditionally associated with major sporting events and English-language superstars feels significant. Thousands of people arrive dressed in pink, rhinestones, cowboy hats, jerseys and outfits inspired by different eras of her music. The audience becomes part of the visual language of the show.</p>
+      <p>The concerts feel less like traditional performances and more like enormous celebrations of Latina femininity.</p>
+      <p>Karol G does not minimize the details that make her culturally specific. She sings in Spanish. She celebrates Colombia. She brings reggaetón, tropical influences and Latin pop into some of the largest venues in the world without presenting them as something that needs to be explained.</p>
+      <p>The specificity is part of what makes the experience so powerful.</p>
+      <p>Her version of confidence also feels refreshing because it leaves room for contradiction. It can be glamorous and vulnerable, sensual and playful, heartbroken and joyful. It rejects the idea that strength has to look emotionally detached or traditionally masculine.</p>
+      <p>Karol G can sing about being devastated in one moment and completely untouchable in the next.</p>
+      <p>That emotional range is part of why her music connects so deeply with women. It does not ask them to choose between being soft and being powerful.</p>
+      <p>They can be both.</p>
+      <img class="post-inline-img" src="https://xjtnfwnntzonmumlxbyg.supabase.co/storage/v1/object/public/newsletter-images/2026-07/b293c785-7b75-45d1-b4e6-2386c72dc4eb.jpg" alt="casita halftime" />
+      <h2>Latin Music Is the Sound of the Summer</h2>
+      <p>Latin music is not simply growing more popular. It is shaping the way global pop music sounds.</p>
+      <p>Reggaetón, Latin pop, música Mexicana, dembow, cumbia, bachata and regional sounds move through playlists and parties without needing a formal introduction. Spanish-language songs are played in clubs, used in fashion campaigns, heard at sporting events and shared across social media by listeners who may not understand every lyric but understand the feeling immediately.</p>
+      <p>The old idea of the “crossover” feels increasingly irrelevant.</p>
+      <p>For years, a Latin artist finding success in the United States was treated as though they had crossed from one world into another—from the Latin market into the mainstream.</p>
+      <p>But Latin music is not standing outside the mainstream waiting to be invited in.</p>
+      <p>It is already at the center of it.</p>
+      <p>Artists no longer have to release an English-language version of every song to prove its potential. Audiences are more comfortable listening across languages, and streaming has made it easier for music to travel without being repackaged.</p>
+      <p>The result is a cultural landscape that feels more expansive and more honest.</p>
+      <p>People do not listen according to rigid categories. A summer playlist might move from Karol G to Bad Bunny, Sabrina Carpenter, Feid, Dua Lipa, Rauw Alejandro and Peso Pluma without anyone treating the shifts in language or genre as unusual.</p>
+      <p>That is simply how music is consumed now.</p>
+      <p>Latin music is not popular because the rest of the world suddenly discovered it. The culture, creativity and audience were always there.</p>
+      <p>The rest of the world is finally catching up.</p>
+      <img class="post-inline-img" src="https://xjtnfwnntzonmumlxbyg.supabase.co/storage/v1/object/public/newsletter-images/2026-07/40c244d3-20d5-4f7d-a76a-adba390f4561.png" alt="latina singers" />
+      <h2>More Than a Summer Trend</h2>
+      <p>Calling it a “hot Latina summer” is playful, but the phrase captures something real.</p>
+      <p>It is in the jerseys styled as everyday outfits. It is in the stadiums filled with Spanish lyrics. It is in Shakira’s continued ability to command the world’s attention and Karol G’s freedom to build an entire universe around her version of Latina womanhood.</p>
+      <p>It is also in the smaller moments: hearing Spanish music spill out of a passing car, watching people wear their countries across their chests or seeing Latina artists celebrated without being treated like a novelty.</p>
+      <p>The most exciting part is that none of it feels like a special cultural occasion.</p>
+      <p>Shakira does not need to introduce herself. Karol G does not need an English-language reinvention. Latin music does not need to be placed into a separate corner of the conversation.</p>
+      <p>The audience is already present. The influence is already everywhere. The culture has never needed permission to be powerful.</p>
+      <p>Fútbol gave the summer a shared energy. Shakira gave it history. Karol G gave it confidence. Latin music gave it a soundtrack.</p>
+      <p>And summer is not over yet.</p>
+      <p>It is a hot Latina summer—and everyone else is invited to enjoy the heat.</p>
+      <p class="post-signoff">Until next week — stay <em>chévere</em></p>
+    </div>
+  </main>
+
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script src="../site.js?v=20260724-2"></script>
+</body>
+</html>
