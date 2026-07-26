@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>How to Make the Weekend Feel Longer — chévere</title>
+  <meta name="description" content="Small ways to make Saturday and Sunday feel less rushed—and a little more memorable." />
+  <link rel="icon" type="image/png" href="../assets/icon.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,600;1,700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../styles.css?v=20260724-3" />
+  <style>
+    .post-body { font-size: 17px; line-height: 1.8; color: var(--text); }
+    .post-body p { margin-bottom: 16px; }
+    .post-body h2 { font-family: var(--serif); font-size: 24px; color: var(--ink); margin: 32px 0 10px; }
+    .post-body h3 { font-family: var(--serif); font-size: 20px; color: var(--ink); margin: 26px 0 8px; }
+    .post-body strong { display: block; font-family: var(--serif); font-weight: 700; font-size: 20px; color: var(--ink); margin-top: 32px; margin-bottom: 8px; }
+    .post-body em { font-style: italic; }
+    .post-hero { width: 100%; height: auto; border-radius: 10px; margin-bottom: 28px; display: block; }
+    .post-inline-img { width: 100%; height: auto; border-radius: 8px; margin: 22px 0; display: block; }
+    .post-signoff { margin-top: 48px; font-size: 17px; color: var(--gray-soft); }
+    .back-link { display: inline-block; margin-bottom: 24px; font-size: 13px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--brown); transition: opacity .15s ease; }
+    .back-link:hover { opacity: 0.7; }
+  </style>
+</head>
+<body>
+
+  <header class="site-header">
+    <a class="header-logo" href="../index.html" aria-label="chévere home">
+      <img src="../assets/logo.png" alt="chévere" />
+    </a>
+    <div class="header-actions">
+      <button id="mobile-menu-toggle" class="mobile-menu-toggle" type="button" aria-label="Open menu" aria-controls="site-navigation" aria-expanded="false"><i data-lucide="menu" stroke-width="1.8" aria-hidden="true"></i></button>
+      <button id="search-toggle" aria-label="Search" title="Search"><i data-lucide="search" stroke-width="1.8" aria-hidden="true"></i></button>
+      <a class="join-list-button" href="../index.html#newsletter">JOIN THE LIST</a>
+      <a href="https://www.instagram.com/itschevere/" target="_blank" rel="noopener" aria-label="Instagram" title="Instagram">
+        <svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+      </a>
+      <a href="https://www.tiktok.com/@itschevere" target="_blank" rel="noopener" aria-label="TikTok" title="TikTok">
+        <svg class="tiktok-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="19" height="19"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.3 0 .59.05.87.13v-3.5a6.37 6.37 0 0 0-.87-.06A6.34 6.34 0 0 0 3.15 15.3a6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.34-6.34V8.46a8.23 8.23 0 0 0 4.77 1.48v-3.4a4.86 4.86 0 0 1-1.01.15z"/></svg>
+      </a>
+    </div>
+    <div id="search-panel" class="search-panel" role="dialog" aria-label="Search posts">
+      <div class="search-bar-wrap">
+        <i data-lucide="search" class="search-bar-icon" stroke-width="2" aria-hidden="true"></i>
+        <input id="search-input" type="text" placeholder="Search posts..." autocomplete="off" />
+        <button id="search-submit" class="search-action-btn" aria-label="Search" type="button">
+          <i data-lucide="arrow-right" stroke-width="2.5" aria-hidden="true"></i>
+        </button>
+        <button id="search-close" class="search-close-btn" aria-label="Close search" type="button">
+          <i data-lucide="x" stroke-width="2.5" aria-hidden="true"></i>
+        </button>
+      </div>
+      <div id="search-results" class="search-results"></div>
+    </div>
+  </header>
+
+  <nav class="site-nav" id="site-navigation" aria-label="Primary navigation">
+    <a href="../index.html">HOME</a>
+    <div class="nav-item has-dropdown">
+      <a href="../blog.html?cat=culture">CULTURE<i data-lucide="chevron-down" class="chev" stroke-width="2" aria-hidden="true"></i></a>
+      <div class="dropdown">
+        <a href="../blog.html?cat=books">Books</a>
+        <a href="../blog.html?cat=film-tv">Film &amp; TV</a>
+        <a href="../blog.html?cat=music">Music</a>
+        <a href="../blog.html?cat=sports">Sports</a>
+        <a href="../blog.html?cat=pop-culture">Pop Culture</a>
+      </div>
+    </div>
+    <div class="nav-item has-dropdown">
+      <a href="../blog.html?cat=style">STYLE<i data-lucide="chevron-down" class="chev" stroke-width="2" aria-hidden="true"></i></a>
+      <div class="dropdown">
+        <a href="../blog.html?cat=fashion">Fashion</a>
+        <a href="../blog.html?cat=beauty">Beauty</a>
+        <a href="../blog.html?cat=interiors">Interiors</a>
+        <a href="../blog.html?cat=design">Design</a>
+      </div>
+    </div>
+    <div class="nav-item has-dropdown">
+      <a href="../blog.html?cat=life">LIFE<i data-lucide="chevron-down" class="chev" stroke-width="2" aria-hidden="true"></i></a>
+      <div class="dropdown">
+        <a href="../blog.html?cat=food">Food</a>
+        <a href="../blog.html?cat=travel">Travel</a>
+        <a href="../blog.html?cat=life-wellness">Life &amp; Wellness</a>
+      </div>
+    </div>
+    <div class="nav-item has-dropdown">
+      <a href="../blog.html?cat=guides">GUIDES<i data-lucide="chevron-down" class="chev" stroke-width="2" aria-hidden="true"></i></a>
+      <div class="dropdown">
+        <a href="../reading-lists.html">Reading Lists</a>
+        <a href="../blog.html?cat=city-guides">City Guides</a>
+        <a href="../blog.html?cat=seasonal-recommendations">Seasonal Recommendations</a>
+        <a href="../blog.html?cat=restaurant-roundups">Restaurant Roundups</a>
+        <a href="../blog.html?cat=gift-guides">Gift Guides</a>
+      </div>
+    </div>
+    <a href="../about.html">ABOUT</a>
+  </nav>
+
+  <main class="page-main">
+    <a class="back-link" href="../blog.html">&larr; Back to Blog</a>
+    <span class="kicker" style="display:block;margin-bottom:8px">Life &amp; Wellness</span>
+    <h1 class="page-title">How to Make the Weekend Feel Longer</h1>
+    <p class="page-tagline" style="font-size:15px;color:#8e8c88;margin-top:-4px;margin-bottom:28px">Jul 25, 2026</p>
+    <div class="post-body">
+      <p><em>Small ways to make Saturday and Sunday feel less rushed—and a little more memorable.</em></p>
+      <img class="post-inline-img" src="https://xjtnfwnntzonmumlxbyg.supabase.co/storage/v1/object/public/newsletter-images/2026-07/60721e0b-a4fc-430b-834f-d0fe573db706.png" alt="1B51A06F 4C02 4180 BABA 5AE5093F6A66" />
+      <p>There is a specific kind of disappointment that arrives on Sunday afternoon.</p>
+      <p>You finally begin to feel relaxed, only to realize the weekend is almost over. Saturday disappeared into errands, laundry, and deciding what to do. Friday night barely counted because you were too tired to make plans. Suddenly, Monday is close enough to feel.</p>
+      <p>The good news is that making the weekend feel longer does not require packing it with more activities. In fact, the opposite is usually true.</p>
+      <p>A weekend feels longer when the days are distinct, when you are present enough to notice them, and when the hours are not swallowed by obligations or endless scrolling.</p>
+      <p>Here are a few ways to create that feeling.</p>
+      <h2>Start the Weekend on Friday</h2>
+      <p>Do not wait until Saturday morning to decide the weekend has begun.</p>
+      <p>Friday night does not need to involve a reservation, a perfect outfit, or a big group plan. The goal is simply to create a clear transition out of the workweek.</p>
+      <p>Pick up your favorite dinner, make a fun drink, change into something comfortable, and watch a movie you have been saving. Meet a friend for one cocktail. Take a walk after dinner. Light a candle and put on a playlist while you tidy your space.</p>
+      <p>It can be small. It just needs to feel different from an ordinary weeknight.</p>
+      <p>When Friday has its own moment, the weekend immediately feels like it gained an extra evening.</p>
+      <h2>Do Not Give Saturday Entirely to Errands</h2>
+      <p>It is easy to lose the best part of Saturday inside grocery stores, laundry rooms, and checkout lines.</p>
+      <p>Some responsibilities are unavoidable, but try not to let them become the main event. Choose a few essential tasks, give yourself a reasonable window to finish them, and then move on.</p>
+      <p>You can also make errands feel less like stolen time. Get coffee before grocery shopping. Listen to a podcast while cleaning. Visit a farmers market instead of making the usual rushed store trip. Pair the practical part of the day with something you actually enjoy.</p>
+      <p>The goal is not to romanticize every chore. It is to keep chores from consuming the entire weekend.</p>
+      <h2>Make One Real Plan</h2>
+      <p>A good weekend does not need a packed itinerary.</p>
+      <p>Choose one plan that gives the weekend a center: dinner with friends, a museum visit, a long walk, a movie, a picnic, a bookstore trip, or a few hours near the water.</p>
+      <p>Having one thing to look forward to makes the weekend feel intentional without turning it into another schedule you have to manage.</p>
+      <p>It also leaves room for the best kind of moments—the ones that happen afterward. A drink that turns into dinner. A quick visit that becomes an entire afternoon. A walk that leads somewhere you had not planned to go.</p>
+      <p>One real plan is usually enough.</p>
+      <h2>Leave the House Before Noon</h2>
+      <p>You do not have to wake up at sunrise, but getting outside earlier changes the shape of the day.</p>
+      <p>A coffee run, breakfast somewhere nearby, a walk around the neighborhood, or even reading outside for an hour can make Saturday feel expansive. By the time lunch arrives, you have already done something—and the rest of the day is still ahead of you.</p>
+      <p>Sleeping late can be restorative, but staying in bed while scrolling often makes the morning disappear without actually helping you feel rested.</p>
+      <p>The trick is not waking up early for the sake of being productive. It is giving yourself enough day to enjoy.</p>
+      <h2>Spend Less Time Deciding</h2>
+      <p>Nothing makes a weekend vanish faster than spending two hours asking, “What do you want to do?” while nobody offers an answer.</p>
+      <p>Keep a short list in your phone of places you want to try, movies you want to watch, neighborhoods you want to explore, and easy plans that require little preparation.</p>
+      <p>Then, when the weekend arrives, choose from the list instead of beginning from zero.</p>
+      <p>Decision fatigue is sneaky. The less time you spend debating the plan, the more time you have to actually live it.</p>
+      <h2>Create a Sunday Ritual You Like</h2>
+      <p>Sunday does not have to become Monday’s waiting room.</p>
+      <p>Instead of spending the entire day anticipating the week ahead, create one ritual that makes Sunday feel like its own day.</p>
+      <p>It might be a slow breakfast, a favorite workout class, dinner with family, an evening walk, a long shower, or watching a new episode of something you love. It can also be your weekly Chévere roundup, a fresh playlist, or a small treat you only save for Sundays.</p>
+      <p>You can prepare for Monday without surrendering the whole day to it.</p>
+      <p>Do what needs to be done, then give yourself something enjoyable to end the weekend with.</p>
+      <h2>The Chévere Rule</h2>
+      <p>A weekend feels longer when it contains contrast.</p>
+      <p>A little rest. A little movement. One real plan. One unplanned moment. Time with people you love and a little time alone.</p>
+      <p>You do not need to fill every hour. You simply need to notice the hours you already have.</p>
+      <p>Start on Friday. Protect part of Saturday. Let Sunday belong to you.</p>
+      <p>Monday will arrive either way. There is no reason to invite it early.</p>
+      <p class="post-signoff">Until next week — stay <em>chévere</em></p>
+    </div>
+  </main>
+
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script src="../site.js?v=20260724-2"></script>
+</body>
+</html>
