@@ -19,14 +19,13 @@ test("Featured Reads has a durable three-slot model with the requested defaults"
   assert.match(migration, /spain-wins-the-2026-world-cup/);
 });
 
-test("legacy static articles are referenced by canonical slug without duplicate post rows", () => {
-  const migration = read("supabase/migrations/011_featured_reads_static_posts.sql");
+test("Featured Reads auto-selects the three newest published articles in reverse chronological order", () => {
   const model = read("lib/featured-reads.ts");
-  assert.match(migration, /post_slug text/i);
-  assert.match(migration, /drop column if exists post_id/i);
-  assert.match(migration, /homepage_featured_reads_unique_slug unique \(post_slug\)/i);
   assert.match(model, /fetch\(`\$\{config\.siteUrl\}\/blog\.html`/);
-  assert.match(model, /\.select\("display_order,post_slug"\)/);
+  assert.match(model, /new Date\(a\.published_on\)\.getTime\(\)/);
+  assert.match(model, /new Date\(b\.published_on\)\.getTime\(\)/);
+  assert.match(model, /return dateB - dateA/);
+  assert.match(model, /sorted\.slice\(0, 3\)/);
 });
 
 test("admin selection requires three unique published articles and supports reorder plus preview", () => {

@@ -1,7 +1,6 @@
 import { load } from "cheerio";
 
 import { config } from "@/lib/config";
-import { createAdminClient } from "@/lib/supabase-admin";
 
 export type FeaturedReadArticle = {
   slug: string;
@@ -44,16 +43,18 @@ export async function loadPublishedArticles() {
 }
 
 export async function loadFeaturedReads(): Promise<FeaturedRead[]> {
-  const { data, error } = await createAdminClient()
-    .from("homepage_featured_reads")
-    .select("display_order,post_slug")
-    .order("display_order", { ascending: true });
-
-  if (error) throw new Error(error.message);
-
   const articles = await loadPublishedArticles();
-  return (data || []).flatMap((row) => {
-    const article = articles.find((item) => item.slug === row.post_slug);
-    return article ? [{ ...article, display_order: Number(row.display_order) }] : [];
+
+  // Sort by publication date in reverse chronological order (newest first)
+  const sorted = [...articles].sort((a, b) => {
+    const dateA = new Date(a.published_on).getTime();
+    const dateB = new Date(b.published_on).getTime();
+    return dateB - dateA; // Newest first
   });
+
+  // Return the 3 newest posts with display_order
+  return sorted.slice(0, 3).map((article, index) => ({
+    ...article,
+    display_order: index + 1,
+  }));
 }
