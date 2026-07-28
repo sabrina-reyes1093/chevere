@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Chévere Guide to Making the Most of August — chévere</title>
+  <meta name="description" content="Simple ways to enjoy the final full month of summer without turning it into another to-do list." />
+  <link rel="icon" type="image/png" href="../assets/icon.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,600;1,700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../styles.css?v=20260724-3" />
+  <style>
+    .post-body { font-size: 17px; line-height: 1.8; color: var(--text); }
+    .post-body p { margin-bottom: 16px; }
+    .post-body h2 { font-family: var(--serif); font-size: 24px; color: var(--ink); margin: 32px 0 10px; }
+    .post-body h3 { font-family: var(--serif); font-size: 20px; color: var(--ink); margin: 26px 0 8px; }
+    .post-body strong { display: block; font-family: var(--serif); font-weight: 700; font-size: 20px; color: var(--ink); margin-top: 32px; margin-bottom: 8px; }
+    .post-body em { font-style: italic; }
+    .post-hero { width: 100%; height: auto; border-radius: 10px; margin-bottom: 28px; display: block; }
+    .post-inline-img { width: 100%; height: auto; border-radius: 8px; margin: 22px 0; display: block; }
+    .post-signoff { margin-top: 48px; font-size: 17px; color: var(--gray-soft); }
+    .back-link { display: inline-block; margin-bottom: 24px; font-size: 13px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--brown); transition: opacity .15s ease; }
+    .back-link:hover { opacity: 0.7; }
+  </style>
+</head>
+<body>
+
+  <header class="site-header">
+    <a class="header-logo" href="../index.html" aria-label="chévere home">
+      <img src="../assets/logo.png" alt="chévere" />
+    </a>
+    <div class="header-actions">
+      <button id="mobile-menu-toggle" class="mobile-menu-toggle" type="button" aria-label="Open menu" aria-controls="site-navigation" aria-expanded="false"><i data-lucide="menu" stroke-width="1.8" aria-hidden="true"></i></button>
+      <button id="search-toggle" aria-label="Search" title="Search"><i data-lucide="search" stroke-width="1.8" aria-hidden="true"></i></button>
+      <a class="join-list-button" href="../index.html#newsletter">JOIN THE LIST</a>
+      <a href="https://www.instagram.com/itschevere/" target="_blank" rel="noopener" aria-label="Instagram" title="Instagram">
+        <svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+      </a>
+      <a href="https://www.tiktok.com/@itschevere" target="_blank" rel="noopener" aria-label="TikTok" title="TikTok">
+        <svg class="tiktok-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="19" height="19"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.3 0 .59.05.87.13v-3.5a6.37 6.37 0 0 0-.87-.06A6.34 6.34 0 0 0 3.15 15.3a6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.34-6.34V8.46a8.23 8.23 0 0 0 4.77 1.48v-3.4a4.86 4.86 0 0 1-1.01.15z"/></svg>
+      </a>
+    </div>
+    <div id="search-panel" class="search-panel" role="dialog" aria-label="Search posts">
+      <div class="search-bar-wrap">
+        <i data-lucide="search" class="search-bar-icon" stroke-width="2" aria-hidden="true"></i>
+        <input id="search-input" type="text" placeholder="Search posts..." autocomplete="off" />
+        <button id="search-submit" class="search-action-btn" aria-label="Search" type="button">
+          <i data-lucide="arrow-right" stroke-width="2.5" aria-hidden="true"></i>
+        </button>
+        <button id="search-close" class="search-close-btn" aria-label="Close search" type="button">
+          <i data-lucide="x" stroke-width="2.5" aria-hidden="true"></i>
+        </button>
+      </div>
+      <div id="search-results" class="search-results"></div>
+    </div>
+  </header>
+
+  <nav class="site-nav" id="site-navigation" aria-label="Primary navigation">
+    <a href="../index.html">HOME</a>
+    <div class="nav-item has-dropdown">
+      <a href="../blog.html?cat=culture">CULTURE<i data-lucide="chevron-down" class="chev" stroke-width="2" aria-hidden="true"></i></a>
+      <div class="dropdown">
+        <a href="../blog.html?cat=books">Books</a>
+        <a href="../blog.html?cat=film-tv">Film &amp; TV</a>
+        <a href="../blog.html?cat=music">Music</a>
+        <a href="../blog.html?cat=sports">Sports</a>
+        <a href="../blog.html?cat=pop-culture">Pop Culture</a>
+      </div>
+    </div>
+    <div class="nav-item has-dropdown">
+      <a href="../blog.html?cat=style">STYLE<i data-lucide="chevron-down" class="chev" stroke-width="2" aria-hidden="true"></i></a>
+      <div class="dropdown">
+        <a href="../blog.html?cat=fashion">Fashion</a>
+        <a href="../blog.html?cat=beauty">Beauty</a>
+        <a href="../blog.html?cat=interiors">Interiors</a>
+        <a href="../blog.html?cat=design">Design</a>
+      </div>
+    </div>
+    <div class="nav-item has-dropdown">
+      <a href="../blog.html?cat=life">LIFE<i data-lucide="chevron-down" class="chev" stroke-width="2" aria-hidden="true"></i></a>
+      <div class="dropdown">
+        <a href="../blog.html?cat=food">Food</a>
+        <a href="../blog.html?cat=travel">Travel</a>
+        <a href="../blog.html?cat=life-wellness">Life &amp; Wellness</a>
+      </div>
+    </div>
+    <div class="nav-item has-dropdown">
+      <a href="../blog.html?cat=guides">GUIDES<i data-lucide="chevron-down" class="chev" stroke-width="2" aria-hidden="true"></i></a>
+      <div class="dropdown">
+        <a href="../reading-lists.html">Reading Lists</a>
+        <a href="../blog.html?cat=city-guides">City Guides</a>
+        <a href="../blog.html?cat=seasonal-recommendations">Seasonal Recommendations</a>
+        <a href="../blog.html?cat=restaurant-roundups">Restaurant Roundups</a>
+        <a href="../blog.html?cat=gift-guides">Gift Guides</a>
+      </div>
+    </div>
+    <a href="../about.html">ABOUT</a>
+  </nav>
+
+  <main class="page-main">
+    <a class="back-link" href="../blog.html">&larr; Back to Blog</a>
+    <span class="kicker" style="display:block;margin-bottom:8px">Life &amp; Wellness</span>
+    <h1 class="page-title">The Chévere Guide to Making the Most of August</h1>
+    <p class="page-tagline" style="font-size:15px;color:#8e8c88;margin-top:-4px;margin-bottom:28px">Jul 28, 2026</p>
+    <div class="post-body">
+      <img class="post-hero" src="https://xjtnfwnntzonmumlxbyg.supabase.co/storage/v1/object/public/newsletter-images/2026-07/cd046131-5263-405a-9411-815dd70ba57f.png" alt="The Chévere Guide to Making the Most of August" />
+      <p><em>Simple ways to enjoy the final full month of summer without turning it into another to-do list.</em></p>
+      <p>August has a strange way of feeling like summer and the end of summer at the same time.</p>
+      <p>The days are still long, the weather is still warm, and there is plenty of the season left to enjoy. Yet fall begins appearing everywhere—in store windows, conversations, and the sudden urge to reorganize your entire life. It becomes easy to mentally move on before summer has actually ended.</p>
+      <p>Instead of treating August like a countdown, think of it as an invitation to slow down, make a few good plans, and enjoy what is still here.</p>
+      <h2>Make One Plan You Will Remember</h2>
+      <p>You do not need to fill every weekend to make August feel meaningful. Choose one plan that feels slightly more special than your usual routine.</p>
+      <p>Take a day trip. Go to an outdoor concert. Plan a beach afternoon. Visit a neighborhood you have never fully explored. Have dinner somewhere you have been meaning to try.</p>
+      <p>Put it on the calendar before the month becomes crowded with vague ideas that never happen.</p>
+      <h2>Leave Room for Spontaneity</h2>
+      <p>Not every summer memory needs a reservation.</p>
+      <p>Leave one evening or weekend afternoon open for the plans that come together at the last minute—the patio invitation, the walk that turns into dinner, the quick trip for ice cream, or the casual text asking what everyone is doing.</p>
+      <p>A little empty space gives August room to surprise you.</p>
+      <h2>Eat What Is in Season</h2>
+      <p>August is one of the best months for food that requires very little effort.</p>
+      <p>Pick up peaches, tomatoes, berries, corn, watermelon, or fresh herbs. Make a simple pasta, a colorful salad, grilled vegetables, or a snack plate that feels more intentional than it actually is.</p>
+      <p>Visit a farmers market, order the seasonal special, or build dinner around whatever looks best that day.</p>
+      <img class="post-inline-img" src="https://xjtnfwnntzonmumlxbyg.supabase.co/storage/v1/object/public/newsletter-images/2026-07/df505f96-7c3f-42c3-bb47-8122b91b485f.png" alt="image" />
+      <h2>Take the Ordinary Outside</h2>
+      <p>Coffee tastes better on a balcony. Takeout feels more exciting in a park. Reading feels more luxurious under a tree.</p>
+      <p>You do not need to organize a full picnic every time you want to enjoy the weather. Bring one ordinary part of your day outside and let the change of setting do the work.</p>
+      <p>Summer does not only count when you are on vacation.</p>
+      <h2>Create an August Soundtrack</h2>
+      <img class="post-inline-img" src="https://xjtnfwnntzonmumlxbyg.supabase.co/storage/v1/object/public/newsletter-images/2026-07/ae9a9ecb-bb81-44d5-bcf5-e7ff34d09af3.png" alt="image" />
+      <p>Make a playlist that captures the final stretch of summer.</p>
+      <p>Add the songs you have played all season, a few nostalgic favorites, and something new that you want to remember this month by. Play it while getting ready, cleaning, cooking, driving, or sitting outside after work.</p>
+      <p>The right playlist can make even a routine day feel a little more cinematic.</p>
+      <h2>Wear the Things You Have Been Saving</h2>
+      <img class="post-inline-img" src="https://xjtnfwnntzonmumlxbyg.supabase.co/storage/v1/object/public/newsletter-images/2026-07/03ff7502-1d2b-4fca-bc10-1224cd741bce.png" alt="image" />
+      <p>August is not the time to keep saving your favorite summer clothes for a more deserving occasion.</p>
+      <p>Wear the bright dress. Use the woven bag. Put on the sandals that make an ordinary outfit feel better. Dress up for a casual dinner or wear something fun simply because the weather allows it.</p>
+      <p>There will always be another practical outfit. Summer clothes deserve their moment.</p>
+      <h2>Plan a Weeknight Escape</h2>
+      <img class="post-inline-img" src="https://xjtnfwnntzonmumlxbyg.supabase.co/storage/v1/object/public/newsletter-images/2026-07/0d7a8e9e-a3f1-48e2-8688-8142f2b268bc.png" alt="image" />
+      <p>One of the easiest ways to make the month feel longer is to stop waiting for the weekend.</p>
+      <p>Choose one weeknight for something small but different: an outdoor movie, a late dinner, a museum evening, a walk by the water, or drinks somewhere with a good view.</p>
+      <p>The plan does not need to be impressive. It only needs to make Wednesday feel less like every other Wednesday.</p>
+      <h2>Document the In-Between Moments</h2>
+      <p>Take photos of more than the main event.</p>
+      <p>Capture the melting ice in your drink, the flowers at the market, the sky on the way home, the messy table after dinner, or your friends laughing before anyone remembers to pose.</p>
+      <p>The smaller moments often become the ones that best represent a season.</p>
+      <h2>Start Something Without Waiting for Fall</h2>
+      <p>You do not need a new season to begin again.</p>
+      <p>Start the book. Sign up for the class. Rearrange the room. Return to a hobby. Make the appointment. Begin the routine you keep promising yourself you will start once life becomes calmer.</p>
+      <p>August can be both an ending and a beginning.</p>
+      <h2>Let Summer and Fall Overlap</h2>
+      <p>There is no rule that says you have to choose between savoring summer and feeling excited for fall.</p>
+      <p>You can drink something iced while browsing sweaters. You can spend the afternoon at the beach and watch a cozy movie that night. You can plan for the next season without rushing the current one away.</p>
+      <p>The transition does not have to happen all at once.</p>
+      <h2>Make August Feel Like August</h2>
+      <img class="post-inline-img" src="https://xjtnfwnntzonmumlxbyg.supabase.co/storage/v1/object/public/newsletter-images/2026-07/2f865b92-ac6d-485f-a050-c4a3a9b278aa.png" alt="image" />
+      <p>The goal is not to create a perfect month or squeeze every possible experience into the calendar.</p>
+      <p>Choose a few things you genuinely want to do. Say yes when a plan feels good. Leave space to rest. Pay attention to the moments that would otherwise pass unnoticed.</p>
+      <p>August is still summer.</p>
+      <p>Let it be warm, spontaneous, delicious, and a little slower than the months waiting on the other side.</p>
+      <p class="post-signoff">Until next week — stay <em>chévere</em></p>
+    </div>
+  </main>
+
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script src="../site.js?v=20260724-2"></script>
+</body>
+</html>
