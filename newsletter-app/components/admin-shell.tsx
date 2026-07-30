@@ -9,6 +9,7 @@ export function AdminShell({ children }: { children: React.ReactNode }) {
         <Link href="/admin">Issues</Link>
         <Link href="/admin/posts">Blog posts</Link>
         <Link href="/admin/featured-reads">Featured Reads</Link>
+        <Link href="/admin/roundup">Weekly Roundup</Link>
         <Link href="/admin/site-content">Site content</Link>
         <Link href="/admin/subscribers">Subscribers</Link>
         <ThemeToggle />

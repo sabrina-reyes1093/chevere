@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 
+import { loadHomepageRoundup, isHomepageRoundupReady } from "@/lib/homepage-roundup";
 import { fromDbRow, normalizeRoundupTitle } from "@/lib/issue-mapper";
 import { validateRoundupForPublication } from "@/lib/issue-schema";
 import { createAdminClient } from "@/lib/supabase-admin";
@@ -18,6 +19,27 @@ export function OPTIONS() {
 }
 
 export async function GET() {
+  // The dedicated homepage Weekly Roundup editor takes precedence. When it is
+  // enabled and complete, it drives the homepage independently of newsletter
+  // issues; otherwise we fall back to the newest eligible issue below.
+  try {
+    const roundup = await loadHomepageRoundup();
+    if (roundup.enabled && isHomepageRoundupReady(roundup)) {
+      const cards = roundup.cards.map((card, index) => ({
+        ...card,
+        id: `homepage-roundup-${index + 1}`,
+        display_order: index + 1,
+        title: normalizeRoundupTitle(card.title),
+      }));
+      return NextResponse.json(
+        { issue: { id: "homepage-roundup", title: "This Week at Chévere", issue_date: "", publish_at: new Date().toISOString(), cards } },
+        { headers: { ...cors, "Cache-Control": "public, max-age=60, stale-while-revalidate=300" } },
+      );
+    }
+  } catch (roundupError) {
+    console.error("Unable to load the standalone homepage roundup; falling back to newsletter issues.", roundupError);
+  }
+
   const now = new Date().toISOString();
   const { data, error } = await createAdminClient()
     .from("newsletter_issues")

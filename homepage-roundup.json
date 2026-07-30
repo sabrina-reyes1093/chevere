@@ -1,0 +1,8 @@
+{
+  "enabled": false,
+  "cards": [
+    { "category": "", "title": "", "text": "", "url": "", "image_url": "", "image_alt": "", "link_type": "internal", "cta_label": "Read More" },
+    { "category": "", "title": "", "text": "", "url": "", "image_url": "", "image_alt": "", "link_type": "internal", "cta_label": "Read More" },
+    { "category": "", "title": "", "text": "", "url": "", "image_url": "", "image_alt": "", "link_type": "internal", "cta_label": "Read More" }
+  ]
+}

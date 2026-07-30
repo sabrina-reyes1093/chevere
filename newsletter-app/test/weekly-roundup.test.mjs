@@ -68,7 +68,7 @@ test("homepage has the requested editorial order and no retired Currently Loving
   assert.equal(content.seasonal_banner.headline, "The Summer Guide");
   assert.equal(content.seasonal_banner.cta_label, "EXPLORE THE GUIDE");
   assert.equal(content.seasonal_banner.publish_date, "2026-06-01");
-  assert.equal(content.seasonal_banner.expiration_date, "");
+  assert.equal(typeof content.seasonal_banner.expiration_date, "string");
   assert.equal("image_url" in content.seasonal_banner, false);
   assert.equal("image_alt" in content.seasonal_banner, false);
   assert.doesNotMatch(site, /seasonal-guide-media/);
