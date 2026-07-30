@@ -1,6 +1,6 @@
 {
   "seasonal_banner": {
-    "enabled": false,
+    "enabled": true,
     "label": "SUMMER 2026",
     "headline": "The Summer Guide",
     "description": "Books, places, tables, and small pleasures for the season.",
