@@ -986,22 +986,6 @@ body.popup-open::after {
   margin: 0 -18px 18px;
   width: calc(100% + 36px);
 }
-/* Full-bleed designed cover graphics: show the whole composition (title text +
-   logo) instead of cropping it. These covers are 16:9, so the card box is set to
-   16:9 too — the image then fills edge to edge with no letterbox gaps. Keyed on
-   the post URL so it applies wherever the card appears and survives blog.html
-   regeneration. The blog card sets background-size inline, so !important is
-   required to override it. */
-.post-card[href*="from-page-to-screen-kaia-gerber"] .thumb,
-.post-card[href*="why-squishies-are-suddenly-everywhere"] .thumb {
-  aspect-ratio: 16 / 9;
-  background-size: cover !important;
-  background-position: center !important;
-}
-.featured-card[href*="from-page-to-screen-kaia-gerber"] .featured-thumb,
-.featured-card[href*="why-squishies-are-suddenly-everywhere"] .featured-thumb {
-  aspect-ratio: 16 / 9;
-}
 .kicker {
   font-size: 12px;
   font-weight: 600;
