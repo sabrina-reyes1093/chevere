@@ -44,6 +44,15 @@ export function FeaturedReadsEditor({ articles, initialItems }: Props) {
     setStatus("");
   }
 
+  function orderByNewest() {
+    const newest = [...articles]
+      .sort((a, b) => new Date(b.published_on).getTime() - new Date(a.published_on).getTime())
+      .slice(0, 3)
+      .map((article) => article.slug);
+    setPostIds(newest);
+    setStatus("Filled with the three newest published posts. Click Publish Featured Reads to save.");
+  }
+
   async function publish() {
     if (!isComplete) {
       setStatus("Select exactly three different published articles.");
@@ -75,7 +84,11 @@ export function FeaturedReadsEditor({ articles, initialItems }: Props) {
             <p className="eyebrow">Homepage</p>
             <h2>Featured Reads</h2>
           </div>
-          <p>Choose three evergreen stories. They stay in place until you publish a new selection.</p>
+          <p>Choose three stories manually, or use <strong>Order by newest published</strong> to fill them with your three most recent posts. They stay in place until you publish a new selection.</p>
+        </div>
+
+        <div className="editor-actions" style={{ marginBottom: 18 }}>
+          <button type="button" className="secondary" onClick={orderByNewest}>Order by newest published</button>
         </div>
 
         <div className="featured-admin-slots">
@@ -109,7 +122,7 @@ export function FeaturedReadsEditor({ articles, initialItems }: Props) {
 
         <div className="editor-actions">
           <button type="button" className="primary" onClick={publish} disabled={saving || !isComplete}>{saving ? "Publishing..." : "Publish Featured Reads"}</button>
-          {status ? <p role="status" className={status.startsWith("Featured Reads is") ? "success-text" : "error-text"}>{status}</p> : null}
+          {status ? <p role="status" className={/unable|select exactly|must be/i.test(status) ? "error-text" : "success-text"}>{status}</p> : null}
         </div>
       </section>
 

@@ -19,13 +19,14 @@ test("Featured Reads has a durable three-slot model with the requested defaults"
   assert.match(migration, /spain-wins-the-2026-world-cup/);
 });
 
-test("Featured Reads auto-selects the three newest published articles in reverse chronological order", () => {
+test("Featured Reads reads the manual admin selection, with an auto-fill-by-newest button", () => {
   const model = read("lib/featured-reads.ts");
+  const editor = read("components/featured-reads-editor.tsx");
   assert.match(model, /fetch\(`\$\{config\.siteUrl\}\/blog\.html`/);
-  assert.match(model, /new Date\(a\.published_on\)\.getTime\(\)/);
-  assert.match(model, /new Date\(b\.published_on\)\.getTime\(\)/);
-  assert.match(model, /return dateB - dateA/);
-  assert.match(model, /sorted\.slice\(0, 3\)/);
+  assert.match(model, /\.from\("homepage_featured_reads"\)/);
+  assert.match(model, /\.select\("display_order,post_slug"\)/);
+  assert.match(editor, /Order by newest published/);
+  assert.match(editor, /new Date\(b\.published_on\)\.getTime\(\) - new Date\(a\.published_on\)\.getTime\(\)/);
 });
 
 test("admin selection requires three unique published articles and supports reorder plus preview", () => {
