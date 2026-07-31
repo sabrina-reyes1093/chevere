@@ -2,7 +2,7 @@ import { categoryLabels, displayDate, type PostInput } from "@/lib/post-schema";
 
 /** Cache-busting suffixes used by the published pages. Keep in step with the
  *  values in blog.html and index.html when those are bumped. */
-export const ASSET_VERSIONS = { styles: "20260724-3", site: "20260724-2" };
+export const ASSET_VERSIONS = { styles: "20260731-2", site: "20260731-2" };
 
 function escape(value: string) {
   return value.replace(/[&<>"']/g, (char) => ({
@@ -125,8 +125,8 @@ const POST_STYLES = `    .post-body { font-size: 17px; line-height: 1.8; color: 
     .post-body h3 { font-family: var(--serif); font-size: 20px; color: var(--ink); margin: 26px 0 8px; }
     .post-body strong { display: block; font-family: var(--serif); font-weight: 700; font-size: 20px; color: var(--ink); margin-top: 32px; margin-bottom: 8px; }
     .post-body em { font-style: italic; }
-    .post-hero { width: 100%; height: auto; border-radius: 10px; margin-bottom: 28px; display: block; }
-    .post-inline-img { width: 100%; height: auto; border-radius: 8px; margin: 22px 0; display: block; }
+    .post-hero { width: 100%; height: auto; border-radius: 24px; margin-bottom: 28px; display: block; }
+    .post-inline-img { width: 100%; height: auto; border-radius: 20px; margin: 22px 0; display: block; }
     .post-signoff { margin-top: 48px; font-size: 17px; color: var(--gray-soft); }
     .back-link { display: inline-block; margin-bottom: 24px; font-size: 13px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--brown); transition: opacity .15s ease; }
     .back-link:hover { opacity: 0.7; }`;

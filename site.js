@@ -18,9 +18,9 @@
 
   var footer = [
     '<section class="newsletter" id="newsletter" aria-labelledby="newsletter-heading">',
-    '    <p class="newsletter-eyebrow">A weekly note from Ch&eacute;vere</p>',
+    '    <p class="newsletter-eyebrow">Your weekly portal to good things</p>',
     '    <h2 id="newsletter-heading">' + newsletterHeading + '</h2>',
-    '    <p class="newsletter-sub">Weekly recommendations chosen with intention, plus discoveries worth sharing&mdash;straight to your inbox.</p>',
+    '    <p class="newsletter-sub">Culture, style, and discoveries worth sharing, delivered through a dreamy digital lens.</p>',
     '    <form id="newsletter-form">',
     '      <label class="sr-only" for="newsletter-email">Email address</label>',
     '      <input id="newsletter-email" name="email" type="email" placeholder="Email address" autocomplete="email" required />',
@@ -30,8 +30,8 @@
     '<footer class="site-footer">',
     '  <div class="footer-editorial">',
     '    <a class="footer-logo" href="' + prefix + 'index.html" aria-label="Ch&eacute;vere home"><img src="' + prefix + 'assets/logo.png" alt="Ch&eacute;vere" /></a>',
-    '    <p class="footer-motto">Culture. Style. Discovery.</p>',
-    '    <p class="footer-description">A thoughtful edit of the stories, places, ideas, and everyday discoveries worth sharing.</p>',
+    '    <p class="footer-motto">Stay curious. Stay Ch&eacute;vere.</p>',
+    '    <p class="footer-description">Culture, style, and discovery through a dreamy digital lens.</p>',
     '    <nav class="footer-nav" aria-label="Footer navigation">',
     '      <a href="' + prefix + 'index.html">Home</a>',
     '      <a href="' + prefix + 'about.html">About</a>',

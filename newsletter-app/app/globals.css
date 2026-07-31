@@ -425,3 +425,54 @@ legend { width:100%; font-size:25px; margin-bottom:18px; }
     align-items: flex-start;
   }
 }
+
+/* Chévere identity tokens shared with the public editorial system. */
+:root {
+  --ink: #211d27;
+  --brown: #76568a;
+  --brown-dark: #563968;
+  --cream: #f8f5f7;
+  --paper: #fffdf9;
+  --taupe: #9b91a2;
+  --line: rgba(45, 35, 52, .14);
+}
+[data-theme="dark"] {
+  --ink: #f4eff7;
+  --brown: #d9bfe7;
+  --brown-dark: #eed9f8;
+  --cream: #211d27;
+  --paper: #17131c;
+  --taupe: #817887;
+  --line: rgba(245, 235, 250, .14);
+}
+body {
+  background-image:
+    radial-gradient(circle at 8% 5%, rgba(255,207,232,.24), transparent 28rem),
+    radial-gradient(circle at 94% 12%, rgba(200,229,255,.24), transparent 30rem);
+  background-attachment: fixed;
+}
+.admin-header {
+  background: color-mix(in srgb, var(--paper) 82%, transparent);
+  backdrop-filter: blur(18px);
+}
+.admin-header .wordmark { letter-spacing: -.04em; }
+.panel,.editor,.preview-panel,.login-card,.stat-card,.admin-panel {
+  border-color: rgba(255,255,255,.7);
+  border-radius: 22px;
+  box-shadow: 0 18px 55px rgba(93,78,113,.1);
+}
+.primary,.approve {
+  border-radius: 999px;
+  box-shadow: 0 4px 0 rgba(33,29,39,.16);
+}
+.secondary,.link-button { border-radius: 999px; }
+input,textarea,select { border-radius: 12px; }
+input:focus,textarea:focus,select:focus {
+  outline-color: rgba(118,86,138,.2);
+}
+.login-page {
+  background:
+    radial-gradient(circle at 12% 18%, rgba(255,207,232,.75), transparent 34rem),
+    radial-gradient(circle at 88% 85%, rgba(200,229,255,.72), transparent 36rem),
+    var(--cream);
+}
