@@ -2393,3 +2393,124 @@ html[data-theme="dark"] .newsletter::before {
         transition: none;
     }
 }
+
+/* ============================================================
+   DREAMY EDITORIAL FUTURISM — redesign layer
+   Layered on top of the editorial base: iridescent pastel
+   washes, rounded cards, soft glassy shadows, gentle motion.
+   Editorial serif/sans type is preserved; this adds the mood.
+   ============================================================ */
+:root{
+  --pastel-pink:#f7cfe8;
+  --pastel-lilac:#e2d6f8;
+  --pastel-sky:#cfe4fb;
+  --pastel-yellow:#f4eec2;
+  --pastel-mint:#dcf3b8;
+  --pastel-blush:#fbe0e6;
+  --coral:#ff8f7d;
+  --radius-card:22px;
+  --radius-lg:34px;
+  --shadow-soft:0 16px 42px rgba(120,110,150,.14);
+  --shadow-lift:0 26px 60px rgba(120,110,150,.22);
+  /* category accents */
+  --cat-culture:#ecd8f7;
+  --cat-style:#e9f2c6;
+  --cat-life:#d6e8fb;
+  --cat-guides:#e0dcfa;
+}
+
+/* soft luminous pastel wash behind the whole page */
+body{
+  background-image:
+    radial-gradient(closest-side at 12% 8%, rgba(247,207,232,.55), transparent 60%),
+    radial-gradient(closest-side at 88% 4%, rgba(220,243,184,.5), transparent 60%),
+    radial-gradient(closest-side at 82% 30%, rgba(207,228,251,.5), transparent 62%),
+    radial-gradient(closest-side at 8% 42%, rgba(226,214,248,.5), transparent 62%);
+  background-repeat:no-repeat;
+  background-attachment:fixed;
+  background-size:140% 120%;
+}
+
+/* dreamy hero panel with a floating cloud */
+.home-main{
+  position:relative;
+  margin:22px auto 0;
+  max-width:calc(100% - 32px);
+  border-radius:var(--radius-lg);
+  background:
+    radial-gradient(120% 120% at 15% 0%, rgba(247,207,232,.65), transparent 55%),
+    radial-gradient(120% 130% at 100% 20%, rgba(207,228,251,.7), transparent 55%),
+    radial-gradient(120% 120% at 60% 100%, rgba(220,243,184,.55), transparent 55%),
+    rgba(255,255,255,.42);
+  box-shadow:var(--shadow-soft);
+  overflow:hidden;
+  isolation:isolate;
+}
+.home-main::after{
+  content:"";position:absolute;top:26px;right:32px;width:200px;height:126px;z-index:-1;
+  background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='150' viewBox='0 0 240 150'%3E%3Cg fill='%23ffffff'%3E%3Cellipse cx='80' cy='95' rx='66' ry='46'/%3E%3Cellipse cx='140' cy='80' rx='70' ry='54'/%3E%3Cellipse cx='180' cy='100' rx='48' ry='38'/%3E%3C/g%3E%3C/svg%3E") center/contain no-repeat;
+  filter:drop-shadow(0 14px 22px rgba(120,120,160,.22));
+  animation:cheFloat 7s ease-in-out infinite;
+  pointer-events:none;
+}
+@media (max-width:700px){ .home-main::after{ width:120px;height:76px;top:14px;right:14px;opacity:.9; } }
+
+/* soft tactile buttons */
+.btn-primary,.btn-secondary,.join-list-button,.newsletter button{
+  border-radius:999px !important;
+}
+.btn-primary:hover,.btn-secondary:hover,.newsletter button:hover{ transform:translateY(-2px); }
+
+/* rounded editorial cards with a gentle hover lift */
+.post-card,.featured-card,.weekly-roundup-card{
+  border-radius:var(--radius-card);
+  background:rgba(255,255,255,.62);
+  box-shadow:var(--shadow-soft);
+  overflow:hidden;
+  padding:0 0 20px;
+  transition:transform .34s var(--ease-editorial), box-shadow .34s var(--ease-editorial);
+}
+.post-card:hover,.featured-card:hover,.weekly-roundup-card:hover{
+  transform:translateY(-6px);
+  box-shadow:var(--shadow-lift);
+}
+/* keep imagery flush to the rounded top, text padded */
+.post-card .thumb,.weekly-roundup-image{ margin:0 0 16px !important; width:100% !important; border-radius:0 !important; }
+.post-card .kicker,.post-card h2,.post-card .dek,.post-card .date{ padding-left:20px;padding-right:20px; }
+.featured-thumb{ margin:0 0 4px !important; width:100% !important; }
+.featured-card{ padding:0 20px 22px; }
+
+/* pastel category pills */
+.post-card .kicker,.weekly-roundup-card .kicker{
+  display:inline-block;margin-top:16px;padding:5px 13px;border-radius:999px;
+  background:var(--pastel-lilac);color:#5a4b6b;font-family:var(--sans);
+  font-size:11px;letter-spacing:.12em;
+}
+.post-card[data-section~="culture"] .kicker{ background:var(--cat-culture); }
+.post-card[data-section~="style"] .kicker{ background:var(--cat-style); }
+.post-card[data-section~="life"] .kicker{ background:var(--cat-life); }
+.post-card[data-section~="guides"] .kicker{ background:var(--cat-guides); }
+
+/* category filter pills — soft + rounded */
+.cat-pills button{ border-radius:999px;transition:background .2s,color .2s,border-color .2s; }
+.cat-pills button.active{ background:var(--pastel-lilac);border-color:transparent;color:#5a4b6b; }
+
+/* newsletter as a rounded pastel panel */
+.newsletter{
+  margin:64px auto;max-width:calc(100% - 32px);border-radius:var(--radius-lg);
+  background:
+    radial-gradient(120% 130% at 0% 0%, rgba(247,207,232,.7), transparent 55%),
+    radial-gradient(120% 130% at 100% 100%, rgba(207,228,251,.75), transparent 55%),
+    rgba(255,255,255,.5);
+  box-shadow:var(--shadow-soft);
+}
+.newsletter input{ border-radius:999px; }
+
+/* gentle float keyframes */
+@keyframes cheFloat{ 0%,100%{ transform:translateY(0); } 50%{ transform:translateY(-12px); } }
+
+@media (prefers-reduced-motion: reduce){
+  .home-main::after{ animation:none; }
+  .post-card,.featured-card,.weekly-roundup-card,
+  .btn-primary,.btn-secondary,.newsletter button{ transition:none; }
+}
