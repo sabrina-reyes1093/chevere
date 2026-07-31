@@ -2,7 +2,7 @@ import { categoryLabels, displayDate, type PostInput } from "@/lib/post-schema";
 
 /** Cache-busting suffixes used by the published pages. Keep in step with the
  *  values in blog.html and index.html when those are bumped. */
-export const ASSET_VERSIONS = { styles: "20260731-3", site: "20260724-2" };
+export const ASSET_VERSIONS = { styles: "20260731-4", site: "20260731-4" };
 
 function escape(value: string) {
   return value.replace(/[&<>"']/g, (char) => ({
@@ -150,7 +150,7 @@ export function renderPostPage(post: PostInput) {
   <link rel="icon" type="image/png" href="../assets/icon.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,600;1,700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="../styles.css?v=${ASSET_VERSIONS.styles}" />
   <style>
 ${POST_STYLES}

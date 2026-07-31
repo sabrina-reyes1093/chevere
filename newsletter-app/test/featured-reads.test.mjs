@@ -69,7 +69,7 @@ test("homepage editorial headings and podcast title use the requested language",
   const mapper = read("lib/issue-mapper.ts");
   const backup = read("issues-backup.json");
   assert.match(site, /This Week at Ch&eacute;vere/);
-  assert.match(site, /Stay in the Know/);
+  assert.match(site, /The edit, delivered/);
   assert.match(styles, /\.weekly-roundup-heading h2[\s\S]*?font-family: var\(--serif\);[\s\S]*?font-weight: 700;/);
   assert.match(mapper, /THERAPUSS by Jake Shane/);
   assert.match(backup, /THERAPUSS by Jake Shane/);

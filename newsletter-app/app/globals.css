@@ -1,9 +1,9 @@
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Playfair+Display:wght@600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap');
 
 :root { --ink:#3d3830; --brown:#6b4a36; --brown-dark:#4d3426; --cream:#f4efe7; --paper:#fffdf8; --taupe:#afa095; --line:#ded3c7; --red:#9d3c35; --green:#48644b; }
 [data-theme="dark"] { --ink:#e8e3dd; --brown:#d4b5a0; --brown-dark:#e8c4ad; --cream:#2a241f; --paper:#1a1410; --taupe:#6b5f57; --line:#3d3530; --red:#c55350; --green:#6ba372; }
 * { box-sizing:border-box; }
-body { margin:0; background:var(--cream); color:var(--ink); font-family:"DM Sans",Arial,sans-serif; }
+body { margin:0; background:var(--cream); color:var(--ink); font-family:"Inter",Arial,sans-serif; }
 a { color:inherit; }
 button,input,textarea,select { font:inherit; }
 button { cursor:pointer; }

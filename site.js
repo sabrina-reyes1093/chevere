@@ -14,13 +14,13 @@
 
   var headerHome = document.querySelector('.header-logo');
   var prefix = headerHome && (headerHome.getAttribute('href') || '').indexOf('../') === 0 ? '../' : '';
-  var newsletterHeading = document.body.classList.contains('home') ? 'Stay in the Know' : 'Ch&eacute;vere Weekly';
+  var newsletterHeading = 'The edit, delivered';
 
   var footer = [
     '<section class="newsletter" id="newsletter" aria-labelledby="newsletter-heading">',
-    '    <p class="newsletter-eyebrow">Your weekly portal to good things</p>',
+    '    <p class="newsletter-eyebrow">Ch&eacute;vere in your inbox</p>',
     '    <h2 id="newsletter-heading">' + newsletterHeading + '</h2>',
-    '    <p class="newsletter-sub">Culture, style, and discoveries worth sharing, delivered through a dreamy digital lens.</p>',
+    '    <p class="newsletter-sub">A weekly edit of culture, style, and discoveries worth sharing.</p>',
     '    <form id="newsletter-form">',
     '      <label class="sr-only" for="newsletter-email">Email address</label>',
     '      <input id="newsletter-email" name="email" type="email" placeholder="Email address" autocomplete="email" required />',
@@ -29,19 +29,30 @@
     '</section>',
     '<footer class="site-footer">',
     '  <div class="footer-editorial">',
-    '    <a class="footer-logo" href="' + prefix + 'index.html" aria-label="Ch&eacute;vere home"><img src="' + prefix + 'assets/logo.png" alt="Ch&eacute;vere" /></a>',
-    '    <p class="footer-motto">Stay curious. Stay Ch&eacute;vere.</p>',
-    '    <p class="footer-description">Culture, style, and discovery through a dreamy digital lens.</p>',
-    '    <nav class="footer-nav" aria-label="Footer navigation">',
-    '      <a href="' + prefix + 'index.html">Home</a>',
-    '      <a href="' + prefix + 'about.html">About</a>',
-    '      <a href="' + prefix + 'blog.html">Categories</a>',
+    '    <div class="footer-brand">',
+    '      <a class="footer-logo" href="' + prefix + 'index.html" aria-label="Ch&eacute;vere home">Ch&eacute;vere</a>',
+    '      <p class="footer-motto">Stay curious. Stay Ch&eacute;vere.</p>',
+    '      <p class="footer-description">Culture, style, and discovery through a dreamy digital lens.</p>',
+    '    </div>',
+    '    <nav class="footer-nav" aria-label="Explore">',
+    '      <strong>Explore</strong>',
+    '      <a href="' + prefix + 'blog.html?cat=culture">Culture</a>',
+    '      <a href="' + prefix + 'blog.html?cat=style">Style</a>',
+    '      <a href="' + prefix + 'blog.html?cat=life">Life</a>',
+    '      <a href="' + prefix + 'blog.html?cat=guides">Guides</a>',
+    '    </nav>',
+    '    <nav class="footer-nav" aria-label="About Ch&eacute;vere">',
+    '      <strong>About</strong>',
+    '      <a href="' + prefix + 'about.html">About Ch&eacute;vere</a>',
     '      <a href="#newsletter">Newsletter</a>',
     '      <a href="mailto:hello@itschevere.com">Contact</a>',
     '    </nav>',
-    '    <div class="footer-social" aria-label="Social media">',
-    '      <a href="https://www.instagram.com/itschevere/" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5"></rect><circle cx="12" cy="12" r="4"></circle><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg></a>',
-    '      <a href="https://www.tiktok.com/@itschevere" target="_blank" rel="noopener" aria-label="TikTok"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.3 0 .59.05.87.13v-3.5a6.37 6.37 0 0 0-.87-.06A6.34 6.34 0 0 0 3.15 15.3a6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.34-6.34V8.46a8.23 8.23 0 0 0 4.77 1.48v-3.4a4.86 4.86 0 0 1-1.01.15z"/></svg></a>',
+    '    <div class="footer-connect">',
+    '      <strong>Follow along</strong>',
+    '      <div class="footer-social" aria-label="Social media">',
+    '        <a href="https://www.instagram.com/itschevere/" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5"></rect><circle cx="12" cy="12" r="4"></circle><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg></a>',
+    '        <a href="https://www.tiktok.com/@itschevere" target="_blank" rel="noopener" aria-label="TikTok"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.3 0 .59.05.87.13v-3.5a6.37 6.37 0 0 0-.87-.06A6.34 6.34 0 0 0 3.15 15.3a6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.34-6.34V8.46a8.23 8.23 0 0 0 4.77 1.48v-3.4a4.86 4.86 0 0 1-1.01.15z"/></svg></a>',
+    '      </div>',
     '    </div>',
     '    <p class="footer-copyright">&copy; ' + new Date().getFullYear() + ' Ch&eacute;vere. All rights reserved.</p>',
     '  </div>',
@@ -486,10 +497,12 @@ document.querySelectorAll('.nav-item.has-dropdown > a').forEach(function (a) {
   }
 
   function cardMarkup(item) {
+    var imageUrl = item.title === 'Spain Wins the 2026 World Cup' ? 'assets/world-cup-2026.jpg' : item.image_url;
     return '<li class="splide__slide"><a class="featured-card" href="' + safe(item.url) + '">' +
-      '<div class="featured-thumb"><img src="' + safe(item.image_url) + '" alt="' + safe(item.image_alt || item.title) + '" width="800" height="533" loading="lazy" /></div>' +
+      '<div class="featured-thumb"><img src="' + safe(imageUrl) + '" alt="' + safe(item.image_alt || item.title) + '" width="800" height="533" loading="lazy" /></div>' +
       '<p class="featured-meta">' + safe(item.category) + '</p>' +
       '<h3>' + safe(item.title) + '</h3>' +
+      '<span class="featured-card-arrow" aria-hidden="true">&rarr;</span>' +
       '</a></li>';
   }
 
@@ -622,7 +635,7 @@ document.querySelectorAll('.nav-item.has-dropdown > a').forEach(function (a) {
       var weekly = document.createElement('section');
       weekly.className = 'weekly-roundup';
       weekly.setAttribute('aria-labelledby', 'weekly-roundup-title');
-      weekly.innerHTML = '<div class="weekly-roundup-heading"><p>The Weekly Roundup</p><h2 id="weekly-roundup-title">This Week at Ch&eacute;vere</h2></div>' +
+      weekly.innerHTML = '<div class="weekly-roundup-heading"><div><p>✦ The Weekly Roundup</p><h2 id="weekly-roundup-title">This Week at Ch&eacute;vere</h2></div><a href="blog.html">View all <span aria-hidden="true">&rarr;</span></a></div>' +
         '<div class="weekly-roundup-grid">' + cards.map(function (card) {
           var external = card.link_type === 'external';
           return '<a class="weekly-roundup-card" href="' + safe(card.url) + '"' + (external ? ' target="_blank" rel="noopener noreferrer"' : '') + '>' +

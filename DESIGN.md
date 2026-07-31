@@ -14,23 +14,25 @@ Chévere is an editorial lifestyle publication covering culture, style, life, an
 ## Typography
 
 - **Display/editorial:** Playfair Display, Georgia fallback
-- **Body/UI:** DM Sans, system sans-serif fallback
-- **Labels:** DM Sans, uppercase, 0.12–0.18em tracking
+- **Body/UI:** Inter, system sans-serif fallback
+- **Labels:** Inter, uppercase, 0.08–0.16em tracking
 - **Scale:** 12, 14, 16, 18, 24, 36, 56, 88px, fluid where appropriate
 
 ## Color
 
-- **Ink:** `#17151c`
-- **Paper:** `#fffdf9`
-- **Pearl:** `#f8f5f7`
-- **Blush:** `#ffcfe8`
-- **Lilac:** `#dfd1ff`
-- **Sky:** `#c8e5ff`
-- **Citron:** `#f2f5a8`
-- **Mint:** `#d9f3c2`
-- **Chrome:** `#9c94aa`
+- **Ink:** `#17131c`
+- **Muted ink:** `#6f6777`
+- **Paper:** `#fffdfb`
+- **Soft white:** `#faf8ff`
+- **Lavender:** `#e8d8ff`
+- **Lilac:** `#d7c0ff`
+- **Orchid:** `#edcfff`
+- **Blush:** `#f6d9f3`
+- **Sky:** `#dcecff`
+- **Mint:** `#e3f6e9`
+- **Soft yellow:** `#fff1c8`
 
-Culture uses lilac/pink, Style citron/mint, Life sky/blush, Guides lilac/icy blue. Text stays ink-on-paper. Pastels define surfaces and atmosphere, never body-copy color.
+Culture uses lilac/orchid, Style soft yellow/mint, Life sky/blush, Guides lavender/icy blue. Text stays ink-on-paper. Pastels define surfaces and atmosphere, never body-copy color.
 
 ## Shape and depth
 

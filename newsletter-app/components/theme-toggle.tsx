@@ -7,14 +7,18 @@ export function ThemeToggle() {
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
-    setMounted(true);
-    const savedTheme = window.localStorage.getItem('chevere-theme');
-    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-    const shouldBeDark = savedTheme === 'dark' || (!savedTheme && prefersDark);
-    setIsDark(shouldBeDark);
-    if (shouldBeDark) {
-      document.documentElement.setAttribute('data-theme', 'dark');
-    }
+    const frame = window.requestAnimationFrame(() => {
+      const savedTheme = window.localStorage.getItem('chevere-theme');
+      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      const shouldBeDark = savedTheme === 'dark' || (!savedTheme && prefersDark);
+      setIsDark(shouldBeDark);
+      setMounted(true);
+      if (shouldBeDark) {
+        document.documentElement.setAttribute('data-theme', 'dark');
+      }
+    });
+
+    return () => window.cancelAnimationFrame(frame);
   }, []);
 
   const toggleTheme = () => {
