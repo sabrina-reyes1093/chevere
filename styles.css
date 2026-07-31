@@ -1,22 +1,25 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Jost:wght@300;400;500;600&family=La+Belle+Aurore&display=swap');
+
 /* ============================================
-   chévere — theme extracted from itschevere.substack.com
-   bg #f7f3ed · brown #5e4432 · skeleton #e8e4df · border #d6d2cd
-   headings: Playfair Display · ui: system sans · icons: Lucide
+   chévere — soft editorial revamp
+   bg #f5f1ea · taupe accent #9a8873 · charcoal ink #2f2a24
+   headings: Cormorant Garamond · script accents: La Belle Aurore · ui: Jost
    ============================================ */
 
 :root {
-  --bg: #f7f3ed;
-  --brown: #5e4432;
-  --brown-dark: #4d3829;
-  --ink: #3d3830;
-  --text: #4e4d4b;
-  --gray: #757575;
-  --gray-soft: #8e8c88;
-  --skeleton: #e8e4df;
-  --border: #e8e4df;
-  --border-strong: #d6d2cd;
-  --serif: 'Playfair Display', Georgia, 'Times New Roman', serif;
-  --sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  --bg: #f5f1ea;
+  --brown: #9a8873;
+  --brown-dark: #7c6a55;
+  --ink: #2f2a24;
+  --text: #4b463f;
+  --gray: #8a847b;
+  --gray-soft: #9b948a;
+  --skeleton: #ece5da;
+  --border: #e6ddd0;
+  --border-strong: #d8cec0;
+  --serif: 'Cormorant Garamond', Georgia, 'Times New Roman', serif;
+  --script: 'La Belle Aurore', 'Segoe Script', cursive;
+  --sans: 'Jost', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
   --home-grid: 1300px;
   --ease-editorial: cubic-bezier(0.22, 1, 0.36, 1);
 }
@@ -595,11 +598,12 @@ body.popup-open::after {
   margin-bottom: 40px;
 }
 .featured-kicker {
-  color: var(--brown);
-  font-size: 10px;
-  font-weight: 600;
-  letter-spacing: 0.17em;
-  text-transform: uppercase;
+  font-family: var(--script);
+  color: var(--brown-dark);
+  font-size: 25px;
+  font-weight: 400;
+  letter-spacing: 0.01em;
+  text-transform: none;
 }
 .featured-heading h2 {
   margin-top: 9px;
@@ -737,32 +741,34 @@ body.popup-open::after {
 .btn-secondary {
   display: inline-block;
   min-height: 46px;
-  padding: 14px 32px;
+  padding: 15px 40px;
   border-width: 1px;
-  font-size: 13px;
-  font-weight: 600;
-  letter-spacing: 0.06em;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.22em;
   text-transform: uppercase;
   transition: background 220ms var(--ease-editorial), border-color 220ms var(--ease-editorial), color 220ms var(--ease-editorial), transform 220ms var(--ease-editorial);
 }
 .btn-primary {
-  background: var(--brown);
-  color: var(--bg);
-  border: 1px solid var(--brown);
+  background: transparent;
+  color: var(--ink);
+  border: 1px solid var(--ink);
 }
 .btn-primary:hover {
-  background: var(--brown-dark);
-  border-color: var(--brown-dark);
+  background: var(--ink);
+  color: var(--bg);
+  border-color: var(--ink);
   transform: translateY(-1px);
 }
 .btn-secondary {
   background: transparent;
-  color: var(--brown);
-  border: 1px solid var(--brown);
+  color: var(--brown-dark);
+  border: 1px solid var(--border-strong);
 }
 .btn-secondary:hover {
   background: var(--brown);
   color: var(--bg);
+  border-color: var(--brown);
   transform: translateY(-1px);
 }
 .btn-primary:focus-visible,
@@ -787,12 +793,13 @@ body.popup-open::after {
   padding: 88px 24px 94px;
 }
 .newsletter-eyebrow {
-  margin: 0 0 14px;
-  color: var(--brown);
-  font-size: 10px;
-  font-weight: 600;
-  letter-spacing: .18em;
-  text-transform: uppercase;
+  margin: 0 0 10px;
+  font-family: var(--script);
+  color: var(--brown-dark);
+  font-size: 26px;
+  font-weight: 400;
+  letter-spacing: .01em;
+  text-transform: none;
 }
 .newsletter h2 {
   font-family: var(--serif);
