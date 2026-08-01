@@ -506,8 +506,60 @@ document.querySelectorAll('.nav-item.has-dropdown > a').forEach(function (a) {
       '</a></li>';
   }
 
+  function mountNativeCarousel() {
+    var carousel = document.getElementById('featured-carousel');
+    var viewport = carousel && carousel.querySelector('.splide__track');
+    var slides = Array.prototype.slice.call(track.querySelectorAll('.splide__slide'));
+    var previous = document.getElementById('featured-previous');
+    var next = document.getElementById('featured-next');
+    var controls = document.querySelector('.featured-controls');
+    var index = 0;
+    var scrollTimer;
+
+    if (!carousel || !viewport || !previous || !next || !controls || slides.length < 2) return;
+
+    function updateControls() {
+      controls.hidden = window.innerWidth > 620;
+      previous.disabled = index <= 0;
+      next.disabled = index >= slides.length - 1;
+    }
+
+    function goTo(nextIndex) {
+      index = Math.max(0, Math.min(slides.length - 1, nextIndex));
+      viewport.scrollTo({
+        left: slides[index].offsetLeft - slides[0].offsetLeft,
+        behavior: 'auto'
+      });
+      updateControls();
+    }
+
+    previous.addEventListener('click', function () { goTo(index - 1); });
+    next.addEventListener('click', function () { goTo(index + 1); });
+    viewport.addEventListener('scroll', function () {
+      window.clearTimeout(scrollTimer);
+      scrollTimer = window.setTimeout(function () {
+        var closest = 0;
+        var distance = Infinity;
+        slides.forEach(function (slide, slideIndex) {
+          var candidate = Math.abs((slide.offsetLeft - slides[0].offsetLeft) - viewport.scrollLeft);
+          if (candidate < distance) {
+            closest = slideIndex;
+            distance = candidate;
+          }
+        });
+        index = closest;
+        updateControls();
+      }, 80);
+    }, { passive: true });
+    window.addEventListener('resize', updateControls);
+    updateControls();
+  }
+
   function mountCarousel() {
-    if (typeof window.Splide === 'undefined') return;
+    if (typeof window.Splide === 'undefined') {
+      mountNativeCarousel();
+      return;
+    }
     var carousel = new window.Splide('#featured-carousel', {
       type: 'slide',
       rewind: false,

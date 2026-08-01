@@ -2737,6 +2737,11 @@ body {
   object-position: center 34%;
   filter: saturate(.82) contrast(.96);
 }
+
+.hero-portrait img.hero-portrait__collage {
+  object-position: center;
+  filter: none;
+}
 .hero-cloud {
   position: absolute;
   width: 185px;
@@ -4048,7 +4053,88 @@ body:has(.post-body) .page-main::before {
 .featured-reads .splide__slide {
   list-style: none !important;
 }
+  .featured-controls {
+    flex: 0 0 auto;
+    align-items: center;
+  }
+  .featured-arrow::before {
+    font-size: 17px;
+    line-height: 1;
+  }
+  .featured-arrow--previous::before { content: "←"; }
+  .featured-arrow--next::before { content: "→"; }
+  .featured-arrow > * { display: none; }
+  .featured-arrow--previous:disabled {
+    visibility: visible;
+    pointer-events: none;
+  }
+  .featured-reads:not(.is-initialized) .splide__track {
+    overflow-x: auto;
+    overscroll-behavior-inline: contain;
+    scroll-behavior: auto;
+    scroll-snap-type: inline mandatory;
+    scrollbar-width: none;
+  }
+  .featured-reads:not(.is-initialized) .splide__track::-webkit-scrollbar { display: none; }
+  .featured-reads:not(.is-initialized) .splide__list {
+    display: flex;
+    grid-template-columns: none;
+    gap: 14px;
+  }
+  .featured-reads:not(.is-initialized) .splide__slide {
+    flex: 0 0 88%;
+    scroll-snap-align: start;
+  }
   .featured-all { margin-right: auto; margin-left: 4px; }
+  .weekly-roundup-heading {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    align-items: start;
+  }
+  .weekly-roundup-heading > a {
+    display: inline-flex;
+    align-items: center;
+    justify-self: start;
+    min-height: 40px;
+    margin-top: 2px;
+    padding: 0 14px;
+    border: 1px solid var(--border-strong);
+    border-radius: 999px;
+    white-space: nowrap;
+  }
+  body:has(.post-body) .site-header {
+    height: 112px;
+  }
+  body:has(.post-body) .header-logo {
+    position: absolute;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  body:has(.post-body) .header-actions #search-toggle,
+  body:has(.post-body) .header-actions .header-social {
+    top: 64px;
+    right: auto;
+    width: 36px;
+    height: 36px;
+    border: 1px solid var(--border);
+    background: rgba(255, 255, 255, .7);
+  }
+  body:has(.post-body) .header-actions #search-toggle {
+    left: calc(50% - 56px);
+  }
+  body:has(.post-body) .header-actions .header-social {
+    position: absolute;
+    display: flex !important;
+    margin: 0;
+  }
+  body:has(.post-body) .header-actions a[href*="instagram.com"] {
+    left: calc(50% - 18px);
+  }
+  body:has(.post-body) .header-actions a[href*="tiktok.com"] {
+    left: calc(50% + 20px);
+  }
+  body:has(.post-body) .site-nav { top: 136px; }
   .newsletter {
     margin: 48px auto;
     padding: 48px 22px;
@@ -4074,6 +4160,18 @@ body:has(.post-body) .page-main::before {
   body:has(.post-body) .page-main,
   .reading-lists-main,
   .summer-guide-page .blog-main { width: calc(100% - 24px); }
+}
+
+@media (max-width: 360px) {
+  .featured-heading {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 10px;
+  }
+  .featured-heading h2 {
+    font-size: 30px;
+    white-space: normal;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {

@@ -6,9 +6,9 @@ export default async function Login({ searchParams }: { searchParams: Promise<{ 
   const query = await searchParams;
   return <main className="login-page">
     <section className="login-card">
-      <p className="eyebrow">Private editor</p>
-      <h1>Chévere Weekly</h1>
-      <p>Create, preview, approve, and schedule the Friday newsletter.</p>
+      <p className="eyebrow">Private editorial studio</p>
+      <h1>Chévere Studio</h1>
+      <p>Publish stories, curate the homepage, and send the weekly edit.</p>
       {query.error && <p className="message error">The username or password was not accepted.</p>}
       <form action="/api/auth/login" method="post" className="stack">
         <label>Username<input name="username" type="text" autoComplete="username" required /></label>
