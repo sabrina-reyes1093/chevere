@@ -2804,10 +2804,10 @@ body {
   bottom: 4%;
   left: 20%;
   z-index: 1;
-  padding: 8px;
-  border: 1px solid rgba(255,255,255,.9);
+  padding: 0;
+  border: 0;
   border-radius: 48% 48% 42% 42% / 36% 36% 50% 50%;
-  background: rgba(255,255,255,.36);
+  background: transparent;
   box-shadow: 0 24px 60px rgba(77,63,91,.2);
   overflow: hidden;
   transform: rotate(2deg);
@@ -4106,11 +4106,6 @@ body:has(.post-body) .page-main::before {
     margin: 8px -12px 0;
     transform: scale(.94);
   }
-  .hero-portrait {
-    padding: 0;
-    border: 0;
-    background: transparent;
-  }
   .seasonal-guide {
     margin-top: 48px;
     padding: 42px 24px;
@@ -4286,4 +4281,53 @@ body:has(.post-body) .page-main::before {
     animation-iteration-count: 1 !important;
     transition-duration: .01ms !important;
   }
+}
+
+/* Mobile article chrome stays on one aligned row. */
+@media (max-width: 620px) {
+  body:has(.post-body) .site-header { height: 68px; }
+
+  body:has(.post-body) .header-actions #search-toggle,
+  body:has(.post-body) .header-actions .header-social {
+    top: 16px;
+    left: auto !important;
+    width: 36px;
+    height: 36px;
+  }
+
+  body:has(.post-body) .header-actions #search-toggle {
+    right: 184px !important;
+    left: auto !important;
+  }
+  body:has(.post-body) .header-actions a[href*="instagram.com"] {
+    right: 140px !important;
+    left: auto !important;
+  }
+  body:has(.post-body) .header-actions a[href*="tiktok.com"] {
+    right: 96px !important;
+    left: auto !important;
+  }
+
+  body:has(.post-body) .header-actions .header-social svg,
+  body:has(.post-body) .header-actions .header-social .tiktok-icon {
+    display: block;
+    width: 18px;
+    height: 18px;
+  }
+
+  body:has(.post-body) .site-nav { top: 90px; }
+}
+
+@media (max-width: 360px) {
+  body:has(.post-body) .header-actions #search-toggle,
+  body:has(.post-body) .header-actions .header-social {
+    top: 18px;
+    width: 32px;
+    height: 32px;
+  }
+
+  body:has(.post-body) .header-actions #search-toggle { right: 154px !important; left: auto !important; }
+  body:has(.post-body) .header-actions a[href*="instagram.com"] { right: 118px !important; left: auto !important; }
+  body:has(.post-body) .header-actions a[href*="tiktok.com"] { right: 82px !important; left: auto !important; }
+  body:has(.post-body) .header-actions .join-list-button { right: 6px; width: 70px !important; }
 }

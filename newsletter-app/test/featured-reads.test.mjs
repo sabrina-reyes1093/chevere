@@ -69,12 +69,14 @@ test("mobile homepage controls initialize immediately and remain inside the head
   assert.match(styles, /\.weekly-roundup-heading > a \{[\s\S]*?visibility: visible !important;[\s\S]*?pointer-events: auto !important;/);
 });
 
-test("mobile article search and social buttons use separate fixed positions", () => {
+test("mobile article search and social buttons share one aligned header row", () => {
   const styles = readPublic("styles.css");
 
-  assert.match(styles, /body:has\(\.post-body\) \.header-actions #search-toggle \{[\s\S]*?left: calc\(50% - 62px\) !important;/);
-  assert.match(styles, /body:has\(\.post-body\) \.header-actions a\[href\*="instagram\.com"\] \{[\s\S]*?left: calc\(50% - 18px\) !important;/);
-  assert.match(styles, /body:has\(\.post-body\) \.header-actions a\[href\*="tiktok\.com"\] \{[\s\S]*?left: calc\(50% \+ 26px\) !important;/);
+  assert.match(styles, /\/\* Mobile article chrome stays on one aligned row\. \*\/[\s\S]*?body:has\(\.post-body\) \.site-header \{ height: 68px; \}/);
+  assert.match(styles, /body:has\(\.post-body\) \.header-actions #search-toggle \{[\s\S]*?right: 184px !important;[\s\S]*?left: auto !important;/);
+  assert.match(styles, /body:has\(\.post-body\) \.header-actions a\[href\*="instagram\.com"\] \{[\s\S]*?right: 140px !important;[\s\S]*?left: auto !important;/);
+  assert.match(styles, /body:has\(\.post-body\) \.header-actions a\[href\*="tiktok\.com"\] \{[\s\S]*?right: 96px !important;[\s\S]*?left: auto !important;/);
+  assert.match(styles, /\.header-social \.tiktok-icon \{[\s\S]*?width: 18px;[\s\S]*?height: 18px;/);
 });
 
 test("Featured Reads and the newsletter roundup remain separate systems", () => {
