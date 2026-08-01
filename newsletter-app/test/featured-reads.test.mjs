@@ -54,6 +54,27 @@ test("homepage consumes only the independent Featured Reads endpoint and keeps e
   assert.ok(featuredSection.indexOf("The Ch&eacute;vere Summer Reading Guide") < featuredSection.indexOf("Spain Wins the 2026 World Cup"));
 });
 
+test("mobile homepage controls initialize immediately and remain inside the heading", () => {
+  const site = readPublic("site.js");
+  const styles = readPublic("styles.css");
+  const mountIndex = site.indexOf("var mountedCarousel = mountCarousel();");
+  const fetchIndex = site.indexOf("fetch(newsletterApi + '/api/featured-reads'");
+
+  assert.ok(mountIndex >= 0 && mountIndex < fetchIndex);
+  assert.match(site, /window\.innerWidth <= 620 \|\| typeof window\.Splide === 'undefined'/);
+  assert.match(site, /return \{ refresh: refresh \};/);
+  assert.match(styles, /@media \(max-width: 620px\)[\s\S]*?\.featured-heading \{[\s\S]*?grid-template-columns: minmax\(0, 1fr\) auto;/);
+  assert.match(styles, /\.weekly-roundup-heading > a \{[\s\S]*?visibility: visible !important;[\s\S]*?pointer-events: auto !important;/);
+});
+
+test("mobile article search and social buttons use separate fixed positions", () => {
+  const styles = readPublic("styles.css");
+
+  assert.match(styles, /body:has\(\.post-body\) \.header-actions #search-toggle \{[\s\S]*?left: calc\(50% - 62px\) !important;/);
+  assert.match(styles, /body:has\(\.post-body\) \.header-actions a\[href\*="instagram\.com"\] \{[\s\S]*?left: calc\(50% - 18px\) !important;/);
+  assert.match(styles, /body:has\(\.post-body\) \.header-actions a\[href\*="tiktok\.com"\] \{[\s\S]*?left: calc\(50% \+ 26px\) !important;/);
+});
+
 test("Featured Reads and the newsletter roundup remain separate systems", () => {
   const featured = read("app/api/featured-reads/route.ts");
   const roundup = read("app/api/roundup/route.ts");

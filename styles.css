@@ -4043,8 +4043,17 @@ body:has(.post-body) .page-main::before {
     margin-bottom: 20px;
     padding-bottom: 18px;
   }
+  .featured-heading {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 10px;
+  }
   .featured-heading h2,
   .weekly-roundup-heading h2 { font-size: 34px; }
+  .featured-heading h2 {
+    white-space: normal;
+    overflow-wrap: anywhere;
+  }
   .featured-card,
   .weekly-roundup-card { padding-bottom: 56px; }
 .featured-reads .splide__track { overflow: visible; }
@@ -4056,6 +4065,7 @@ body:has(.post-body) .page-main::before {
   .featured-controls {
     flex: 0 0 auto;
     align-items: center;
+    justify-self: end;
   }
   .featured-arrow::before {
     font-size: 17px;
@@ -4095,6 +4105,11 @@ body:has(.post-body) .page-main::before {
     display: inline-flex;
     align-items: center;
     justify-self: start;
+    position: relative;
+    z-index: 2;
+    visibility: visible !important;
+    opacity: 1 !important;
+    pointer-events: auto !important;
     min-height: 40px;
     margin-top: 2px;
     padding: 0 14px;
@@ -4114,14 +4129,14 @@ body:has(.post-body) .page-main::before {
   body:has(.post-body) .header-actions #search-toggle,
   body:has(.post-body) .header-actions .header-social {
     top: 64px;
-    right: auto;
+    right: auto !important;
     width: 36px;
     height: 36px;
     border: 1px solid var(--border);
     background: rgba(255, 255, 255, .7);
   }
   body:has(.post-body) .header-actions #search-toggle {
-    left: calc(50% - 56px);
+    left: calc(50% - 62px) !important;
   }
   body:has(.post-body) .header-actions .header-social {
     position: absolute;
@@ -4129,10 +4144,10 @@ body:has(.post-body) .page-main::before {
     margin: 0;
   }
   body:has(.post-body) .header-actions a[href*="instagram.com"] {
-    left: calc(50% - 18px);
+    left: calc(50% - 18px) !important;
   }
   body:has(.post-body) .header-actions a[href*="tiktok.com"] {
-    left: calc(50% + 20px);
+    left: calc(50% + 26px) !important;
   }
   body:has(.post-body) .site-nav { top: 136px; }
   .newsletter {

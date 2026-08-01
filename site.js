@@ -509,17 +509,17 @@ document.querySelectorAll('.nav-item.has-dropdown > a').forEach(function (a) {
   function mountNativeCarousel() {
     var carousel = document.getElementById('featured-carousel');
     var viewport = carousel && carousel.querySelector('.splide__track');
-    var slides = Array.prototype.slice.call(track.querySelectorAll('.splide__slide'));
     var previous = document.getElementById('featured-previous');
     var next = document.getElementById('featured-next');
     var controls = document.querySelector('.featured-controls');
+    var slides = [];
     var index = 0;
     var scrollTimer;
 
-    if (!carousel || !viewport || !previous || !next || !controls || slides.length < 2) return;
+    if (!carousel || !viewport || !previous || !next || !controls) return null;
 
     function updateControls() {
-      controls.hidden = window.innerWidth > 620;
+      controls.hidden = window.innerWidth > 620 || slides.length < 2;
       previous.disabled = index <= 0;
       next.disabled = index >= slides.length - 1;
     }
@@ -530,6 +530,13 @@ document.querySelectorAll('.nav-item.has-dropdown > a').forEach(function (a) {
         left: slides[index].offsetLeft - slides[0].offsetLeft,
         behavior: 'auto'
       });
+      updateControls();
+    }
+
+    function refresh() {
+      slides = Array.prototype.slice.call(track.querySelectorAll('.splide__slide'));
+      index = 0;
+      viewport.scrollLeft = 0;
       updateControls();
     }
 
@@ -552,13 +559,14 @@ document.querySelectorAll('.nav-item.has-dropdown > a').forEach(function (a) {
       }, 80);
     }, { passive: true });
     window.addEventListener('resize', updateControls);
-    updateControls();
+    refresh();
+
+    return { refresh: refresh };
   }
 
   function mountCarousel() {
-    if (typeof window.Splide === 'undefined') {
-      mountNativeCarousel();
-      return;
+    if (window.innerWidth <= 620 || typeof window.Splide === 'undefined') {
+      return mountNativeCarousel();
     }
     var carousel = new window.Splide('#featured-carousel', {
       type: 'slide',
@@ -599,17 +607,27 @@ document.querySelectorAll('.nav-item.has-dropdown > a').forEach(function (a) {
 
     carousel.mount();
     updateControls();
+
+    return {
+      refresh: function () {
+        carousel.refresh();
+        updateControls();
+      }
+    };
   }
 
   var newsletterApi = window.CHEVERE_NEWSLETTER_API_URL || 'https://newsletter.itschevere.com';
+  var mountedCarousel = mountCarousel();
   fetch(newsletterApi + '/api/featured-reads', { cache: 'no-store' })
     .then(function (response) { return response.ok ? response.json() : Promise.reject(new Error('Featured Reads unavailable')); })
     .then(function (payload) {
       var items = payload && Array.isArray(payload.items) ? payload.items : [];
-      if (items.length === 3) track.innerHTML = items.map(cardMarkup).join('');
+      if (items.length === 3) {
+        track.innerHTML = items.map(cardMarkup).join('');
+        if (mountedCarousel) mountedCarousel.refresh();
+      }
     })
-    .catch(function () { /* Keep the three server-rendered fallback cards. */ })
-    .then(mountCarousel);
+    .catch(function () { /* Keep the three server-rendered fallback cards. */ });
 })();
 
 /* homepage seasonal guide */
