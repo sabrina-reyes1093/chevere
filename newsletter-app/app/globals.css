@@ -968,3 +968,54 @@ legend { color: var(--ink); font-size: 27px; font-weight: 500; letter-spacing: -
     transition-duration: .01ms !important;
   }
 }
+
+/* Shared Chévere heart wordmark for the editorial studio. */
+.admin-header .wordmark {
+  display: inline-flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 9px;
+  min-width: 188px;
+}
+
+.admin-header .wordmark img,
+.login-logo {
+  display: block;
+  width: 140px;
+  max-width: none;
+  height: 50px;
+  object-fit: cover;
+  object-position: center 51%;
+  border: 1px solid rgba(255, 255, 255, .88);
+  border-radius: 16px;
+  background: #f8eaf4;
+  box-shadow: 0 8px 20px rgba(129, 78, 128, .14);
+}
+
+.admin-header .wordmark small { margin: 0; }
+
+.login-logo {
+  width: 220px;
+  height: 82px;
+  margin: 0 0 22px;
+  border-radius: 22px;
+}
+
+@media (max-width: 620px) {
+  .admin-header .wordmark {
+    min-width: 166px;
+    padding-left: 0;
+  }
+
+  .admin-header .wordmark img {
+    width: 122px;
+    height: 44px;
+    border-radius: 14px;
+  }
+
+  .login-logo {
+    width: 188px;
+    height: 70px;
+  }
+}

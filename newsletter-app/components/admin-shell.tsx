@@ -1,10 +1,14 @@
+import Image from "next/image";
 import Link from "next/link";
 import { ThemeToggle } from "./theme-toggle";
 
 export function AdminShell({ children }: { children: React.ReactNode }) {
   return <>
     <header className="admin-header">
-      <Link href="/admin" className="wordmark"><span>Chévere</span><small>Studio</small></Link>
+      <Link href="/admin" className="wordmark" aria-label="Chévere Studio home">
+        <Image src="/chevere-logo.png" alt="Chévere" width={1254} height={1254} priority />
+        <small>Studio</small>
+      </Link>
       <nav className="admin-nav" aria-label="Site administration">
         <Link href="/admin">Issues</Link>
         <Link href="/admin/posts">Blog posts</Link>

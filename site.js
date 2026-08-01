@@ -30,7 +30,7 @@
     '<footer class="site-footer">',
     '  <div class="footer-editorial">',
     '    <div class="footer-brand">',
-    '      <a class="footer-logo" href="' + prefix + 'index.html" aria-label="Ch&eacute;vere home">Ch&eacute;vere</a>',
+    '      <a class="footer-logo" href="' + prefix + 'index.html" aria-label="Ch&eacute;vere home"><img src="' + prefix + 'assets/logo.png" alt="Ch&eacute;vere" width="1254" height="1254" loading="lazy" /></a>',
     '      <p class="footer-motto">Stay curious. Stay Ch&eacute;vere.</p>',
     '      <p class="footer-description">Culture, style, and discovery through a dreamy digital lens.</p>',
     '    </div>',

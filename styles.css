@@ -1441,6 +1441,75 @@ body.popup-open .back-to-top { opacity: 0; pointer-events: none; }
   }
 }
 
+/* Chévere heart wordmark — shared across every public route. */
+.header-logo {
+  flex: 0 0 auto;
+  width: 156px;
+  height: 54px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, .86);
+  border-radius: 17px;
+  background: #f8eaf4;
+  box-shadow: 0 8px 20px rgba(129, 78, 128, .13);
+}
+
+.header-logo::after { content: none !important; }
+
+.header-logo img,
+.footer-logo img {
+  display: block !important;
+  width: 100% !important;
+  max-width: none !important;
+  height: 100% !important;
+  object-fit: cover;
+  object-position: center 51%;
+  filter: none !important;
+}
+
+.header-logo:hover,
+.header-logo:focus-visible {
+  box-shadow: 0 11px 26px rgba(129, 78, 128, .2);
+  transform: translateY(-1px);
+}
+
+.footer-logo {
+  display: block;
+  width: 190px;
+  height: 72px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, .2);
+  border-radius: 20px;
+  background: #f8eaf4;
+  box-shadow: 0 16px 32px rgba(0, 0, 0, .2);
+}
+
+@media (max-width: 900px) {
+  .header-logo {
+    width: 138px;
+    height: 50px;
+    border-radius: 15px;
+  }
+}
+
+@media (max-width: 620px) {
+  .header-logo {
+    width: 118px;
+    height: 44px;
+    border-radius: 14px;
+  }
+
+  body:has(.post-body) .header-logo {
+    top: 10px !important;
+    width: 118px;
+    height: 42px;
+  }
+
+  .footer-logo {
+    width: 174px;
+    height: 66px;
+  }
+}
+
 .featured-reads .splide__list,
 .featured-reads .splide__slide {
   list-style: none !important;
