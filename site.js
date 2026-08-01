@@ -133,6 +133,11 @@
   var actions = document.querySelector('.header-actions');
   if (!actions || document.getElementById('theme-toggle')) return;
 
+  var instagram = actions.querySelector('a[href*="instagram.com"]');
+  var tiktok = actions.querySelector('a[href*="tiktok.com"]');
+  if (instagram) instagram.classList.add('header-social', 'instagram-link');
+  if (tiktok) tiktok.classList.add('header-social', 'tiktok-link');
+
   var button = document.createElement('button');
   button.id = 'theme-toggle';
   button.type = 'button';
@@ -142,7 +147,8 @@
     var dark = document.documentElement.getAttribute('data-theme') === 'dark';
     button.setAttribute('aria-label', dark ? 'Use light mode' : 'Use dark editorial mode');
     button.setAttribute('title', dark ? 'Use light mode' : 'Use dark editorial mode');
-    button.innerHTML = '<i data-lucide="' + (dark ? 'sun' : 'moon') + '" stroke-width="1.7" aria-hidden="true"></i>';
+    button.setAttribute('aria-pressed', String(dark));
+    button.innerHTML = '<span class="theme-toggle__track" aria-hidden="true"><span class="theme-toggle__thumb"><i data-lucide="' + (dark ? 'moon' : 'sun') + '" stroke-width="2"></i></span></span>';
     if (window.lucide) window.lucide.createIcons({ nodes: [button] });
   }
 
