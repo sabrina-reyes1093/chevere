@@ -517,6 +517,7 @@ document.querySelectorAll('.nav-item.has-dropdown > a').forEach(function (a) {
     var scrollTimer;
 
     if (!carousel || !viewport || !previous || !next || !controls) return null;
+    carousel.classList.add('is-native-carousel');
 
     function updateControls() {
       controls.hidden = window.innerWidth > 620 || slides.length < 2;

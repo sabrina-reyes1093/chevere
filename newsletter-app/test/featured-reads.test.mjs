@@ -63,6 +63,8 @@ test("mobile homepage controls initialize immediately and remain inside the head
   assert.ok(mountIndex >= 0 && mountIndex < fetchIndex);
   assert.match(site, /window\.innerWidth <= 620 \|\| typeof window\.Splide === 'undefined'/);
   assert.match(site, /return \{ refresh: refresh \};/);
+  assert.match(site, /carousel\.classList\.add\('is-native-carousel'\)/);
+  assert.match(styles, /\.featured-reads\.is-native-carousel \{ visibility: visible; \}/);
   assert.match(styles, /@media \(max-width: 620px\)[\s\S]*?\.featured-heading \{[\s\S]*?grid-template-columns: minmax\(0, 1fr\) auto;/);
   assert.match(styles, /\.weekly-roundup-heading > a \{[\s\S]*?visibility: visible !important;[\s\S]*?pointer-events: auto !important;/);
 });
