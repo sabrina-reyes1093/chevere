@@ -4407,9 +4407,22 @@ html[data-theme="dark"] .search-panel {
 }
 
 @media (max-width: 620px) {
+  .hero-portrait {
+    inset: auto;
+    top: 50%;
+    left: 50%;
+    width: min(94%, 430px);
+    height: auto;
+    aspect-ratio: 1341 / 1173;
+    overflow: visible;
+    transform: translate(-50%, -50%) rotate(2deg);
+  }
+
   .hero-portrait img.hero-portrait__collage {
+    border-radius: 0;
     object-fit: contain;
     object-position: center;
+    transform: scale(.94);
   }
 
   body:has(.post-body) .site-header { height: 112px; }
