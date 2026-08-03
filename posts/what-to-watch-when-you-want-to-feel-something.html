@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>What to Watch When You Want to Feel Something — chévere</title>
+  <meta name="description" content="For the nights when you want more than background noise. Sometimes you want to put something on while scrolling, cleaning, or answering texts. Other nights, you want a story that completely takes over." />
+  <link rel="icon" type="image/png" href="../assets/icon.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../styles.css?v=20260803-1" />
+  <style>
+    .post-body { font-size: 17px; line-height: 1.8; color: var(--text); }
+    .post-body p { margin-bottom: 16px; }
+    .post-body h2 { font-family: var(--serif); font-size: 24px; color: var(--ink); margin: 32px 0 10px; }
+    .post-body h3 { font-family: var(--serif); font-size: 20px; color: var(--ink); margin: 26px 0 8px; }
+    .post-body strong { display: block; font-family: var(--serif); font-weight: 700; font-size: 20px; color: var(--ink); margin-top: 32px; margin-bottom: 8px; }
+    .post-body em { font-style: italic; }
+    .post-hero { width: 100%; height: auto; border-radius: 24px; margin-bottom: 28px; display: block; }
+    .post-inline-img { width: 100%; height: auto; border-radius: 20px; margin: 22px 0; display: block; }
+    .post-signoff { margin-top: 48px; font-size: 17px; color: var(--gray-soft); }
+    .back-link { display: inline-block; margin-bottom: 24px; font-size: 13px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--brown); transition: opacity .15s ease; }
+    .back-link:hover { opacity: 0.7; }
+  </style>
+</head>
+<body>
+
+  <header class="site-header">
+    <a class="header-logo" href="../index.html" aria-label="chévere home">
+      <img src="../assets/logo.png" alt="chévere" />
+    </a>
+    <div class="header-actions">
+      <button id="mobile-menu-toggle" class="mobile-menu-toggle" type="button" aria-label="Open menu" aria-controls="site-navigation" aria-expanded="false"><i data-lucide="menu" stroke-width="1.8" aria-hidden="true"></i></button>
+      <button id="search-toggle" aria-label="Search" title="Search"><i data-lucide="search" stroke-width="1.8" aria-hidden="true"></i></button>
+      <a class="join-list-button" href="../index.html#newsletter">JOIN THE LIST</a>
+      <a href="https://www.instagram.com/itschevere/" target="_blank" rel="noopener" aria-label="Instagram" title="Instagram">
+        <svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+      </a>
+      <a href="https://www.tiktok.com/@itschevere" target="_blank" rel="noopener" aria-label="TikTok" title="TikTok">
+        <svg class="tiktok-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="19" height="19"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.3 0 .59.05.87.13v-3.5a6.37 6.37 0 0 0-.87-.06A6.34 6.34 0 0 0 3.15 15.3a6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.34-6.34V8.46a8.23 8.23 0 0 0 4.77 1.48v-3.4a4.86 4.86 0 0 1-1.01.15z"/></svg>
+      </a>
+    </div>
+    <div id="search-panel" class="search-panel" role="dialog" aria-label="Search posts">
+      <div class="search-bar-wrap">
+        <i data-lucide="search" class="search-bar-icon" stroke-width="2" aria-hidden="true"></i>
+        <input id="search-input" type="text" placeholder="Search posts..." autocomplete="off" />
+        <button id="search-submit" class="search-action-btn" aria-label="Search" type="button">
+          <i data-lucide="arrow-right" stroke-width="2.5" aria-hidden="true"></i>
+        </button>
+        <button id="search-close" class="search-close-btn" aria-label="Close search" type="button">
+          <i data-lucide="x" stroke-width="2.5" aria-hidden="true"></i>
+        </button>
+      </div>
+      <div id="search-results" class="search-results"></div>
+    </div>
+  </header>
+
+  <nav class="site-nav" id="site-navigation" aria-label="Primary navigation">
+    <a href="../index.html">HOME</a>
+    <div class="nav-item has-dropdown">
+      <a href="../blog.html?cat=culture">CULTURE<i data-lucide="chevron-down" class="chev" stroke-width="2" aria-hidden="true"></i></a>
+      <div class="dropdown">
+        <a href="../blog.html?cat=books">Books</a>
+        <a href="../blog.html?cat=film-tv">Film &amp; TV</a>
+        <a href="../blog.html?cat=music">Music</a>
+        <a href="../blog.html?cat=sports">Sports</a>
+        <a href="../blog.html?cat=pop-culture">Pop Culture</a>
+      </div>
+    </div>
+    <div class="nav-item has-dropdown">
+      <a href="../blog.html?cat=style">STYLE<i data-lucide="chevron-down" class="chev" stroke-width="2" aria-hidden="true"></i></a>
+      <div class="dropdown">
+        <a href="../blog.html?cat=fashion">Fashion</a>
+        <a href="../blog.html?cat=beauty">Beauty</a>
+        <a href="../blog.html?cat=interiors">Interiors</a>
+        <a href="../blog.html?cat=design">Design</a>
+      </div>
+    </div>
+    <div class="nav-item has-dropdown">
+      <a href="../blog.html?cat=life">LIFE<i data-lucide="chevron-down" class="chev" stroke-width="2" aria-hidden="true"></i></a>
+      <div class="dropdown">
+        <a href="../blog.html?cat=food">Food</a>
+        <a href="../blog.html?cat=travel">Travel</a>
+        <a href="../blog.html?cat=life-wellness">Life &amp; Wellness</a>
+      </div>
+    </div>
+    <div class="nav-item has-dropdown">
+      <a href="../blog.html?cat=guides">GUIDES<i data-lucide="chevron-down" class="chev" stroke-width="2" aria-hidden="true"></i></a>
+      <div class="dropdown">
+        <a href="../reading-lists.html">Reading Lists</a>
+        <a href="../blog.html?cat=city-guides">City Guides</a>
+        <a href="../blog.html?cat=seasonal-recommendations">Seasonal Recommendations</a>
+        <a href="../blog.html?cat=restaurant-roundups">Restaurant Roundups</a>
+        <a href="../blog.html?cat=gift-guides">Gift Guides</a>
+      </div>
+    </div>
+    <a href="../about.html">ABOUT</a>
+  </nav>
+
+  <main class="page-main">
+    <a class="back-link" href="../blog.html">&larr; Back to Blog</a>
+    <span class="kicker" style="display:block;margin-bottom:8px">Film &amp; TV</span>
+    <h1 class="page-title">What to Watch When You Want to Feel Something</h1>
+    <p class="page-tagline" style="font-size:15px;color:#8e8c88;margin-top:-4px;margin-bottom:28px">Jul 31, 2026</p>
+    <div class="post-body">
+      <img class="post-hero" src="https://xjtnfwnntzonmumlxbyg.supabase.co/storage/v1/object/public/newsletter-images/2026-08/83e14453-c8fd-4985-a788-258a35e60342.png" alt="What to Watch When You Want to Feel Something" />
+      <p><em>For the nights when you want more than background noise.</em></p>
+      <p>Sometimes you want to put something on while scrolling, cleaning, or answering texts. Other nights, you want a story that completely takes over.</p>
+      <p>You want to fall in love with fictional people, cry over a life you never lived, laugh hard enough to forget your mood, or sit quietly through the credits because you are not quite ready to return to reality.</p>
+      <p>For those nights, choose the feeling first. Then press play.</p>
+      <h2>When You Want to Fall in Love</h2>
+      <h3>Past Lives</h3>
+      <img class="post-inline-img" src="https://xjtnfwnntzonmumlxbyg.supabase.co/storage/v1/object/public/newsletter-images/2026-08/d586ef25-cc6b-409a-b246-cf995cee7a6d.jpg" alt="pastlives scaled" />
+      <p>Quiet, intimate, and filled with everything left unsaid, <em>Past Lives</em> explores the people we become, the lives we might have lived, and the strange ache of meeting someone at the wrong time.</p>
+      <p>It is less about a sweeping romance and more about timing, identity, and wondering whether another version of your life is still out there somewhere.</p>
+      <p>Watch it when you want longing, beautiful city shots, and an ending that will stay with you.</p>
+      <h3>Pride &amp; Prejudice</h3>
+      <img class="post-inline-img" src="https://xjtnfwnntzonmumlxbyg.supabase.co/storage/v1/object/public/newsletter-images/2026-08/f419d028-79bc-455e-8caf-b36b41d167c5.jpg" alt="images" />
+      <p>The rain. The landscapes. The tension. The hand flex.</p>
+      <p><em>Pride &amp; Prejudice</em> is the kind of romance that makes every glance feel like a declaration. It is elegant, comforting, and almost unfairly good at making yearning look glamorous.</p>
+      <p>Watch it when you want to believe that slow burns are worth the wait.</p>
+      <h3>About Time</h3>
+      <img class="post-inline-img" src="https://xjtnfwnntzonmumlxbyg.supabase.co/storage/v1/object/public/newsletter-images/2026-08/38adefcc-7159-4e42-a34d-17eb9b6a48c3.webp" alt="about time 2013" />
+      <p>At first, <em>About Time</em> seems like a charming romantic comedy about a man who can travel through time. Slowly, it becomes something much more moving: a reflection on family, love, loss, and the beauty of an ordinary day.</p>
+      <p>Watch it when you need a reminder that a meaningful life is often made from moments that initially seem unremarkable.</p>
+      <h2>When You Need a Good Cry</h2>
+      <h3>Aftersun</h3>
+      <img class="post-inline-img" src="https://xjtnfwnntzonmumlxbyg.supabase.co/storage/v1/object/public/newsletter-images/2026-08/4965b324-b9d5-4d96-acc3-24817ba6c004.png" alt="image" />
+      <p><em>Aftersun</em> feels like looking back at a memory and finally understanding what you were too young to notice.</p>
+      <p>Following a father and daughter on vacation, the film is tender, subtle, and quietly devastating. Its heartbreak lives in the small details, the pauses, and the things neither character knows how to say.</p>
+      <p>Watch it when you are ready to be emotionally ruined with very little warning.</p>
+      <h3>The Iron Claw</h3>
+      <img class="post-inline-img" src="https://xjtnfwnntzonmumlxbyg.supabase.co/storage/v1/object/public/newsletter-images/2026-08/44cc2972-b3a6-4147-891a-0507ca3a165a.png" alt="image" />
+      <p>You do not need to care about wrestling to be affected by <em>The Iron Claw</em>.</p>
+      <p>At its center is a deeply human story about brothers, grief, family expectations, and the pressure to remain strong when everything around you is falling apart.</p>
+      <p>Watch it with tissues nearby and perhaps nothing too demanding planned afterward.</p>
+      <h3>Coco</h3>
+      <img class="post-inline-img" src="https://xjtnfwnntzonmumlxbyg.supabase.co/storage/v1/object/public/newsletter-images/2026-08/f4a763d1-3e6f-4b37-b13a-1ee2831c7a48.png" alt="image" />
+      <p>Yes, it is animated. Yes, it may still destroy you.</p>
+      <p><em>Coco</em> is joyful, colorful, and deeply moving, with a story rooted in family, memory, and the people whose love continues to shape us long after they are gone.</p>
+      <p>Watch it when you want to cry and feel comforted at the same time.</p>
+      <h2>When You Need Comfort</h2>
+      <h3>The Devil Wears Prada</h3>
+      <img class="post-inline-img" src="https://xjtnfwnntzonmumlxbyg.supabase.co/storage/v1/object/public/newsletter-images/2026-08/d3488929-cdea-4424-a1fe-64f9f12b9c02.png" alt="image" />
+      <p>Some movies feel like putting on an outfit you already know looks good.</p>
+      <p><em>The Devil Wears Prada</em> is stylish, sharp, familiar, and endlessly quotable. The clothes remain perfect, the workplace remains mildly terrifying, and Miranda Priestly remains one of cinema’s most compelling bosses from hell.</p>
+      <p>Watch it with takeout, a blanket, and absolutely no desire to be challenged.</p>
+      <h3>Mamma Mia!</h3>
+      <img class="post-inline-img" src="https://xjtnfwnntzonmumlxbyg.supabase.co/storage/v1/object/public/newsletter-images/2026-08/4869d4e4-0ee0-4437-9747-9efdbba9eaf8.png" alt="image" />
+      <p>Beautiful scenery, ABBA songs, questionable romantic decisions, and a cast fully committed to having the best time imaginable.</p>
+      <p><em>Mamma Mia!</em> does not ask you to take it seriously. It simply asks you to surrender to the chaos.</p>
+      <p>Watch it when you need joy, escapism, and the temporary belief that all personal problems can be solved on a Greek island.</p>
+      <h3>Gilmore Girls</h3>
+      <img class="post-inline-img" src="https://xjtnfwnntzonmumlxbyg.supabase.co/storage/v1/object/public/newsletter-images/2026-08/b6bebd59-3045-452c-a641-cec620560844.png" alt="image" />
+      <p>For nights when a movie is not enough, return to Stars Hollow.</p>
+      <p><em>Gilmore Girls</em> offers fast dialogue, complicated relationships, endless coffee, and the comforting illusion that every town event can become a full community production.</p>
+      <p>Watch it when you want to disappear into somewhere familiar.</p>
+      <h2>When You Want to Feel Inspired</h2>
+      <h3>Little Women</h3>
+      <img class="post-inline-img" src="https://xjtnfwnntzonmumlxbyg.supabase.co/storage/v1/object/public/newsletter-images/2026-08/1899f5eb-a5d2-4ffb-b5a1-c4b1f4960d32.png" alt="image" />
+      <p>Greta Gerwig’s <em>Little Women</em> is warm, intelligent, and full of creative hunger.</p>
+      <p>It is about ambition, family, independence, sacrifice, and the difficulty of building a life that actually feels like your own. Jo March’s determination is inspiring, but the film also makes space for different kinds of dreams and different versions of fulfillment.</p>
+      <p>Watch it when you need to return to something you care about.</p>
+      <h3>The Secret Life of Walter Mitty</h3>
+      <img class="post-inline-img" src="https://xjtnfwnntzonmumlxbyg.supabase.co/storage/v1/object/public/newsletter-images/2026-08/ff6a26db-1d76-4dfb-97c0-816b03dda371.png" alt="image" />
+      <p>Visually beautiful and deeply sincere, <em>The Secret Life of Walter Mitty</em> is about stepping outside the safety of your imagination and into your actual life.</p>
+      <p>It is ideal for anyone who feels stuck, restless, or convinced that the more interesting version of their life is always somewhere else.</p>
+      <p>Watch it when you need a gentle push to begin.</p>
+      <h3>Chef</h3>
+      <img class="post-inline-img" src="https://xjtnfwnntzonmumlxbyg.supabase.co/storage/v1/object/public/newsletter-images/2026-08/ff753857-fe7c-4704-8ac5-f93f9ca8897d.png" alt="image" />
+      <p>Sometimes inspiration does not need to arrive through a dramatic transformation.</p>
+      <p><em>Chef</em> is a warm, satisfying movie about creativity, starting over, good food, and finding joy again after professional disappointment.</p>
+      <p>Watch it when you need something hopeful—and preferably when you have snacks nearby.</p>
+      <h2>When You Want Something Intense</h2>
+      <h3>Gone Girl</h3>
+      <img class="post-inline-img" src="https://xjtnfwnntzonmumlxbyg.supabase.co/storage/v1/object/public/newsletter-images/2026-08/5f09927b-dfc7-4b37-b002-df87c2ac0f9b.png" alt="image" />
+      <p>Stylish, dark, and completely absorbing, <em>Gone Girl</em> turns a troubled marriage into a psychological battlefield.</p>
+      <p>Every performance feels controlled and unsettling, and the story constantly shifts your understanding of who can be trusted.</p>
+      <p>Watch it when you want drama with sharp edges.</p>
+      <h3>Black Swan</h3>
+      <img class="post-inline-img" src="https://xjtnfwnntzonmumlxbyg.supabase.co/storage/v1/object/public/newsletter-images/2026-08/fe65b091-cc9a-4708-9df0-96c9e9fdfd25.png" alt="image" />
+      <p><em>Black Swan</em> is a beautiful fever dream about ambition, perfection, identity, and what happens when the desire to be extraordinary becomes all-consuming.</p>
+      <p>The tension builds slowly until the entire film feels almost suffocating.</p>
+      <p>Watch it when you want something visually stunning and psychologically unhinged.</p>
+      <h3>The Menu</h3>
+      <img class="post-inline-img" src="https://xjtnfwnntzonmumlxbyg.supabase.co/storage/v1/object/public/newsletter-images/2026-08/f5e0e5d6-e8bf-4c57-9e2a-fddaf99e0199.png" alt="image" />
+      <p>Darkly funny and increasingly strange, <em>The Menu</em> combines horror, satire, class commentary, and the most stressful fine-dining experience imaginable.</p>
+      <p>It is clever, twisted, and entertaining without taking itself too seriously.</p>
+      <p>Watch it when you want something disturbing—but still fun.</p>
+      <h2>When You Want to Feel Seen</h2>
+      <h3>Frances Ha</h3>
+      <img class="post-inline-img" src="https://xjtnfwnntzonmumlxbyg.supabase.co/storage/v1/object/public/newsletter-images/2026-08/44746887-e48d-44a9-b263-fee0690b1c9e.png" alt="image" />
+      <p>For anyone who has ever felt behind, uncertain, or caught between who they imagined becoming and who they currently are, <em>Frances Ha</em> feels deeply familiar.</p>
+      <p>It is about friendship, creative ambition, awkward transitions, and learning how to build a life that may not look exactly the way you planned.</p>
+      <p>Watch it when everyone else appears to have everything figured out.</p>
+      <h3>The Worst Person in the World</h3>
+      <img class="post-inline-img" src="https://xjtnfwnntzonmumlxbyg.supabase.co/storage/v1/object/public/newsletter-images/2026-08/69835d6c-74e2-4bb7-91a3-af217c7bf863.png" alt="image" />
+      <p>This film follows a young woman moving through love, work, indecision, and the pressure to choose a permanent identity before she fully understands herself.</p>
+      <p>It is messy, funny, thoughtful, and painfully honest about how difficult it can be to know what you want.</p>
+      <p>Watch it when you are somewhere in the middle of becoming someone new.</p>
+      <h3>Insecure</h3>
+      <img class="post-inline-img" src="https://xjtnfwnntzonmumlxbyg.supabase.co/storage/v1/object/public/newsletter-images/2026-08/78d12901-22db-44a4-a241-89e6bf9e2356.webp" alt="91SLzt0pF4L. RI " />
+      <p>Few shows capture the humor and discomfort of growing without necessarily knowing where you are headed as well as <em>Insecure</em>.</p>
+      <p>It is stylish, funny, and emotionally honest about friendship, work, dating, confidence, and the choices that slowly reshape a life.</p>
+      <p>Watch it when you want characters who feel like people you might actually know.</p>
+      <h2>Choose the Feeling</h2>
+      <p>Not every movie needs to teach you something, and not every night needs to be productive.</p>
+      <p>Sometimes watching a story is simply a way to leave your own mind for a while. Sometimes it helps you name a feeling you have been avoiding. Sometimes it just makes you laugh, cry, or believe in love again for two hours.</p>
+      <p>So turn down the lights. Put your phone somewhere out of reach. Make something good to eat.</p>
+      <p>And watch something that makes you feel a little more alive.</p>
+      <p class="post-signoff">Until next week — stay <em>chévere</em></p>
+    </div>
+  </main>
+
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script src="../site.js?v=20260803-1"></script>
+</body>
+</html>
