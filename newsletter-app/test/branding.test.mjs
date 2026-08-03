@@ -38,6 +38,7 @@ test("public footer and admin surfaces use the same logo artwork", () => {
   assert.match(styles, /\.footer-logo \{[\s\S]*?width: 86px;[\s\S]*?height: 86px;/);
   assert.match(styles, /\.hero-portrait \{[\s\S]*?padding: 0;[\s\S]*?border: 0;[\s\S]*?background: transparent;/);
   assert.doesNotMatch(styles, /\.hero-portrait \{ padding: 3px; \}/);
+  assert.match(styles, /@media \(max-width: 620px\)[\s\S]*?\.hero-portrait img\.hero-portrait__collage \{[\s\S]*?object-fit: contain;[\s\S]*?object-position: center;/);
   assert.match(shell, /<Image src="\/chevere-logo\.png" alt="Chévere"/);
   assert.match(login, /<Image className="login-logo" src="\/chevere-logo\.png"/);
   assert.deepEqual(publicLogo, adminLogo);

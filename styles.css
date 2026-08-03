@@ -4407,6 +4407,11 @@ html[data-theme="dark"] .search-panel {
 }
 
 @media (max-width: 620px) {
+  .hero-portrait img.hero-portrait__collage {
+    object-fit: contain;
+    object-position: center;
+  }
+
   body:has(.post-body) .site-header { height: 112px; }
   body:has(.post-body) .header-logo {
     position: absolute;
