@@ -4434,6 +4434,16 @@ html[data-theme="dark"] .search-panel {
     transform: scale(.55);
   }
 
+  .header-actions .theme-toggle {
+    display: none !important;
+  }
+
+  .site-header .header-actions #mobile-menu-toggle {
+    display: flex !important;
+    top: 16px !important;
+    left: 66px !important;
+  }
+
   body:has(.post-body) .site-header { height: 112px; }
   body:has(.post-body) .header-logo {
     position: absolute;
@@ -4456,13 +4466,13 @@ html[data-theme="dark"] .search-panel {
     width: 48px;
   }
   body:has(.post-body) .header-actions #search-toggle {
-    left: calc(50% - 34px) !important;
+    left: calc(50% - 62px) !important;
   }
   body:has(.post-body) .header-actions a[href*="instagram.com"] {
-    left: calc(50% + 10px) !important;
+    left: calc(50% - 18px) !important;
   }
   body:has(.post-body) .header-actions a[href*="tiktok.com"] {
-    left: calc(50% + 54px) !important;
+    left: calc(50% + 26px) !important;
   }
   body:has(.post-body) .header-actions .header-social svg,
   body:has(.post-body) .header-actions .header-social .tiktok-icon {
