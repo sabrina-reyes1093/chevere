@@ -2808,7 +2808,7 @@ body {
   border: 0;
   border-radius: 48% 48% 42% 42% / 36% 36% 50% 50%;
   background: transparent;
-  box-shadow: 0 24px 60px rgba(77,63,91,.2);
+  box-shadow: none;
   overflow: hidden;
   transform: rotate(2deg);
 }

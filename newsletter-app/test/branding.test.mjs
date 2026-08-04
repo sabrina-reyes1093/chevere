@@ -41,9 +41,10 @@ test("public footer and admin surfaces use the same logo artwork", () => {
   assert.match(styles, /@media \(max-width: 620px\)[\s\S]*?\.hero-portrait img\.hero-portrait__collage \{[\s\S]*?object-fit: contain;[\s\S]*?object-position: center;/);
   assert.match(styles, /@media \(max-width: 620px\)[\s\S]*?\.hero-portrait \{[\s\S]*?width: min\(94%, 430px\);[\s\S]*?aspect-ratio: 1341 \/ 1173;[\s\S]*?overflow: visible;/);
   assert.match(styles, /\.hero-portrait img\.hero-portrait__collage \{[\s\S]*?object-fit: contain;[\s\S]*?transform: scale\(\.94\);/);
+  assert.match(styles, /\.hero-portrait \{[\s\S]*?box-shadow: none;/);
   assert.match(styles, /\.hero-cloud--front \{ left: -5%; bottom: 9%; z-index: 2; transform: scale\(\.94\); \}/);
   assert.doesNotMatch(readPublic("index.html"), /class="hero-caption"/);
-  assert.match(readPublic("index.html"), /chevere-homepage-editorial-collage-final\.png\?v=20260803-5/);
+  assert.match(readPublic("index.html"), /chevere-homepage-editorial-collage-final\.png\?v=20260804-1/);
   assert.match(shell, /<Image src="\/chevere-logo\.png" alt="Chévere"/);
   assert.match(login, /<Image className="login-logo" src="\/chevere-logo\.png"/);
   assert.deepEqual(publicLogo, adminLogo);
