@@ -677,7 +677,18 @@ document.querySelectorAll('.nav-item.has-dropdown > a').forEach(function (a) {
           '<h2 id="seasonal-guide-title">' + safe(banner.headline) + '</h2>' +
           (banner.description ? '<p class="seasonal-description">' + safe(banner.description) + '</p>' : '') +
           (banner.href ? '<a class="seasonal-cta" href="' + safe(banner.href) + '">' + safe(banner.cta_label || 'Explore the Guide') + ' <span aria-hidden="true">&rarr;</span></a>' : '') +
-          '</div></div>';
+          '</div>' +
+          '<div class="seasonal-guide-art" aria-hidden="true">' +
+            '<span class="seasonal-art-orbit"></span>' +
+            '<span class="seasonal-art-cloud"></span>' +
+            '<figure class="seasonal-postcard seasonal-postcard--main"><img src="assets/amalfi-coast.jpg" alt="" width="800" height="533" loading="lazy" /></figure>' +
+            '<figure class="seasonal-postcard seasonal-postcard--small"><img src="assets/picnic.png" alt="" width="400" height="267" loading="lazy" /></figure>' +
+            '<span class="seasonal-art-spark">&diams;</span>' +
+            '<span class="seasonal-art-heart">&hearts;</span>' +
+            '<span class="seasonal-art-bubble seasonal-art-bubble--one"></span>' +
+            '<span class="seasonal-art-bubble seasonal-art-bubble--two"></span>' +
+          '</div>' +
+          '</div>';
         seasonal.innerHTML = inner;
         seasonal.hidden = false;
         if (banner.href) {
