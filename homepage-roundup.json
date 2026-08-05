@@ -1,8 +1,35 @@
 {
   "enabled": false,
   "cards": [
-    { "category": "", "title": "", "text": "", "url": "", "image_url": "", "image_alt": "", "link_type": "internal", "cta_label": "Read More" },
-    { "category": "", "title": "", "text": "", "url": "", "image_url": "", "image_alt": "", "link_type": "internal", "cta_label": "Read More" },
-    { "category": "", "title": "", "text": "", "url": "", "image_url": "", "image_alt": "", "link_type": "internal", "cta_label": "Read More" }
+    {
+      "category": "",
+      "title": "",
+      "text": "",
+      "url": "",
+      "image_url": "https://xjtnfwnntzonmumlxbyg.supabase.co/storage/v1/object/public/newsletter-images/2026-08/b63d92fe-ec86-4415-8ca2-78024b88e79b.png",
+      "image_alt": "",
+      "link_type": "internal",
+      "cta_label": "Read More"
+    },
+    {
+      "category": "",
+      "title": "",
+      "text": "",
+      "url": "",
+      "image_url": "https://xjtnfwnntzonmumlxbyg.supabase.co/storage/v1/object/public/newsletter-images/2026-08/24e2c577-230c-4e25-ab90-ea3558a38e67.png",
+      "image_alt": "",
+      "link_type": "internal",
+      "cta_label": "Read More"
+    },
+    {
+      "category": "",
+      "title": "",
+      "text": "",
+      "url": "",
+      "image_url": "",
+      "image_alt": "",
+      "link_type": "internal",
+      "cta_label": "Read More"
+    }
   ]
 }
