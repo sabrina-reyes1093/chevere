@@ -679,14 +679,11 @@ document.querySelectorAll('.nav-item.has-dropdown > a').forEach(function (a) {
           (banner.href ? '<a class="seasonal-cta" href="' + safe(banner.href) + '">' + safe(banner.cta_label || 'Explore the Guide') + ' <span aria-hidden="true">&rarr;</span></a>' : '') +
           '</div>' +
           '<div class="seasonal-guide-art" aria-hidden="true">' +
-            '<span class="seasonal-art-orbit"></span>' +
-            '<span class="seasonal-art-cloud"></span>' +
-            '<figure class="seasonal-postcard seasonal-postcard--main"><img src="assets/amalfi-coast.jpg" alt="" width="800" height="533" loading="lazy" /></figure>' +
-            '<figure class="seasonal-postcard seasonal-postcard--small"><img src="assets/picnic.png" alt="" width="400" height="267" loading="lazy" /></figure>' +
-            '<span class="seasonal-art-spark">&diams;</span>' +
-            '<span class="seasonal-art-heart">&hearts;</span>' +
-            '<span class="seasonal-art-bubble seasonal-art-bubble--one"></span>' +
-            '<span class="seasonal-art-bubble seasonal-art-bubble--two"></span>' +
+            '<span class="summer-icon summer-icon--plane"><svg viewBox="0 0 120 90" focusable="false"><defs><linearGradient id="summer-plane-gradient" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#d5c2ff"/><stop offset="1" stop-color="#8fd7ff"/></linearGradient></defs><path class="summer-plane-trail" d="M8 73c22 10 41 4 52-7"/><path d="M54 60 94 16 72 69 58 57 54 60Z" fill="url(#summer-plane-gradient)"/><path d="m58 57 13-18"/><path d="m94 16-54 27 18 14" fill="#f8f4ff"/></svg></span>' +
+            '<span class="summer-icon summer-icon--sun"><svg viewBox="0 0 100 100" focusable="false"><defs><radialGradient id="summer-sun-gradient" cx="38%" cy="32%"><stop stop-color="#fff8b8"/><stop offset="1" stop-color="#ffbd55"/></radialGradient></defs><g class="summer-sun-rays"><path d="M50 4v15M50 81v15M4 50h15M81 50h15M17 17l11 11M72 72l11 11M83 17 72 28M28 72 17 83"/></g><circle cx="50" cy="50" r="24" fill="url(#summer-sun-gradient)"/><circle cx="42" cy="42" r="7" fill="rgba(255,255,255,.5)"/></svg></span>' +
+            '<span class="summer-icon summer-icon--wave"><svg viewBox="0 0 180 80" focusable="false"><defs><linearGradient id="summer-wave-gradient" x1="0" y1="0" x2="1" y2="0"><stop stop-color="#a88cf2"/><stop offset=".5" stop-color="#73c8ed"/><stop offset="1" stop-color="#8bd9c2"/></linearGradient></defs><path d="M8 31c17-19 34-19 51 0s34 19 51 0 34-19 62 0"/><path d="M8 51c17-15 34-15 51 0s34 15 51 0 34-15 62 0"/></svg></span>' +
+            '<span class="summer-icon summer-icon--palm"><svg viewBox="0 0 120 170" focusable="false"><defs><linearGradient id="summer-palm-gradient" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#c7ee9b"/><stop offset="1" stop-color="#68c7a1"/></linearGradient></defs><path class="summer-palm-trunk" d="M61 151c4-35 4-65-2-94"/><path d="M59 58C42 35 25 31 10 39c20 2 35 9 47 22M60 58C70 30 88 19 108 25 87 32 73 44 62 62M58 57C37 48 21 53 9 67c18-5 34-5 49-6M61 58c20-9 37-4 49 11-18-6-34-7-49-7M59 55C48 35 49 18 60 6c6 18 7 34 2 51" fill="url(#summer-palm-gradient)"/><circle cx="57" cy="62" r="6" fill="#b78664"/><circle cx="68" cy="61" r="5" fill="#9f7356"/></svg></span>' +
+            '<span class="summer-icon summer-icon--sunglasses"><svg viewBox="0 0 150 80" focusable="false"><defs><linearGradient id="summer-lens-gradient" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#f4b6ec"/><stop offset=".5" stop-color="#bba4ff"/><stop offset="1" stop-color="#7ecce8"/></linearGradient></defs><path d="M9 30 2 20M141 30l7-10M65 35c7-6 13-6 20 0"/><path d="M12 28c4-4 42-4 48 0 1 29-12 39-26 39S13 54 12 28ZM90 28c6-4 44-4 48 0-1 26-9 39-22 39-14 0-27-10-26-39Z" fill="url(#summer-lens-gradient)"/><path class="summer-lens-shine" d="m27 35 13 22M104 35l14 24"/></svg></span>' +
           '</div>' +
           '</div>';
         seasonal.innerHTML = inner;

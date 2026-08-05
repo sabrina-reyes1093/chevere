@@ -3702,162 +3702,124 @@ label,
   isolation: isolate;
 }
 
-.seasonal-art-orbit {
+.summer-icon {
+  --summer-lift: -9px;
+  --summer-rotation: 0deg;
+  --summer-duration: 6s;
+  --summer-delay: 0s;
   position: absolute;
-  inset: 13% 1% 6% 7%;
-  border: 1px solid rgba(113, 87, 141, .32);
-  border-radius: 50%;
-  transform: rotate(-13deg);
-}
-
-.seasonal-art-orbit::after {
-  position: absolute;
-  inset: 11% 17% 8% 9%;
-  border: 1px solid rgba(113, 87, 141, .2);
-  border-radius: 50%;
-  content: "";
-  transform: rotate(34deg);
-}
-
-.seasonal-postcard {
-  position: absolute;
-  overflow: hidden;
-  margin: 0;
-  padding: 10px;
-  border: 1px solid rgba(255,255,255,.92);
-  border-radius: 24px;
-  background: rgba(255,255,255,.88);
-  box-shadow: 0 20px 42px rgba(79, 61, 101, .2);
-  transform-origin: center;
-}
-
-.seasonal-postcard img {
-  width: 100%;
-  height: 100%;
-  display: block;
-  border-radius: 15px;
-  object-fit: cover;
-}
-
-.seasonal-postcard--main {
-  z-index: 1;
-  top: 20px;
-  right: 4%;
-  width: min(73%, 370px);
-  aspect-ratio: 4 / 3;
-  transform: rotate(6deg);
-  animation: seasonal-postcard-main 7s ease-in-out infinite;
-}
-
-.seasonal-postcard--small {
   z-index: 2;
-  left: 0;
-  bottom: 18px;
-  width: min(49%, 245px);
-  aspect-ratio: 4 / 3;
-  transform: rotate(-8deg);
-  animation: seasonal-postcard-small 6.4s ease-in-out .7s infinite;
+  display: block;
+  filter: drop-shadow(0 14px 18px rgba(77, 59, 104, .17));
+  pointer-events: none;
+  transform: rotate(var(--summer-rotation));
+  transform-origin: center;
+  animation: summer-icon-float var(--summer-duration) ease-in-out var(--summer-delay) infinite;
 }
 
-.seasonal-art-cloud {
-  --seasonal-cloud-scale: 1;
-  position: absolute;
-  z-index: 3;
-  top: 0;
+.summer-icon svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  overflow: visible;
+}
+
+.summer-icon svg path {
+  stroke: #725c91;
+  stroke-width: 2.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.summer-icon--plane {
+  --summer-rotation: -9deg;
+  --summer-duration: 6.8s;
+  top: 4%;
+  left: 4%;
+  width: 118px;
+}
+
+.summer-icon--plane .summer-plane-trail {
+  fill: none;
+  stroke: rgba(114, 92, 145, .52);
+  stroke-dasharray: 4 7;
+}
+
+.summer-icon--sun {
+  --summer-lift: -6px;
+  --summer-rotation: 7deg;
+  --summer-duration: 7.2s;
+  --summer-delay: -.8s;
+  top: 2%;
+  right: 7%;
+  width: 94px;
+  padding: 9px;
+  border: 1px solid rgba(255, 255, 255, .82);
+  border-radius: 42%;
+  background: rgba(255, 255, 255, .34);
+  box-shadow: inset 0 0 22px rgba(255, 248, 184, .38);
+}
+
+.summer-icon--sun .summer-sun-rays {
+  fill: none;
+  stroke: #e5a855;
+  stroke-width: 4;
+}
+
+.summer-icon--sunglasses {
+  --summer-rotation: -7deg;
+  --summer-duration: 6.2s;
+  --summer-delay: -1.4s;
   left: 1%;
-  width: 136px;
-  height: 46px;
-  border-radius: 999px;
-  background: linear-gradient(180deg, rgba(255,255,255,.98), #dfe5f3);
-  filter: drop-shadow(0 12px 18px rgba(80, 70, 110, .16));
-  transform: scale(var(--seasonal-cloud-scale));
-  animation: seasonal-cloud-drift 8s ease-in-out infinite;
+  bottom: 20%;
+  width: 138px;
+  padding: 8px 10px;
+  border: 1px solid rgba(255, 255, 255, .82);
+  border-radius: 28px;
+  background: rgba(255, 255, 255, .4);
 }
 
-.seasonal-art-cloud::before,
-.seasonal-art-cloud::after {
-  position: absolute;
-  bottom: 12px;
-  border-radius: 50%;
-  background: inherit;
-  content: "";
+.summer-icon--sunglasses .summer-lens-shine {
+  fill: none;
+  stroke: rgba(255, 255, 255, .72);
+  stroke-width: 5;
 }
 
-.seasonal-art-cloud::before { left: 22px; width: 62px; height: 62px; }
-.seasonal-art-cloud::after { right: 12px; width: 72px; height: 72px; }
-
-.seasonal-art-heart {
-  position: absolute;
-  z-index: 4;
-  right: 0;
-  bottom: 12%;
-  display: grid;
-  width: 64px;
-  height: 64px;
-  place-items: center;
-  border: 1px solid rgba(255,255,255,.9);
-  border-radius: 50%;
-  background: linear-gradient(145deg, #ffe7f5, #f5b6e8);
-  box-shadow: 0 14px 28px rgba(85, 60, 106, .17);
-  color: #db5b9b;
-  font-size: 23px;
-  animation: seasonal-heart-float 5s ease-in-out infinite;
+.summer-icon--palm {
+  --summer-rotation: 8deg;
+  --summer-duration: 7.6s;
+  --summer-delay: -.4s;
+  right: 17%;
+  bottom: 1%;
+  width: 116px;
 }
 
-.seasonal-art-spark {
-  position: absolute;
-  z-index: 4;
-  top: 12%;
-  right: 1%;
-  color: #7653a2;
-  font-size: 38px;
-  line-height: 1;
-  text-shadow: 0 8px 18px rgba(83, 52, 112, .24);
-  transform: rotate(45deg);
-  animation: seasonal-spark-pulse 3.8s ease-in-out infinite;
+.summer-icon--palm svg path:not(.summer-palm-trunk) { stroke-width: 1.8; }
+.summer-icon--palm .summer-palm-trunk {
+  fill: none;
+  stroke: #a97958;
+  stroke-width: 11;
 }
 
-.seasonal-art-bubble {
-  position: absolute;
-  z-index: 4;
-  border: 1px solid rgba(255,255,255,.9);
-  border-radius: 50%;
-  background: radial-gradient(circle at 32% 28%, rgba(255,255,255,.92), rgba(217,194,255,.28) 42%, rgba(156,124,211,.2));
-  box-shadow: inset -4px -5px 10px rgba(118,85,154,.12), 0 8px 18px rgba(87,66,110,.12);
-  animation: seasonal-bubble-rise 5.6s ease-in-out infinite;
+.summer-icon--wave {
+  --summer-lift: -5px;
+  --summer-rotation: 2deg;
+  --summer-duration: 5.8s;
+  --summer-delay: -2s;
+  left: 24%;
+  bottom: 1%;
+  width: 180px;
 }
 
-.seasonal-art-bubble--one { right: 19%; bottom: 1%; width: 28px; height: 28px; }
-.seasonal-art-bubble--two { right: 11%; bottom: 23%; width: 16px; height: 16px; animation-delay: 1.1s; }
-
-@keyframes seasonal-postcard-main {
-  0%, 100% { transform: translateY(0) rotate(6deg); }
-  50% { transform: translateY(-9px) rotate(4.5deg); }
+.summer-icon--wave svg path {
+  fill: none;
+  stroke: url(#summer-wave-gradient);
+  stroke-width: 7;
 }
 
-@keyframes seasonal-postcard-small {
-  0%, 100% { transform: translateY(0) rotate(-8deg); }
-  50% { transform: translateY(8px) rotate(-6deg); }
-}
-
-@keyframes seasonal-cloud-drift {
-  0%, 100% { transform: translate3d(0, 0, 0) scale(var(--seasonal-cloud-scale)); }
-  50% { transform: translate3d(12px, -5px, 0) scale(var(--seasonal-cloud-scale)); }
-}
-
-@keyframes seasonal-heart-float {
-  0%, 100% { transform: translateY(0) rotate(-4deg); }
-  50% { transform: translateY(-10px) rotate(4deg); }
-}
-
-@keyframes seasonal-spark-pulse {
-  0%, 100% { transform: rotate(45deg) scale(.9); opacity: .72; }
-  50% { transform: rotate(45deg) scale(1.1); opacity: 1; }
-}
-
-@keyframes seasonal-bubble-rise {
-  0%, 100% { transform: translateY(0) scale(.96); }
-  50% { transform: translateY(-12px) scale(1.04); }
+@keyframes summer-icon-float {
+  0%, 100% { transform: translate3d(0, 0, 0) rotate(var(--summer-rotation)); }
+  50% { transform: translate3d(0, var(--summer-lift), 0) rotate(var(--summer-rotation)); }
 }
 
 .featured-reads,
@@ -4591,6 +4553,11 @@ html[data-theme="dark"] .search-panel {
   }
 
   .seasonal-guide-art { min-height: 310px; margin-right: -28px; }
+  .summer-icon--plane { top: 3%; left: 1%; width: 96px; }
+  .summer-icon--sun { top: 3%; right: 1%; width: 76px; }
+  .summer-icon--sunglasses { left: 0; bottom: 20%; width: 108px; }
+  .summer-icon--palm { right: 10%; bottom: 1%; width: 98px; }
+  .summer-icon--wave { left: 20%; bottom: 1%; width: 148px; }
 }
 
 @media (max-width: 700px) {
@@ -4609,11 +4576,11 @@ html[data-theme="dark"] .search-panel {
 
 @media (max-width: 620px) {
   .seasonal-guide-art { min-height: 270px; }
-  .seasonal-postcard--main { top: 18px; right: 1%; width: 69%; }
-  .seasonal-postcard--small { left: 1%; bottom: 10px; width: 47%; }
-  .seasonal-art-cloud { --seasonal-cloud-scale: .78; top: 2px; left: -2%; }
-  .seasonal-art-heart { right: 0; bottom: 7%; width: 54px; height: 54px; }
-  .seasonal-art-spark { top: 3%; right: 3%; font-size: 30px; }
+  .summer-icon--plane { top: 2%; left: 2%; width: 82px; }
+  .summer-icon--sun { top: 4%; right: 3%; width: 64px; padding: 6px; }
+  .summer-icon--sunglasses { left: 0; bottom: 19%; width: 94px; padding: 6px 8px; }
+  .summer-icon--palm { right: 4%; bottom: 1%; width: 86px; }
+  .summer-icon--wave { left: 24%; bottom: 0; width: 132px; }
 
   .hero-portrait {
     inset: auto;
@@ -4688,12 +4655,7 @@ html[data-theme="dark"] .search-panel {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .seasonal-postcard--main,
-  .seasonal-postcard--small,
-  .seasonal-art-cloud,
-  .seasonal-art-heart,
-  .seasonal-art-spark,
-  .seasonal-art-bubble {
+  .summer-icon {
     animation: none;
   }
 }
