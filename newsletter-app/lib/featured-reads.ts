@@ -18,8 +18,11 @@ export type FeaturedRead = FeaturedReadArticle & {
   display_order: number;
 };
 
-export async function loadPublishedArticles() {
-  const response = await fetch(`${config.siteUrl}/blog.html`, { next: { revalidate: 300 } });
+export async function loadPublishedArticles({ fresh = false }: { fresh?: boolean } = {}) {
+  const response = await fetch(
+    `${config.siteUrl}/blog.html`,
+    fresh ? { cache: "no-store" } : { next: { revalidate: 300 } },
+  );
   if (!response.ok) throw new Error("Unable to load published articles.");
 
   const $ = load(await response.text());

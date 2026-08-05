@@ -22,7 +22,8 @@ test("Featured Reads has a durable three-slot model with the requested defaults"
 test("Featured Reads reads the manual admin selection, with an auto-fill-by-newest button", () => {
   const model = read("lib/featured-reads.ts");
   const editor = read("components/featured-reads-editor.tsx");
-  assert.match(model, /fetch\(`\$\{config\.siteUrl\}\/blog\.html`/);
+  assert.match(model, /`\$\{config\.siteUrl\}\/blog\.html`/);
+  assert.match(model, /fresh \? \{ cache: "no-store" \} : \{ next: \{ revalidate: 300 \} \}/);
   assert.match(model, /\.from\("homepage_featured_reads"\)/);
   assert.match(model, /\.select\("display_order,post_slug"\)/);
   assert.match(editor, /Order by newest published/);

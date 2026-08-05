@@ -1,25 +1,13 @@
 import fs from "node:fs/promises";
 import path from "node:path";
-import { z } from "zod";
 
 import { config } from "./config";
 import { commitFiles, readFileFromRepo } from "./publish-github";
 import { siteRoot } from "./publish-post";
+import { siteContentSchema, type SiteContent } from "./site-content-schema";
 
-export const siteContentSchema = z.object({
-  seasonal_banner: z.object({
-    enabled: z.boolean(),
-    label: z.string().max(80),
-    headline: z.string().max(160),
-    description: z.string().max(320),
-    href: z.string().max(500),
-    cta_label: z.string().max(80).default("EXPLORE THE GUIDE"),
-    publish_date: z.string().regex(/^\d{4}-\d{2}-\d{2}$/).or(z.literal("")).default(""),
-    expiration_date: z.string().regex(/^\d{4}-\d{2}-\d{2}$/).or(z.literal("")).default(""),
-  }),
-});
-
-export type SiteContent = z.infer<typeof siteContentSchema>;
+export { siteContentSchema };
+export type { SiteContent };
 
 const localPath = path.join(siteRoot(), "site-content.json");
 

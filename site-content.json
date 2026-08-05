@@ -1,12 +1,19 @@
 {
   "seasonal_banner": {
     "enabled": true,
+    "season": "Summer",
+    "year": 2026,
     "label": "SUMMER 2026",
     "headline": "The Summer Guide",
     "description": "Books, places, tables, and small pleasures for the season.",
     "href": "summer-guide.html",
     "cta_label": "EXPLORE THE GUIDE",
     "publish_date": "2026-06-01",
-    "expiration_date": "2026-09-14"
+    "expiration_date": "2026-09-14",
+    "post_slugs": [
+      "chevere-summer-reading-edit",
+      "best-chicago-patios-2026",
+      "dua-lipa-vacation"
+    ]
   }
 }

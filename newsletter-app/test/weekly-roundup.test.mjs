@@ -63,7 +63,7 @@ test("homepage has the requested editorial order and no retired Currently Loving
   const styles = readPublic("styles.css");
   const content = JSON.parse(readPublic("site-content.json"));
   const editor = read("components/site-content-editor.tsx");
-  const contentSchema = read("lib/site-content.ts");
+  const contentSchema = read("lib/site-content-schema.ts");
 
   assert.equal(content.seasonal_banner.headline, "The Summer Guide");
   assert.equal(content.seasonal_banner.cta_label, "EXPLORE THE GUIDE");

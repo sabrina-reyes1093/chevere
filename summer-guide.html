@@ -117,9 +117,9 @@
 
   <main class="blog-main">
     <section class="summer-guide-intro" aria-labelledby="summer-guide-title">
-      <span class="eyebrow">Summer 2026</span>
+      <span class="eyebrow" id="seasonal-page-label">Summer 2026</span>
       <h1 id="summer-guide-title">The Summer Guide</h1>
-      <p>Books, places, tables, and small pleasures for the season.</p>
+      <p id="seasonal-page-description">Books, places, tables, and small pleasures for the season.</p>
     </section>
 
     <div class="cat-pills" aria-label="Filter posts by category" id="category-filters">
@@ -152,7 +152,7 @@
 
     <div class="blog-empty" id="blog-empty" hidden>
       <i data-lucide="feather" stroke-width="1.6" aria-hidden="true"></i>
-      <h2>More summer discoveries are coming soon</h2>
+      <h2 id="seasonal-empty-title">More seasonal discoveries are coming soon</h2>
       <p><a href="blog.html">BROWSE ALL POSTS &rarr;</a></p>
     </div>
   </main>
@@ -161,22 +161,14 @@
   <script src="site.js?v=20260804-2"></script>
   <script>
     (function () {
-      var cards = Array.prototype.slice.call(document.querySelectorAll('.post-card'));
       var filterContainer = document.getElementById('category-filters');
       var heading = document.querySelector('.summer-guide-intro h1');
+      var label = document.getElementById('seasonal-page-label');
+      var description = document.getElementById('seasonal-page-description');
+      var postGrid = document.getElementById('post-grid');
       var empty = document.getElementById('blog-empty');
+      var emptyTitle = document.getElementById('seasonal-empty-title');
 
-      var categoryMap = {};
-      cards.forEach(function (card) {
-        var cats = (card.getAttribute('data-cat') || '').split(/\s+/);
-        cats.forEach(function (cat) {
-          if (cat && cat !== 'summer-guide') {
-            categoryMap[cat] = (categoryMap[cat] || 0) + 1;
-          }
-        });
-      });
-
-      var allCats = Object.keys(categoryMap).sort();
       var categoryNames = {
         'books': 'Read',
         'travel': 'Go',
@@ -185,41 +177,128 @@
         'film-tv': 'Watch'
       };
 
-      allCats.forEach(function (cat) {
-        var button = document.createElement('button');
-        button.setAttribute('data-cat', cat);
-        button.textContent = categoryNames[cat] || cat.charAt(0).toUpperCase() + cat.slice(1);
-        filterContainer.appendChild(button);
-      });
-
-      var pills = Array.prototype.slice.call(filterContainer.querySelectorAll('button'));
-
-      function apply(cat) {
-        var visible = 0;
-        cards.forEach(function (card) {
-          var categories = (card.getAttribute('data-cat') || '').split(/\s+/);
-          var hide = cat !== 'all' && categories.indexOf(cat) === -1;
-          card.classList.toggle('hidden', hide);
-          if (!hide) visible++;
-        });
-
-        pills.forEach(function (p) {
-          p.classList.toggle('active', p.getAttribute('data-cat') === cat);
-        });
-
-        empty.hidden = visible > 0;
+      function chicagoDate() {
+        var parts = new Intl.DateTimeFormat('en-CA', {
+          timeZone: 'America/Chicago',
+          year: 'numeric',
+          month: '2-digit',
+          day: '2-digit'
+        }).formatToParts(new Date());
+        var values = {};
+        parts.forEach(function (part) { values[part.type] = part.value; });
+        return values.year + '-' + values.month + '-' + values.day;
       }
 
-      pills.forEach(function (p) {
-        p.addEventListener('click', function () {
-          var cat = p.getAttribute('data-cat');
-          history.replaceState(null, '', cat === 'all' ? 'summer-guide.html' : 'summer-guide.html?cat=' + cat);
-          apply(cat);
-        });
-      });
+      function renderSelectedPosts(content, blogSource) {
+        var banner = content && content.seasonal_banner ? content.seasonal_banner : {};
+        var season = banner.season || 'Summer';
+        var postSlugs = Array.isArray(banner.post_slugs) ? banner.post_slugs : [];
+        document.body.setAttribute('data-season', season.toLowerCase());
+        var today = chicagoDate();
+        var isPublished = !banner.publish_date || banner.publish_date <= today;
+        var isCurrent = !banner.expiration_date || banner.expiration_date >= today;
+        if (!banner.enabled || !isPublished || !isCurrent) {
+          label.textContent = 'SEASONAL GUIDE';
+          heading.textContent = 'A new guide is on the way';
+          description.textContent = 'Check back soon for the next Chévere seasonal edit.';
+          document.title = 'Seasonal Guide — Chévere';
+          postGrid.replaceChildren();
+          filterContainer.hidden = true;
+          emptyTitle.textContent = 'This seasonal guide is not currently available';
+          return;
+        }
 
-      var q = new URLSearchParams(location.search).get('cat') || 'all';
-      apply(q);
+        if (banner.label) label.textContent = banner.label;
+        if (banner.headline) {
+          heading.textContent = banner.headline;
+          document.title = banner.headline + ' — Chévere';
+        }
+        if (banner.description) {
+          description.textContent = banner.description;
+          var metaDescription = document.querySelector('meta[name="description"]');
+          if (metaDescription) metaDescription.setAttribute('content', banner.description);
+        }
+        emptyTitle.textContent = 'More ' + season.toLowerCase() + ' discoveries are coming soon';
+
+        if (!blogSource) {
+          postGrid.replaceChildren();
+          filterContainer.hidden = true;
+          emptyTitle.textContent = 'Seasonal stories are temporarily unavailable';
+          return;
+        }
+        var blogDocument = new DOMParser().parseFromString(blogSource, 'text/html');
+        var cardsBySlug = {};
+        Array.prototype.forEach.call(blogDocument.querySelectorAll('.post-card'), function (card) {
+          var href = card.getAttribute('href') || '';
+          var slug = (href.split('/').pop() || '').replace(/\.html$/, '');
+          if (slug) cardsBySlug[slug] = card;
+        });
+        var selectedCards = postSlugs.map(function (slug) { return cardsBySlug[slug]; }).filter(Boolean);
+        postGrid.replaceChildren.apply(postGrid, selectedCards.map(function (card) { return card.cloneNode(true); }));
+      }
+
+      function setupFilters() {
+        var cards = Array.prototype.slice.call(postGrid.querySelectorAll('.post-card'));
+        if (!cards.length) filterContainer.hidden = true;
+        var categoryMap = {};
+        cards.forEach(function (card) {
+          var cats = (card.getAttribute('data-cat') || '').split(/\s+/);
+          cats.forEach(function (cat) {
+            if (cat && cat !== 'summer-guide') categoryMap[cat] = (categoryMap[cat] || 0) + 1;
+          });
+        });
+
+        filterContainer.innerHTML = '<button data-cat="all" class="active">All</button>';
+        Object.keys(categoryMap).sort().forEach(function (cat) {
+          var button = document.createElement('button');
+          button.setAttribute('data-cat', cat);
+          button.textContent = categoryNames[cat] || cat.charAt(0).toUpperCase() + cat.slice(1);
+          filterContainer.appendChild(button);
+        });
+
+        var pills = Array.prototype.slice.call(filterContainer.querySelectorAll('button'));
+        function apply(cat) {
+          var visible = 0;
+          cards.forEach(function (card) {
+            var categories = (card.getAttribute('data-cat') || '').split(/\s+/);
+            var hide = cat !== 'all' && categories.indexOf(cat) === -1;
+            card.classList.toggle('hidden', hide);
+            if (!hide) visible++;
+          });
+
+          pills.forEach(function (pill) {
+            pill.classList.toggle('active', pill.getAttribute('data-cat') === cat);
+          });
+
+          empty.hidden = visible > 0;
+        }
+
+        pills.forEach(function (pill) {
+          pill.addEventListener('click', function () {
+            var cat = pill.getAttribute('data-cat');
+            history.replaceState(null, '', cat === 'all' ? 'summer-guide.html' : 'summer-guide.html?cat=' + encodeURIComponent(cat));
+            apply(cat);
+          });
+        });
+
+        var requestedCategory = new URLSearchParams(location.search).get('cat') || 'all';
+        var validCategory = requestedCategory === 'all' || categoryMap[requestedCategory];
+        apply(validCategory ? requestedCategory : 'all');
+      }
+
+      fetch('site-content.json', { cache: 'no-store' }).then(function (response) {
+        return response.ok ? response.json() : Promise.reject(new Error('Site content unavailable'));
+      }).then(function (content) {
+        return fetch('blog.html', { cache: 'no-store' }).then(function (response) {
+          return response.ok ? response.text() : Promise.reject(new Error('Published articles unavailable'));
+        }).then(function (blogSource) {
+          renderSelectedPosts(content, blogSource);
+        }).catch(function () {
+          renderSelectedPosts(content, '');
+        });
+      }).catch(function () {
+        /* Keep the server-rendered seasonal fallback when live content is unavailable. */
+      }).finally(setupFilters);
     })();
   </script>
 
