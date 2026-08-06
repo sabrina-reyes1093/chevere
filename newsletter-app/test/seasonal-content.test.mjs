@@ -15,13 +15,20 @@ test("seasonal site content stores the active season and an ordered unique post 
   const content = JSON.parse(readPublic("site-content.json"));
   const schema = read("lib/site-content-schema.ts");
 
-  assert.equal(content.seasonal_banner.season, "Summer");
-  assert.equal(content.seasonal_banner.year, 2026);
-  assert.deepEqual(content.seasonal_banner.post_slugs, [
-    "chevere-summer-reading-edit",
-    "best-chicago-patios-2026",
-    "dua-lipa-vacation",
-  ]);
+  // The admin portal owns these values, so assert the invariants it has to keep.
+  // Pinning the current season or story list here would fail the build every time
+  // someone curates the guide, which is exactly what the feature is for.
+  const banner = siteContentSchema.parse(content).seasonal_banner;
+  assert.ok(["Spring", "Summer", "Fall", "Winter"].includes(banner.season));
+  assert.ok(Number.isInteger(banner.year) && banner.year >= 2020 && banner.year <= 2100);
+  assert.ok(banner.post_slugs.length >= 1 && banner.post_slugs.length <= 12);
+  assert.equal(new Set(banner.post_slugs).size, banner.post_slugs.length);
+  for (const slug of banner.post_slugs) {
+    assert.ok(
+      fs.existsSync(path.join(publicRoot, "posts", `${slug}.html`)),
+      `seasonal selection "${slug}" does not resolve to a published post`,
+    );
+  }
   assert.match(schema, /z\.enum\(\["Spring", "Summer", "Fall", "Winter"\]\)/);
   assert.match(schema, /\.min\(1\)\.max\(12\)/);
   assert.match(schema, /new Set\(slugs\)\.size === slugs\.length/);

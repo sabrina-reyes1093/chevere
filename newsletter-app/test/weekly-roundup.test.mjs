@@ -65,9 +65,11 @@ test("homepage has the requested editorial order and no retired Currently Loving
   const editor = read("components/site-content-editor.tsx");
   const contentSchema = read("lib/site-content-schema.ts");
 
-  assert.equal(content.seasonal_banner.headline, "The Summer Guide");
-  assert.equal(content.seasonal_banner.cta_label, "EXPLORE THE GUIDE");
-  assert.equal(content.seasonal_banner.publish_date, "2026-06-01");
+  // Headline, CTA, and dates are all editable in the admin portal: assert the
+  // shape the homepage depends on rather than the copy that happens to be live.
+  assert.match(content.seasonal_banner.headline, /\S/);
+  assert.match(content.seasonal_banner.cta_label, /\S/);
+  assert.match(content.seasonal_banner.publish_date, /^\d{4}-\d{2}-\d{2}$/);
   assert.equal(typeof content.seasonal_banner.expiration_date, "string");
   assert.equal("image_url" in content.seasonal_banner, false);
   assert.equal("image_alt" in content.seasonal_banner, false);

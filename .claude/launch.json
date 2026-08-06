@@ -4,8 +4,9 @@
     {
       "name": "static-server",
       "runtimeExecutable": "node",
-      "runtimeArgs": ["-e", "require('http').createServer((req,res)=>{const fs=require('fs'),path=require('path');let p=decodeURIComponent(req.url.split('?')[0]);if(p==='/')p='/blog.html';const full=path.join(process.cwd(),p);fs.readFile(full,(err,data)=>{if(err){res.writeHead(404);res.end('not found');return;}const ext=path.extname(full);const types={'.html':'text/html','.js':'text/javascript','.css':'text/css','.png':'image/png','.jpg':'image/jpeg','.svg':'image/svg+xml'};res.writeHead(200,{'Content-Type':types[ext]||'application/octet-stream'});res.end(data);});}).listen(4173);"],
-      "port": 4173
+      "runtimeArgs": ["-e", "require('http').createServer((req,res)=>{const fs=require('fs'),path=require('path');let p=decodeURIComponent(req.url.split('?')[0]);if(p==='/')p='/blog.html';const full=path.join(process.cwd(),p);fs.readFile(full,(err,data)=>{if(err){res.writeHead(404);res.end('not found');return;}const ext=path.extname(full);const types={'.html':'text/html','.js':'text/javascript','.css':'text/css','.png':'image/png','.jpg':'image/jpeg','.svg':'image/svg+xml'};res.writeHead(200,{'Content-Type':types[ext]||'application/octet-stream','Cache-Control':'no-store'});res.end(data);});}).listen(process.env.PORT||4173);"],
+      "port": 4173,
+      "autoPort": true
     },
     {
       "name": "newsletter",

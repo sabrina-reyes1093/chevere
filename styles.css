@@ -4601,8 +4601,7 @@ html[data-theme="dark"] .search-panel {
 @media (max-width: 620px) {
   .seasonal-guide-art { min-height: 270px; }
   .summer-icon--plane { top: 1%; left: 0; width: 74px; }
-  /* Five ornaments is already busy on a phone: the cone steps out. */
-  .summer-icon--cone { display: none; }
+  .summer-icon--cone { top: 2%; left: 41%; width: 50px; }
   .summer-icon--sun { top: 4%; right: 3%; width: 64px; padding: 6px; }
   .summer-icon--sunglasses { left: 0; bottom: 19%; width: 94px; padding: 6px 8px; }
   .summer-icon--palm { right: 4%; bottom: 1%; width: 86px; }
