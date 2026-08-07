@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Eat Your Skincare: 7 Simple Ways to Support Your Glow From Within — chévere</title>
+  <meta name="description" content="The everyday foods that help nourish your skin from the inside out." />
+  <link rel="icon" type="image/png" href="../assets/icon.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../styles.css?v=20260804-5" />
+  <style>
+    .post-body { font-size: 17px; line-height: 1.8; color: var(--text); }
+    .post-body p { margin-bottom: 16px; }
+    .post-body h2 { font-family: var(--serif); font-size: 24px; color: var(--ink); margin: 32px 0 10px; }
+    .post-body h3 { font-family: var(--serif); font-size: 20px; color: var(--ink); margin: 26px 0 8px; }
+    .post-body strong { display: block; font-family: var(--serif); font-weight: 700; font-size: 20px; color: var(--ink); margin-top: 32px; margin-bottom: 8px; }
+    .post-body em { font-style: italic; }
+    .post-hero { width: 100%; height: auto; border-radius: 24px; margin-bottom: 28px; display: block; }
+    .post-inline-img { width: 100%; height: auto; border-radius: 20px; margin: 22px 0; display: block; }
+    .post-signoff { margin-top: 48px; font-size: 17px; color: var(--gray-soft); }
+    .back-link { display: inline-block; margin-bottom: 24px; font-size: 13px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--brown); transition: opacity .15s ease; }
+    .back-link:hover { opacity: 0.7; }
+  </style>
+</head>
+<body>
+
+  <header class="site-header">
+    <a class="header-logo" href="../index.html" aria-label="chévere home">
+      <img src="../assets/logo.png" alt="chévere" />
+    </a>
+    <div class="header-actions">
+      <button id="mobile-menu-toggle" class="mobile-menu-toggle" type="button" aria-label="Open menu" aria-controls="site-navigation" aria-expanded="false"><i data-lucide="menu" stroke-width="1.8" aria-hidden="true"></i></button>
+      <button id="search-toggle" aria-label="Search" title="Search"><i data-lucide="search" stroke-width="1.8" aria-hidden="true"></i></button>
+      <a class="join-list-button" href="../index.html#newsletter">JOIN THE LIST</a>
+      <a href="https://www.instagram.com/itschevere/" target="_blank" rel="noopener" aria-label="Instagram" title="Instagram">
+        <svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+      </a>
+      <a href="https://www.tiktok.com/@itschevere" target="_blank" rel="noopener" aria-label="TikTok" title="TikTok">
+        <svg class="tiktok-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="19" height="19"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.3 0 .59.05.87.13v-3.5a6.37 6.37 0 0 0-.87-.06A6.34 6.34 0 0 0 3.15 15.3a6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.34-6.34V8.46a8.23 8.23 0 0 0 4.77 1.48v-3.4a4.86 4.86 0 0 1-1.01.15z"/></svg>
+      </a>
+    </div>
+    <div id="search-panel" class="search-panel" role="dialog" aria-label="Search posts">
+      <div class="search-bar-wrap">
+        <i data-lucide="search" class="search-bar-icon" stroke-width="2" aria-hidden="true"></i>
+        <input id="search-input" type="text" placeholder="Search posts..." autocomplete="off" />
+        <button id="search-submit" class="search-action-btn" aria-label="Search" type="button">
+          <i data-lucide="arrow-right" stroke-width="2.5" aria-hidden="true"></i>
+        </button>
+        <button id="search-close" class="search-close-btn" aria-label="Close search" type="button">
+          <i data-lucide="x" stroke-width="2.5" aria-hidden="true"></i>
+        </button>
+      </div>
+      <div id="search-results" class="search-results"></div>
+    </div>
+  </header>
+
+  <nav class="site-nav" id="site-navigation" aria-label="Primary navigation">
+    <a href="../index.html">HOME</a>
+    <div class="nav-item has-dropdown">
+      <a href="../blog.html?cat=culture">CULTURE<i data-lucide="chevron-down" class="chev" stroke-width="2" aria-hidden="true"></i></a>
+      <div class="dropdown">
+        <a href="../blog.html?cat=books">Books</a>
+        <a href="../blog.html?cat=film-tv">Film &amp; TV</a>
+        <a href="../blog.html?cat=music">Music</a>
+        <a href="../blog.html?cat=sports">Sports</a>
+        <a href="../blog.html?cat=pop-culture">Pop Culture</a>
+      </div>
+    </div>
+    <div class="nav-item has-dropdown">
+      <a href="../blog.html?cat=style">STYLE<i data-lucide="chevron-down" class="chev" stroke-width="2" aria-hidden="true"></i></a>
+      <div class="dropdown">
+        <a href="../blog.html?cat=fashion">Fashion</a>
+        <a href="../blog.html?cat=beauty">Beauty</a>
+        <a href="../blog.html?cat=interiors">Interiors</a>
+        <a href="../blog.html?cat=design">Design</a>
+      </div>
+    </div>
+    <div class="nav-item has-dropdown">
+      <a href="../blog.html?cat=life">LIFE<i data-lucide="chevron-down" class="chev" stroke-width="2" aria-hidden="true"></i></a>
+      <div class="dropdown">
+        <a href="../blog.html?cat=food">Food</a>
+        <a href="../blog.html?cat=travel">Travel</a>
+        <a href="../blog.html?cat=life-wellness">Life &amp; Wellness</a>
+      </div>
+    </div>
+    <div class="nav-item has-dropdown">
+      <a href="../blog.html?cat=guides">GUIDES<i data-lucide="chevron-down" class="chev" stroke-width="2" aria-hidden="true"></i></a>
+      <div class="dropdown">
+        <a href="../reading-lists.html">Reading Lists</a>
+        <a href="../blog.html?cat=city-guides">City Guides</a>
+        <a href="../blog.html?cat=seasonal-recommendations">Seasonal Recommendations</a>
+        <a href="../blog.html?cat=restaurant-roundups">Restaurant Roundups</a>
+        <a href="../blog.html?cat=gift-guides">Gift Guides</a>
+      </div>
+    </div>
+    <a href="../about.html">ABOUT</a>
+  </nav>
+
+  <main class="page-main">
+    <a class="back-link" href="../blog.html">&larr; Back to Blog</a>
+    <span class="kicker" style="display:block;margin-bottom:8px">Life &amp; Wellness · Food</span>
+    <h1 class="page-title">Eat Your Skincare: 7 Simple Ways to Support Your Glow From Within</h1>
+    <p class="page-tagline" style="font-size:15px;color:#8e8c88;margin-top:-4px;margin-bottom:28px">Aug 5, 2026</p>
+    <div class="post-body">
+      <img class="post-hero" src="https://xjtnfwnntzonmumlxbyg.supabase.co/storage/v1/object/public/newsletter-images/2026-08/e1646fec-6853-49eb-bcb0-33cbdc330b05.png" alt="Eat Your Skincare: 7 Simple Ways to Support Your Glow From Within" />
+      <p><strong>The everyday foods that help nourish your skin from the inside out.</strong></p>
+      <p>We love a good serum, but your skincare routine does not have to stop at the bathroom counter.</p>
+      <p>What you eat cannot replace sunscreen, moisturizer, or a dermatologist-approved routine. Still, consistently giving your body a variety of nutrients can help support healthy-looking skin. Think of this less as a strict beauty diet and more as a grocery-store extension of your skincare routine.</p>
+      <h2>1. Add Berries and Citrus</h2>
+      <img class="post-inline-img" src="https://xjtnfwnntzonmumlxbyg.supabase.co/storage/v1/object/public/newsletter-images/2026-08/0523430c-a0dd-4cf5-8732-63dc0117556f.png" alt="image" />
+      <p>Strawberries, blueberries, oranges, grapefruit, and kiwi are easy ways to bring more vitamin C into your day. Vitamin C plays a role in the body’s natural production of collagen, which helps give skin its structure.</p>
+      <p>Add berries to yogurt, blend them into a smoothie, or keep a bowl of clementines nearby for a snack that requires almost no planning.</p>
+      <h2>2. Do Not Be Afraid of Healthy Fats</h2>
+      <img class="post-inline-img" src="https://xjtnfwnntzonmumlxbyg.supabase.co/storage/v1/object/public/newsletter-images/2026-08/76fda481-d269-4557-8cf8-174dca359667.png" alt="image" />
+      <p>Avocado, olive oil, nuts, and seeds can make meals more satisfying while helping you maintain a balanced eating routine.</p>
+      <p>Try avocado on toast, drizzle olive oil over roasted vegetables, or add sliced almonds to your morning oatmeal. Healthy fats are basically the quiet luxury of the food world.</p>
+      <h2>3. Keep Omega-3s in Rotation</h2>
+      <img class="post-inline-img" src="https://xjtnfwnntzonmumlxbyg.supabase.co/storage/v1/object/public/newsletter-images/2026-08/8bd81d41-9893-49d6-8210-ec29f5477d0a.png" alt="image" />
+      <p>Salmon, walnuts, chia seeds, and flaxseed are simple sources of omega-3 fats.</p>
+      <p>Salmon makes an easy dinner centerpiece, walnuts add crunch to salads, and chia seeds can disappear into smoothies with very little effort. You do not need an elaborate wellness ritual—just a few reliable ingredients appearing consistently.</p>
+      <h2>4. Eat More Color</h2>
+      <img class="post-inline-img" src="https://xjtnfwnntzonmumlxbyg.supabase.co/storage/v1/object/public/newsletter-images/2026-08/e710f67d-2c78-4034-b92c-806ec38b20c0.png" alt="image" />
+      <p>Spinach, bell peppers, carrots, tomatoes, sweet potatoes, and broccoli bring a variety of vitamins and antioxidants to your plate.</p>
+      <p>Roast them, blend them into sauces, pile them into bowls, or sneak them into whatever you already enjoy eating. The goal is not to construct the world’s healthiest salad. It is to make vegetables taste good enough that you genuinely want them again.</p>
+      <h2>5. Include Protein With Your Meals</h2>
+      <img class="post-inline-img" src="https://xjtnfwnntzonmumlxbyg.supabase.co/storage/v1/object/public/newsletter-images/2026-08/7e5c63e7-7bfb-42a1-8a23-d1ea14152a5d.png" alt="image" />
+      <p>Eggs, Greek yogurt, beans, lentils, chicken, tofu, and fish can all help you create meals that feel more complete.</p>
+      <p>Your body uses protein throughout its tissues, including your skin, so regularly including a source with meals is more useful than occasionally buying an expensive powder because the packaging promised a glow.</p>
+      <h2>6. Hydrate Beyond Your Water Bottle</h2>
+      <img class="post-inline-img" src="https://xjtnfwnntzonmumlxbyg.supabase.co/storage/v1/object/public/newsletter-images/2026-08/b1aa262d-177c-40b5-8fe9-796a8396d908.png" alt="image" />
+      <p>Drinking water matters, but it does not have to be the only way you hydrate. Cucumbers, watermelon, oranges, berries, soups, and herbal teas all contribute fluids while bringing something more interesting to the table.</p>
+      <p>Keep water nearby, but do not turn hydration into another impossible beauty assignment. Consistency beats carrying around a gallon-sized bottle you secretly resent.</p>
+      <h2>7. Sprinkle in Zinc-Rich Foods</h2>
+      <img class="post-inline-img" src="https://xjtnfwnntzonmumlxbyg.supabase.co/storage/v1/object/public/newsletter-images/2026-08/52aba980-1dfa-40bb-a748-ffff72fb3a61.png" alt="image" />
+      <p>Pumpkin seeds, chickpeas, lentils, cashews, eggs, and seafood contain zinc, a nutrient your body uses for normal cell function and tissue repair.</p>
+      <p>Sprinkle pumpkin seeds over a salad, snack on cashews, or add chickpeas to a grain bowl. It is an easy final step that does not require completely changing the way you eat.</p>
+      <p>Ultimately, eating your skincare is not about finding one miracle ingredient. It is about creating a colorful, balanced routine you can realistically maintain.</p>
+      <p>Your morning smoothie will not replace SPF, and a handful of berries will not erase every breakout—but nourishing yourself well is still one of the simplest ways to care for the skin you are in.</p>
+      <p>The glow is probably not hiding inside one trendy supplement. It is somewhere between your produce drawer, your water glass, and the dinner you make on an ordinary Tuesday.</p>
+      <p class="post-signoff">Until next week — stay <em>chévere</em></p>
+    </div>
+  </main>
+
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script src="../site.js?v=20260804-3"></script>
+</body>
+</html>
