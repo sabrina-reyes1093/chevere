@@ -34,6 +34,42 @@ test("slugs and dates match the conventions already used on the site", () => {
   assert.equal(activeCategories.includes("evergreen-guides"), false);
 });
 
+test("Art is offered in the admin editor and reachable from the public Culture menu", () => {
+  const culture = CATEGORY_GROUPS.find((group) => group.slug === "culture");
+  assert.ok(culture.categories.some((item) => item.slug === "art" && item.label === "Art"));
+
+  // The editor renders its checkboxes from CATEGORY_GROUPS, so being in the
+  // taxonomy is what puts Art on the posting form.
+  assert.match(read("components/post-editor.tsx"), /CATEGORY_GROUPS\.map/);
+  assert.equal(categoryLabel("art"), "Art");
+  assert.equal(categorySection("art"), "culture");
+  assert.equal(normalizeCategory("art"), "art");
+  assert.equal(postSchema.safeParse({
+    slug: "an-art-post", title: "An Art Post", category: "art", dek: "A description.",
+    body: "Some words.", cover_image_url: "https://example.com/c.png", hero_image_url: "",
+    signoff: "", published_on: "2026-08-05",
+  }).success, true);
+
+  // A category readers cannot browse to would only be half-added.
+  const publicRoot = path.resolve(projectRoot, "..");
+  const pages = [
+    ...fs.readdirSync(publicRoot).filter((file) => file.endsWith(".html")).map((file) => path.join(publicRoot, file)),
+    ...fs.readdirSync(path.join(publicRoot, "posts")).filter((file) => file.endsWith(".html")).map((file) => path.join(publicRoot, "posts", file)),
+  ];
+  for (const page of pages) {
+    const html = fs.readFileSync(page, "utf8");
+    if (!html.includes("cat=books")) continue;
+    assert.match(html, /blog\.html\?cat=art">Art<\/a>/, `${path.basename(page)} is missing the Art menu entry`);
+  }
+
+  // blog.html carries its own copy of the taxonomy and falls back to "show
+  // everything" for a category it does not recognise, so Art has to be
+  // registered in both maps or ?cat=art quietly lists every post.
+  const blog = fs.readFileSync(path.join(publicRoot, "blog.html"), "utf8");
+  assert.match(blog, /'art': 'Art'/);
+  assert.match(blog, /'art': 'culture'/);
+});
+
 test("a post cannot be published until it would render correctly", () => {
   const complete = {
     slug: "a-post", title: "A Post", category: "culture", dek: "A description.",

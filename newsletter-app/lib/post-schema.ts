@@ -6,6 +6,7 @@ export const CATEGORY_GROUPS = [
     slug: "culture",
     label: "Culture",
     categories: [
+      { slug: "art", label: "Art" },
       { slug: "books", label: "Books" },
       { slug: "film-tv", label: "Film & TV" },
       { slug: "music", label: "Music" },
