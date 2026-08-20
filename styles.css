@@ -1425,6 +1425,281 @@ body.popup-open .back-to-top { opacity: 0; pointer-events: none; }
   .featured-meta-row { margin-top: 28px; gap: 7px; }
 }
 
+/* ============================================================
+   WARM EDITORIAL REFINEMENT
+   Calm paper-led UI with selective dreamy brand moments.
+   ============================================================ */
+:root {
+  --paper: #fbf8f3;
+  --soft-white: #f7f3ed;
+  --bg: #f7f3ed;
+  --ink: #2b2426;
+  --text: #2b2426;
+  --muted-ink: #6f6567;
+  --muted: #6f6567;
+  --lavender: #ddd3f2;
+  --lilac: #ddd3f2;
+  --blush: #f3dde6;
+  --border: rgba(43, 36, 38, .12);
+  --border-strong: rgba(43, 36, 38, .2);
+  --line: var(--border-strong);
+  --brown: #6e5264;
+  --brown-dark: #533d49;
+  --radius-card: 10px;
+  --radius-lg: 14px;
+  --shadow: 0 16px 40px rgba(43, 36, 38, .07);
+  --shadow-soft: 0 12px 32px rgba(43, 36, 38, .06);
+  --shadow-lift: 0 18px 38px rgba(43, 36, 38, .09);
+}
+
+html,
+body,
+body.home {
+  background: #f7f3ed;
+  background-image: none;
+  color: var(--ink);
+}
+
+.site-header,
+.home .site-header {
+  border-color: var(--border);
+  border-radius: 0;
+  background: rgba(251, 248, 243, .96);
+  box-shadow: none;
+}
+
+/* Hero: one editorial composition, led by the collage. */
+.home-main {
+  width: min(1240px, calc(100% - 48px));
+  min-height: 610px;
+  margin-top: 28px;
+  padding: clamp(64px, 7vw, 92px);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  background: #fbf8f3;
+  box-shadow: none;
+}
+
+.home-main::before {
+  background: radial-gradient(circle, rgba(243, 221, 230, .6), transparent 68%);
+  opacity: .7;
+}
+
+.home-main .center-col { max-width: 590px; }
+.home-main .post-title { max-width: 600px; }
+.home-main .post-desc { color: var(--muted-ink); }
+.hero-dreamscape { min-height: 455px; }
+.hero-portrait { width: min(96%, 560px); }
+.hero-orbit--two,
+.hero-heart,
+.hero-cloud--back { display: none; }
+.hero-star { opacity: .72; }
+.hero-cloud--front { opacity: .72; }
+
+/* The seasonal module keeps one playful illustration and one small accent. */
+.seasonal-guide {
+  width: min(1180px, calc(100% - 48px));
+  margin-top: 104px;
+  padding: 68px 72px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: #fbf8f3;
+  box-shadow: none;
+}
+
+.seasonal-guide::after {
+  top: 28px;
+  right: 42px;
+  color: #9b7fa8;
+  font-size: 42px;
+  filter: none;
+}
+
+.seasonal-guide-inner {
+  grid-template-columns: minmax(0, 1.15fr) minmax(260px, .65fr);
+}
+
+.seasonal-guide-art { min-height: 300px; }
+.summer-icon { animation-duration: 8s; filter: none; }
+.summer-icon--plane,
+.summer-icon--cone,
+.summer-icon--sun,
+.summer-icon--sunglasses,
+.summer-icon--wave { display: none; }
+.summer-icon--palm {
+  right: 16%;
+  bottom: 4%;
+  width: 150px;
+}
+
+/* Editorial sections use the page grid, not inset app panels. */
+.featured-reads,
+.weekly-roundup {
+  width: min(1180px, calc(100% - 48px));
+  max-width: 1180px;
+  margin-top: 112px;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+}
+
+.featured-heading,
+.weekly-roundup-heading {
+  margin-bottom: 38px;
+  padding: 0 0 24px;
+  border-bottom-color: var(--border-strong);
+}
+
+.featured-kicker,
+.weekly-roundup-heading p {
+  color: #6e5264;
+  letter-spacing: .16em;
+}
+
+.featured-heading h2,
+.weekly-roundup-heading h2 {
+  font-size: clamp(42px, 5vw, 60px);
+}
+
+.featured-reads:not(.is-initialized) .splide__list,
+.weekly-roundup-grid { gap: clamp(24px, 3vw, 40px); }
+
+.featured-card,
+.weekly-roundup-card {
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+  overflow: visible;
+}
+
+.featured-card:hover,
+.weekly-roundup-card:hover {
+  box-shadow: none;
+  transform: translateY(-2px);
+}
+
+.featured-thumb,
+.weekly-roundup-image {
+  aspect-ratio: 4 / 5;
+  margin: 0 0 22px;
+  border-radius: 10px;
+}
+
+.featured-meta,
+.weekly-roundup-card .kicker,
+.kicker,
+.search-hit-kicker {
+  display: block;
+  width: fit-content;
+  margin: 0 0 12px;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  color: #6e5264;
+  font-size: 10px;
+  line-height: 1.3;
+  letter-spacing: .16em;
+}
+
+.featured-card h3,
+.weekly-roundup-card h3 {
+  margin: 0;
+  font-size: clamp(23px, 2.3vw, 31px);
+  line-height: 1.12;
+}
+
+.weekly-roundup-card > p {
+  margin: 14px 0 0;
+  color: var(--muted-ink);
+}
+
+.weekly-roundup-link {
+  margin: auto 0 0;
+  padding-top: 20px;
+}
+
+.featured-card-arrow { display: none; }
+.featured-all { margin-top: 36px; }
+
+/* Preserve the dreamy branded signup moment. */
+.newsletter {
+  width: min(1180px, calc(100% - 48px));
+  margin: 112px auto 96px;
+  padding: 72px 32px;
+  border-radius: 14px;
+  background:
+    radial-gradient(circle at 8% 18%, rgba(243, 221, 230, .98), transparent 46%),
+    radial-gradient(circle at 94% 84%, rgba(221, 211, 242, .94), transparent 48%),
+    linear-gradient(118deg, #fbf8f3, #eef1fa);
+  box-shadow: var(--shadow-soft);
+}
+
+.newsletter input { background: rgba(251, 248, 243, .94); }
+
+/* Warm near-black keeps the footer soft against the cream page. */
+.site-footer {
+  background: #191719;
+  color: #f7f3ed;
+}
+
+.footer-description,
+.footer-nav a { color: #c9c0c2; }
+
+@media (max-width: 900px) {
+  .site-header,
+  .home .site-header { border-radius: 12px; }
+  .home-main {
+    min-height: auto;
+    margin-top: 16px;
+    padding: 58px 44px 34px;
+    border-radius: 12px;
+  }
+  .seasonal-guide {
+    margin-top: 80px;
+    padding: 56px 48px;
+  }
+  .seasonal-guide-art { min-height: 250px; }
+  .summer-icon--palm { right: 12%; width: 124px; }
+}
+
+@media (max-width: 700px) {
+  .home-main,
+  .seasonal-guide,
+  .featured-reads,
+  .weekly-roundup,
+  .newsletter { width: calc(100% - 24px); }
+
+  .home-main { padding: 44px 24px 22px; }
+  .hero-dreamscape { min-height: 320px; }
+  .seasonal-guide {
+    margin-top: 64px;
+    padding: 44px 26px 38px;
+  }
+  .seasonal-guide-inner { grid-template-columns: 1fr; }
+  .seasonal-guide-art { min-height: 210px; }
+  .summer-icon--palm { right: 30%; width: 112px; }
+  .featured-reads,
+  .weekly-roundup { margin-top: 76px; }
+  .featured-heading,
+  .weekly-roundup-heading { margin-bottom: 28px; }
+  .featured-heading h2,
+  .weekly-roundup-heading h2 { font-size: 36px; }
+  .featured-thumb,
+  .weekly-roundup-image { aspect-ratio: 4 / 3; border-radius: 8px; }
+  .featured-card,
+  .weekly-roundup-card { padding-bottom: 28px; }
+  .newsletter {
+    margin: 80px auto 64px;
+    padding: 54px 22px;
+    border-radius: 12px;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .featured-card,
   .featured-thumb,
@@ -4617,6 +4892,86 @@ html[data-theme="dark"] .search-panel {
     overflow: visible;
     transform: translate(-50%, -50%) rotate(2deg);
   }
+
+}
+
+/* Final cascade guard for the warm editorial refinement. Keep this last. */
+:root {
+  --paper: #fbf8f3;
+  --soft-white: #f7f3ed;
+  --bg: #f7f3ed;
+  --ink: #2b2426;
+  --text: #2b2426;
+  --muted-ink: #6f6567;
+  --muted: #6f6567;
+  --lavender: #ddd3f2;
+  --lilac: #ddd3f2;
+  --blush: #f3dde6;
+  --border: rgba(43, 36, 38, .12);
+  --border-strong: rgba(43, 36, 38, .2);
+  --line: var(--border-strong);
+  --brown: #6e5264;
+  --brown-dark: #533d49;
+  --radius-card: 10px;
+  --radius-lg: 14px;
+  --shadow: 0 16px 40px rgba(43, 36, 38, .07);
+}
+
+html, body, body.home { background: #f7f3ed; background-image: none; color: var(--ink); }
+.site-header, .home .site-header { border-color: var(--border); border-radius: 0; background: rgba(251,248,243,.96); box-shadow: none; }
+.home-main, .home .home-main { width: min(1240px, calc(100% - 48px)); min-height: 610px; margin-top: 28px; padding: clamp(64px,7vw,92px); border: 1px solid var(--border); border-radius: 14px; background: #fbf8f3; box-shadow: none; }
+.home-main .center-col { max-width: 590px; }
+.hero-dreamscape { min-height: 455px; }
+.hero-portrait { width: min(96%,560px); }
+.hero-orbit--two, .hero-heart, .hero-cloud--back { display: none; }
+.hero-star, .hero-cloud--front { opacity: .72; }
+
+.seasonal-guide { width: min(1180px,calc(100% - 48px)); margin-top: 104px; padding: 68px 72px; border: 1px solid var(--border); border-radius: 12px; background: #fbf8f3; box-shadow: none; }
+.seasonal-guide::after { top: 28px; right: 42px; color: #9b7fa8; font-size: 42px; filter: none; }
+.seasonal-guide-inner { grid-template-columns: minmax(0,1.15fr) minmax(260px,.65fr); }
+.seasonal-guide-art { min-height: 300px; }
+.summer-icon--plane, .summer-icon--cone, .summer-icon--sun, .summer-icon--sunglasses, .summer-icon--wave { display: none; }
+.summer-icon--palm { right: 16%; bottom: 4%; width: 150px; filter: none; }
+
+.featured-reads, .weekly-roundup { width: min(1180px,calc(100% - 48px)); max-width: 1180px; margin-top: 112px; padding: 0; border: 0; border-radius: 0; background: transparent; box-shadow: none; }
+.featured-heading, .weekly-roundup-heading { margin-bottom: 38px; padding: 0 0 24px; border-bottom-color: var(--border-strong); }
+.featured-heading h2, .weekly-roundup-heading h2 { font-size: clamp(42px,5vw,60px); }
+.featured-reads:not(.is-initialized) .splide__list, .weekly-roundup-grid { gap: clamp(24px,3vw,40px); }
+.featured-card, .weekly-roundup-card { padding: 0; border: 0; border-radius: 0; background: transparent; box-shadow: none; overflow: visible; }
+.featured-card:hover, .weekly-roundup-card:hover { box-shadow: none; transform: translateY(-2px); }
+.featured-thumb, .weekly-roundup-image { aspect-ratio: 4 / 5; margin: 0 0 22px; border-radius: 10px; }
+.featured-meta, .weekly-roundup-card .kicker, .kicker, .search-hit-kicker { display: block; width: fit-content; margin: 0 0 12px; padding: 0; border: 0; border-radius: 0; background: transparent; color: #6e5264; font-size: 10px; line-height: 1.3; letter-spacing: .16em; }
+.featured-card h3, .weekly-roundup-card h3 { margin: 0; font-size: clamp(23px,2.3vw,31px); line-height: 1.12; }
+.weekly-roundup-card > p { margin: 14px 0 0; }
+.weekly-roundup-link { margin: auto 0 0; padding-top: 20px; }
+.featured-card-arrow { display: none; }
+
+.newsletter { width: min(1180px,calc(100% - 48px)); margin: 112px auto 96px; padding: 72px 32px; border-radius: 14px; background: radial-gradient(circle at 8% 18%,rgba(243,221,230,.98),transparent 46%),radial-gradient(circle at 94% 84%,rgba(221,211,242,.94),transparent 48%),linear-gradient(118deg,#fbf8f3,#eef1fa); box-shadow: 0 12px 32px rgba(43,36,38,.06); }
+.site-footer { background: #191719; color: #f7f3ed; }
+.footer-description, .footer-nav a { color: #c9c0c2; }
+
+@media (max-width: 900px) {
+  .site-header, .home .site-header { border-radius: 12px; }
+  .home-main, .home .home-main { min-height: auto; margin-top: 16px; padding: 58px 44px 34px; border-radius: 12px; }
+  .seasonal-guide { margin-top: 80px; padding: 56px 48px; }
+}
+
+@media (max-width: 700px) {
+  .home-main, .seasonal-guide, .featured-reads, .weekly-roundup, .newsletter { width: calc(100% - 24px); }
+  .home-main, .home .home-main { padding: 44px 24px 22px; }
+  .hero-dreamscape { min-height: 320px; }
+  .seasonal-guide { margin-top: 64px; padding: 44px 26px 38px; }
+  .seasonal-guide-inner { grid-template-columns: 1fr; }
+  .seasonal-guide-art { min-height: 210px; }
+  .summer-icon--palm { right: 30%; width: 112px; }
+  .featured-reads, .weekly-roundup { margin-top: 76px; }
+  .featured-heading h2, .weekly-roundup-heading h2 { font-size: 36px; }
+  .featured-thumb, .weekly-roundup-image { aspect-ratio: 4 / 3; border-radius: 8px; }
+  .featured-card, .weekly-roundup-card { padding-bottom: 28px; }
+  .newsletter { margin: 80px auto 64px; padding: 54px 22px; border-radius: 12px; }
+}
+
+@media (max-width: 620px) {
 
   .hero-portrait img.hero-portrait__collage {
     border-radius: 0;
