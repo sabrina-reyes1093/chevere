@@ -5039,3 +5039,122 @@ html, body, body.home { background: #f7f3ed; background-image: none; color: var(
     animation: none;
   }
 }
+
+/* ============================================================
+   TARGETED COLOR REVERT
+   Restore the pre-refinement Chévere palette and section color
+   treatments without changing current card geometry or layout.
+   ============================================================ */
+:root {
+  --ink: #17131c;
+  --muted-ink: #6f6777;
+  --paper: #fffdfb;
+  --soft-white: #faf8ff;
+  --lavender: #e8d8ff;
+  --lilac: #d7c0ff;
+  --orchid: #edcfff;
+  --blush: #f6d9f3;
+  --sky: #dcecff;
+  --mint: #e3f6e9;
+  --soft-yellow: #fff1c8;
+  --border: rgba(23, 19, 28, .12);
+  --border-strong: rgba(23, 19, 28, .17);
+  --line: var(--border-strong);
+  --brown: #77559a;
+  --brown-dark: #5d3d78;
+  --text: var(--ink);
+  --muted: var(--muted-ink);
+  --gray: var(--muted-ink);
+  --gray-soft: #847b8d;
+  --skeleton: #f1ebf7;
+  --shadow: 0 18px 45px rgba(92, 64, 126, .12);
+  --shadow-soft: 0 16px 42px rgba(120, 110, 150, .14);
+  --shadow-lift: 0 26px 60px rgba(120, 110, 150, .22);
+}
+
+html,
+body,
+body.home {
+  background-color: var(--soft-white);
+  color: var(--ink);
+}
+
+body,
+body.home {
+  background-image:
+    radial-gradient(circle at 6% 5%, rgba(246, 217, 243, .4), transparent 25rem),
+    radial-gradient(circle at 96% 22%, rgba(220, 236, 255, .34), transparent 30rem);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+.site-header {
+  border-color: rgba(255, 255, 255, .86);
+  background: rgba(255, 253, 251, .82);
+}
+
+.home .site-header {
+  background:
+    radial-gradient(circle at 14% 120%, rgba(246, 217, 243, .86), transparent 48%),
+    radial-gradient(circle at 86% 110%, rgba(255, 241, 200, .72), transparent 46%),
+    rgba(255, 253, 251, .88);
+}
+
+.home-main,
+.home .home-main {
+  border-color: rgba(255, 255, 255, .9);
+  background:
+    radial-gradient(circle at 13% 12%, rgba(246, 217, 243, .98), transparent 42%),
+    radial-gradient(circle at 87% 12%, rgba(255, 241, 200, .92), transparent 36%),
+    radial-gradient(circle at 88% 88%, rgba(220, 236, 255, .96), transparent 42%),
+    radial-gradient(circle at 35% 92%, rgba(232, 216, 255, .88), transparent 44%),
+    #f9effb;
+  box-shadow: var(--shadow);
+}
+
+.seasonal-guide {
+  border-color: rgba(255, 255, 255, .9);
+  background:
+    radial-gradient(circle at 12% 20%, rgba(255, 241, 200, .9), transparent 44%),
+    radial-gradient(circle at 86% 78%, rgba(227, 246, 233, .92), transparent 42%),
+    linear-gradient(115deg, rgba(232, 216, 255, .72), rgba(255, 253, 251, .78));
+  box-shadow: var(--shadow);
+}
+
+/* Restore the former Featured surface while preserving current cards. */
+.featured-reads {
+  position: relative;
+  border: 1px solid rgba(255, 255, 255, .88);
+  border-radius: 38px;
+  background:
+    radial-gradient(circle at 8% 8%, rgba(246, 217, 243, .9), transparent 42%),
+    radial-gradient(circle at 95% 92%, rgba(232, 216, 255, .92), transparent 44%),
+    rgba(255, 253, 251, .72);
+  box-shadow: var(--shadow);
+}
+
+.featured-kicker { color: #654878; }
+
+/* Reapply the former color surfaces without changing section geometry. */
+.weekly-roundup {
+  background:
+    radial-gradient(circle at 8% 8%, rgba(246, 217, 243, .9), transparent 42%),
+    radial-gradient(circle at 95% 92%, rgba(232, 216, 255, .92), transparent 44%),
+    rgba(255, 253, 251, .72);
+}
+
+.newsletter {
+  border-color: rgba(255, 255, 255, .9);
+  background:
+    radial-gradient(circle at 10% 20%, rgba(246, 217, 243, .94), transparent 42%),
+    radial-gradient(circle at 92% 82%, rgba(220, 236, 255, .96), transparent 44%),
+    linear-gradient(120deg, rgba(232, 216, 255, .64), rgba(255, 253, 251, .86));
+  box-shadow: var(--shadow);
+}
+
+.newsletter input { background: rgba(255, 253, 251, .92); }
+
+/* Footer styling is intentionally retained from the current version. */
+.site-footer { background: #191719; color: #f7f3ed; }
+.footer-description,
+.footer-nav a { color: #c9c0c2; }
