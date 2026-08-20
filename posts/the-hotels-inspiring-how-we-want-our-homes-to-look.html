@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Hotels Inspiring How We Want Our Homes to Look — chévere</title>
+  <meta name="description" content="Five hotel moods worth stealing—even if your next renovation budget is closer to Target than Tuscany" />
+  <link rel="icon" type="image/png" href="../assets/icon.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../styles.css?v=20260804-5" />
+  <style>
+    .post-body { font-size: 17px; line-height: 1.8; color: var(--text); }
+    .post-body p { margin-bottom: 16px; }
+    .post-body h2 { font-family: var(--serif); font-size: 24px; color: var(--ink); margin: 32px 0 10px; }
+    .post-body h3 { font-family: var(--serif); font-size: 20px; color: var(--ink); margin: 26px 0 8px; }
+    .post-body strong { display: block; font-family: var(--serif); font-weight: 700; font-size: 20px; color: var(--ink); margin-top: 32px; margin-bottom: 8px; }
+    .post-body em { font-style: italic; }
+    .post-hero { width: 100%; height: auto; border-radius: 24px; margin-bottom: 28px; display: block; }
+    .post-inline-img { width: 100%; height: auto; border-radius: 20px; margin: 22px 0; display: block; }
+    .post-signoff { margin-top: 48px; font-size: 17px; color: var(--gray-soft); }
+    .back-link { display: inline-block; margin-bottom: 24px; font-size: 13px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--brown); transition: opacity .15s ease; }
+    .back-link:hover { opacity: 0.7; }
+  </style>
+</head>
+<body>
+
+  <header class="site-header">
+    <a class="header-logo" href="../index.html" aria-label="chévere home">
+      <img src="../assets/logo.png" alt="chévere" />
+    </a>
+    <div class="header-actions">
+      <button id="mobile-menu-toggle" class="mobile-menu-toggle" type="button" aria-label="Open menu" aria-controls="site-navigation" aria-expanded="false"><i data-lucide="menu" stroke-width="1.8" aria-hidden="true"></i></button>
+      <button id="search-toggle" aria-label="Search" title="Search"><i data-lucide="search" stroke-width="1.8" aria-hidden="true"></i></button>
+      <a class="join-list-button" href="../index.html#newsletter">JOIN THE LIST</a>
+      <a href="https://www.instagram.com/itschevere/" target="_blank" rel="noopener" aria-label="Instagram" title="Instagram">
+        <svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+      </a>
+      <a href="https://www.tiktok.com/@itschevere" target="_blank" rel="noopener" aria-label="TikTok" title="TikTok">
+        <svg class="tiktok-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="19" height="19"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.3 0 .59.05.87.13v-3.5a6.37 6.37 0 0 0-.87-.06A6.34 6.34 0 0 0 3.15 15.3a6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.34-6.34V8.46a8.23 8.23 0 0 0 4.77 1.48v-3.4a4.86 4.86 0 0 1-1.01.15z"/></svg>
+      </a>
+    </div>
+    <div id="search-panel" class="search-panel" role="dialog" aria-label="Search posts">
+      <div class="search-bar-wrap">
+        <i data-lucide="search" class="search-bar-icon" stroke-width="2" aria-hidden="true"></i>
+        <input id="search-input" type="text" placeholder="Search posts..." autocomplete="off" />
+        <button id="search-submit" class="search-action-btn" aria-label="Search" type="button">
+          <i data-lucide="arrow-right" stroke-width="2.5" aria-hidden="true"></i>
+        </button>
+        <button id="search-close" class="search-close-btn" aria-label="Close search" type="button">
+          <i data-lucide="x" stroke-width="2.5" aria-hidden="true"></i>
+        </button>
+      </div>
+      <div id="search-results" class="search-results"></div>
+    </div>
+  </header>
+
+  <nav class="site-nav" id="site-navigation" aria-label="Primary navigation">
+    <a href="../index.html">HOME</a>
+    <div class="nav-item has-dropdown">
+      <a href="../blog.html?cat=culture">CULTURE<i data-lucide="chevron-down" class="chev" stroke-width="2" aria-hidden="true"></i></a>
+      <div class="dropdown">
+        <a href="../blog.html?cat=books">Books</a>
+        <a href="../blog.html?cat=film-tv">Film &amp; TV</a>
+        <a href="../blog.html?cat=music">Music</a>
+        <a href="../blog.html?cat=sports">Sports</a>
+        <a href="../blog.html?cat=pop-culture">Pop Culture</a>
+      </div>
+    </div>
+    <div class="nav-item has-dropdown">
+      <a href="../blog.html?cat=style">STYLE<i data-lucide="chevron-down" class="chev" stroke-width="2" aria-hidden="true"></i></a>
+      <div class="dropdown">
+        <a href="../blog.html?cat=fashion">Fashion</a>
+        <a href="../blog.html?cat=beauty">Beauty</a>
+        <a href="../blog.html?cat=interiors">Interiors</a>
+        <a href="../blog.html?cat=design">Design</a>
+      </div>
+    </div>
+    <div class="nav-item has-dropdown">
+      <a href="../blog.html?cat=life">LIFE<i data-lucide="chevron-down" class="chev" stroke-width="2" aria-hidden="true"></i></a>
+      <div class="dropdown">
+        <a href="../blog.html?cat=food">Food</a>
+        <a href="../blog.html?cat=travel">Travel</a>
+        <a href="../blog.html?cat=life-wellness">Life &amp; Wellness</a>
+      </div>
+    </div>
+    <div class="nav-item has-dropdown">
+      <a href="../blog.html?cat=guides">GUIDES<i data-lucide="chevron-down" class="chev" stroke-width="2" aria-hidden="true"></i></a>
+      <div class="dropdown">
+        <a href="../reading-lists.html">Reading Lists</a>
+        <a href="../blog.html?cat=city-guides">City Guides</a>
+        <a href="../blog.html?cat=seasonal-recommendations">Seasonal Recommendations</a>
+        <a href="../blog.html?cat=restaurant-roundups">Restaurant Roundups</a>
+        <a href="../blog.html?cat=gift-guides">Gift Guides</a>
+      </div>
+    </div>
+    <a href="../about.html">ABOUT</a>
+  </nav>
+
+  <main class="page-main">
+    <a class="back-link" href="../blog.html">&larr; Back to Blog</a>
+    <span class="kicker" style="display:block;margin-bottom:8px">Interiors · Travel</span>
+    <h1 class="page-title">The Hotels Inspiring How We Want Our Homes to Look</h1>
+    <p class="page-tagline" style="font-size:15px;color:#8e8c88;margin-top:-4px;margin-bottom:28px">Aug 17, 2026</p>
+    <div class="post-body">
+      <img class="post-hero" src="https://xjtnfwnntzonmumlxbyg.supabase.co/storage/v1/object/public/newsletter-images/2026-08/8cef9c01-87f9-4330-b7a5-e62ff3485c2c.png" alt="The Hotels Inspiring How We Want Our Homes to Look" />
+      <p><em>Five hotel moods worth stealing—even if your next renovation budget is closer to Target than Tuscany</em></p>
+      <p>Some hotels make you want to travel.</p>
+      <p>Others make you want to go home and immediately replace every lamp you own.</p>
+      <p>And with interior design moving toward richer, more layered and personality-filled spaces in 2026, hotels feel particularly relevant as inspiration. Architectural Digest&#039;s current hotel coverage has emphasized properties where design itself is part of the reason to visit.</p>
+      <p>Here are five hotel moods we wouldn&#039;t mind bringing home.</p>
+      <p>1. Ett Hem, Stockholm</p>
+      <p>Steal: The Collected Living Room</p>
+      <img class="post-inline-img" src="https://xjtnfwnntzonmumlxbyg.supabase.co/storage/v1/object/public/newsletter-images/2026-08/386bdada-990d-4972-8905-a0de5e00120c.png" alt="image" />
+      <p>Ett Hem has helped define the kind of hotel that feels less like a lobby and more like you&#039;ve somehow been invited into an extremely stylish person&#039;s house.</p>
+      <p>The lesson isn&#039;t to buy an entire matching furniture set.</p>
+      <p>It&#039;s the opposite.</p>
+      <p>Mix your eras. Put books somewhere visible. Add art that actually means something to you. Let the chair be different from the sofa.</p>
+      <p>A home becomes interesting when it looks like it took time.</p>
+      <p>2. Ace Hotel Kyoto</p>
+      <p>Steal: Warm Minimalism</p>
+      <img class="post-inline-img" src="https://xjtnfwnntzonmumlxbyg.supabase.co/storage/v1/object/public/newsletter-images/2026-08/1b22b463-13fa-4827-ab0c-c9da8bc82feb.jpg" alt="w3840" />
+      <p>Minimalism doesn&#039;t have to mean cold.</p>
+      <p>Think natural materials, warm wood, handmade objects and enough visual breathing room to appreciate all of it.</p>
+      <p>The takeaway for home is simple: fewer things, better texture.</p>
+      <p>Wood. Linen. Ceramic. Paper. Woven materials.</p>
+      <p>Suddenly beige doesn&#039;t feel beige anymore.</p>
+      <p>3. The Proper Hotels</p>
+      <p>Steal: Pattern on Pattern</p>
+      <img class="post-inline-img" src="https://xjtnfwnntzonmumlxbyg.supabase.co/storage/v1/object/public/newsletter-images/2026-08/5dd003b8-a7d1-4f00-aae3-508e65ecd7f7.png" alt="image" />
+      <p>Designer Kelly Wearstler&#039;s interiors are basically an argument against playing it safe.</p>
+      <p>Patterned chairs. Sculptural lighting. Vintage shapes. Unexpected combinations.</p>
+      <p>You don&#039;t need to reproduce the maximalism wholesale.</p>
+      <p>Start with one strange chair.</p>
+      <p>One dramatic lamp.</p>
+      <p>One rug with personality.</p>
+      <p>Your home should contain at least one thing that makes someone ask, Where did you get that?</p>
+      <p>4. Hôtel Costes, Paris</p>
+      <p>Steal: The Lighting</p>
+      <img class="post-inline-img" src="https://xjtnfwnntzonmumlxbyg.supabase.co/storage/v1/object/public/newsletter-images/2026-08/afeaef94-4a3b-4b75-af4d-e913e83f92d2.png" alt="image" />
+      <p>Dark. Moody. Romantic.</p>
+      <p>This is your reminder that not every room needs to be illuminated like a doctor&#039;s office.</p>
+      <p>Turn off the big light.</p>
+      <p>Add lamps.</p>
+      <p>Light a candle.</p>
+      <p>Watch your home immediately become a place where you would willingly pay $24 for a cocktail.</p>
+      <p>5. A Great Mediterranean Hotel</p>
+      <p>Steal: Indoor-Outdoor Ease</p>
+      <img class="post-inline-img" src="https://xjtnfwnntzonmumlxbyg.supabase.co/storage/v1/object/public/newsletter-images/2026-08/b738919a-c114-4a10-9318-d5f9e6c3d3cb.png" alt="image" />
+      <p>White linen. Worn stone. Natural wood. Plants that are allowed to look like plants.</p>
+      <p>The Mediterranean hotel aesthetic works because nothing feels too precious.</p>
+      <p>You can borrow that feeling anywhere: relaxed linens, handmade ceramics, bowls of lemons, woven pieces, imperfect materials.</p>
+      <p>No ocean view required.</p>
+      <p>The Real Hotel Trick</p>
+      <p>The point isn&#039;t to make your apartment look like a hotel.</p>
+      <p>It&#039;s figuring out why certain hotels make you feel so good and stealing that part.</p>
+      <p>Maybe it&#039;s warm lighting.</p>
+      <p>Maybe it&#039;s the bedding.</p>
+      <p>Maybe it&#039;s the little tray beside the sink.</p>
+      <p>Maybe it&#039;s the fact that every object seems like someone deliberately put it there.</p>
+      <p>The best interiors aren&#039;t necessarily the ones with the most beautiful things.</p>
+      <p>They&#039;re the ones that create a feeling.</p>
+      <p>Hotels just happen to be very, very good at that.</p>
+      <p class="post-signoff">Until next week — stay <em>chévere</em></p>
+    </div>
+  </main>
+
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script src="../site.js?v=20260804-3"></script>
+</body>
+</html>
