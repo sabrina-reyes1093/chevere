@@ -46,6 +46,7 @@ export async function readFileFromRepo(path: string) {
       "X-GitHub-Api-Version": "2022-11-28",
     },
     cache: "no-store",
+    signal: AbortSignal.timeout(8_000),
   });
   if (response.status === 404) return null;
   if (!response.ok) throw new Error(`Could not read ${path} from GitHub (${response.status}).`);

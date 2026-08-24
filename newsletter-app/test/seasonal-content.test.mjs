@@ -5,6 +5,7 @@ import test from "node:test";
 import { fileURLToPath } from "node:url";
 
 import { siteContentSchema } from "../lib/site-content-schema.ts";
+import { resolveSiteContentSource } from "../lib/site-content-admin-loader.ts";
 
 const projectRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const publicRoot = path.resolve(projectRoot, "..");
@@ -13,12 +14,14 @@ const readPublic = (file) => fs.readFileSync(path.join(publicRoot, file), "utf8"
 
 test("seasonal site content stores the active season and an ordered unique post selection", () => {
   const content = JSON.parse(readPublic("site-content.json"));
+  const fallback = JSON.parse(read("site-content-fallback.json"));
   const schema = read("lib/site-content-schema.ts");
 
   // The admin portal owns these values, so assert the invariants it has to keep.
   // Pinning the current season or story list here would fail the build every time
   // someone curates the guide, which is exactly what the feature is for.
   const banner = siteContentSchema.parse(content).seasonal_banner;
+  assert.deepEqual(fallback, content, "the hosted fallback must track the published site content");
   assert.ok(["Spring", "Summer", "Fall", "Winter"].includes(banner.season));
   assert.ok(Number.isInteger(banner.year) && banner.year >= 2020 && banner.year <= 2100);
   assert.ok(banner.post_slugs.length >= 1 && banner.post_slugs.length <= 12);
@@ -75,6 +78,75 @@ test("Site Content lets the administrator change seasons and curate published st
   assert.match(editor, /moved to position/);
   assert.match(editor, /Guide preview/);
   assert.match(editor, /Save & Publish Seasonal Guide/);
+  assert.match(editor, /Boolean\(contentLoadWarning\)/);
+});
+
+test("hosted Site Content falls back safely when its repository source is unavailable", async () => {
+  const fallback = JSON.stringify({ seasonal_banner: { headline: "Bundled guide" } });
+  const validateSource = (source) => { JSON.parse(source); };
+  const hosted = await resolveSiteContentSource({
+    githubConfigured: true,
+    bundledSource: fallback,
+    loadRemote: async () => { throw new Error("repository unavailable"); },
+    loadLocal: async () => "local",
+    validateSource,
+  });
+
+  assert.equal(hosted.source, fallback);
+  assert.equal(hosted.usedFallback, true);
+
+  const malformedRemote = await resolveSiteContentSource({
+    githubConfigured: true,
+    bundledSource: fallback,
+    loadRemote: async () => "not json",
+    loadLocal: async () => "local",
+    validateSource,
+  });
+  assert.equal(malformedRemote.source, fallback);
+  assert.equal(malformedRemote.usedFallback, true);
+
+  const remote = await resolveSiteContentSource({
+    githubConfigured: true,
+    bundledSource: fallback,
+    loadRemote: async () => "{\"remote\":true}",
+    loadLocal: async () => "local",
+    validateSource,
+  });
+  assert.equal(remote.source, "{\"remote\":true}");
+  assert.equal(remote.usedFallback, false);
+
+  const missingRemote = await resolveSiteContentSource({
+    githubConfigured: true,
+    bundledSource: fallback,
+    loadRemote: async () => null,
+    loadLocal: async () => "local",
+    validateSource,
+  });
+  assert.equal(missingRemote.source, fallback);
+
+  const local = await resolveSiteContentSource({
+    githubConfigured: false,
+    bundledSource: fallback,
+    loadRemote: async () => null,
+    loadLocal: async () => "{\"local\":true}",
+    validateSource,
+  });
+  assert.equal(local.source, "{\"local\":true}");
+  assert.equal(local.usedFallback, false);
+
+  const unavailableLocal = await resolveSiteContentSource({
+    githubConfigured: false,
+    bundledSource: fallback,
+    loadRemote: async () => null,
+    loadLocal: async () => { throw new Error("file unavailable"); },
+    validateSource,
+  });
+  assert.equal(unavailableLocal.source, fallback);
+  assert.equal(unavailableLocal.usedFallback, true);
+
+  const config = read("next.config.ts");
+  assert.match(config, /SITE_CONTENT_FALLBACK_JSON/);
+  assert.match(config, /site-content-fallback\.json/);
 });
 
 test("the protected save route accepts only published seasonal selections", () => {
