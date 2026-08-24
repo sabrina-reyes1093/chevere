@@ -3,7 +3,7 @@
 import { useMemo, useState } from "react";
 import Link from "next/link";
 
-import { CATEGORIES, categoryLabels, displayDate, normalizePostCategories } from "@/lib/post-schema";
+import { CATEGORIES, categoryLabels, displayDate, normalizePostCategories, SERIES_OPTIONS, seriesLabel } from "@/lib/post-schema";
 import { UnpublishPostButton } from "@/components/unpublish-post-button";
 import { DeletePostButton } from "@/components/delete-post-button";
 
@@ -12,6 +12,7 @@ type PostRow = {
   title: string | null;
   slug: string;
   category: string;
+  series: string;
   status: string;
   published_on: string | null;
   updated_at: string;
@@ -26,6 +27,7 @@ const MONTHS = [
 export function PostsTable({ posts }: { posts: PostRow[] }) {
   const [category, setCategory] = useState("all");
   const [status, setStatus] = useState("all");
+  const [series, setSeries] = useState("all");
   const [month, setMonth] = useState("all");
   const [year, setYear] = useState("all");
   const [sort, setSort] = useState<"newest" | "oldest">("newest");
@@ -41,6 +43,7 @@ export function PostsTable({ posts }: { posts: PostRow[] }) {
     const filtered = posts.filter((post) => {
       if (status !== "all" && post.status !== status) return false;
       if (category !== "all" && !normalizePostCategories(post.category, post.slug).some((slug) => slug === category)) return false;
+      if (series !== "all" && (post.series || "") !== series) return false;
       const date = post.published_on || "";
       if (year !== "all" && date.slice(0, 4) !== year) return false;
       if (month !== "all" && date.slice(5, 7) !== month) return false;
@@ -52,7 +55,7 @@ export function PostsTable({ posts }: { posts: PostRow[] }) {
       return sort === "newest" ? db.localeCompare(da) : da.localeCompare(db);
     });
     return filtered;
-  }, [posts, category, status, month, year, sort]);
+  }, [posts, category, series, status, month, year, sort]);
 
   const selectStyle = { fontSize: 13, padding: "8px 10px", minHeight: 38, width: "auto" as const };
 
@@ -63,6 +66,13 @@ export function PostsTable({ posts }: { posts: PostRow[] }) {
           <select value={category} onChange={(event) => setCategory(event.target.value)} style={selectStyle}>
             <option value="all">All categories</option>
             {CATEGORIES.map((item) => <option key={item.slug} value={item.slug}>{item.label}</option>)}
+          </select>
+        </label>
+        <label style={{ fontSize: 12 }}>Series
+          <select value={series} onChange={(event) => setSeries(event.target.value)} style={selectStyle}>
+            <option value="all">All series</option>
+            {SERIES_OPTIONS.filter((item) => item.slug).map((item) => <option key={item.slug} value={item.slug}>{item.label}</option>)}
+            <option value="">No series</option>
           </select>
         </label>
         <label style={{ fontSize: 12 }}>Status
@@ -95,11 +105,12 @@ export function PostsTable({ posts }: { posts: PostRow[] }) {
 
       <section className="panel">
         <div className="table-wrap"><table>
-          <thead><tr><th>Post</th><th>Category</th><th>Status</th><th>Date</th><th>Last edited</th><th>Actions</th></tr></thead>
+          <thead><tr><th>Post</th><th>Category</th><th>Series</th><th>Status</th><th>Date</th><th>Last edited</th><th>Actions</th></tr></thead>
           <tbody>
             {visible.map((post) => <tr key={post.id}>
               <td><Link href={`/admin/posts/${post.id}`}><strong>{post.title || "Untitled post"}</strong></Link><small>/posts/{post.slug}.html</small></td>
               <td>{categoryLabels(post.category, post.slug)}</td>
+              <td>{seriesLabel(post.series) || "—"}</td>
               <td><span className={`status ${post.status === "published" ? "sent" : post.status}`}>{post.status}</span></td>
               <td>{displayDate(post.published_on || "")}</td>
               <td>{new Date(post.updated_at).toLocaleString("en-US", { dateStyle: "medium", timeStyle: "short" })}</td>
@@ -109,7 +120,7 @@ export function PostsTable({ posts }: { posts: PostRow[] }) {
                 <DeletePostButton id={post.id} published={post.status === "published"} />
               </td>
             </tr>)}
-            {!visible.length && <tr><td colSpan={6}>{posts.length ? "No posts match these filters." : "No posts yet. Write the first one."}</td></tr>}
+            {!visible.length && <tr><td colSpan={7}>{posts.length ? "No posts match these filters." : "No posts yet. Write the first one."}</td></tr>}
           </tbody>
         </table></div>
       </section>

@@ -637,69 +637,43 @@ document.querySelectorAll('.nav-item.has-dropdown > a').forEach(function (a) {
     .catch(function () { /* Keep the three server-rendered fallback cards. */ });
 })();
 
-/* homepage seasonal guide */
-(function renderHomepageSeasonalGuide() {
-  var hero = document.querySelector('.home-main');
-  if (!hero) return;
-
-  var seasonal = document.createElement('section');
-  seasonal.className = 'seasonal-guide';
-  seasonal.hidden = true;
-  seasonal.setAttribute('aria-labelledby', 'seasonal-guide-title');
-  hero.insertAdjacentElement('afterend', seasonal);
+/* homepage The Month Ahead: latest published post in the independent series */
+(function renderHomepageMonthAhead() {
+  var featuredReads = document.querySelector('.featured-reads');
+  if (!featuredReads) return;
 
   function safe(value) {
     return String(value || '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
   }
 
-  function chicagoDate() {
-    var parts = new Intl.DateTimeFormat('en-CA', {
-      timeZone: 'America/Chicago',
-      year: 'numeric',
-      month: '2-digit',
-      day: '2-digit'
-    }).formatToParts(new Date());
-    var values = {};
-    parts.forEach(function (part) { values[part.type] = part.value; });
-    return values.year + '-' + values.month + '-' + values.day;
+  var fallback = {
+    title: 'The Chévere Guide to Making the Most of August',
+    excerpt: 'Simple ways to enjoy the final full month of summer without turning it into another to-do list.',
+    image_url: 'https://xjtnfwnntzonmumlxbyg.supabase.co/storage/v1/object/public/newsletter-images/2026-07/526f8df4-2ead-481e-89e4-6d47f6d73bc3.png',
+    month: 'August',
+    year: '2026',
+    url: 'posts/the-chevere-guide-to-making-the-most-of-august.html'
+  };
+
+  function render(item) {
+    if (!item || !item.title || !item.url || !item.month) return;
+    var section = document.createElement('section');
+    section.className = 'month-ahead-feature';
+    section.setAttribute('aria-labelledby', 'month-ahead-home-title');
+    section.innerHTML = '<a class="month-ahead-media" href="' + safe(item.url) + '">' +
+      '<img src="' + safe(item.image_url) + '" alt="' + safe(item.title) + '" width="900" height="675" loading="lazy" /></a>' +
+      '<div class="month-ahead-copy"><p class="month-ahead-eyebrow">The Month Ahead</p>' +
+      '<h2 id="month-ahead-home-title">' + safe(item.month) + '</h2>' +
+      (item.excerpt ? '<p>' + safe(item.excerpt) + '</p>' : '') +
+      '<a class="month-ahead-link" href="' + safe(item.url) + '">Explore ' + safe(item.month) + ' <span aria-hidden="true">&rarr;</span></a></div>';
+    featuredReads.insertAdjacentElement('afterend', section);
   }
 
-  fetch('site-content.json', { cache: 'no-store' })
-    .then(function (response) { return response.ok ? response.json() : Promise.reject(new Error('Site content unavailable')); })
-    .then(function (content) {
-      var banner = content.seasonal_banner || {};
-      var today = chicagoDate();
-      var isPublished = !banner.publish_date || banner.publish_date <= today;
-      var isCurrent = !banner.expiration_date || banner.expiration_date >= today;
-      if (banner.enabled && banner.headline && isPublished && isCurrent) {
-        var inner = '<div class="seasonal-guide-inner">' +
-          '<div class="seasonal-guide-copy"><p class="seasonal-label">' + safe(banner.label) + '</p>' +
-          '<h2 id="seasonal-guide-title">' + safe(banner.headline) + '</h2>' +
-          (banner.description ? '<p class="seasonal-description">' + safe(banner.description) + '</p>' : '') +
-          (banner.href ? '<a class="seasonal-cta" href="' + safe(banner.href) + '">' + safe(banner.cta_label || 'Explore the Guide') + ' <span aria-hidden="true">&rarr;</span></a>' : '') +
-          '</div>' +
-          '<div class="seasonal-guide-art" aria-hidden="true">' +
-            '<span class="summer-icon summer-icon--plane"><svg viewBox="0 0 140 140" focusable="false"><defs><linearGradient id="summer-plane-gradient" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#ded0ff"/><stop offset="1" stop-color="#93d6ff"/></linearGradient></defs><g transform="rotate(38 70 70)"><path class="summer-plane-trail" d="M70 119c-1 11-8 19-18 23"/><path d="M70 24c4 0 8 8 8 20v12l37 26v8l-37-12v20l15 11v6l-23-7-23 7v-6l15-11V78l-37 12v-8l37-26V44c0-12 4-20 8-20Z" fill="url(#summer-plane-gradient)"/><path class="summer-plane-detail" d="M64 46c2-3 10-3 12 0M70 33v70"/></g></svg></span>' +
-            '<span class="summer-icon summer-icon--cone"><svg viewBox="0 0 72 128" focusable="false"><defs><linearGradient id="summer-cone-gradient" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#f8dcb0"/><stop offset="1" stop-color="#dda869"/></linearGradient><linearGradient id="summer-scoop-gradient" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#ffd7ef"/><stop offset=".52" stop-color="#e3c8ff"/><stop offset="1" stop-color="#b9e4ff"/></linearGradient></defs><path d="M17 66h38l-16 50a4.5 4.5 0 0 1-6 0Z" fill="url(#summer-cone-gradient)"/><path class="summer-cone-waffle" d="m25 78 13 12M40 74l-8 22"/><circle cx="36" cy="52" r="19" fill="url(#summer-scoop-gradient)" stroke="#725c91" stroke-width="2.5"/><circle cx="36" cy="28" r="14" fill="url(#summer-scoop-gradient)" stroke="#725c91" stroke-width="2.5"/><circle cx="30" cy="24" r="4" fill="rgba(255,255,255,.62)" stroke="none"/></svg></span>' +
-            '<span class="summer-icon summer-icon--sun"><svg viewBox="0 0 100 100" focusable="false"><defs><radialGradient id="summer-sun-gradient" cx="38%" cy="32%"><stop stop-color="#fff8b8"/><stop offset="1" stop-color="#ffbd55"/></radialGradient></defs><g class="summer-sun-rays"><path d="M50 4v15M50 81v15M4 50h15M81 50h15M17 17l11 11M72 72l11 11M83 17 72 28M28 72 17 83"/></g><circle cx="50" cy="50" r="24" fill="url(#summer-sun-gradient)"/><circle cx="42" cy="42" r="7" fill="rgba(255,255,255,.5)"/></svg></span>' +
-            '<span class="summer-icon summer-icon--wave"><svg viewBox="0 0 180 80" focusable="false"><defs><linearGradient id="summer-wave-gradient" x1="0" y1="0" x2="1" y2="0"><stop stop-color="#a88cf2"/><stop offset=".5" stop-color="#73c8ed"/><stop offset="1" stop-color="#8bd9c2"/></linearGradient></defs><path d="M8 31c17-19 34-19 51 0s34 19 51 0 34-19 62 0"/><path d="M8 51c17-15 34-15 51 0s34 15 51 0 34-15 62 0"/></svg></span>' +
-            '<span class="summer-icon summer-icon--palm"><svg viewBox="0 0 120 170" focusable="false"><defs><linearGradient id="summer-palm-gradient" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#c7ee9b"/><stop offset="1" stop-color="#68c7a1"/></linearGradient></defs><path class="summer-palm-trunk" d="M61 151c4-35 4-65-2-94"/><path d="M59 58C42 35 25 31 10 39c20 2 35 9 47 22M60 58C70 30 88 19 108 25 87 32 73 44 62 62M58 57C37 48 21 53 9 67c18-5 34-5 49-6M61 58c20-9 37-4 49 11-18-6-34-7-49-7M59 55C48 35 49 18 60 6c6 18 7 34 2 51" fill="url(#summer-palm-gradient)"/><circle cx="57" cy="62" r="6" fill="#b78664"/><circle cx="68" cy="61" r="5" fill="#9f7356"/></svg></span>' +
-            '<span class="summer-icon summer-icon--sunglasses"><svg viewBox="0 0 150 80" focusable="false"><defs><linearGradient id="summer-lens-gradient" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#f4b6ec"/><stop offset=".5" stop-color="#bba4ff"/><stop offset="1" stop-color="#7ecce8"/></linearGradient></defs><path d="M9 30 2 20M141 30l7-10M65 35c7-6 13-6 20 0"/><path d="M12 28c4-4 42-4 48 0 1 29-12 39-26 39S13 54 12 28ZM90 28c6-4 44-4 48 0-1 26-9 39-22 39-14 0-27-10-26-39Z" fill="url(#summer-lens-gradient)"/><path class="summer-lens-shine" d="m27 35 13 22M104 35l14 24"/></svg></span>' +
-          '</div>' +
-          '</div>';
-        seasonal.innerHTML = inner;
-        seasonal.hidden = false;
-        if (banner.href) {
-          seasonal.style.cursor = 'pointer';
-          seasonal.addEventListener('click', function (e) {
-            if (!e.target.closest('a') && !e.target.closest('button')) {
-              window.location.href = banner.href;
-            }
-          });
-        }
-      }
-    })
-    .catch(function () { seasonal.remove(); });
+  var newsletterApi = window.CHEVERE_NEWSLETTER_API_URL || 'https://newsletter.itschevere.com';
+  fetch(newsletterApi + '/api/series/the-month-ahead')
+    .then(function (response) { return response.ok ? response.json() : Promise.reject(new Error('Series unavailable')); })
+    .then(function (payload) { render(payload && payload.item ? payload.item : fallback); })
+    .catch(function () { render(fallback); });
 })();
 
 /* homepage weekly roundup: independent from Featured Reads and resolved by the newsletter backend */
@@ -732,7 +706,8 @@ document.querySelectorAll('.nav-item.has-dropdown > a').forEach(function (a) {
             '<span class="weekly-roundup-link">' + safe(card.cta_label || 'Read More') + ' <span aria-hidden="true">&rarr;</span></span>' +
             '</a>';
         }).join('') + '</div>';
-      featuredReads.insertAdjacentElement('afterend', weekly);
+      var monthAhead = document.querySelector('.month-ahead-feature');
+      (monthAhead || featuredReads).insertAdjacentElement('afterend', weekly);
     })
     .catch(function () { /* No published issue means no homepage section. */ });
 })();

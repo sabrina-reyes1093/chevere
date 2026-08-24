@@ -40,24 +40,30 @@ const defaultRoundup = (): HomepageRoundup => ({
 const localPath = path.join(siteRoot(), "homepage-roundup.json");
 
 export async function loadHomepageRoundup(): Promise<HomepageRoundup> {
+  try {
+    return await loadHomepageRoundupStrict();
+  } catch {
+    // A missing, unreadable, or malformed file leaves the public homepage on
+    // its newsletter-issue fallback rather than failing the whole route.
+    return defaultRoundup();
+  }
+}
+
+/** Safety-sensitive reads (such as media deletion checks) fail closed when
+ * repository content cannot be verified, including an unexpected 404. */
+export async function loadHomepageRoundupStrict(): Promise<HomepageRoundup> {
   let source: string | null;
-  try {
-    if (config.githubToken && config.githubRepo) {
-      source = await readFileFromRepo("homepage-roundup.json");
-    } else {
+  if (config.githubToken && config.githubRepo) {
+    source = await readFileFromRepo("homepage-roundup.json");
+  } else {
+    try {
       source = await fs.readFile(localPath, "utf8");
+    } catch (error) {
+      throw error;
     }
-  } catch {
-    // A missing or unreadable file means the standalone roundup is simply not
-    // configured yet; the homepage falls back to the newsletter issue.
-    return defaultRoundup();
   }
-  if (source === null) return defaultRoundup();
-  try {
-    return homepageRoundupSchema.parse(JSON.parse(source));
-  } catch {
-    return defaultRoundup();
-  }
+  if (source === null) throw new Error("Could not verify homepage-roundup.json.");
+  return homepageRoundupSchema.parse(JSON.parse(source));
 }
 
 export async function saveHomepageRoundup(roundup: HomepageRoundup) {

@@ -1,6 +1,7 @@
 "use client";
 
 import { useRef, useState } from "react";
+import { MediaLibraryDialog } from "@/components/media-library-dialog";
 
 type Props = {
   label: string;
@@ -17,6 +18,7 @@ export function ImageField({ label, value, onChange, disabled }: Props) {
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState("");
   const [dragging, setDragging] = useState(false);
+  const [libraryOpen, setLibraryOpen] = useState(false);
 
   async function upload(file: File) {
     setBusy(true); setError("");
@@ -61,10 +63,11 @@ export function ImageField({ label, value, onChange, disabled }: Props) {
         <button type="button" className="text-button" onClick={() => picker.current?.click()} disabled={disabled || busy}>
           {busy ? "Uploading…" : "Choose file"}
         </button>
+        <button type="button" className="text-button" onClick={() => setLibraryOpen(true)} disabled={disabled || busy}>Browse media</button>
         {value && !busy && (
           <button type="button" className="text-button" onClick={() => { setError(""); onChange(""); }} disabled={disabled}>Remove</button>
         )}
-        <span className="image-field-hint">PNG, JPEG, GIF, or WebP up to 5 MB</span>
+        <span className="image-field-hint">PNG, JPEG, GIF, WebP, HEIC, HEIF, or AVIF up to 5 MB</span>
       </div>
       <input
         ref={picker}
@@ -75,6 +78,7 @@ export function ImageField({ label, value, onChange, disabled }: Props) {
       />
       {error && <p className="image-field-error error-text">{error}</p>}
       {value && !error && <img className="image-field-thumb" src={value} alt="" onError={() => setError("That image URL could not be loaded.")} />}
+      {libraryOpen && <MediaLibraryDialog onClose={() => setLibraryOpen(false)} onSelect={(asset) => { setError(""); onChange(asset.url); }} />}
     </div>
   );
 }

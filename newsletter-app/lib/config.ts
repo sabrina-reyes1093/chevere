@@ -30,4 +30,12 @@ export const config = {
   get githubRepo() { return process.env.GITHUB_REPO || "sabrina-reyes1093/chevere"; },
   get githubBranch() { return process.env.GITHUB_BRANCH || "main"; },
   get githubConfigured() { return Boolean(this.githubToken && this.githubRepo); },
+  get fileJumpWebDavUrl() {
+    const value = process.env.FILEJUMP_WEBDAV_URL || "https://uploads.filejump.com/dav/";
+    return value.endsWith("/") ? value : `${value}/`;
+  },
+  get fileJumpUsername() { return process.env.FILEJUMP_USERNAME || ""; },
+  get fileJumpPassword() { return process.env.FILEJUMP_PASSWORD || ""; },
+  get fileJumpFolder() { return (process.env.FILEJUMP_FOLDER || "chevere-media").replace(/^\/+|\/+$/g, ""); },
+  get fileJumpConfigured() { return Boolean(this.fileJumpUsername && this.fileJumpPassword); },
 };

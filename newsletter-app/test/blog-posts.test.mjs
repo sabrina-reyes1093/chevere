@@ -3,7 +3,7 @@ import fs from "node:fs";
 import path from "node:path";
 import test from "node:test";
 import { fileURLToPath } from "node:url";
-import { CATEGORY_GROUPS, slugify, displayDate, categoryLabel, categoryLabels, categorySection, categorySections, normalizeCategory, normalizePostCategories, normalizePostCategory, postSchema, validateForPublish } from "../lib/post-schema.ts";
+import { CATEGORY_GROUPS, SERIES_OPTIONS, slugify, displayDate, categoryLabel, categoryLabels, categorySection, categorySections, normalizeCategory, normalizePostCategories, normalizePostCategory, postSchema, seriesEditionLabel, seriesLabel, validateForPublish } from "../lib/post-schema.ts";
 
 const projectRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const read = (file) => fs.readFileSync(path.join(projectRoot, file), "utf8");
@@ -32,6 +32,115 @@ test("slugs and dates match the conventions already used on the site", () => {
   assert.equal(activeCategories.includes("everyday-favorites"), false);
   assert.equal(activeCategories.includes("hosting"), false);
   assert.equal(activeCategories.includes("evergreen-guides"), false);
+});
+
+test("Art is offered in the admin editor and reachable from the public Culture menu", () => {
+  const culture = CATEGORY_GROUPS.find((group) => group.slug === "culture");
+  assert.ok(culture.categories.some((item) => item.slug === "art" && item.label === "Art"));
+
+  // The editor renders its checkboxes from CATEGORY_GROUPS, so being in the
+  // taxonomy is what puts Art on the posting form.
+  assert.match(read("components/post-editor.tsx"), /CATEGORY_GROUPS\.map/);
+  assert.equal(categoryLabel("art"), "Art");
+  assert.equal(categorySection("art"), "culture");
+  assert.equal(normalizeCategory("art"), "art");
+  assert.equal(postSchema.safeParse({
+    slug: "an-art-post", title: "An Art Post", category: "art", dek: "A description.",
+    body: "Some words.", cover_image_url: "https://example.com/c.png", hero_image_url: "",
+    signoff: "", published_on: "2026-08-05",
+  }).success, true);
+
+  // A category readers cannot browse to would only be half-added.
+  const publicRoot = path.resolve(projectRoot, "..");
+  const pages = [
+    ...fs.readdirSync(publicRoot).filter((file) => file.endsWith(".html")).map((file) => path.join(publicRoot, file)),
+    ...fs.readdirSync(path.join(publicRoot, "posts")).filter((file) => file.endsWith(".html")).map((file) => path.join(publicRoot, "posts", file)),
+  ];
+  for (const page of pages) {
+    const html = fs.readFileSync(page, "utf8");
+    if (!html.includes("cat=books")) continue;
+    assert.match(html, /blog\.html\?cat=art">Art<\/a>/, `${path.basename(page)} is missing the Art menu entry`);
+  }
+
+  // blog.html carries its own copy of the taxonomy and falls back to "show
+  // everything" for a category it does not recognise, so Art has to be
+  // registered in both maps or ?cat=art quietly lists every post.
+  const blog = fs.readFileSync(path.join(publicRoot, "blog.html"), "utf8");
+  assert.match(blog, /'art': 'Art'/);
+  assert.match(blog, /'art': 'culture'/);
+});
+
+test("recurring Series stay separate from categories and main navigation", () => {
+  assert.deepEqual(SERIES_OPTIONS.map((item) => item.label), ["None", "Weekly Roundup", "The Month Ahead", "Seasonal Guides"]);
+  assert.equal(seriesLabel("the-month-ahead"), "The Month Ahead");
+  assert.equal(seriesEditionLabel({
+    series: "weekly-roundup", series_month: "", series_year: "", series_season: "",
+    series_issue_number: "8", series_edition_date: "2026-08-23",
+  }), "Weekly Roundup · No. 08 · Aug 23, 2026");
+
+  const publicRoot = path.resolve(projectRoot, "..");
+  const pages = [
+    ...fs.readdirSync(publicRoot).filter((file) => file.endsWith(".html")).map((file) => path.join(publicRoot, file)),
+    ...fs.readdirSync(path.join(publicRoot, "posts")).filter((file) => file.endsWith(".html")).map((file) => path.join(publicRoot, "posts", file)),
+  ];
+  for (const page of pages) {
+    const html = fs.readFileSync(page, "utf8");
+    if (!html.includes('class="site-nav"')) continue;
+    assert.doesNotMatch(html, /cat=(?:monthly|weekly|seasonal|newsletter)(?:["'&\s]|$)/, `${path.basename(page)} exposes a Series as a main category`);
+  }
+
+  const blog = fs.readFileSync(path.join(publicRoot, "blog.html"), "utf8");
+  assert.doesNotMatch(blog, /data-cat="monthly"/);
+  assert.match(blog, /id="guides-series-hub"/);
+  assert.match(blog, /data-series-list="the-month-ahead"/);
+  assert.match(blog, /data-series-list="seasonal-guides"/);
+  assert.match(blog, /data-series-list="weekly-roundup"/);
+  assert.match(blog, /data-show-latest/);
+  assert.match(blog, /data-show-series/);
+  assert.match(read("components/post-editor.tsx"), /CATEGORY_GROUPS\.map/);
+  assert.match(read("components/posts-table.tsx"), /CATEGORIES\.map/);
+  assert.match(read("components/post-editor.tsx"), />Series/);
+  assert.match(read("components/post-editor.tsx"), /post\.series === "the-month-ahead"/);
+  assert.match(read("components/post-editor.tsx"), /post\.series === "seasonal-guides"/);
+  assert.match(read("components/post-editor.tsx"), /post\.series === "weekly-roundup"/);
+  assert.doesNotMatch(read("lib/post-template.ts"), /cat=monthly/);
+});
+
+test("series metadata validates independently and persists through publishing", () => {
+  const base = {
+    slug: "an-edition", title: "An Edition", category: "seasonal-recommendations", dek: "A description.",
+    body: "Some words.", cover_image_url: "https://example.com/c.png", hero_image_url: "",
+    signoff: "", published_on: "2026-08-23", author: "Sabrina",
+  };
+  assert.equal(postSchema.safeParse({ ...base, series: "the-month-ahead", series_month: "09", series_year: "2026" }).success, true);
+  assert.equal(postSchema.safeParse({ ...base, series: "the-month-ahead", series_year: "2026" }).success, false);
+  assert.equal(postSchema.safeParse({ ...base, series: "seasonal-guides", series_season: "Fall", series_year: "2026" }).success, true);
+  assert.equal(postSchema.safeParse({ ...base, series: "weekly-roundup", series_issue_number: "08", series_edition_date: "2026-08-23" }).success, true);
+
+  const migration = read("supabase/migrations/012_post_series.sql");
+  for (const column of ["series_month", "series_year", "series_season", "series_issue_number", "series_edition_date", "featured_on_homepage", "show_in_latest", "show_in_series_section", "author"]) {
+    assert.match(migration, new RegExp(column));
+  }
+  const publish = read("lib/publish-post.ts");
+  assert.match(publish, /data-series=/);
+  assert.match(publish, /data-show-latest/);
+  assert.match(publish, /data-show-series/);
+  assert.match(read("lib/post-template.ts"), /seriesEditionLabel/);
+  assert.match(read("lib/post-template.ts"), /post\.author/);
+});
+
+test("the homepage can feature the latest Month Ahead edition", () => {
+  const route = read("app/api/series/the-month-ahead/route.ts");
+  assert.match(route, /\.eq\("series", "the-month-ahead"\)/);
+  assert.match(route, /\.eq\("status", "published"\)/);
+  assert.match(route, /featured_on_homepage/);
+  assert.match(route, /series_year/);
+  assert.match(route, /series_month/);
+  const site = fs.readFileSync(path.resolve(projectRoot, "..", "site.js"), "utf8");
+  assert.match(site, /renderHomepageMonthAhead/);
+  assert.match(site, /\/api\/series\/the-month-ahead/);
+  assert.match(site, /month-ahead-feature/);
+  assert.match(site, /Explore.*month/i);
 });
 
 test("a post cannot be published until it would render correctly", () => {

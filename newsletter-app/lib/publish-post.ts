@@ -1,7 +1,7 @@
 import fs from "node:fs/promises";
 import path from "node:path";
 import { renderPostPage } from "@/lib/post-template";
-import { categoryLabels, categorySections, displayDate, normalizePostCategories, type PostInput } from "@/lib/post-schema";
+import { categoryLabels, categorySections, displayDate, normalizePostCategories, seriesEditionLabel, type PostInput } from "@/lib/post-schema";
 
 /** The site repo is the parent of the newsletter app. */
 export function siteRoot() {
@@ -18,6 +18,18 @@ function escapeAttr(value: string) {
 export function cardMarkup(post: PostInput) {
   const categories = normalizePostCategories(post.category, post.slug);
   const href = `posts/${escapeAttr(post.slug)}.html`;
+  const series = post.series || "";
+  const seriesMeta = seriesEditionLabel(post);
+  const organization = [
+    `data-series="${escapeAttr(series)}"`,
+    `data-series-month="${escapeAttr(post.series_month || "")}"`,
+    `data-series-year="${escapeAttr(post.series_year || "")}"`,
+    `data-series-season="${escapeAttr(post.series_season || "")}"`,
+    `data-series-issue="${escapeAttr(post.series_issue_number || "")}"`,
+    `data-series-date="${escapeAttr(post.series_edition_date || "")}"`,
+    `data-show-latest="${post.show_in_latest !== false}"`,
+    `data-show-series="${post.show_in_series_section !== false}"`,
+  ].join(" ");
   if (categories.includes("introduction")) {
     return `      <article class="post-card featured" data-cat="" data-section="" data-featured="true" data-url="${href}">
         <a class="featured-card-link" href="${href}" aria-label="Read ${escapeAttr(post.title)}"></a>
@@ -38,8 +50,9 @@ export function cardMarkup(post: PostInput) {
         </div>
       </article>`;
   }
-  return `      <a class="post-card" data-cat="${escapeAttr(categories.join(" "))}" data-section="${escapeAttr(categorySections(post.category, post.slug).join(" "))}" href="${href}">
+  return `      <a class="post-card" data-cat="${escapeAttr(categories.join(" "))}" data-section="${escapeAttr(categorySections(post.category, post.slug).join(" "))}" ${organization} href="${href}">
         <div class="thumb" style="background-image:url(${escapeAttr(post.cover_image_url)});background-size:cover;background-position:center"></div>
+        ${seriesMeta ? `<span class="series-label">${escapeAttr(seriesMeta)}</span>` : ""}
         <span class="kicker">${escapeAttr(categoryLabels(post.category, post.slug))}</span>
         <h2>${escapeAttr(post.title)}</h2>
         <p class="dek">${escapeAttr(post.dek)}</p>

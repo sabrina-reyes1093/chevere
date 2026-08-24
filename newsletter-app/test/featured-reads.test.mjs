@@ -70,6 +70,26 @@ test("mobile homepage controls initialize immediately and remain inside the head
   assert.match(styles, /\.weekly-roundup-heading > a \{[\s\S]*?visibility: visible !important;[\s\S]*?pointer-events: auto !important;/);
 });
 
+test("homepage editorial sections match the reference-sized panels without viewport overflow", () => {
+  const styles = readPublic("styles.css");
+  const guardIndex = styles.lastIndexOf("/* Reference-sized homepage editorial panels");
+  assert.ok(guardIndex >= 0);
+
+  const guard = styles.slice(guardIndex);
+  const panelRule = guard.match(/\.featured-reads,\s*\.weekly-roundup\s*\{([\s\S]*?)\}/)?.[1] || "";
+  assert.match(panelRule, /width: calc\(100% - 48px\);/);
+  assert.match(panelRule, /max-width: none;/);
+  assert.match(panelRule, /margin: 72px auto 0;/);
+  assert.match(panelRule, /padding: 42px 38px;/);
+  assert.match(panelRule, /border-radius: 38px;/);
+  assert.doesNotMatch(panelRule, /100vw|margin-(?:left|right):\s*-/);
+  assert.match(guard, /\.featured-card,\s*\.weekly-roundup-card\s*\{[\s\S]*?padding: 10px 10px 62px;[\s\S]*?border-radius: 24px;/);
+  assert.match(guard, /\.featured-thumb \{[\s\S]*?aspect-ratio: 4 \/ 3;/);
+  assert.match(guard, /\.weekly-roundup-grid \{ gap: 20px; \}/);
+  assert.match(guard, /@media \(min-width: 981px\) \{[\s\S]*?\.featured-card \{ min-height: 540px; \}[\s\S]*?\.weekly-roundup-card \{ min-height: 632px; \}/);
+  assert.match(guard, /@media \(max-width: 700px\) \{[\s\S]*?\.featured-reads,\s*\.weekly-roundup\s*\{[\s\S]*?width: calc\(100% - 24px\);/);
+});
+
 test("mobile restores the menu button and aligns article controls without the theme switch", () => {
   const styles = readPublic("styles.css");
   const siteScript = readPublic("site.js");

@@ -34,7 +34,8 @@ test("every public page loads the current signup script version", () => {
   for (const file of htmlFiles) {
     const html = fs.readFileSync(file, "utf8");
     if (html.includes("site.js")) {
-      assert.match(html, /site\.js\?v=20260804-3/);
+      const scriptVersion = path.basename(file) === "index.html" ? /site\.js\?v=20260823-3/ : /site\.js\?v=20260823-2/;
+      assert.match(html, scriptVersion);
       assert.match(html, /id="mobile-menu-toggle"/);
       assert.match(html, /JOIN THE LIST/);
       assert.match(html, />HOME<.*>CULTURE<.*>STYLE<.*>LIFE<.*>GUIDES<.*>ABOUT</s);

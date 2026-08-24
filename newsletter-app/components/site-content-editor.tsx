@@ -16,6 +16,7 @@ type EditorStatus = { message: string; tone: "success" | "error" | "info" } | nu
 const seasons = ["Spring", "Summer", "Fall", "Winter"] as const;
 
 export function SiteContentEditor({ initialContent, articles, articleLoadError = "" }: Props) {
+  const contentLoadWarning = (initialContent as SiteContent & { _adminLoadWarning?: string })._adminLoadWarning || "";
   const [content, setContent] = useState(initialContent);
   const [yearDraft, setYearDraft] = useState(String(initialContent.seasonal_banner.year));
   const [status, setStatus] = useState<EditorStatus>(null);
@@ -151,6 +152,7 @@ export function SiteContentEditor({ initialContent, articles, articleLoadError =
 
   return (
     <div className="site-content-editor">
+      {contentLoadWarning ? <p className="message error" role="alert">{contentLoadWarning}</p> : null}
       <section className="admin-panel">
         <div className="admin-panel-heading">
           <div>
@@ -255,7 +257,7 @@ export function SiteContentEditor({ initialContent, articles, articleLoadError =
       </section>
 
       <div className="editor-actions seasonal-save-actions">
-        <button type="button" className="primary" onClick={save} disabled={saving || !selectionIsValid || !yearIsValid || Boolean(articleLoadError)}>{saving ? "Saving..." : "Save & Publish Seasonal Guide"}</button>
+        <button type="button" className="primary" onClick={save} disabled={saving || !selectionIsValid || !yearIsValid || Boolean(articleLoadError) || Boolean(contentLoadWarning)}>{saving ? "Saving..." : "Save & Publish Seasonal Guide"}</button>
         {status ? <p role="status" className={status.tone === "error" ? "error-text" : status.tone === "success" ? "success-text" : undefined}>{status.message}</p> : null}
       </div>
     </div>

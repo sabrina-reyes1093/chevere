@@ -9,7 +9,7 @@ export const dynamic = "force-dynamic";
 export default async function BlogPosts() {
   await requireAdminPage();
   const { data: posts } = await createAdminClient().from("blog_posts")
-    .select("id,title,slug,category,status,published_on,updated_at")
+    .select("id,title,slug,category,series,status,published_on,updated_at")
     .order("published_on", { ascending: false });
 
   return <AdminShell>

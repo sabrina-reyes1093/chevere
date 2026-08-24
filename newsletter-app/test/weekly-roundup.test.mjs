@@ -57,38 +57,21 @@ test("admin supports publish, Sunday scheduling, archive, duplicate, reorder, an
   assert.match(action, /roundup_snapshot: cards/);
 });
 
-test("homepage has the requested editorial order and no retired Currently Loving module", () => {
+test("homepage renders Hero, Featured Reads, The Month Ahead, then Weekly Roundup", () => {
   const html = readPublic("index.html");
   const site = readPublic("site.js");
-  const styles = readPublic("styles.css");
-  const content = JSON.parse(readPublic("site-content.json"));
-  const editor = read("components/site-content-editor.tsx");
-  const contentSchema = read("lib/site-content-schema.ts");
 
-  // Headline, CTA, and dates are all editable in the admin portal: assert the
-  // shape the homepage depends on rather than the copy that happens to be live.
-  assert.match(content.seasonal_banner.headline, /\S/);
-  assert.match(content.seasonal_banner.cta_label, /\S/);
-  assert.match(content.seasonal_banner.publish_date, /^\d{4}-\d{2}-\d{2}$/);
-  assert.equal(typeof content.seasonal_banner.expiration_date, "string");
-  assert.equal("image_url" in content.seasonal_banner, false);
-  assert.equal("image_alt" in content.seasonal_banner, false);
-  assert.doesNotMatch(site, /seasonal-guide-media/);
-  assert.doesNotMatch(styles, /seasonal-guide-media/);
-  assert.match(site, /seasonal-cta/);
-  assert.match(editor, /CTA label/);
-  assert.match(editor, /Publish date/);
-  assert.match(editor, /Expiration date/);
-  assert.match(contentSchema, /cta_label/);
-  assert.match(contentSchema, /publish_date/);
-  assert.match(contentSchema, /expiration_date/);
+  assert.ok(html.indexOf('<main class="home-main">') < html.indexOf('<section class="featured-reads'));
+  assert.doesNotMatch(site, /renderHomepageSeasonalGuide|seasonal-guide/);
+  assert.match(site, /featuredReads\.insertAdjacentElement\('afterend', section\)/);
+  assert.match(site, /var monthAhead = document\.querySelector\('\.month-ahead-feature'\)/);
+  assert.match(site, /\(monthAhead \|\| featuredReads\)\.insertAdjacentElement\('afterend', weekly\)/);
   assert.doesNotMatch(site, /Currently Loving/i);
   assert.doesNotMatch(html, /Currently Loving/i);
   assert.match(site, /The Weekly Roundup/);
   assert.match(site, /This Week at Ch(?:é|&eacute;)vere/);
   assert.match(site, /cards\.length !== 3/);
   assert.match(site, /noopener noreferrer/);
-  assert.match(site, /featuredReads\.insertAdjacentElement\('afterend', weekly\)/);
   assert.ok(site.indexOf("'<section class=\"newsletter\"") < site.indexOf("'<footer class=\"site-footer\""));
 });
 
