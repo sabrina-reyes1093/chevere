@@ -1,8 +1,8 @@
-import { categoryLabels, displayDate, type PostInput } from "@/lib/post-schema";
+import { categoryLabels, displayDate, seriesEditionLabel, type PostInput } from "@/lib/post-schema";
 
 /** Cache-busting suffixes used by the published pages. Keep in step with the
  *  values in blog.html and index.html when those are bumped. */
-export const ASSET_VERSIONS = { styles: "20260804-5", site: "20260804-3" };
+export const ASSET_VERSIONS = { styles: "20260823-2", site: "20260823-2" };
 
 function escape(value: string) {
   return value.replace(/[&<>"']/g, (char) => ({
@@ -82,6 +82,7 @@ const HEADER = `  <header class="site-header">
     <div class="nav-item has-dropdown">
       <a href="../blog.html?cat=culture">CULTURE<i data-lucide="chevron-down" class="chev" stroke-width="2" aria-hidden="true"></i></a>
       <div class="dropdown">
+        <a href="../blog.html?cat=art">Art</a>
         <a href="../blog.html?cat=books">Books</a>
         <a href="../blog.html?cat=film-tv">Film &amp; TV</a>
         <a href="../blog.html?cat=music">Music</a>
@@ -139,6 +140,8 @@ export function renderPostPage(post: PostInput) {
   const signoff = post.signoff.trim()
     ? `\n      <p class="post-signoff">${inline(post.signoff)}</p>`
     : "";
+  const seriesMeta = seriesEditionLabel(post);
+  const author = post.author?.trim() || "Chévere";
 
   return `<!DOCTYPE html>
 <html lang="en">
@@ -162,9 +165,10 @@ ${HEADER}
 
   <main class="page-main">
     <a class="back-link" href="../blog.html">&larr; Back to Blog</a>
+    ${seriesMeta ? `<p class="post-series">${escape(seriesMeta)}</p>` : ""}
     <span class="kicker" style="display:block;margin-bottom:8px">${escape(categoryLabels(post.category, post.slug))}</span>
     <h1 class="page-title">${escape(post.title)}</h1>
-    <p class="page-tagline" style="font-size:15px;color:#8e8c88;margin-top:-4px;margin-bottom:28px">${escape(displayDate(post.published_on))}</p>
+    <p class="page-tagline" style="font-size:15px;color:#8e8c88;margin-top:-4px;margin-bottom:28px">By ${escape(author)} &middot; ${escape(displayDate(post.published_on))}</p>
     <div class="post-body">${hero}
       ${renderBody(post.body)}${signoff}
     </div>

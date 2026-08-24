@@ -702,6 +702,45 @@ document.querySelectorAll('.nav-item.has-dropdown > a').forEach(function (a) {
     .catch(function () { seasonal.remove(); });
 })();
 
+/* homepage The Month Ahead: latest published post in the independent series */
+(function renderHomepageMonthAhead() {
+  var featuredReads = document.querySelector('.featured-reads');
+  if (!featuredReads) return;
+
+  function safe(value) {
+    return String(value || '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+  }
+
+  var fallback = {
+    title: 'The Chévere Guide to Making the Most of August',
+    excerpt: 'Simple ways to enjoy the final full month of summer without turning it into another to-do list.',
+    image_url: 'https://xjtnfwnntzonmumlxbyg.supabase.co/storage/v1/object/public/newsletter-images/2026-07/526f8df4-2ead-481e-89e4-6d47f6d73bc3.png',
+    month: 'August',
+    year: '2026',
+    url: 'posts/the-chevere-guide-to-making-the-most-of-august.html'
+  };
+
+  function render(item) {
+    if (!item || !item.title || !item.url || !item.month) return;
+    var section = document.createElement('section');
+    section.className = 'month-ahead-feature';
+    section.setAttribute('aria-labelledby', 'month-ahead-home-title');
+    section.innerHTML = '<a class="month-ahead-media" href="' + safe(item.url) + '">' +
+      '<img src="' + safe(item.image_url) + '" alt="' + safe(item.title) + '" width="900" height="675" loading="lazy" /></a>' +
+      '<div class="month-ahead-copy"><p class="month-ahead-eyebrow">The Month Ahead</p>' +
+      '<h2 id="month-ahead-home-title">' + safe(item.month) + '</h2>' +
+      (item.excerpt ? '<p>' + safe(item.excerpt) + '</p>' : '') +
+      '<a class="month-ahead-link" href="' + safe(item.url) + '">Explore ' + safe(item.month) + ' <span aria-hidden="true">&rarr;</span></a></div>';
+    featuredReads.insertAdjacentElement('beforebegin', section);
+  }
+
+  var newsletterApi = window.CHEVERE_NEWSLETTER_API_URL || 'https://newsletter.itschevere.com';
+  fetch(newsletterApi + '/api/series/the-month-ahead')
+    .then(function (response) { return response.ok ? response.json() : Promise.reject(new Error('Series unavailable')); })
+    .then(function (payload) { render(payload && payload.item ? payload.item : fallback); })
+    .catch(function () { render(fallback); });
+})();
+
 /* homepage weekly roundup: independent from Featured Reads and resolved by the newsletter backend */
 (function renderHomepageWeeklyRoundup() {
   var featuredReads = document.querySelector('.featured-reads');

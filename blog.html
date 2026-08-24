@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,600;1,700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css?v=20260804-5" />
+  <link rel="stylesheet" href="styles.css?v=20260823-2" />
 </head>
 <body class="blog-page">
 
@@ -99,6 +99,29 @@
       <button data-cat="guides">Guides</button>
     </div>
 
+    <section class="series-hub" id="guides-series-hub" aria-labelledby="series-hub-title" hidden>
+      <header class="series-hub-header">
+        <p class="series-hub-eyebrow">Recurring Editorial Series</p>
+        <h2 id="series-hub-title">The Chévere Guides</h2>
+        <p>Monthly outlooks, seasonal edits, and weekly discoveries&mdash;organized as recurring series while remaining part of the Guides archive.</p>
+      </header>
+      <section class="series-block series-block--month" aria-labelledby="month-ahead-heading">
+        <div class="series-block-heading"><div><p>01</p><h3 id="month-ahead-heading">The Month Ahead</h3></div></div>
+        <div class="series-feature" data-series-feature="the-month-ahead"></div>
+        <div class="series-archive-grid" data-series-list="the-month-ahead"></div>
+      </section>
+      <section class="series-block" aria-labelledby="seasonal-guides-heading">
+        <div class="series-block-heading"><div><p>02</p><h3 id="seasonal-guides-heading">Seasonal Guides</h3></div></div>
+        <div class="series-archive-grid" data-series-list="seasonal-guides"></div>
+      </section>
+      <section class="series-block series-block--weekly" aria-labelledby="weekly-series-heading">
+        <div class="series-block-heading"><div><p>03</p><h3 id="weekly-series-heading">Weekly Roundup</h3></div></div>
+        <div class="series-archive-grid" data-series-list="weekly-roundup"></div>
+      </section>
+    </section>
+
+    <div class="guides-all-heading" id="guides-all-heading" hidden><p>Browse the Archive</p><h2>All Guides</h2></div>
+
     <div class="post-grid" id="post-grid">
       <a class="post-card" data-cat="pop-culture film-tv" data-section="culture" href="posts/why-margot-robbie-is-entering-another-major-movie-star-era.html">
         <div class="thumb" style="background-image:url(https://xjtnfwnntzonmumlxbyg.supabase.co/storage/v1/object/public/newsletter-images/2026-08/b02e479a-ac0f-4672-942b-62012b08606a.png);background-size:cover;background-position:center"></div>
@@ -184,9 +207,10 @@
         <p class="dek">From tiny dumplings , cubes and blocks of cheese to impossible-to-find Needoh&#039;s and Smushers, the internet’s latest obsession is soft, strange and deeply satisfying.</p>
         <p class="date">Jul 28, 2026</p>
       </a>
-      <a class="post-card" data-cat="life-wellness" data-section="life" href="posts/the-chevere-guide-to-making-the-most-of-august.html">
+      <a class="post-card" data-cat="life-wellness seasonal-recommendations" data-section="life guides" data-series="the-month-ahead" data-series-month="08" data-series-year="2026" data-series-season="" data-series-issue="" data-series-date="" data-show-latest="true" data-show-series="true" href="posts/the-chevere-guide-to-making-the-most-of-august.html">
         <div class="thumb" style="background-image:url(https://xjtnfwnntzonmumlxbyg.supabase.co/storage/v1/object/public/newsletter-images/2026-07/526f8df4-2ead-481e-89e4-6d47f6d73bc3.png);background-size:cover;background-position:center"></div>
-        <span class="kicker">Life &amp; Wellness</span>
+        <span class="series-label">The Month Ahead &middot; August 2026</span>
+        <span class="kicker">Life &amp; Wellness &middot; Seasonal Recommendations</span>
         <h2>The Chévere Guide to Making the Most of August</h2>
         <p class="dek">Simple ways to enjoy the final full month of summer without turning it into another to-do list.</p>
         <p class="date">Jul 28, 2026</p>
@@ -212,8 +236,9 @@
         <p class="dek">Ferran Torres scored in extra time as Spain defeated Argentina 1–0 to claim its second men’s World Cup title.</p>
         <p class="date">Jul 20, 2026</p>
       </a>
-      <a class="post-card" data-cat="books reading-lists summer-guide" data-section="culture guides" href="posts/chevere-summer-reading-edit.html">
+      <a class="post-card" data-cat="books reading-lists summer-guide" data-section="culture guides" data-series="seasonal-guides" data-series-month="" data-series-year="2026" data-series-season="Summer" data-series-issue="" data-series-date="" data-show-latest="true" data-show-series="true" href="posts/chevere-summer-reading-edit.html">
         <div class="thumb" style="background-image:url(assets/chevere-summer-reading-edit.png);background-size:cover;background-position:center"></div>
+        <span class="series-label">Seasonal Guides &middot; Summer 2026</span>
         <span class="kicker">Books &middot; Reading Lists</span>
         <h2>The Ch&eacute;vere Summer Reading Guide</h2>
         <p class="dek">The books we'd recommend to a friend&mdash;from literary favorites and addictive thrillers to romance, fantasy, and unforgettable standouts.</p>
@@ -285,7 +310,7 @@
   </main>
 
   <script src="https://unpkg.com/lucide@latest"></script>
-  <script src="site.js?v=20260804-3"></script>
+  <script src="site.js?v=20260823-2"></script>
   <script>
     (function () {
       var cards = Array.prototype.slice.call(document.querySelectorAll('.post-card'));
@@ -325,16 +350,63 @@
         'restaurant-roundups': 'guides', 'gift-guides': 'guides'
       };
       var aliases = { 'tv-film': 'film-tv', 'food-drink': 'restaurant-roundups', 'wellness': 'life-wellness' };
+      var seriesHub = document.getElementById('guides-series-hub');
+      var guidesAllHeading = document.getElementById('guides-all-heading');
+
+      function seriesKey(card) {
+        return [
+          card.getAttribute('data-series-year') || '0000',
+          card.getAttribute('data-series-month') || '00',
+          card.getAttribute('data-series-date') || '0000-00-00',
+          card.querySelector('.date') ? card.querySelector('.date').textContent : ''
+        ].join('-');
+      }
+
+      function cloneSeriesCard(card, prominent) {
+        var clone = card.cloneNode(true);
+        clone.classList.remove('hidden');
+        clone.classList.add('series-card');
+        if (prominent) clone.classList.add('series-feature-card');
+        return clone;
+      }
+
+      function populateSeries(slug) {
+        var matches = cards.filter(function (card) {
+          return card.getAttribute('data-series') === slug && card.getAttribute('data-show-series') !== 'false';
+        }).sort(function (a, b) { return seriesKey(b).localeCompare(seriesKey(a)); });
+        var list = seriesHub.querySelector('[data-series-list="' + slug + '"]');
+        var feature = seriesHub.querySelector('[data-series-feature="' + slug + '"]');
+        list.innerHTML = '';
+        if (feature) feature.innerHTML = '';
+        if (!matches.length) {
+          list.innerHTML = '<p class="series-empty">New editions are coming soon.</p>';
+          return;
+        }
+        var start = 0;
+        if (feature) {
+          feature.appendChild(cloneSeriesCard(matches[0], true));
+          start = 1;
+        }
+        matches.slice(start).forEach(function (card) { list.appendChild(cloneSeriesCard(card, false)); });
+        if (start && matches.length === 1) list.innerHTML = '<p class="series-empty">Previous editions will appear here.</p>';
+      }
+
+      ['the-month-ahead', 'seasonal-guides', 'weekly-roundup'].forEach(populateSeries);
+
       function apply(cat) {
         cat = aliases[cat] || cat;
         var visible = 0;
         cards.forEach(function (c) {
           var categories = (c.getAttribute('data-cat') || '').split(/\s+/);
           var sectionsForCard = (c.getAttribute('data-section') || '').split(/\s+/);
-          var hide = cat !== 'all' && categories.indexOf(cat) === -1 && sectionsForCard.indexOf(cat) === -1;
+          var hiddenFromLatest = cat === 'all' && c.getAttribute('data-show-latest') === 'false';
+          var outsideArchive = cat !== 'all' && categories.indexOf(cat) === -1 && sectionsForCard.indexOf(cat) === -1;
+          var hide = hiddenFromLatest || outsideArchive;
           c.classList.toggle('hidden', hide);
           if (!hide) visible++;
         });
+        seriesHub.hidden = cat !== 'guides';
+        guidesAllHeading.hidden = cat !== 'guides';
         var activeSection = sections[cat] || cat;
         pills.forEach(function (p) {
           p.classList.toggle('active', p.getAttribute('data-cat') === activeSection);
