@@ -4,6 +4,8 @@ import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { ImageField } from "@/components/image-field";
+import { MediaLibraryDialog } from "@/components/media-library-dialog";
+import type { MediaAsset } from "@/lib/media-schema";
 import { CATEGORY_GROUPS, MONTH_OPTIONS, normalizePostCategories, SEASON_OPTIONS, serializeCategories, SERIES_OPTIONS, slugify, STANDALONE_POST_CATEGORY, type CategorySlug, type Post, type PostInput, type SeriesSlug } from "@/lib/post-schema";
 
 const today = () => new Date().toISOString().slice(0, 10);
@@ -21,9 +23,28 @@ function InlineImageUpload({ onInsert, bodyContent, onAddMore }: { onInsert: (ma
   const [sectionIndex, setSectionIndex] = useState(0);
   const [error, setError] = useState("");
   const [dragging, setDragging] = useState(false);
+  const [libraryOpen, setLibraryOpen] = useState(false);
   const picker = useRef<HTMLInputElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
   const sections = getSections(bodyContent);
+
+  function insertImage(url: string, alt: string) {
+    const imgMarkdown = `\n\n![${alt}](${url})\n`;
+    if (sectionIndex === 0) {
+      onInsert(imgMarkdown + bodyContent);
+    } else if (sectionIndex >= sections.length) {
+      onInsert(bodyContent + "\n\n" + imgMarkdown);
+    } else {
+      const parts = bodyContent.split(/\n\n+/).filter(Boolean);
+      parts.splice(sectionIndex, 0, `![${alt}](${url})`);
+      onInsert(parts.join("\n\n"));
+    }
+  }
+
+  function insertAsset(asset: MediaAsset) {
+    const alt = asset.alt_text || asset.display_name.replace(/\.[^.]+$/, "").replace(/[-_]/g, " ");
+    insertImage(asset.url, alt);
+  }
 
   async function upload(file: File) {
     setBusy(true); setError("");
@@ -35,16 +56,7 @@ function InlineImageUpload({ onInsert, bodyContent, onAddMore }: { onInsert: (ma
       const data = await response.json().catch(() => ({}));
       if (!response.ok) throw new Error(data.error || "Upload failed.");
       const alt = file.name.replace(/\.[^.]+$/, "").replace(/[-_]/g, " ");
-      const imgMarkdown = `\n\n![${alt}](${data.url})\n`;
-      if (sectionIndex === 0) {
-        onInsert(imgMarkdown + bodyContent);
-      } else if (sectionIndex >= sections.length) {
-        onInsert(bodyContent + "\n\n" + imgMarkdown);
-      } else {
-        const parts = bodyContent.split(/\n\n+/).filter(Boolean);
-        parts.splice(sectionIndex, 0, `![${alt}](${data.url})`);
-        onInsert(parts.join("\n\n"));
-      }
+      insertImage(data.url, alt);
     } catch (err) {
       setError(err instanceof Error ? err.message : "Upload failed.");
     } finally { setBusy(false); }
@@ -73,6 +85,7 @@ function InlineImageUpload({ onInsert, bodyContent, onAddMore }: { onInsert: (ma
         <button type="button" className="secondary" onClick={() => picker.current?.click()} disabled={busy} style={{ fontSize: 13, padding: "7px 14px", minHeight: 36 }}>
           {busy ? "Uploading image\u2026" : "Insert image"}
         </button>
+        <button type="button" className="secondary" onClick={() => setLibraryOpen(true)} disabled={busy} style={{ fontSize: 13, padding: "7px 14px", minHeight: 36 }}>Browse media</button>
         <select value={sectionIndex} onChange={(e) => setSectionIndex(Number(e.target.value))} style={{ fontSize: 13, padding: "7px 10px", borderRadius: 8, border: "1px solid var(--line)", background: "var(--paper)", color: "var(--ink)", minHeight: 36, maxWidth: 340 }}>
           <option value={0}>At the very top</option>
           {sections.map((s) => <option key={s.index} value={s.index + 1}>{s.label}</option>)}
@@ -83,6 +96,7 @@ function InlineImageUpload({ onInsert, bodyContent, onAddMore }: { onInsert: (ma
       </div>
       {error && <p className="error-text" style={{ margin: "8px 0 0", fontSize: 13 }}>{error}</p>}
       {onAddMore && <button type="button" className="secondary" onClick={onAddMore} style={{ fontSize: 13, padding: "7px 14px", minHeight: 36, marginTop: 8 }}>+ Add more images</button>}
+      {libraryOpen && <MediaLibraryDialog onClose={() => setLibraryOpen(false)} onSelect={insertAsset} />}
     </div>
   );
 }

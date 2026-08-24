@@ -1,18 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
-import { requireAdminApi } from "@/lib/auth";
-import { createAdminClient } from "@/lib/supabase-admin";
-
-const BUCKET = "newsletter-images";
-const MAX_BYTES = 5 * 1024 * 1024;
-const EXTENSIONS: Record<string, string> = {
-  "image/png": "png",
-  "image/jpeg": "jpg",
-  "image/gif": "gif",
-  "image/webp": "webp",
-  "image/heic": "heic",
-  "image/heif": "heif",
-  "image/avif": "avif",
-};
+import { getAdminUser, requireAdminApi } from "@/lib/auth";
+import { MAX_MEDIA_BYTES as MAX_BYTES, MEDIA_EXTENSIONS as EXTENSIONS, uploadMediaAsset } from "@/lib/media-assets";
 
 export async function POST(request: NextRequest) {
   if (!await requireAdminApi()) return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
@@ -22,18 +10,14 @@ export async function POST(request: NextRequest) {
   if (!(file instanceof File)) return NextResponse.json({ error: "Attach an image to upload." }, { status: 400 });
 
   const extension = EXTENSIONS[file.type];
-  if (!extension) return NextResponse.json({ error: "Use a PNG, JPEG, GIF, or WebP image." }, { status: 400 });
+  if (!extension) return NextResponse.json({ error: "Use a PNG, JPEG, GIF, WebP, HEIC, HEIF, or AVIF image." }, { status: 400 });
   if (file.size > MAX_BYTES) return NextResponse.json({ error: "Images must be 5 MB or smaller." }, { status: 400 });
 
-  const supabase = createAdminClient();
-  const path = `${new Date().toISOString().slice(0, 7)}/${crypto.randomUUID()}.${extension}`;
-  const { error } = await supabase.storage.from(BUCKET).upload(path, await file.arrayBuffer(), {
-    contentType: file.type,
-    cacheControl: "31536000",
-    upsert: false,
-  });
-  if (error) return NextResponse.json({ error: error.message }, { status: 500 });
-
-  const { data } = supabase.storage.from(BUCKET).getPublicUrl(path);
-  return NextResponse.json({ url: data.publicUrl }, { status: 201 });
+  try {
+    const user = await getAdminUser();
+    const asset = await uploadMediaAsset(file, user?.id);
+    return NextResponse.json({ url: asset.url, asset }, { status: 201 });
+  } catch (error) {
+    return NextResponse.json({ error: error instanceof Error ? error.message : "Upload failed." }, { status: 502 });
+  }
 }
