@@ -637,71 +637,6 @@ document.querySelectorAll('.nav-item.has-dropdown > a').forEach(function (a) {
     .catch(function () { /* Keep the three server-rendered fallback cards. */ });
 })();
 
-/* homepage seasonal guide */
-(function renderHomepageSeasonalGuide() {
-  var hero = document.querySelector('.home-main');
-  if (!hero) return;
-
-  var seasonal = document.createElement('section');
-  seasonal.className = 'seasonal-guide';
-  seasonal.hidden = true;
-  seasonal.setAttribute('aria-labelledby', 'seasonal-guide-title');
-  hero.insertAdjacentElement('afterend', seasonal);
-
-  function safe(value) {
-    return String(value || '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
-  }
-
-  function chicagoDate() {
-    var parts = new Intl.DateTimeFormat('en-CA', {
-      timeZone: 'America/Chicago',
-      year: 'numeric',
-      month: '2-digit',
-      day: '2-digit'
-    }).formatToParts(new Date());
-    var values = {};
-    parts.forEach(function (part) { values[part.type] = part.value; });
-    return values.year + '-' + values.month + '-' + values.day;
-  }
-
-  fetch('site-content.json', { cache: 'no-store' })
-    .then(function (response) { return response.ok ? response.json() : Promise.reject(new Error('Site content unavailable')); })
-    .then(function (content) {
-      var banner = content.seasonal_banner || {};
-      var today = chicagoDate();
-      var isPublished = !banner.publish_date || banner.publish_date <= today;
-      var isCurrent = !banner.expiration_date || banner.expiration_date >= today;
-      if (banner.enabled && banner.headline && isPublished && isCurrent) {
-        var inner = '<div class="seasonal-guide-inner">' +
-          '<div class="seasonal-guide-copy"><p class="seasonal-label">' + safe(banner.label) + '</p>' +
-          '<h2 id="seasonal-guide-title">' + safe(banner.headline) + '</h2>' +
-          (banner.description ? '<p class="seasonal-description">' + safe(banner.description) + '</p>' : '') +
-          (banner.href ? '<a class="seasonal-cta" href="' + safe(banner.href) + '">' + safe(banner.cta_label || 'Explore the Guide') + ' <span aria-hidden="true">&rarr;</span></a>' : '') +
-          '</div>' +
-          '<div class="seasonal-guide-art" aria-hidden="true">' +
-            '<span class="fall-icon fall-icon--leaf"><svg viewBox="0 0 140 140" focusable="false"><defs><linearGradient id="fall-leaf-gradient" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#c99778"/><stop offset=".52" stop-color="#ad6d69"/><stop offset="1" stop-color="#7f4d62"/></linearGradient></defs><path d="M21 112C29 65 62 26 119 17c-7 54-39 93-91 102Z" fill="url(#fall-leaf-gradient)"/><path class="fall-leaf-vein" d="M27 119c24-34 49-62 82-91M54 86 42 65M70 69l26 1M83 54l-4-17"/></svg></span>' +
-            '<span class="fall-icon fall-icon--acorn"><svg viewBox="0 0 72 128" focusable="false"><defs><linearGradient id="fall-acorn-gradient" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#d7a474"/><stop offset="1" stop-color="#a86950"/></linearGradient><linearGradient id="fall-acorn-cap-gradient" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#9c8764"/><stop offset="1" stop-color="#68745d"/></linearGradient></defs><path d="M20 53c1-21 31-27 36-5 7 28-9 58-20 69-13-11-23-38-16-64Z" fill="url(#fall-acorn-gradient)"/><path d="M16 52c4-16 34-25 43-5l-3 14c-13-5-25-5-39 2Z" fill="url(#fall-acorn-cap-gradient)"/><path class="fall-acorn-detail" d="M33 27c4-8 9-12 16-14M24 49l8 8m1-13 9 9m2-13 9 8"/></svg></span>' +
-            '<span class="fall-icon fall-icon--apple"><svg viewBox="0 0 100 100" focusable="false"><defs><radialGradient id="fall-apple-gradient" cx="36%" cy="30%"><stop stop-color="#d99a99"/><stop offset="1" stop-color="#934d61"/></radialGradient><linearGradient id="fall-apple-leaf-gradient" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#a5aa7b"/><stop offset="1" stop-color="#68745d"/></linearGradient></defs><path d="M51 34c-9-9-27-7-34 7-9 20 7 48 22 49 6 0 8-4 12-4s7 4 13 3c16-3 29-31 17-49-7-11-20-13-30-6Z" fill="url(#fall-apple-gradient)"/><path class="fall-apple-stem" d="M51 35c-1-12 3-20 11-25"/><path d="M58 23c8-10 18-9 25-5-7 8-16 11-25 5Z" fill="url(#fall-apple-leaf-gradient)"/><path class="fall-apple-shine" d="M31 43c-5 7-6 14-3 21"/></svg></span>' +
-            '<span class="fall-icon fall-icon--pumpkin"><svg viewBox="0 0 180 100" focusable="false"><defs><linearGradient id="fall-pumpkin-gradient" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#e1ad76"/><stop offset=".55" stop-color="#c98561"/><stop offset="1" stop-color="#aa685f"/></linearGradient></defs><path d="M89 24c-6-11-2-19 8-25" fill="none"/><path class="fall-pumpkin-body" d="M89 22c-36-15-72 4-72 34 0 31 39 46 72 32 33 14 74-1 74-33 0-30-38-48-74-33Z" fill="url(#fall-pumpkin-gradient)"/><path class="fall-pumpkin-ribs" d="M90 24c-20 8-23 53-1 64M89 23c21 7 24 52 1 65M56 28c-16 14-14 43 5 56M124 28c16 13 14 42-5 56"/></svg></span>' +
-            '<span class="fall-icon fall-icon--coffee"><svg viewBox="0 0 120 150" focusable="false"><defs><linearGradient id="fall-cup-gradient" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#f7eadb"/><stop offset="1" stop-color="#d9b8aa"/></linearGradient><linearGradient id="fall-coffee-gradient" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#a66f54"/><stop offset="1" stop-color="#704c45"/></linearGradient></defs><path class="fall-steam" d="M40 37c-9-11 9-16 0-28M61 34c-8-11 9-15 1-27M81 39c-7-10 7-14 1-24"/><path d="M23 50h66v48c0 20-13 34-33 34s-33-14-33-34Z" fill="url(#fall-cup-gradient)"/><path d="M29 52c8-7 47-7 55 0-8 8-47 8-55 0Z" fill="url(#fall-coffee-gradient)"/><path d="M88 64c25-2 28 35 3 40" fill="none"/><path class="fall-cup-saucer" d="M13 134c23 8 63 8 88 0"/></svg></span>' +
-            '<span class="fall-icon fall-icon--book"><svg viewBox="0 0 150 90" focusable="false"><defs><linearGradient id="fall-book-page-gradient" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#fff8ed"/><stop offset="1" stop-color="#e6d3c5"/></linearGradient><linearGradient id="fall-book-cover-gradient" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#b8ad83"/><stop offset="1" stop-color="#7d8063"/></linearGradient></defs><path class="fall-book-cover" d="M8 21c24-6 46 0 67 13 21-13 43-19 67-13v58c-25-4-47 1-67 9-20-8-42-13-67-9Z" fill="url(#fall-book-cover-gradient)"/><path d="M13 15c24-5 44 1 62 15v51c-19-10-39-14-62-9Zm124 0c-24-5-44 1-62 15v51c19-10 39-14 62-9Z" fill="url(#fall-book-page-gradient)"/><path class="fall-book-lines" d="M25 31c15 0 28 4 39 11M25 45c15 1 28 5 39 12M125 31c-15 0-28 4-39 11M125 45c-15 1-28 5-39 12"/></svg></span>' +
-          '</div>' +
-          '</div>';
-        seasonal.innerHTML = inner;
-        seasonal.hidden = false;
-        if (banner.href) {
-          seasonal.style.cursor = 'pointer';
-          seasonal.addEventListener('click', function (e) {
-            if (!e.target.closest('a') && !e.target.closest('button')) {
-              window.location.href = banner.href;
-            }
-          });
-        }
-      }
-    })
-    .catch(function () { seasonal.remove(); });
-})();
-
 /* homepage The Month Ahead: latest published post in the independent series */
 (function renderHomepageMonthAhead() {
   var featuredReads = document.querySelector('.featured-reads');
@@ -731,7 +666,7 @@ document.querySelectorAll('.nav-item.has-dropdown > a').forEach(function (a) {
       '<h2 id="month-ahead-home-title">' + safe(item.month) + '</h2>' +
       (item.excerpt ? '<p>' + safe(item.excerpt) + '</p>' : '') +
       '<a class="month-ahead-link" href="' + safe(item.url) + '">Explore ' + safe(item.month) + ' <span aria-hidden="true">&rarr;</span></a></div>';
-    featuredReads.insertAdjacentElement('beforebegin', section);
+    featuredReads.insertAdjacentElement('afterend', section);
   }
 
   var newsletterApi = window.CHEVERE_NEWSLETTER_API_URL || 'https://newsletter.itschevere.com';
@@ -771,7 +706,8 @@ document.querySelectorAll('.nav-item.has-dropdown > a').forEach(function (a) {
             '<span class="weekly-roundup-link">' + safe(card.cta_label || 'Read More') + ' <span aria-hidden="true">&rarr;</span></span>' +
             '</a>';
         }).join('') + '</div>';
-      featuredReads.insertAdjacentElement('afterend', weekly);
+      var monthAhead = document.querySelector('.month-ahead-feature');
+      (monthAhead || featuredReads).insertAdjacentElement('afterend', weekly);
     })
     .catch(function () { /* No published issue means no homepage section. */ });
 })();
