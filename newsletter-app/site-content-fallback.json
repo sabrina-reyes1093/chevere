@@ -1,6 +1,6 @@
 {
   "seasonal_banner": {
-    "enabled": true,
+    "enabled": false,
     "season": "Fall",
     "year": 2026,
     "label": "FALL 2026",
