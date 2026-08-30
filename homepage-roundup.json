@@ -3,33 +3,33 @@
   "cards": [
     {
       "category": "Watching",
-      "title": "Lucky on Apple TV+",
-      "text": "A stylish crime thriller with high stakes, sharp twists, and one very glamorous game of cat and mouse. Obviously, we’re watching.",
-      "url": "https://tv.apple.com/us/show/lucky/umc.cmc.5qo7t3nngb2vj0m9dxkwebw1o",
-      "image_url": "https://xjtnfwnntzonmumlxbyg.supabase.co/storage/v1/object/public/newsletter-images/2026-08/b63d92fe-ec86-4415-8ca2-78024b88e79b.png",
-      "image_alt": "Promotional image for Lucky on Apple TV+",
+      "title": "Lanterns on HBO",
+      "text": "A gritty, atmospheric detective mystery. It follows two interstellar lawmen uncovering a dark, earthly secret, blending high-stakes tension with deep character drama.",
+      "url": "https://play.hbomax.com/show/8c11d041-6b71-4e54-8369-fdb310e063b8",
+      "image_url": "https://newsletter.itschevere.com/api/media/filejump/70e5fd65-b8f7-416b-b2fd-55153c92e4f8",
+      "image_alt": "lanterns hbo",
       "link_type": "external",
       "cta_label": "watch now"
     },
     {
-      "category": "Listening to",
-      "title": "\"The Cure\" by Olivia Rodrigo",
-      "text": "A glossy little heartbreak anthem for anyone still romanticizing the wrong person.",
-      "url": "https://open.spotify.com/artist/1McMsnEElThX1knmY4oliG?si=SSBa7gKXQZ-_lkz9AP776w",
-      "image_url": "https://xjtnfwnntzonmumlxbyg.supabase.co/storage/v1/object/public/newsletter-images/2026-08/ddd523a1-b1b3-49f0-bb08-ddd41f0acd8b.png",
-      "image_alt": "Olivia Rodrigo swinging against a blue sky",
+      "category": "Drinking",
+      "title": "Brown Sugar Oat-Milk Latte",
+      "text": "A rich, velvety espresso drink shaken over ice with brown sugar and cinnamon, then topped with creamy oat milk. It is pure coffee-shop comfort you can easily make at home.",
+      "url": "https://athome.starbucks.com/recipe/iced-brown-sugar-oatmilk-shaken-espresso#howtomake",
+      "image_url": "https://newsletter.itschevere.com/api/media/filejump/b4e4cf2f-e1db-418e-9ed4-d49e7ae8573e",
+      "image_alt": "brown sugar",
       "link_type": "external",
-      "cta_label": "listen"
+      "cta_label": "make"
     },
     {
-      "category": "Reading",
-      "title": "The Shards by Bret Easton Ellis",
-      "text": "Dark and increasingly unsettling—the kind of book that makes everyone feel suspicious.",
-      "url": "https://bookshop.org/p/books/the-shards-bret-easton-ellis/44ab75c680487a2f?ean=9780593469163&bkshp-astro=t",
-      "image_url": "https://xjtnfwnntzonmumlxbyg.supabase.co/storage/v1/object/public/newsletter-images/2026-08/b6a46dfc-f39e-43c6-97dd-49afd2052812.png",
-      "image_alt": "Cover of The Shards by Bret Easton Ellis",
+      "category": "Listening",
+      "title": "\"Everywhere, Everything\" by Noah Kahan feat. Gracie Abrams",
+      "text": "An evocative, folk pop track with raw emotion and reflective songwriting. Its warm, acoustic sound makes it THE soundtrack for early mornings and easy weekends",
+      "url": "https://www.youtube.com/watch?v=4a4tN7SsYf8&list=RD4a4tN7SsYf8&start_radio=1",
+      "image_url": "https://newsletter.itschevere.com/api/media/filejump/c011699b-8f0a-4f65-9066-75c2b6de8599",
+      "image_alt": "\"Everywhere, Everything\"",
       "link_type": "external",
-      "cta_label": "read more"
+      "cta_label": ""
     }
   ]
 }
