@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The September Guide — chévere</title>
+  <meta name="description" content="What we’re reading, watching, wearing, listening to and adding to our plans this month" />
+  <link rel="icon" type="image/png" href="../assets/icon.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../styles.css?v=20260823-2" />
+  <style>
+    .post-body { font-size: 17px; line-height: 1.8; color: var(--text); }
+    .post-body p { margin-bottom: 16px; }
+    .post-body h2 { font-family: var(--serif); font-size: 24px; color: var(--ink); margin: 32px 0 10px; }
+    .post-body h3 { font-family: var(--serif); font-size: 20px; color: var(--ink); margin: 26px 0 8px; }
+    .post-body strong { display: block; font-family: var(--serif); font-weight: 700; font-size: 20px; color: var(--ink); margin-top: 32px; margin-bottom: 8px; }
+    .post-body em { font-style: italic; }
+    .post-hero { width: 100%; height: auto; border-radius: 24px; margin-bottom: 28px; display: block; }
+    .post-inline-img { width: 100%; height: auto; border-radius: 20px; margin: 22px 0; display: block; }
+    .post-signoff { margin-top: 48px; font-size: 17px; color: var(--gray-soft); }
+    .back-link { display: inline-block; margin-bottom: 24px; font-size: 13px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--brown); transition: opacity .15s ease; }
+    .back-link:hover { opacity: 0.7; }
+  </style>
+</head>
+<body>
+
+  <header class="site-header">
+    <a class="header-logo" href="../index.html" aria-label="chévere home">
+      <img src="../assets/logo.png" alt="chévere" />
+    </a>
+    <div class="header-actions">
+      <button id="mobile-menu-toggle" class="mobile-menu-toggle" type="button" aria-label="Open menu" aria-controls="site-navigation" aria-expanded="false"><i data-lucide="menu" stroke-width="1.8" aria-hidden="true"></i></button>
+      <button id="search-toggle" aria-label="Search" title="Search"><i data-lucide="search" stroke-width="1.8" aria-hidden="true"></i></button>
+      <a class="join-list-button" href="../index.html#newsletter">JOIN THE LIST</a>
+      <a href="https://www.instagram.com/itschevere/" target="_blank" rel="noopener" aria-label="Instagram" title="Instagram">
+        <svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+      </a>
+      <a href="https://www.tiktok.com/@itschevere" target="_blank" rel="noopener" aria-label="TikTok" title="TikTok">
+        <svg class="tiktok-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="19" height="19"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.3 0 .59.05.87.13v-3.5a6.37 6.37 0 0 0-.87-.06A6.34 6.34 0 0 0 3.15 15.3a6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.34-6.34V8.46a8.23 8.23 0 0 0 4.77 1.48v-3.4a4.86 4.86 0 0 1-1.01.15z"/></svg>
+      </a>
+    </div>
+    <div id="search-panel" class="search-panel" role="dialog" aria-label="Search posts">
+      <div class="search-bar-wrap">
+        <i data-lucide="search" class="search-bar-icon" stroke-width="2" aria-hidden="true"></i>
+        <input id="search-input" type="text" placeholder="Search posts..." autocomplete="off" />
+        <button id="search-submit" class="search-action-btn" aria-label="Search" type="button">
+          <i data-lucide="arrow-right" stroke-width="2.5" aria-hidden="true"></i>
+        </button>
+        <button id="search-close" class="search-close-btn" aria-label="Close search" type="button">
+          <i data-lucide="x" stroke-width="2.5" aria-hidden="true"></i>
+        </button>
+      </div>
+      <div id="search-results" class="search-results"></div>
+    </div>
+  </header>
+
+  <nav class="site-nav" id="site-navigation" aria-label="Primary navigation">
+    <a href="../index.html">HOME</a>
+    <div class="nav-item has-dropdown">
+      <a href="../blog.html?cat=culture">CULTURE<i data-lucide="chevron-down" class="chev" stroke-width="2" aria-hidden="true"></i></a>
+      <div class="dropdown">
+        <a href="../blog.html?cat=art">Art</a>
+        <a href="../blog.html?cat=books">Books</a>
+        <a href="../blog.html?cat=film-tv">Film &amp; TV</a>
+        <a href="../blog.html?cat=music">Music</a>
+        <a href="../blog.html?cat=sports">Sports</a>
+        <a href="../blog.html?cat=pop-culture">Pop Culture</a>
+      </div>
+    </div>
+    <div class="nav-item has-dropdown">
+      <a href="../blog.html?cat=style">STYLE<i data-lucide="chevron-down" class="chev" stroke-width="2" aria-hidden="true"></i></a>
+      <div class="dropdown">
+        <a href="../blog.html?cat=fashion">Fashion</a>
+        <a href="../blog.html?cat=beauty">Beauty</a>
+        <a href="../blog.html?cat=interiors">Interiors</a>
+        <a href="../blog.html?cat=design">Design</a>
+      </div>
+    </div>
+    <div class="nav-item has-dropdown">
+      <a href="../blog.html?cat=life">LIFE<i data-lucide="chevron-down" class="chev" stroke-width="2" aria-hidden="true"></i></a>
+      <div class="dropdown">
+        <a href="../blog.html?cat=food">Food</a>
+        <a href="../blog.html?cat=travel">Travel</a>
+        <a href="../blog.html?cat=life-wellness">Life &amp; Wellness</a>
+      </div>
+    </div>
+    <div class="nav-item has-dropdown">
+      <a href="../blog.html?cat=guides">GUIDES<i data-lucide="chevron-down" class="chev" stroke-width="2" aria-hidden="true"></i></a>
+      <div class="dropdown">
+        <a href="../reading-lists.html">Reading Lists</a>
+        <a href="../blog.html?cat=city-guides">City Guides</a>
+        <a href="../blog.html?cat=seasonal-recommendations">Seasonal Recommendations</a>
+        <a href="../blog.html?cat=restaurant-roundups">Restaurant Roundups</a>
+        <a href="../blog.html?cat=gift-guides">Gift Guides</a>
+      </div>
+    </div>
+    <a href="../about.html">ABOUT</a>
+  </nav>
+
+  <main class="page-main">
+    <a class="back-link" href="../blog.html">&larr; Back to Blog</a>
+    <p class="post-series">The Month Ahead · September · 2026</p>
+    <span class="kicker" style="display:block;margin-bottom:8px">Seasonal Recommendations</span>
+    <h1 class="page-title">The September Guide</h1>
+    <p class="page-tagline" style="font-size:15px;color:#8e8c88;margin-top:-4px;margin-bottom:28px">By Chévere &middot; Aug 23, 2026</p>
+    <div class="post-body">
+      <img class="post-hero" src="https://newsletter.itschevere.com/api/media/filejump/be46b0e8-795d-4c49-84c8-cbc33560d1b5" alt="The September Guide" />
+      <h3>What we’re reading, watching, wearing, listening to and adding to our plans this month.</h3>
+      <p>September is the month of the soft launch.</p>
+      <p>Not quite fall. Definitely not summer anymore. It’s iced coffee with a sweater, tomatoes next to apples at the farmers market, windows open during the day and candles lit at night.</p>
+      <p>And there’s a lot arriving this September actually worth putting on your radar.</p>
+      <p>Here’s the Chévere edit.</p>
+      <h2>READ</h2>
+      <p>September is the perfect reading month because it invites a little moodiness.</p>
+      <p>You want books with atmosphere. Books with tension. Books that make you want to curl up somewhere cozy, order a coffee, and stay there for hours. Think dark academia, gothic unease, witchy fun and the kind of stories that feel even better once the evenings start getting shorter.</p>
+      <h3>The September House — <em>Carissa Orlando</em></h3>
+      <img class="post-inline-img" src="https://xjtnfwnntzonmumlxbyg.supabase.co/storage/v1/object/public/newsletter-images/2026-08/3f9f03d3-03a9-4c55-a73e-0f1e896a8f55.png" alt="fe31085e 6132 4351 9753 a5e62d0a0e1b" />
+      <p>This one almost has to make the list.</p>
+      <p>A haunted house novel with sharp humor, real emotional depth and a wonderfully unhinged premise, <em>The September House</em> is ideal for anyone ready to lean into spooky-season energy without going full October yet. It’s strange, entertaining and feels tailor-made for this exact time of year.</p>
+      <h3>The Secret History — <em>Donna Tartt</em></h3>
+      <img class="post-inline-img" src="https://xjtnfwnntzonmumlxbyg.supabase.co/storage/v1/object/public/newsletter-images/2026-08/8bcbbb21-3804-499c-8dd0-cd6ef3ab3ff9.png" alt="9a2b1c94 9269 4c75 a5a1 c85e7460c60b" />
+      <p>If September were a novel, it might honestly be this one.</p>
+      <p>Dark academia, elite college students, intellectual obsession, New England atmosphere and one very central murder—<em>The Secret History</em> remains the ultimate early-fall read. It’s moody, immersive and perfect for the moment when summer starts slipping into something much darker.</p>
+      <h3>Rebecca — <em>Daphne du Maurier</em></h3>
+      <img class="post-inline-img" src="https://xjtnfwnntzonmumlxbyg.supabase.co/storage/v1/object/public/newsletter-images/2026-08/2deb4c99-37cb-49d7-adba-82134b212b7d.png" alt="9c1c7efb 3a35 4241 ae7e d9d08eabaef2" />
+      <p>For those craving something timeless and atmospheric, <em>Rebecca</em> is the answer.</p>
+      <p>It’s gothic, elegant and quietly unsettling, with romance, jealousy, secrets and one unforgettable estate at the center of it all. If your ideal September reading experience involves a blanket, a rainy afternoon and a story with a sense of dread simmering underneath the surface, start here.</p>
+      <h3>The Ex Hex — <em>Erin Sterling</em></h3>
+      <img class="post-inline-img" src="https://xjtnfwnntzonmumlxbyg.supabase.co/storage/v1/object/public/newsletter-images/2026-08/742c4878-f77e-4dd2-889a-c8acf28d13f6.png" alt="image" />
+      <p>Not every September read has to be intense.</p>
+      <p><em>The Ex Hex</em> brings in a lighter, more playful kind of fall energy, with witches, romance, small-town charm and a curse involving an ex that goes a little too far. It’s fun, cozy and exactly right for anyone who wants something seasonal and charming with a little magical chaos.</p>
+      <p><strong>Our September book pick:</strong> <em>The Secret History</em> by Donna Tartt.</p>
+      <h2>WATCH</h2>
+      <h3>Practical Magic 2</h3>
+      <img class="post-inline-img" src="https://newsletter.itschevere.com/api/media/filejump/44a6212e-8399-48e6-8dc1-b42658710ff9" alt="PM2" />
+      <p><em>September 11</em></p>
+      <p>There could not possibly be a more appropriate September movie.</p>
+      <p>Sandra Bullock and Nicole Kidman returning to the world of <em>Practical Magic</em> just as we’re entering cozy-season territory? Consider the fall movie calendar officially open.</p>
+      <h3>Lanterns — <em>HBO</em></h3>
+      <p><em>New episodes throughout September</em></p>
+      <img class="post-inline-img" src="https://newsletter.itschevere.com/api/media/filejump/05ce13e5-995c-4781-813c-d9cd22712744" alt="images" />
+      <p>HBO’s new DC series follows Green Lantern legend Hal Jordan and new recruit John Stewart as they investigate a dark, Earth-based mystery that pulls the cosmic superhero world into something much grittier.</p>
+      <p>It technically arrived in August, but with new episodes airing throughout September, this is exactly the kind of Sunday-night show we want heading into fall.</p>
+      <h3>The Gentlemen — <em>Season 2</em></h3>
+      <p><em>Netflix on September 3</em></p>
+      <img class="post-inline-img" src="https://newsletter.itschevere.com/api/media/filejump/3575f3f1-14b2-4a90-b8d3-8c305586d3e2" alt="image" />
+      <p>Theo James and Kaya Scodelario are back—and this time Eddie and Susie are taking their criminal empire international.</p>
+      <p>Expect expensive clothes, English estates, organized crime and the particular kind of beautifully chaotic energy Guy Ritchie does best.</p>
+      <h3>Primetime</h3>
+      <p><em>September 25</em></p>
+      <img class="post-inline-img" src="https://newsletter.itschevere.com/api/media/filejump/a35ddebe-d032-480c-b26c-e7b84d2293bc" alt="image" />
+      <p>Robert Pattinson stars in A24’s dark psychological thriller inspired by the rise of <em>To Catch a Predator</em> and its host Chris Hansen.</p>
+      <p>It’s strange, provocative and slightly unsettling—which feels about right for the moment September starts inching us toward spooky season.</p>
+      <p><strong>Our September watch:</strong> <em>Practical Magic 2</em></p>
+      <h2>LISTEN</h2>
+      <p>September’s music rotation is giving us a little bit of everything.</p>
+      <h3>KATSEYE — <em>WILD</em></h3>
+      <img class="post-inline-img" src="https://newsletter.itschevere.com/api/media/filejump/1a379487-1447-4d7f-8064-0031f61ca5f3" alt="image" />
+      <p>KATSEYE’s latest era officially arrived in August, but September is when it really gets to live.</p>
+      <p>Their new <em>WILD</em> EP brings the glossy, chaotic global-pop energy the group has become known for—and with their world tour kicking off September 1, they’re firmly staying on our radar this month.</p>
+      <h3>Beck — <em>Ride Lonesome</em></h3>
+      <p><em>September 18</em></p>
+      <img class="post-inline-img" src="https://newsletter.itschevere.com/api/media/filejump/b1d2177b-5ddf-46f7-befb-a93a11113020" alt="image" />
+      <p>Beck returning to the intimate, atmospheric sound of <em>Sea Change</em> and <em>Morning Phase</em> feels almost suspiciously perfect for September.</p>
+      <p>This is the one for long drives, open windows and the first genuinely chilly evening of the season.</p>
+      <h3>Lizzy McAlpine — <em>Angel</em></h3>
+      <p><em>September 18</em></p>
+      <img class="post-inline-img" src="https://newsletter.itschevere.com/api/media/filejump/8511bd51-82d8-4e9e-a42e-f1849953592e" alt="image" />
+      <p>September melancholy: handled.</p>
+      <h3>Leon Bridges — <em>Happiness Anytime</em></h3>
+      <p><em>September 25</em></p>
+      <img class="post-inline-img" src="https://newsletter.itschevere.com/api/media/filejump/46d7252a-af45-4321-944c-c59fd3ff7cb9" alt="image" />
+      <p>Leon Bridges in early fall just makes sense.</p>
+      <p>Warm, soulful and effortlessly smooth, <em>Happiness Anytime</em> feels like the album you put on while cooking dinner with the windows open and nowhere else you particularly need to be.</p>
+      <h3>Tinashe — <em>Popstar</em></h3>
+      <p><em>September 25</em></p>
+      <img class="post-inline-img" src="https://newsletter.itschevere.com/api/media/filejump/70e146c5-966c-44a6-8088-8941e6c94547" alt="image" />
+      <p>The title tells us everything we need to know.</p>
+      <p><strong>Our September album pick:</strong> Beck’s <em>Ride Lonesome</em></p>
+      <h2>WEAR</h2>
+      <p>Fall 2026 fashion is thankfully giving us things we can actually wear.</p>
+      <h2>1. A Suede Jacket</h2>
+      <img class="post-inline-img" src="https://newsletter.itschevere.com/api/media/filejump/1a7acccd-9edc-45b3-868d-9425556b82c1" alt="image" />
+      <p>Not necessarily cowboy.</p>
+      <p>Think slightly oversized, chocolate brown or olive suede over a white tee, jeans and loafers.</p>
+      <p>Suede jackets are among the transitional outerwear pieces being pushed into fall 2026, particularly in earthy shades like olive.</p>
+      <h2>2. Dark Straight-Leg Jeans</h2>
+      <img class="post-inline-img" src="https://newsletter.itschevere.com/api/media/filejump/1ce8a722-2a81-458e-9845-620855dc5470" alt="image" />
+      <p>After months of linen and shorts, dark denim suddenly feels exciting again.</p>
+      <p>Wear them with a tank while it’s warm and add a cardigan once September starts behaving like September.</p>
+      <h2>3. Loafers</h2>
+      <img class="post-inline-img" src="https://newsletter.itschevere.com/api/media/filejump/bdda8401-b1b9-430a-9816-b9c3d1b59645" alt="image" />
+      <p>The official shoe of “I would like to participate in fall but it is still 78 degrees outside.”</p>
+      <p>Pair them with jeans, trousers, skirts or even your leftover summer dresses.</p>
+      <h2>4. A Fine-Knit Cardigan</h2>
+      <img class="post-inline-img" src="https://newsletter.itschevere.com/api/media/filejump/d00051d9-9259-4e4f-9579-285ad18a0db6" alt="image" />
+      <p>Preferably something thin enough to throw into your bag rather than a full winter sweater.</p>
+      <p>Fine knits, straight-leg denim and loafers are all emerging as strong transitional wardrobe pieces for fall 2026.</p>
+      <h2>5. Something Burgundy</h2>
+      <img class="post-inline-img" src="https://newsletter.itschevere.com/api/media/filejump/9f2010e8-330d-44b2-abd9-6d68e3e1eb6b" alt="image" />
+      <p>Bag. Sweater. Nails. Shoe. Lip.</p>
+      <p>You choose.</p>
+      <p>Burgundy remains one of fall 2026’s biggest colors, alongside much less traditionally autumnal shades like electric blue, turquoise and butter yellow.</p>
+      <p><strong>The September outfit</strong> White tee + dark straight-leg jeans + chocolate suede jacket + loafers + burgundy bag.</p>
+      <h2>BEAUTY</h2>
+      <h2>The Nail: Deep Wine</h2>
+      <p>We’re officially retiring the neon manicure.</p>
+      <p>Go for <strong>OPI Malaga Wine</strong> <strong>OR</strong> <strong>Essie Bordeaux</strong> or another deep cherry-red shade that looks almost black in certain lighting.</p>
+      <img class="post-inline-img" src="https://newsletter.itschevere.com/api/media/filejump/6288fb04-fc32-4ed5-92c8-0756094dc226" alt="image" />
+      <h2>The Lip: Brown-Rose</h2>
+      <p>Not full ’90s brown.</p>
+      <p>Think your natural lip color, just slightly moodier.</p>
+      <p>Try a brown-rose liner with balm or clear gloss instead of a completely matte lip.</p>
+      <h2>The Fragrance: Dark Cherry</h2>
+      <p>Fall fragrance is moving away from simple sugary gourmands toward darker fruit, suede, tonka, coffee and more grown-up gourmand notes.</p>
+      <p>One new option on our radar: <strong>Lancôme La Vie Est Belle Very Cherry</strong> which combines black cherry with oud and violet leaf.</p>
+      <img class="post-inline-img" src="https://newsletter.itschevere.com/api/media/filejump/6fe71859-7512-4080-ab09-10b2cd649881" alt="image" />
+      <p>If dark cherry isn’t your thing, <strong>Maison Margiela Replica Lazy Sunday Morning</strong></p>
+      <img class="post-inline-img" src="https://newsletter.itschevere.com/api/media/filejump/bc2242fc-ea22-433a-b79a-1ac1cc601953" alt="image" />
+      <p><strong>The September beauty mood:</strong> Wine nails + brown liner + glossy skin + dark cherry fragrance.</p>
+      <h2>EAT</h2>
+      <p>September cooking should use the last good summer produce while slowly introducing fall food.</p>
+      <h3>Make: Tomato Galette</h3>
+      <img class="post-inline-img" src="https://newsletter.itschevere.com/api/media/filejump/49e1e786-804f-46a2-acf1-d231fc9810b3" alt="image" />
+      <p>Use the tomatoes that are still ridiculously good before they disappear.</p>
+      <p>Tomatoes + Dijon + cheese + flaky pastry = the perfect “technically summer but emotionally fall” dinner.</p>
+      <h3>Bake: Apple Crisp</h3>
+      <img class="post-inline-img" src="https://newsletter.itschevere.com/api/media/filejump/0628199c-35ab-4014-8259-c9dc6db5f9f4" alt="image" />
+      <p>Save pumpkin for October.</p>
+      <p>September belongs to apples.</p>
+      <p>Vanilla ice cream is non-negotiable.</p>
+      <h3>Dinner: Brown Butter Sage Gnocchi</h3>
+      <img class="post-inline-img" src="https://newsletter.itschevere.com/api/media/filejump/c6a455d9-e56e-4ca4-b646-abaf1bdcd42e" alt="image" />
+      <p>Gnocchi, browned butter, crispy sage, parmesan.</p>
+      <p>Make it on the first night you notice it getting dark noticeably earlier.</p>
+      <h3>Lunch: Turkey, Brie &amp; Apple Sandwich</h3>
+      <img class="post-inline-img" src="https://newsletter.itschevere.com/api/media/filejump/f5eb5840-002a-4d0a-8bf7-5b89a7eb4f1a" alt="image" />
+      <p>Turkey + sliced Granny Smith apple + Brie + arugula + Dijon on toasted sourdough.</p>
+      <p>Extremely September.</p>
+      <h3>Snack: Apple + Sharp Cheddar</h3>
+      <img class="post-inline-img" src="https://newsletter.itschevere.com/api/media/filejump/ee39f243-829f-4db9-aaae-38981352fec6" alt="image" />
+      <p>It sounds aggressively Midwestern until you eat it and realize everyone was right.</p>
+      <h2>DRINK</h2>
+      <h3>The Coffee Order <strong>Iced maple oat latte. </strong>Not pumpkin spice yet.</h3>
+      <img class="post-inline-img" src="https://newsletter.itschevere.com/api/media/filejump/929786f1-acb0-44a9-ac1d-207f35a36c4a" alt="iced coffee jar blog cover 1" />
+      <p>Maple gives us fall without spiritually teleporting directly to October 17.</p>
+      <p>When it finally gets cold enough: switch it to hot.</p>
+      <h3>The Cocktail <strong>Apple Cider Aperol Spritz</strong></h3>
+      <img class="post-inline-img" src="https://newsletter.itschevere.com/api/media/filejump/bb1606fb-7da1-44a4-a574-757d7185d750" alt="image" />
+      <p>Aperol + prosecco + splash of apple cider + club soda.</p>
+      <p>Basically summer spritz entering its fall era.</p>
+      <h3>The Non-Alcoholic Option <strong>Sparkling apple cider + ginger beer + lime.</strong></h3>
+      <img class="post-inline-img" src="https://newsletter.itschevere.com/api/media/filejump/d8a4652b-a0a7-4922-96f8-262524da053e" alt="image" />
+      <p>Serve it over ice with thin apple slices.</p>
+      <h2>DO</h2>
+      <p>And by “things to do,” we mean actual plans worth putting on your calendar.</p>
+      <h3>Have the Last Picnic of Summer</h3>
+      <p>Get good bread, cheese, fruit and something sparkling.</p>
+      <p>No elaborate Pinterest picnic required.</p>
+      <h3>Go Apple Picking Before October</h3>
+      <img class="post-inline-img" src="https://newsletter.itschevere.com/api/media/filejump/a14cf4ec-d317-4d14-9b3a-68defa67d7d7" alt="Apple Picking 00 ID lede FULL BLEED" />
+      <p>September orchards are superior because everyone else waits until peak pumpkin-patch season.</p>
+      <h3>Do a Bookstore + Coffee Date</h3>
+      <img class="post-inline-img" src="https://newsletter.itschevere.com/api/media/filejump/de0daede-8000-4c1d-bfd7-2e7a2f1839e8" alt="image" />
+      <p>Go to an independent bookstore with one rule:</p>
+      <p>Leave with a book you had never heard of before you walked in.</p>
+      <h3>Host a Pasta Night</h3>
+      <img class="post-inline-img" src="https://newsletter.itschevere.com/api/media/filejump/19ddd1a4-02df-49a3-b1dc-54c0a0e4ad59" alt="image" />
+      <p>Not a dinner party.... A <em>pasta night</em>.</p>
+      <p>One big bowl of pasta, salad, bread, wine, six people max.</p>
+      <p>Much less intimidating.</p>
+      <h3>Go See Something in a Theater</h3>
+      <img class="post-inline-img" src="https://newsletter.itschevere.com/api/media/filejump/e826f257-7d71-406a-9347-bb06d36bf649" alt="image" />
+      <p>A movie. A play. An indie screening. Anything.</p>
+      <p>September always feels like the unofficial return of actually doing things again after summer.</p>
+      <h3>Have One “No Phone” Sunday Morning</h3>
+      <p>Coffee.</p>
+      <p>Farmers market.</p>
+      <p>Book.</p>
+      <p>Walk.</p>
+      <p>Phone stays in the bag.</p>
+      <p>We promise Instagram will survive.</p>
+      <h2>ADD TO CART</h2>
+      <p>Not an entire fall wardrobe.</p>
+      <p>Just five things:</p>
+      <p><em> A chocolate or olive suede jacket<br /></em> Dark-wash straight-leg jeans<br /><em> Burgundy nail polish<br /></em> A fine-knit cardigan<br />Loafers or Derby shoes</p>
+      <p>Derby shoes, flat mules and statement footwear are among the shoe directions showing up for fall 2026, while transitional dressing continues to favor practical layers rather than immediately jumping into heavy coats.</p>
+      <h2>THE SEPTEMBER CULTURE LIST</h2>
+      <p><strong>Book:</strong> <em>The Secret History</em> by Donna Tartt</p>
+      <p><strong>Movie:</strong> <em>Practical Magic 2</em></p>
+      <p><strong>Show:</strong> <em>The Gentlemen</em> — Season 2</p>
+      <p><strong>Album:</strong> Beck — <em>Ride Lonesome</em></p>
+      <p><strong>Color:</strong> Burgundy</p>
+      <p><strong>Shoe:</strong> Loafers</p>
+      <p><strong>Jacket:</strong> Chocolate suede</p>
+      <p><strong>Nail:</strong> Deep wine red</p>
+      <p><strong>Scent:</strong> Dark cherry</p>
+      <p><strong>Coffee:</strong> Iced maple oat latte</p>
+      <p><strong>Dinner:</strong> Brown butter sage gnocchi</p>
+      <p><strong>Weekend plan:</strong> Bookstore → coffee → farmers market</p>
+      <p><strong>Energy:</strong> Summer is ending. We do not need to make it traumatic.</p>
+      <h2>One Last Thing</h2>
+      <p>September does not need to become October Jr.</p>
+      <p>Eat the tomatoes.</p>
+      <p>Wear the sandals if it’s hot.</p>
+      <p>Order the iced coffee.</p>
+      <p>But buy the cardigan.</p>
+      <p>Because the best part of September is getting a little bit of both.</p>
+      <p class="post-signoff">Until next week — stay <em>chévere</em></p>
+    </div>
+  </main>
+
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script src="../site.js?v=20260823-2"></script>
+</body>
+</html>
