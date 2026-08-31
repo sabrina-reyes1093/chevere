@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Chévere Fall City Guide: 5 Cities, 5 Different Moods — chévere</title>
+  <meta name="description" content="Because the best fall trip depends entirely on what kind of fall you’re trying to have." />
+  <link rel="icon" type="image/png" href="../assets/icon.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../styles.css?v=20260823-2" />
+  <style>
+    .post-body { font-size: 17px; line-height: 1.8; color: var(--text); }
+    .post-body p { margin-bottom: 16px; }
+    .post-body h2 { font-family: var(--serif); font-size: 24px; color: var(--ink); margin: 32px 0 10px; }
+    .post-body h3 { font-family: var(--serif); font-size: 20px; color: var(--ink); margin: 26px 0 8px; }
+    .post-body strong { display: block; font-family: var(--serif); font-weight: 700; font-size: 20px; color: var(--ink); margin-top: 32px; margin-bottom: 8px; }
+    .post-body em { font-style: italic; }
+    .post-hero { width: 100%; height: auto; border-radius: 24px; margin-bottom: 28px; display: block; }
+    .post-inline-img { width: 100%; height: auto; border-radius: 20px; margin: 22px 0; display: block; }
+    .post-signoff { margin-top: 48px; font-size: 17px; color: var(--gray-soft); }
+    .back-link { display: inline-block; margin-bottom: 24px; font-size: 13px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--brown); transition: opacity .15s ease; }
+    .back-link:hover { opacity: 0.7; }
+  </style>
+</head>
+<body>
+
+  <header class="site-header">
+    <a class="header-logo" href="../index.html" aria-label="chévere home">
+      <img src="../assets/logo.png" alt="chévere" />
+    </a>
+    <div class="header-actions">
+      <button id="mobile-menu-toggle" class="mobile-menu-toggle" type="button" aria-label="Open menu" aria-controls="site-navigation" aria-expanded="false"><i data-lucide="menu" stroke-width="1.8" aria-hidden="true"></i></button>
+      <button id="search-toggle" aria-label="Search" title="Search"><i data-lucide="search" stroke-width="1.8" aria-hidden="true"></i></button>
+      <a class="join-list-button" href="../index.html#newsletter">JOIN THE LIST</a>
+      <a href="https://www.instagram.com/itschevere/" target="_blank" rel="noopener" aria-label="Instagram" title="Instagram">
+        <svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+      </a>
+      <a href="https://www.tiktok.com/@itschevere" target="_blank" rel="noopener" aria-label="TikTok" title="TikTok">
+        <svg class="tiktok-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="19" height="19"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.3 0 .59.05.87.13v-3.5a6.37 6.37 0 0 0-.87-.06A6.34 6.34 0 0 0 3.15 15.3a6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.34-6.34V8.46a8.23 8.23 0 0 0 4.77 1.48v-3.4a4.86 4.86 0 0 1-1.01.15z"/></svg>
+      </a>
+    </div>
+    <div id="search-panel" class="search-panel" role="dialog" aria-label="Search posts">
+      <div class="search-bar-wrap">
+        <i data-lucide="search" class="search-bar-icon" stroke-width="2" aria-hidden="true"></i>
+        <input id="search-input" type="text" placeholder="Search posts..." autocomplete="off" />
+        <button id="search-submit" class="search-action-btn" aria-label="Search" type="button">
+          <i data-lucide="arrow-right" stroke-width="2.5" aria-hidden="true"></i>
+        </button>
+        <button id="search-close" class="search-close-btn" aria-label="Close search" type="button">
+          <i data-lucide="x" stroke-width="2.5" aria-hidden="true"></i>
+        </button>
+      </div>
+      <div id="search-results" class="search-results"></div>
+    </div>
+  </header>
+
+  <nav class="site-nav" id="site-navigation" aria-label="Primary navigation">
+    <a href="../index.html">HOME</a>
+    <div class="nav-item has-dropdown">
+      <a href="../blog.html?cat=culture">CULTURE<i data-lucide="chevron-down" class="chev" stroke-width="2" aria-hidden="true"></i></a>
+      <div class="dropdown">
+        <a href="../blog.html?cat=art">Art</a>
+        <a href="../blog.html?cat=books">Books</a>
+        <a href="../blog.html?cat=film-tv">Film &amp; TV</a>
+        <a href="../blog.html?cat=music">Music</a>
+        <a href="../blog.html?cat=sports">Sports</a>
+        <a href="../blog.html?cat=pop-culture">Pop Culture</a>
+      </div>
+    </div>
+    <div class="nav-item has-dropdown">
+      <a href="../blog.html?cat=style">STYLE<i data-lucide="chevron-down" class="chev" stroke-width="2" aria-hidden="true"></i></a>
+      <div class="dropdown">
+        <a href="../blog.html?cat=fashion">Fashion</a>
+        <a href="../blog.html?cat=beauty">Beauty</a>
+        <a href="../blog.html?cat=interiors">Interiors</a>
+        <a href="../blog.html?cat=design">Design</a>
+      </div>
+    </div>
+    <div class="nav-item has-dropdown">
+      <a href="../blog.html?cat=life">LIFE<i data-lucide="chevron-down" class="chev" stroke-width="2" aria-hidden="true"></i></a>
+      <div class="dropdown">
+        <a href="../blog.html?cat=food">Food</a>
+        <a href="../blog.html?cat=travel">Travel</a>
+        <a href="../blog.html?cat=life-wellness">Life &amp; Wellness</a>
+      </div>
+    </div>
+    <div class="nav-item has-dropdown">
+      <a href="../blog.html?cat=guides">GUIDES<i data-lucide="chevron-down" class="chev" stroke-width="2" aria-hidden="true"></i></a>
+      <div class="dropdown">
+        <a href="../reading-lists.html">Reading Lists</a>
+        <a href="../blog.html?cat=city-guides">City Guides</a>
+        <a href="../blog.html?cat=seasonal-recommendations">Seasonal Recommendations</a>
+        <a href="../blog.html?cat=restaurant-roundups">Restaurant Roundups</a>
+        <a href="../blog.html?cat=gift-guides">Gift Guides</a>
+      </div>
+    </div>
+    <a href="../about.html">ABOUT</a>
+  </nav>
+
+  <main class="page-main">
+    <a class="back-link" href="../blog.html">&larr; Back to Blog</a>
+    <p class="post-series">Seasonal Guides · Fall · 2026</p>
+    <span class="kicker" style="display:block;margin-bottom:8px">Travel · City Guides</span>
+    <h1 class="page-title">The Chévere Fall City Guide: 5 Cities, 5 Different Moods</h1>
+    <p class="page-tagline" style="font-size:15px;color:#8e8c88;margin-top:-4px;margin-bottom:28px">By Chévere &middot; Aug 17, 2026</p>
+    <div class="post-body">
+      <p><em>Because the best fall trip depends entirely on what kind of fall you’re trying to have</em></p>
+      <p>There is something about fall that makes leaving town feel particularly tempting. Summer vacations are about escaping. Fall trips feel more intentional—a long weekend built around a restaurant reservation, an exhibition you’ve been wanting to see, a really good coat, and approximately three unnecessary coffees.</p>
+      <p>And this year, the city break is calling.</p>
+      <p>International travel demand continues to lean toward culture-rich cities, with European capitals and Mexico City among destinations drawing interest in 2026. Travelers are also increasingly choosing trips around experiences rather than simply checking destinations off a list.</p>
+      <p>So instead of asking where should you go this fall?, we have a better question:</p>
+      <p>What kind of fall do you want?</p>
+      <h2>New York City — For the Main-Character Fall</h2>
+      <img class="post-inline-img" src="https://newsletter.itschevere.com/api/media/filejump/7112f0de-80eb-4639-aa6e-43df5b6327c9" alt="image" />
+      <p>If your ideal autumn involves walking twelve miles without realizing it, buying something you absolutely did not need, squeezing into a tiny restaurant at 8:45 p.m., and ending the night with a martini somewhere dimly lit, New York is the answer.</p>
+      <p>Fall is when the city feels most like the version of itself we romanticize. Spend the afternoon wandering downtown bookstores and galleries, shop in SoHo or the West Village, make dinner the main event, and leave enough room in the itinerary to simply walk.</p>
+      <p>The mood: trench coats, black sunglasses, bookstores, martinis, gallery afternoons.</p>
+      <h2>Copenhagen — For the Design Girl</h2>
+      <img class="post-inline-img" src="https://newsletter.itschevere.com/api/media/filejump/adf0c4ca-767a-4ca0-95dc-2c151a702ef0" alt="image" />
+      <p>For the person whose vacation photos somehow contain more chairs, lamps, ceramics, and hotel bathrooms than selfies.</p>
+      <p>Copenhagen gives you food, fashion, architecture and interiors in one beautifully designed package. Spend your days bouncing between cafés, vintage stores, design shops and restaurants, then return to a hotel that makes you question every piece of furniture you own.</p>
+      <p>The mood: oversized knits, sculptural silver jewelry, cinnamon pastries, beautiful chairs.</p>
+      <h2>Mexico City — For the Culture Obsessive</h2>
+      <img class="post-inline-img" src="https://newsletter.itschevere.com/api/media/filejump/48a3b497-b851-4fe4-b7f6-60c77cfa8c83" alt="image" />
+      <p>Come hungry.</p>
+      <p>Mexico City is one of those places where the itinerary almost writes itself: museums in the morning, a very long lunch, design shops in Roma Norte, an afternoon wandering Condesa, cocktails, then dinner somewhere you made a reservation for weeks ago.</p>
+      <p>It also makes a particularly good fall trip if you’re not quite ready to surrender to cold-weather travel.</p>
+      <p>The mood: art, architecture, long lunches, mezcal, colorful interiors.</p>
+      <h2>Montréal — For the Cozy Romantic</h2>
+      <img class="post-inline-img" src="https://newsletter.itschevere.com/api/media/filejump/a74e4048-42b8-49f5-8e1b-b01c56ce3bd1" alt="image" />
+      <p>If what you really want is fall, Montréal understands the assignment.</p>
+      <p>This is the trip for café mornings, bookstores, old architecture, wine bars and aimless neighborhood wandering. There is a little European romance without the transatlantic flight—and enough incredible food to turn an innocent weekend getaway into a carefully scheduled eating tour.</p>
+      <p>The mood: scarves, pastries, natural wine, brown leather boots, old buildings.</p>
+      <h2>Chicago — For the Perfect Fall Weekend</h2>
+      <img class="post-inline-img" src="https://newsletter.itschevere.com/api/media/filejump/08ca3067-bf68-43fe-b1bd-435b2f4ffcd2" alt="image" />
+      <p>Yes, we’re biased, but Chicago in early fall is ridiculously good.</p>
+      <p>The weather finally becomes walkable again. Patios are still alive. Museums make sense as an afternoon plan. Dinner reservations become exciting again. And there’s something about walking through the city in a jacket with nowhere particularly urgent to be that makes Chicago feel cinematic.</p>
+      <p>Build a weekend around neighborhoods rather than attractions: coffee, vintage shopping, a museum or gallery, dinner somewhere new, drinks somewhere old.</p>
+      <p>The mood: lakefront walks, leather jackets, neighborhood restaurants, architecture, one more drink.</p>
+      <h2>The Fall Rule</h2>
+      <p>You don&#039;t need a two-week itinerary or a passport full of stamps to have a trip worth remembering.</p>
+      <p>Sometimes you just need 48 hours somewhere that feels different from home.</p>
+      <p>Pick your mood. Pack the good coat. Make the reservation.</p>
+      <p>Fall will take care of the rest.</p>
+      <p class="post-signoff">Until next week — stay <em>chévere</em></p>
+    </div>
+  </main>
+
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script src="../site.js?v=20260823-2"></script>
+</body>
+</html>
