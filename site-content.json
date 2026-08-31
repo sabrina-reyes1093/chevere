@@ -1,20 +1,19 @@
 {
   "seasonal_banner": {
-    "enabled": false,
+    "enabled": true,
     "season": "Fall",
     "year": 2026,
     "label": "FALL 2026",
     "headline": "The Fall Guide",
     "description": "Books, places, tables, and small pleasures for the season.",
-    "href": "summer-guide.html",
+    "href": "fall-guide.html",
     "cta_label": "EXPLORE THE GUIDE",
-    "publish_date": "2026-05-31",
-    "expiration_date": "2026-11-30",
+    "publish_date": "2026-08-30",
+    "expiration_date": "2026-11-22",
     "post_slugs": [
-      "chevere-summer-reading-edit",
-      "the-chevere-guide-to-making-the-most-of-august",
-      "best-chicago-patios-2026",
-      "dua-lipa-vacation"
+      "how-to-have-more-energy-without-caffeine",
+      "the-september-guide",
+      "what-happened-to-the-french-girl-beauty-obsession"
     ]
   }
 }
