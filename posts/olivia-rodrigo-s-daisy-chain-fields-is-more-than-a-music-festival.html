@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Olivia Rodrigo Festival Everyone Is Talking About — chévere</title>
+  <meta name="description" content="Olivia Rodrigo&#039;s new festival brought together Chappell Roan, Doechii, Stevie Nicks, Mitski and a new generation of women in music and raised $20 million for women and girls." />
+  <link rel="icon" type="image/png" href="../assets/icon.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../styles.css?v=20260823-2" />
+  <style>
+    .post-body { font-size: 17px; line-height: 1.8; color: var(--text); }
+    .post-body p { margin-bottom: 16px; }
+    .post-body h2 { font-family: var(--serif); font-size: 24px; color: var(--ink); margin: 32px 0 10px; }
+    .post-body h3 { font-family: var(--serif); font-size: 20px; color: var(--ink); margin: 26px 0 8px; }
+    .post-body strong { display: block; font-family: var(--serif); font-weight: 700; font-size: 20px; color: var(--ink); margin-top: 32px; margin-bottom: 8px; }
+    .post-body em { font-style: italic; }
+    .post-hero { width: 100%; height: auto; border-radius: 24px; margin-bottom: 28px; display: block; }
+    .post-inline-img { width: 100%; height: auto; border-radius: 20px; margin: 22px 0; display: block; }
+    .post-signoff { margin-top: 48px; font-size: 17px; color: var(--gray-soft); }
+    .back-link { display: inline-block; margin-bottom: 24px; font-size: 13px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--brown); transition: opacity .15s ease; }
+    .back-link:hover { opacity: 0.7; }
+  </style>
+</head>
+<body>
+
+  <header class="site-header">
+    <a class="header-logo" href="../index.html" aria-label="chévere home">
+      <img src="../assets/logo.png" alt="chévere" />
+    </a>
+    <div class="header-actions">
+      <button id="mobile-menu-toggle" class="mobile-menu-toggle" type="button" aria-label="Open menu" aria-controls="site-navigation" aria-expanded="false"><i data-lucide="menu" stroke-width="1.8" aria-hidden="true"></i></button>
+      <button id="search-toggle" aria-label="Search" title="Search"><i data-lucide="search" stroke-width="1.8" aria-hidden="true"></i></button>
+      <a class="join-list-button" href="../index.html#newsletter">JOIN THE LIST</a>
+      <a href="https://www.instagram.com/itschevere/" target="_blank" rel="noopener" aria-label="Instagram" title="Instagram">
+        <svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+      </a>
+      <a href="https://www.tiktok.com/@itschevere" target="_blank" rel="noopener" aria-label="TikTok" title="TikTok">
+        <svg class="tiktok-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="19" height="19"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.3 0 .59.05.87.13v-3.5a6.37 6.37 0 0 0-.87-.06A6.34 6.34 0 0 0 3.15 15.3a6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.34-6.34V8.46a8.23 8.23 0 0 0 4.77 1.48v-3.4a4.86 4.86 0 0 1-1.01.15z"/></svg>
+      </a>
+    </div>
+    <div id="search-panel" class="search-panel" role="dialog" aria-label="Search posts">
+      <div class="search-bar-wrap">
+        <i data-lucide="search" class="search-bar-icon" stroke-width="2" aria-hidden="true"></i>
+        <input id="search-input" type="text" placeholder="Search posts..." autocomplete="off" />
+        <button id="search-submit" class="search-action-btn" aria-label="Search" type="button">
+          <i data-lucide="arrow-right" stroke-width="2.5" aria-hidden="true"></i>
+        </button>
+        <button id="search-close" class="search-close-btn" aria-label="Close search" type="button">
+          <i data-lucide="x" stroke-width="2.5" aria-hidden="true"></i>
+        </button>
+      </div>
+      <div id="search-results" class="search-results"></div>
+    </div>
+  </header>
+
+  <nav class="site-nav" id="site-navigation" aria-label="Primary navigation">
+    <a href="../index.html">HOME</a>
+    <div class="nav-item has-dropdown">
+      <a href="../blog.html?cat=culture">CULTURE<i data-lucide="chevron-down" class="chev" stroke-width="2" aria-hidden="true"></i></a>
+      <div class="dropdown">
+        <a href="../blog.html?cat=art">Art</a>
+        <a href="../blog.html?cat=books">Books</a>
+        <a href="../blog.html?cat=film-tv">Film &amp; TV</a>
+        <a href="../blog.html?cat=music">Music</a>
+        <a href="../blog.html?cat=sports">Sports</a>
+        <a href="../blog.html?cat=pop-culture">Pop Culture</a>
+      </div>
+    </div>
+    <div class="nav-item has-dropdown">
+      <a href="../blog.html?cat=style">STYLE<i data-lucide="chevron-down" class="chev" stroke-width="2" aria-hidden="true"></i></a>
+      <div class="dropdown">
+        <a href="../blog.html?cat=fashion">Fashion</a>
+        <a href="../blog.html?cat=beauty">Beauty</a>
+        <a href="../blog.html?cat=interiors">Interiors</a>
+        <a href="../blog.html?cat=design">Design</a>
+      </div>
+    </div>
+    <div class="nav-item has-dropdown">
+      <a href="../blog.html?cat=life">LIFE<i data-lucide="chevron-down" class="chev" stroke-width="2" aria-hidden="true"></i></a>
+      <div class="dropdown">
+        <a href="../blog.html?cat=food">Food</a>
+        <a href="../blog.html?cat=travel">Travel</a>
+        <a href="../blog.html?cat=life-wellness">Life &amp; Wellness</a>
+      </div>
+    </div>
+    <div class="nav-item has-dropdown">
+      <a href="../blog.html?cat=guides">GUIDES<i data-lucide="chevron-down" class="chev" stroke-width="2" aria-hidden="true"></i></a>
+      <div class="dropdown">
+        <a href="../reading-lists.html">Reading Lists</a>
+        <a href="../blog.html?cat=city-guides">City Guides</a>
+        <a href="../blog.html?cat=seasonal-recommendations">Seasonal Recommendations</a>
+        <a href="../blog.html?cat=restaurant-roundups">Restaurant Roundups</a>
+        <a href="../blog.html?cat=gift-guides">Gift Guides</a>
+      </div>
+    </div>
+    <a href="../about.html">ABOUT</a>
+  </nav>
+
+  <main class="page-main">
+    <a class="back-link" href="../blog.html">&larr; Back to Blog</a>
+    
+    <span class="kicker" style="display:block;margin-bottom:8px">Pop Culture · Music</span>
+    <h1 class="page-title">The Olivia Rodrigo Festival Everyone Is Talking About</h1>
+    <p class="page-tagline" style="font-size:15px;color:#8e8c88;margin-top:-4px;margin-bottom:28px">By Chévere &middot; Sep 8, 2026</p>
+    <div class="post-body">
+      <img class="post-hero" src="https://newsletter.itschevere.com/api/media/filejump/87fd8864-793c-4c6b-a2a8-e1f986a2d6e3" alt="The Olivia Rodrigo Festival Everyone Is Talking About" />
+      <p><em>Olivia Rodrigo&#039;s new festival brought together Chappell Roan, Doechii, Stevie Nicks, Mitski and a new generation of women in music — and raised $20 million for women and girls.</em></p>
+      <p>There are music festivals, and then there are <em>music festivals that feel like a cultural moment</em></p>
+      <p>Olivia Rodrigo&#039;s inaugural Daisy Chain Fields, held August 29 at Great Park in Irvine, California, was very much the latter.</p>
+      <p>Created by Rodrigo as a one-day celebration of women in music, the festival brought together a remarkably wide-ranging lineup: Chappell Roan, Doechii, Mitski, Bikini Kill, Garbage, The Breeders, Santigold, KATSEYE, Rachel Chinouriri and, of course, Rodrigo herself. Joining them were some of the women who helped shape the music Rodrigo grew up listening to, including Stevie Nicks and Sarah McLachlan, with Alanis Morissette appearing as a surprise guest.</p>
+      <p>And then there was the money.</p>
+      <p>The festival raised $10 million for organizations supporting women and girls — a number that became <strong>$20 million</strong> when philanthropist Melinda French Gates pledged to match the donation. The money is being distributed among 10 nonprofits working across areas including reproductive health, maternal health, economic justice, domestic violence prevention and gender equity.</p>
+      <p>Not bad for a first festival.</p>
+      <h3>A MODERN-DAY LILITH FAIR</h3>
+      <p>If Daisy Chain Fields felt familiar, that was intentional.</p>
+      <p>Rodrigo has spoken about the influence of <em>Lilith Fair</em>, the groundbreaking touring festival founded by Sarah McLachlan in the late 1990s that centered women performers at a time when female artists were often treated as exceptions on major festival lineups.</p>
+      <p>Daisy Chain Fields borrowed that basic idea and translated it for a new generation.</p>
+      <p>There was the nostalgia: Stevie Nicks. Sarah McLachlan. Bikini Kill. Garbage. The Breeders.</p>
+      <p>And then there was the now: Chappell Roan. Doechii. Mitski. KATSEYE. Rachel Chinouriri.</p>
+      <p>Put together, the lineup made a surprisingly effective argument that there isn&#039;t one particular sound, look or generation that defines women in music.</p>
+      <p>There are just a lot of them.</p>
+      <p>And they can exist on the same stage.</p>
+      <h3>THE LINEUP WAS KIND OF INSANE</h3>
+      <p>The festival featured <em>14 women-fronted acts across two stages</em>, with Rodrigo curating a lineup that moved between alternative rock, pop, hip-hop, punk and everything in between.</p>
+      <p>Chappell Roan brought the theatrical pop-star energy. Doechii represented one of the most exciting forces in contemporary hip-hop. Mitski offered her famously intimate songwriting. Bikini Kill and The Breeders connected the festival to the feminist punk and alternative movements that came before it.</p>
+      <p>Then came the legends.</p>
+      <p>Sarah McLachlan.</p>
+      <p>Stevie Nicks.</p>
+      <p>And, unexpectedly, Alanis Morissette.</p>
+      <p>It was less like a conventional festival lineup and more like someone had opened an extremely good Spotify playlist and somehow convinced everyone to show up in person.</p>
+      <h3>THE MOMENTS EVERYONE WILL REMEMBER</h3>
+      <p>Rodrigo saved some of the biggest moments for herself.</p>
+      <p>She performed with Sarah McLachlan on <strong>“Angel,”</strong> with the song serving as part of a tribute to Dolly Parton. She later brought out Alanis Morissette for <strong>“Ironic.”</strong></p>
+      <p>But the emotional centerpiece was arguably Rodrigo joining Stevie Nicks for <strong>“Landslide.”</strong></p>
+      <p>There is something almost perfectly cinematic about that pairing: a 23-year-old pop star standing next to a woman who has been a cultural icon for more than five decades, both singing a song about getting older and watching your life change.</p>
+      <p>It was also a pretty literal representation of what Daisy Chain Fields was trying to do.</p>
+      <p>Put generations of women in the same room — and let them see each other.</p>
+      <h3>AND THEN THERE WAS $20 MILLION</h3>
+      <p>The festival&#039;s philanthropic component wasn&#039;t an afterthought.</p>
+      <p>Attendees could visit the Daisy Chain Reaction philanthropy village, where participating organizations focused on women&#039;s rights, maternal health, reproductive rights, economic empowerment and gender equity.</p>
+      <p>The festival initially raised $10 million, before Melinda French Gates announced that she would match the amount, bringing the total to $20 million.</p>
+      <p>That money will be divided among 10 organizations, including Baby2Baby, Black Mamas Matter Alliance, the Center for Reproductive Rights, FreeFrom, the National Women&#039;s Law Center and Planned Parenthood.</p>
+      <p>It&#039;s one thing to put “empowerment” on a festival poster.</p>
+      <p>It&#039;s another to attach a $20 million number to it.</p>
+      <h3>45,000 PEOPLE CAME FOR THE MUSIC</h3>
+      <p>The scale of the event was significant, too.</p>
+      <p>Daisy Chain Fields drew approximately <em>45,000 attendees</em>, filling Great Park for a day that combined music, activism, food, fashion and plenty of the very specific festival aesthetic that has taken over Instagram and TikTok.</p>
+      <p>Of course, it wasn&#039;t perfect.</p>
+      <p>The Southern California heat was intense, and attendees reported frustrations around heat, shade, water and festival logistics.</p>
+      <p>But even those complaints say something about the size and ambition of the event.</p>
+      <p>This wasn&#039;t a tiny charity concert.</p>
+      <p>Rodrigo had essentially built a full-scale music festival from scratch.</p>
+      <h3>SO... WAS IT A SUCCESS?</h3>
+      <p>By almost any measurable standard, yes.</p>
+      <p><strong>45,000 attendees.<br />$20 million raised.<br />A lineup spanning generations.<br />Some of the biggest women in music on one stage.</strong></p>
+      <p>But perhaps the more interesting question is what happens next.</p>
+      <p>Because Daisy Chain Fields doesn&#039;t really feel like it was designed to be a one-time celebrity project. Rodrigo has created a recognizable concept: women in music, intergenerational collaboration, activism, fashion and a little bit of chaos — all wrapped into one very Instagrammable day.</p>
+      <p>The New Yorker described it as a kind of <strong>“Zoomer Lilith Fair,”</strong> which might actually be the perfect shorthand.</p>
+      <p>And maybe that&#039;s the most interesting thing about it.</p>
+      <p>For years, pop culture has been obsessed with the idea of the <strong>“girl”</strong> — the It Girl, the clean girl, the hot girl, the sad girl, the indie girl, the pop girl.</p>
+      <p>Daisy Chain Fields offered something slightly different:</p>
+      <p><strong>the girls, together.</strong></p>
+      <p>Different ages. Different genres. Different politics. Different careers.</p>
+      <p>Still sharing the same stage.</p>
+      <p>If Rodrigo can turn Daisy Chain Fields into an annual tradition, this first edition may eventually be remembered less as <em>the festival Olivia Rodrigo started</em> and more as <strong>the beginning of a new generation&#039;s version of Lilith Fair.</strong></p>
+      <p>And that would be a pretty impressive first act.</p>
+      <p class="post-signoff">Until next week — stay <em>chévere</em></p>
+    </div>
+  </main>
+
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script src="../site.js?v=20260823-2"></script>
+</body>
+</html>
