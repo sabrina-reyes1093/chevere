@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Why the Red Carpet Feels Fun Again — chévere</title>
+  <meta name="description" content="From Venice to Hollywood, celebrity dressing is finally giving us something to talk about again." />
+  <link rel="icon" type="image/png" href="../assets/icon.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../styles.css?v=20260823-2" />
+  <style>
+    .post-body { font-size: 17px; line-height: 1.8; color: var(--text); }
+    .post-body p { margin-bottom: 16px; }
+    .post-body h2 { font-family: var(--serif); font-size: 24px; color: var(--ink); margin: 32px 0 10px; }
+    .post-body h3 { font-family: var(--serif); font-size: 20px; color: var(--ink); margin: 26px 0 8px; }
+    .post-body strong { display: block; font-family: var(--serif); font-weight: 700; font-size: 20px; color: var(--ink); margin-top: 32px; margin-bottom: 8px; }
+    .post-body em { font-style: italic; }
+    .post-hero { width: 100%; height: auto; border-radius: 24px; margin-bottom: 28px; display: block; }
+    .post-inline-img { width: 100%; height: auto; border-radius: 20px; margin: 22px 0; display: block; }
+    .post-signoff { margin-top: 48px; font-size: 17px; color: var(--gray-soft); }
+    .back-link { display: inline-block; margin-bottom: 24px; font-size: 13px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--brown); transition: opacity .15s ease; }
+    .back-link:hover { opacity: 0.7; }
+  </style>
+</head>
+<body>
+
+  <header class="site-header">
+    <a class="header-logo" href="../index.html" aria-label="chévere home">
+      <img src="../assets/logo.png" alt="chévere" />
+    </a>
+    <div class="header-actions">
+      <button id="mobile-menu-toggle" class="mobile-menu-toggle" type="button" aria-label="Open menu" aria-controls="site-navigation" aria-expanded="false"><i data-lucide="menu" stroke-width="1.8" aria-hidden="true"></i></button>
+      <button id="search-toggle" aria-label="Search" title="Search"><i data-lucide="search" stroke-width="1.8" aria-hidden="true"></i></button>
+      <a class="join-list-button" href="../index.html#newsletter">JOIN THE LIST</a>
+      <a href="https://www.instagram.com/itschevere/" target="_blank" rel="noopener" aria-label="Instagram" title="Instagram">
+        <svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+      </a>
+      <a href="https://www.tiktok.com/@itschevere" target="_blank" rel="noopener" aria-label="TikTok" title="TikTok">
+        <svg class="tiktok-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="19" height="19"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.3 0 .59.05.87.13v-3.5a6.37 6.37 0 0 0-.87-.06A6.34 6.34 0 0 0 3.15 15.3a6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.34-6.34V8.46a8.23 8.23 0 0 0 4.77 1.48v-3.4a4.86 4.86 0 0 1-1.01.15z"/></svg>
+      </a>
+    </div>
+    <div id="search-panel" class="search-panel" role="dialog" aria-label="Search posts">
+      <div class="search-bar-wrap">
+        <i data-lucide="search" class="search-bar-icon" stroke-width="2" aria-hidden="true"></i>
+        <input id="search-input" type="text" placeholder="Search posts..." autocomplete="off" />
+        <button id="search-submit" class="search-action-btn" aria-label="Search" type="button">
+          <i data-lucide="arrow-right" stroke-width="2.5" aria-hidden="true"></i>
+        </button>
+        <button id="search-close" class="search-close-btn" aria-label="Close search" type="button">
+          <i data-lucide="x" stroke-width="2.5" aria-hidden="true"></i>
+        </button>
+      </div>
+      <div id="search-results" class="search-results"></div>
+    </div>
+  </header>
+
+  <nav class="site-nav" id="site-navigation" aria-label="Primary navigation">
+    <a href="../index.html">HOME</a>
+    <div class="nav-item has-dropdown">
+      <a href="../blog.html?cat=culture">CULTURE<i data-lucide="chevron-down" class="chev" stroke-width="2" aria-hidden="true"></i></a>
+      <div class="dropdown">
+        <a href="../blog.html?cat=art">Art</a>
+        <a href="../blog.html?cat=books">Books</a>
+        <a href="../blog.html?cat=film-tv">Film &amp; TV</a>
+        <a href="../blog.html?cat=music">Music</a>
+        <a href="../blog.html?cat=sports">Sports</a>
+        <a href="../blog.html?cat=pop-culture">Pop Culture</a>
+      </div>
+    </div>
+    <div class="nav-item has-dropdown">
+      <a href="../blog.html?cat=style">STYLE<i data-lucide="chevron-down" class="chev" stroke-width="2" aria-hidden="true"></i></a>
+      <div class="dropdown">
+        <a href="../blog.html?cat=fashion">Fashion</a>
+        <a href="../blog.html?cat=beauty">Beauty</a>
+        <a href="../blog.html?cat=interiors">Interiors</a>
+        <a href="../blog.html?cat=design">Design</a>
+      </div>
+    </div>
+    <div class="nav-item has-dropdown">
+      <a href="../blog.html?cat=life">LIFE<i data-lucide="chevron-down" class="chev" stroke-width="2" aria-hidden="true"></i></a>
+      <div class="dropdown">
+        <a href="../blog.html?cat=food">Food</a>
+        <a href="../blog.html?cat=travel">Travel</a>
+        <a href="../blog.html?cat=life-wellness">Life &amp; Wellness</a>
+      </div>
+    </div>
+    <div class="nav-item has-dropdown">
+      <a href="../blog.html?cat=guides">GUIDES<i data-lucide="chevron-down" class="chev" stroke-width="2" aria-hidden="true"></i></a>
+      <div class="dropdown">
+        <a href="../reading-lists.html">Reading Lists</a>
+        <a href="../blog.html?cat=city-guides">City Guides</a>
+        <a href="../blog.html?cat=seasonal-recommendations">Seasonal Recommendations</a>
+        <a href="../blog.html?cat=restaurant-roundups">Restaurant Roundups</a>
+        <a href="../blog.html?cat=gift-guides">Gift Guides</a>
+      </div>
+    </div>
+    <a href="../about.html">ABOUT</a>
+  </nav>
+
+  <main class="page-main">
+    <a class="back-link" href="../blog.html">&larr; Back to Blog</a>
+    
+    <span class="kicker" style="display:block;margin-bottom:8px">Fashion · Pop Culture</span>
+    <h1 class="page-title">Why the Red Carpet Feels Fun Again</h1>
+    <p class="page-tagline" style="font-size:15px;color:#8e8c88;margin-top:-4px;margin-bottom:28px">By Chévere &middot; Sep 8, 2026</p>
+    <div class="post-body">
+      <img class="post-hero" src="https://newsletter.itschevere.com/api/media/filejump/480bbc33-920c-4524-87ed-5243859fed75" alt="Why the Red Carpet Feels Fun Again" />
+      <p><em>From Venice to Hollywood, celebrity dressing is finally giving us something to talk about again.</em></p>
+      <p>There was a time when getting dressed was half the reason we cared about celebrities.</p>
+      <p>A movie premiere wasn&#039;t just a movie premiere. It was the dress, the entrance, the photographs, the jewelry, the hair, the inevitable “Who is she wearing?” conversation the next morning.</p>
+      <p>Then, somewhere along the way, celebrity culture became less about the red carpet and more about everything happening around it. Airport outfits. Erewhon runs. Street-style photos. Instagram Stories. “Off-duty” looks. The distinction between celebrity and influencer got increasingly blurry.</p>
+      <p>And suddenly, the red carpet didn&#039;t feel quite as exciting.</p>
+      <p>But lately? Something has shifted.</p>
+      <p><strong>The red carpet feels fun again.</strong></p>
+      <p>Maybe it&#039;s the return of actual movie stars. Maybe it&#039;s the clothes becoming more theatrical. Maybe we&#039;re simply tired of everything looking effortless.</p>
+      <p>Whatever the reason, celebrities are dressing like they know we&#039;re watching again.</p>
+      <h2>VENICE IS REMINDING US WHY WE CARE</h2>
+      <p>If you want proof, look no further than the 2026 Venice Film Festival.</p>
+      <p>Every September, Venice turns celebrity arrivals into their own kind of spectacle: water taxis, old-world architecture, film premieres and, of course, clothes. This year&#039;s festival has once again become as much a fashion event as a cinematic one, with stars including Pamela Anderson, Kendall Jenner, Dakota Johnson, Kate Mara and Rooney Mara making appearances.</p>
+      <img class="post-inline-img" src="https://newsletter.itschevere.com/api/media/filejump/eb5f2186-e28a-4b4d-af68-1b80f4a326ac" alt="image" />
+      <p>Pamela Anderson has arguably been one of the most fun people to watch this year. Across several Venice appearances, she&#039;s moved between a coral-pink Oscar de la Renta gown, a vivid orange Calvin Klein look and colorful Carolina Herrera, while leaning into old-Hollywood-inspired hair and glamour.</p>
+      <p>And that&#039;s the point: these aren&#039;t clothes designed to disappear into the background.</p>
+      <p>They&#039;re meant to be <em>seen</em>.</p>
+      <h2>THE CELEBRITY-INFLUENCER BLUR IS STARTING TO REVERSE</h2>
+      <p>Then there&#039;s Kendall Jenner, who occupies that fascinating space between model, celebrity and internet personality.</p>
+      <p>Her presence in Venice is interesting precisely because she doesn&#039;t need to be there to promote a movie in order to generate fashion attention. Her arrival, appearances and red-carpet looks become content in themselves.</p>
+      <p>At the <em>Wild Horse Nine</em> premiere, Jenner wore a vintage Giorgio Armani Fall/Winter 1995 dress with Briony Raymond jewelry — a look that felt considerably more like <em>old-school celebrity glamour</em> than everyday influencer dressing.</p>
+      <img class="post-inline-img" src="https://newsletter.itschevere.com/api/media/filejump/2c1a339a-11e4-480a-8e85-de139d7660ec" alt="image" />
+      <p>For years, celebrities increasingly dressed like influencers because influencer culture had become the dominant language of fashion: approachable, effortless, attainable.</p>
+      <p>Now we&#039;re seeing the opposite happen.</p>
+      <p>The biggest celebrities are reminding us that there&#039;s something satisfying about clothes that are <em>not</em> attainable. Clothes that exist for one night. Clothes that require a stylist, a fitting, a tailor, a jewelry loan and approximately 47 people backstage.</p>
+      <p>There is something wonderfully excessive about that.</p>
+      <h2>THE PRESS TOUR HAS BECOME PART OF THE MOVIE</h2>
+      <img class="post-inline-img" src="https://newsletter.itschevere.com/api/media/filejump/23054825-751e-47ec-9cdf-93773080f068" alt="image" />
+      <p>And then there&#039;s <em>Practical Magic 2</em>, which may be the perfect example of why celebrity dressing is suddenly entertaining again.</p>
+      <p>Sandra Bullock and Nicole Kidman have returned nearly three decades after the original <em>Practical Magic</em>, and the press tour has become its own little fashion storyline.</p>
+      <p>Joey King, who joins the franchise as Bullock&#039;s daughter, has brought a younger energy to the tour, including a sheer black lace Miu Miu look that felt appropriately romantic, gothic and a little witchy.</p>
+      <img class="post-inline-img" src="https://newsletter.itschevere.com/api/media/filejump/74d7b901-4c15-4293-8291-407dd4dbc974" alt="image" />
+      <p>That&#039;s part of what&#039;s making this press tour so satisfying: the clothes don&#039;t exist completely separately from the movie.</p>
+      <p>They&#039;re helping build the world around it.</p>
+      <h2>NICOLE KIDMAN UNDERSTANDS THE ASSIGNMENT</h2>
+      <p>Nicole Kidman, meanwhile, has been leaning all the way into the glamour.</p>
+      <p>At the London premiere, she wore a custom Chanel look featuring gold chains and sequins, while other appearances have leaned into the romantic, slightly eccentric aesthetic associated with Gillian Owens.</p>
+      <img class="post-inline-img" src="https://newsletter.itschevere.com/api/media/filejump/7e029b9b-4998-4bd3-93fb-e4c22ea30dac" alt="image" />
+      <p>It&#039;s not necessarily about wearing something that looks like something her character would literally wear.</p>
+      <p>It&#039;s about giving the audience a <em>feeling</em>.</p>
+      <p>Witchy. Romantic. Glamorous. Slightly mysterious.</p>
+      <p>The best press-tour dressing does exactly that. It extends the fantasy of the film into real life.</p>
+      <p>And suddenly, getting dressed becomes part of the entertainment.</p>
+      <h2>WE MISSED THE MOVIE STAR</h2>
+      <p>Which brings us to Sandra Bullock.</p>
+      <p><strong>[IMAGE: SANDRA BULLOCK]</strong></p>
+      <p>There&#039;s something particularly satisfying about seeing a movie star like Bullock back in the center of a major fashion moment.</p>
+      <p>At the <em>Practical Magic 2</em> premiere, she wore a strapless leopard-print Givenchy gown — a decidedly glamorous choice that felt like a reminder of the era when actresses were allowed to simply be <em>stars</em>.</p>
+      <p>Bullock has also been refreshingly candid about the strange experience of seeing yourself transformed into a red-carpet image. She recently joked about feeling confident “from the neck down” in the gown before being surprised by the resulting photographs.</p>
+      <p>And honestly? That makes the whole thing feel more human.</p>
+      <p>The red carpet isn&#039;t supposed to look like real life.</p>
+      <p>That&#039;s why we like it.</p>
+      <h2>VENICE, AGAIN</h2>
+      <p>Back in Venice, Dakota Johnson is another reminder that the red carpet still has the ability to create anticipation around a celebrity.</p>
+      <p><strong>[IMAGE: DAKOTA JOHNSON]</strong></p>
+      <img class="post-inline-img" src="https://newsletter.itschevere.com/api/media/filejump/d938454a-7237-40bf-ba52-7bfaf1c17cdf" alt="image" />
+      <p>Johnson has become almost synonymous with a particular kind of modern movie-star dressing — polished without looking overly constructed, sexy without feeling desperate, and just understated enough to make people want to look twice.</p>
+      <p>Her presence alongside the likes of Pamela Anderson, Kendall Jenner and the Mara sisters adds to something that Venice does particularly well: it puts very different versions of celebrity in the same cinematic setting.</p>
+      <p>And that contrast is part of the fun.</p>
+      <h2>EVEN SISTER DRESSING FEELS MORE INTERESTING</h2>
+      <p>Kate and Rooney Mara might be the perfect final example.</p>
+      <p><strong>[IMAGE: KATE &amp; ROONEY MARA]</strong></p>
+      <img class="post-inline-img" src="https://newsletter.itschevere.com/api/media/filejump/4ab7080e-8bd4-4974-a42c-ebd248d9cb77" alt="image" />
+      <p>The sisters appeared together in Venice for the premiere of <em>Bucking Fastard</em>, their first film together, with Kate wearing Giorgio Armani Privé and Rooney in Louis Vuitton.</p>
+      <p>It&#039;s a small thing, but moments like this are exactly what we&#039;ve been missing.</p>
+      <p>Two recognizable actresses. One major film festival. Completely different interpretations of glamour.</p>
+      <p>No matching influencer uniforms. No “just threw this on” energy.</p>
+      <p>Just two movie stars getting dressed for an occasion.</p>
+      <h2>WE&#039;RE TIRED OF EVERYTHING LOOKING EFFORTLESS</h2>
+      <p>For years, fashion has been obsessed with making things look effortless.</p>
+      <p>Quiet luxury. Clean girl beauty. Barely-there makeup. Neutral wardrobes. “No-makeup” makeup. The perfect white T-shirt. The perfect jeans. The perfect expensive-looking basics.</p>
+      <p>And there is absolutely nothing wrong with any of that.</p>
+      <p>But eventually, effortless starts to feel a little... boring.</p>
+      <p>The red carpet offers the opposite.</p>
+      <p>It&#039;s intentionally constructed. It&#039;s dramatic. It&#039;s excessive. It&#039;s temporary.</p>
+      <p>And maybe that&#039;s exactly what we&#039;re craving.</p>
+      <p>We don&#039;t need celebrities to dress like us.</p>
+      <p>We need them to give us something to look at.</p>
+      <h2>THE RED CARPET IS ENTERTAINMENT AGAIN</h2>
+      <p>The bigger shift is that celebrity fashion no longer feels like a side effect of celebrity culture.</p>
+      <p>**It <em>is</em> celebrity culture.**</p>
+      <p>A great dress becomes a headline. A strange dress becomes a TikTok debate. A vintage look sends people searching for archival runway photos. A movie premiere becomes a fashion event before anyone has even seen the movie.</p>
+      <p>And suddenly, we&#039;re doing something we haven&#039;t done in a while:</p>
+      <p>We&#039;re waiting to see what someone is going to wear.</p>
+      <p>That&#039;s a pretty simple form of entertainment — but maybe that&#039;s why it works.</p>
+      <p>The internet gave us constant access to celebrities.</p>
+      <p>The red carpet gives us a little distance again.</p>
+      <p>A little spectacle.</p>
+      <p>A little mystery.</p>
+      <p>And, occasionally, a really great dress.</p>
+      <p>Maybe we didn&#039;t stop caring about celebrity fashion.</p>
+      <p>Maybe we just needed it to become interesting again.</p>
+      <p class="post-signoff">Until next week — stay <em>chévere</em></p>
+    </div>
+  </main>
+
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script src="../site.js?v=20260823-2"></script>
+</body>
+</html>
