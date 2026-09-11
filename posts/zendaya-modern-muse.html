@@ -4,90 +4,23 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Zendaya: The Modern Muse and Turning Fashion Into Story — chévere</title>
+  <meta name="description" content="From red-carpet glamour to carefully crafted character dressing, Zendaya uses fashion to extend the stories she tells on screen." />
   <link rel="icon" type="image/png" href="../assets/icon.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,600;1,700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="../styles.css?v=20260823-2" />
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4/dist/css/splide.min.css" />
   <style>
-    .post-body {
-      font-size: 17px;
-      line-height: 1.8;
-      color: var(--text);
-    }
-    .post-body p {
-      margin-bottom: 16px;
-    }
-
-    .post-section.with-image {
-      display: flex;
-      gap: 28px;
-      align-items: flex-start;
-      margin-top: 36px;
-    }
-    .post-section-text { flex: 1; min-width: 0; }
-    .post-section-text strong {
-      display: block;
-      font-family: var(--serif);
-      font-weight: 700;
-      font-size: 19px;
-      color: var(--ink);
-      margin-bottom: 6px;
-    }
-    .post-section-img {
-      width: 150px;
-      height: 190px;
-      border-radius: 6px;
-      flex-shrink: 0;
-      object-fit: cover;
-      object-position: center top;
-    }
-    @media (max-width: 560px) {
-      .post-section.with-image { flex-direction: column; }
-      .post-section-img { width: 100%; height: 260px; object-fit: contain; object-position: center top; background: var(--skeleton); }
-    }
-    .press-tour-carousel {
-      margin: 48px 0 32px;
-    }
-    .carousel-label {
-      font-size: 12px;
-      font-weight: 600;
-      letter-spacing: 0.09em;
-      text-transform: uppercase;
-      color: var(--brown);
-      margin-bottom: 14px;
-      margin-top: 0;
-      text-align: left;
-    }
-    .splide__slide img {
-      width: 100%;
-      height: 240px;
-      object-fit: cover;
-      object-position: center top;
-      border-radius: 8px;
-    }
-    @media (max-width: 560px) {
-      .splide__slide img { height: 280px; object-fit: contain; background: var(--skeleton); }
-    }
-    .splide__arrow { background: rgba(255,255,255,0.85) !important; opacity: 1 !important; }
-    .splide__arrow svg { fill: var(--brown) !important; }
-    .splide__pagination__page.is-active { background: var(--brown) !important; }
-    .post-signoff {
-      margin-top: 48px;
-      font-size: 17px;
-      color: var(--gray-soft);
-    }
-    .back-link {
-      display: inline-block;
-      margin-bottom: 24px;
-      font-size: 13px;
-      font-weight: 600;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-      color: var(--brown);
-      transition: opacity .15s ease;
-    }
+    .post-body { font-size: 17px; line-height: 1.8; color: var(--text); }
+    .post-body p { margin-bottom: 16px; }
+    .post-body h2 { font-family: var(--serif); font-size: 24px; color: var(--ink); margin: 32px 0 10px; }
+    .post-body h3 { font-family: var(--serif); font-size: 20px; color: var(--ink); margin: 26px 0 8px; }
+    .post-body strong { display: block; font-family: var(--serif); font-weight: 700; font-size: 20px; color: var(--ink); margin-top: 32px; margin-bottom: 8px; }
+    .post-body em { font-style: italic; }
+    .post-hero { width: 100%; height: auto; border-radius: 24px; margin-bottom: 28px; display: block; }
+    .post-inline-img { width: 100%; height: auto; border-radius: 20px; margin: 22px 0; display: block; }
+    .post-signoff { margin-top: 48px; font-size: 17px; color: var(--gray-soft); }
+    .back-link { display: inline-block; margin-bottom: 24px; font-size: 13px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--brown); transition: opacity .15s ease; }
     .back-link:hover { opacity: 0.7; }
   </style>
 </head>
@@ -97,14 +30,14 @@
     <a class="header-logo" href="../index.html" aria-label="chévere home">
       <img src="../assets/logo.png" alt="chévere" />
     </a>
-        <div class="header-actions">
+    <div class="header-actions">
       <button id="mobile-menu-toggle" class="mobile-menu-toggle" type="button" aria-label="Open menu" aria-controls="site-navigation" aria-expanded="false"><i data-lucide="menu" stroke-width="1.8" aria-hidden="true"></i></button>
       <button id="search-toggle" aria-label="Search" title="Search"><i data-lucide="search" stroke-width="1.8" aria-hidden="true"></i></button>
       <a class="join-list-button" href="../index.html#newsletter">JOIN THE LIST</a>
-      <a class="header-social" href="https://www.instagram.com/itschevere/" target="_blank" rel="noopener" aria-label="Instagram" title="Instagram">
+      <a href="https://www.instagram.com/itschevere/" target="_blank" rel="noopener" aria-label="Instagram" title="Instagram">
         <svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
       </a>
-      <a class="header-social" href="https://www.tiktok.com/@itschevere" target="_blank" rel="noopener" aria-label="TikTok" title="TikTok">
+      <a href="https://www.tiktok.com/@itschevere" target="_blank" rel="noopener" aria-label="TikTok" title="TikTok">
         <svg class="tiktok-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="19" height="19"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.3 0 .59.05.87.13v-3.5a6.37 6.37 0 0 0-.87-.06A6.34 6.34 0 0 0 3.15 15.3a6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.34-6.34V8.46a8.23 8.23 0 0 0 4.77 1.48v-3.4a4.86 4.86 0 0 1-1.01.15z"/></svg>
       </a>
     </div>
@@ -123,7 +56,7 @@
     </div>
   </header>
 
-    <nav class="site-nav" id="site-navigation" aria-label="Primary navigation">
+  <nav class="site-nav" id="site-navigation" aria-label="Primary navigation">
     <a href="../index.html">HOME</a>
     <div class="nav-item has-dropdown">
       <a href="../blog.html?cat=culture">CULTURE<i data-lucide="chevron-down" class="chev" stroke-width="2" aria-hidden="true"></i></a>
@@ -137,7 +70,7 @@
       </div>
     </div>
     <div class="nav-item has-dropdown">
-      <a href="../blog.html?cat=style" class="active">STYLE<i data-lucide="chevron-down" class="chev" stroke-width="2" aria-hidden="true"></i></a>
+      <a href="../blog.html?cat=style">STYLE<i data-lucide="chevron-down" class="chev" stroke-width="2" aria-hidden="true"></i></a>
       <div class="dropdown">
         <a href="../blog.html?cat=fashion">Fashion</a>
         <a href="../blog.html?cat=beauty">Beauty</a>
@@ -168,102 +101,39 @@
 
   <main class="page-main">
     <a class="back-link" href="../blog.html">&larr; Back to Blog</a>
+    
     <span class="kicker" style="display:block;margin-bottom:8px">Fashion</span>
     <h1 class="page-title">Zendaya: The Modern Muse and Turning Fashion Into Story</h1>
-    <p class="page-tagline" style="font-size:15px;color:#8e8c88;margin-top:-4px;margin-bottom:28px">Jul 5, 2026</p>
+    <p class="page-tagline" style="font-size:15px;color:#8e8c88;margin-top:-4px;margin-bottom:28px">By Chévere &middot; Jul 5, 2026</p>
     <div class="post-body">
-      <img src="../assets/zendaya-cover.png" alt="Zendaya" style="width:100%;max-height:400px;object-fit:cover;object-position:center;border-radius:10px;margin-bottom:28px" />
+      <img class="post-hero" src="https://newsletter.itschevere.com/api/media/filejump/d192ec2c-9f5e-4c1d-9706-52c14ea5a205" alt="Zendaya: The Modern Muse and Turning Fashion Into Story" />
       <p>Zendaya has never treated the red carpet as simply a place to wear a beautiful dress. With each new project, she and longtime stylist Law Roach create a complete fashion era that reflects the world of the film. For <em>The Odyssey</em>, her wardrobe has embraced flowing white fabrics, sculptural silhouettes, metallic accents and Grecian influences inspired by her role as Athena. Rather than recreating a costume, the looks capture the power, wisdom and mythology associated with the character.</p>
-
-      <div class="post-section with-image">
-        <div class="post-section-text">
-          <strong>London — Photocall</strong>
-          <p>The tour began at the London photocall, where Zendaya wore a custom ivory Jacquemus gown with a low-draped back, an attached headscarf and oversized gold earrings. Minimal yet regal, the look introduced the visual language of the press tour.</p>
-        </div>
-        <img class="post-section-img" src="../assets/zendaya-london.png" alt="London premiere" />
-      </div>
-
-      <div class="post-section with-image">
-        <div class="post-section-text">
-          <strong>London — Premiere</strong>
-          <p>At the London premiere, she shifted into something more dramatic: a Schiaparelli couture gown with a porcelain-like bodice, a shimmering beaded skirt and built-in lighting that transformed her into a glowing modern goddess.</p>
-        </div>
-        <img class="post-section-img" src="../assets/ZENDAYA1.jfif" alt="Jacquemus gown" />
-      </div>
-
-      <div class="post-section with-image">
-        <div class="post-section-text">
-          <strong>Paris — Photocall</strong>
-          <p>In Paris, she wore a dramatic 1997 Givenchy design by Alexander McQueen, pairing its structured shoulders and sweeping sleeves with a pointed gold Philip Treacy headpiece.</p>
-        </div>
-        <img class="post-section-img" src="../assets/zendaya-paris3.jfif" alt="Louis Vuitton at Paris premiere" />
-      </div>
-
-      <div class="post-section with-image">
-        <div class="post-section-text">
-          <strong>Paris — Premiere</strong>
-          <p>She later changed into a custom Louis Vuitton lace gown featuring a voluminous ruffled bolero, a central cutout and a tanzanite necklace. Where the Givenchy look felt powerful and commanding, the Louis Vuitton gown offered a softer and more romantic interpretation of Athena.</p>
-        </div>
-        <img class="post-section-img" src="../assets/zendaya-paris.png" alt="Givenchy by McQueen at Paris photocall" />
-      </div>
-
-      <div class="post-section with-image">
-        <div class="post-section-text">
-          <strong>New York — Press Appearance</strong>
-          <p>The New York appearances pushed the theme even further. Zendaya revived an archival Alberta Ferretti minidress with gold fringe and knee-high gladiator sandals, transforming a nostalgic trend into something perfectly suited to the mythological world of the film.</p>
-        </div>
-        <img class="post-section-img" src="../assets/zendaya-newyork3.png" alt="Alberta Ferretti in New York" />
-      </div>
-
-      <div class="post-section with-image">
-        <div class="post-section-text">
-          <strong>New York — Premiere</strong>
-          <p>The tour's most theatrical moment came at the New York premiere, where she wore a custom white Matières Fécales gown with a feathered train and enormous sculptural wings. Paired with a long fishtail braid and restrained makeup, the look felt like the final transformation in a fashion narrative that had gradually evolved from subtle Grecian references into full mythological spectacle.</p>
-        </div>
-        <img class="post-section-img" src="../assets/zendaya-newyork2026.png" alt="Zendaya New York premiere" />
-      </div>
-
-      <p>This approach is often called method dressing, but Zendaya and Roach take it beyond simply matching an outfit to a movie's theme. During the <em>Challengers</em> press tour, tennis-inspired pieces brought the film's athletic world onto the carpet, while the futuristic silhouettes and metallic textures of <em>Dune</em> reflected its otherworldly setting. What makes Zendaya's style so effective is her ability to fully commit to an idea without disappearing beneath the clothes. Each appearance feels intentional, building toward a larger story rather than existing as an isolated fashion moment. Her outfits introduce a character, establish a mood and create anticipation before audiences ever enter the theater. Zendaya does not simply arrive at a premiere wearing a dress — she gives the audience another scene.</p>
+      <p><strong>London — Photocall</strong><br />The tour began at the London photocall, where Zendaya wore a custom ivory Jacquemus gown with a low-draped back, an attached headscarf and oversized gold earrings. Minimal yet regal, the look introduced the visual language of the press tour.</p>
+      <img class="post-inline-img" src="https://www.itschevere.com/assets/zendaya-london.png" alt="London premiere" />
+      <p><strong>London — Premiere</strong><br />At the London premiere, she shifted into something more dramatic: a Schiaparelli couture gown with a porcelain-like bodice, a shimmering beaded skirt and built-in lighting that transformed her into a glowing modern goddess.</p>
+      <img class="post-inline-img" src="https://www.itschevere.com/assets/ZENDAYA1.jfif" alt="Jacquemus gown" />
+      <p><strong>Paris — Photocall</strong><br />In Paris, she wore a dramatic 1997 Givenchy design by Alexander McQueen, pairing its structured shoulders and sweeping sleeves with a pointed gold Philip Treacy headpiece.</p>
+      <img class="post-inline-img" src="https://www.itschevere.com/assets/zendaya-paris3.jfif" alt="Louis Vuitton at Paris premiere" />
+      <p><strong>Paris — Premiere</strong><br />She later changed into a custom Louis Vuitton lace gown featuring a voluminous ruffled bolero, a central cutout and a tanzanite necklace. Where the Givenchy look felt powerful and commanding, the Louis Vuitton gown offered a softer and more romantic interpretation of Athena.</p>
+      <img class="post-inline-img" src="https://www.itschevere.com/assets/zendaya-paris.png" alt="Givenchy by McQueen at Paris photocall" />
+      <p><strong>New York — Press Appearance</strong><br />The New York appearances pushed the theme even further. Zendaya revived an archival Alberta Ferretti minidress with gold fringe and knee-high gladiator sandals, transforming a nostalgic trend into something perfectly suited to the mythological world of the film.</p>
+      <img class="post-inline-img" src="https://www.itschevere.com/assets/zendaya-newyork3.png" alt="Alberta Ferretti in New York" />
+      <p><strong>New York — Premiere</strong><br />The tour&#039;s most theatrical moment came at the New York premiere, where she wore a custom white Matières Fécales gown with a feathered train and enormous sculptural wings. Paired with a long fishtail braid and restrained makeup, the look felt like the final transformation in a fashion narrative that had gradually evolved from subtle Grecian references into full mythological spectacle.</p>
+      <img class="post-inline-img" src="https://www.itschevere.com/assets/zendaya-newyork2026.png" alt="Zendaya New York premiere" />
+      <p>This approach is often called method dressing, but Zendaya and Roach take it beyond simply matching an outfit to a movie&#039;s theme. During the <em>Challengers</em> press tour, tennis-inspired pieces brought the film&#039;s athletic world onto the carpet, while the futuristic silhouettes and metallic textures of <em>Dune</em> reflected its otherworldly setting. What makes Zendaya&#039;s style so effective is her ability to fully commit to an idea without disappearing beneath the clothes. Each appearance feels intentional, building toward a larger story rather than existing as an isolated fashion moment. Her outfits introduce a character, establish a mood and create anticipation before audiences ever enter the theater. Zendaya does not simply arrive at a premiere wearing a dress — she gives the audience another scene.</p>
+      <h3>All press tour looks
+<img class="post-inline-img" src="https://www.itschevere.com/assets/zendaya-london.png" alt="London" />
+<img class="post-inline-img" src="https://www.itschevere.com/assets/ZENDAYA1.jfif" alt="London" />
+<img class="post-inline-img" src="https://www.itschevere.com/assets/zendaya-paris3.jfif" alt="Paris" />
+<img class="post-inline-img" src="https://www.itschevere.com/assets/zendaya-paris.png" alt="Paris" />
+<img class="post-inline-img" src="https://www.itschevere.com/assets/zendaya-newyork3.png" alt="New York" />
+<img class="post-inline-img" src="https://www.itschevere.com/assets/zendaya-newyork2.png" alt="New York" />
+<img class="post-inline-img" src="https://www.itschevere.com/assets/zendaya-london2.png" alt="Extra" /></h3>
       <p class="post-signoff">Until next week — stay <em>chévere</em></p>
-
-      <div class="press-tour-carousel">
-        <p class="carousel-label">All press tour looks</p>
-        <div id="splide-carousel" class="splide">
-          <div class="splide__track">
-            <ul class="splide__list">
-              <li class="splide__slide"><img src="../assets/zendaya-london.png" alt="London" /></li>
-              <li class="splide__slide"><img src="../assets/ZENDAYA1.jfif" alt="London" /></li>
-              <li class="splide__slide"><img src="../assets/zendaya-paris3.jfif" alt="Paris" /></li>
-              <li class="splide__slide"><img src="../assets/zendaya-paris.png" alt="Paris" /></li>
-              <li class="splide__slide"><img src="../assets/zendaya-newyork3.png" alt="New York" /></li>
-              <li class="splide__slide"><img src="../assets/zendaya-newyork2.png" alt="New York" /></li>
-              <li class="splide__slide"><img src="../assets/zendaya-london2.png" alt="Extra" /></li>
-            </ul>
-          </div>
-        </div>
-      </div>
     </div>
   </main>
 
   <script src="https://unpkg.com/lucide@latest"></script>
-  <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4/dist/js/splide.min.js"></script>
   <script src="../site.js?v=20260823-2"></script>
-  <script>
-    var splide = new Splide('#splide-carousel', {
-      type: 'slide',
-      perPage: 4,
-      perMove: 1,
-      gap: '12px',
-      pagination: true,
-      arrows: true,
-      drag: 'free',
-      swipe: true,
-      breakpoints: {
-        768: { perPage: 2 },
-        480: { perPage: 1 }
-      }
-    });
-    splide.mount();
-  </script>
 </body>
 </html>
