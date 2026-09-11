@@ -3,79 +3,60 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="The books we'd recommend to a friend—from literary favorites and addictive thrillers to romance, fantasy, and unforgettable standouts." />
-  <title>The Ch&eacute;vere Summer Reading Guide &mdash; ch&eacute;vere</title>
+  <title>The Chévere Summer Reading Guide — chévere</title>
+  <meta name="description" content="The books we&#039;d recommend to a friend — from literary favorites and addictive thrillers to romance, fantasy, and unforgettable standouts." />
   <link rel="icon" type="image/png" href="../assets/icon.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,600;1,700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="../styles.css?v=20260823-2" />
   <style>
-    .page-main { max-width: 960px; }
-    .post-body { font-family: var(--sans); font-size: 17px; line-height: 1.8; color: var(--text); }
+    .post-body { font-size: 17px; line-height: 1.8; color: var(--text); }
     .post-body p { margin-bottom: 16px; }
-    .post-hero { width: 100%; height: min(440px, 52vw); min-height: 260px; object-fit: cover; object-position: center; border-radius: 10px; margin-bottom: 28px; display: block; }
-    .post-dek { font-family: var(--serif); font-size: 20px; font-style: italic; line-height: 1.55; color: var(--gray-soft); }
-    .post-dek + p::first-letter {
-      float: left;
-      font-family: var(--serif);
-      font-size: 64px;
-      font-weight: 600;
-      line-height: .82;
-      color: var(--ink);
-      margin: 8px 9px 0 0;
-    }
-    .reading-section { margin-top: 76px; padding-top: 52px; border-top: 1px solid var(--border); }
-    .reading-section h2 { font-family: var(--serif); font-size: 34px; color: var(--ink); margin-bottom: 10px; }
-    .section-intro { max-width: 700px; color: var(--gray-soft); margin-bottom: 52px !important; }
-    .book-entry { display: grid; grid-template-columns: 210px minmax(0, 1fr); gap: clamp(42px, 7vw, 78px); align-items: center; margin: 0 0 76px; }
-    .book-entry:nth-of-type(even) { grid-template-columns: minmax(0, 1fr) 210px; }
-    .book-entry:nth-of-type(even) .book-cover-link { order: 2; }
-    .book-entry h3 { font-family: var(--serif); font-size: clamp(25px, 3vw, 32px); line-height: 1.2; color: var(--ink); margin-bottom: 7px; }
-    .book-entry h3 em { font-weight: 700; font-style: italic; }
-    .book-title-link { display: inline-flex; align-items: center; gap: 8px; color: inherit; }
-    .external-icon { width: 16px; height: 16px; opacity: 0; transform: translate(-3px, 3px); transition: opacity 250ms ease, transform 250ms ease; }
-    .book-entry:hover .external-icon, .book-title-link:focus-visible .external-icon { opacity: .55; transform: translate(0, 0); }
-    .book-author { margin: 0 0 20px !important; color: var(--brown); font-size: 13px; font-weight: 700; letter-spacing: .09em; text-transform: uppercase; }
-    .book-copy > p:last-child { max-width: 600px; margin-bottom: 0; }
-    .book-cover-link { display: block; width: 210px; height: 315px; border-radius: 10px; overflow: hidden; background: #f7f4ef; box-shadow: 0 10px 28px rgba(46, 39, 31, .13); transition: transform 250ms ease, box-shadow 250ms ease; }
-    .book-cover-link:hover, .book-cover-link:focus-visible { transform: scale(1.03); box-shadow: 0 16px 36px rgba(46, 39, 31, .2); }
-    .book-cover { display: block; width: 100%; height: 100%; object-fit: contain; }
-    .final-chapter { margin-top: 48px; padding: 26px; border: 1px solid var(--border); border-radius: 10px; background: rgba(255,255,255,.38); }
-    .final-chapter h2 { font-family: var(--serif); font-size: 28px; color: var(--ink); margin-bottom: 14px; }
-    .back-link { display: inline-block; margin-bottom: 24px; font-size: 13px; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; color: var(--brown); transition: opacity .15s ease; }
-    .back-link:hover { opacity: .7; }
-    @media (max-width: 680px) {
-      .post-hero { height: 300px; }
-      .reading-section { margin-top: 60px; padding-top: 38px; }
-      .section-intro { margin-bottom: 40px !important; }
-      .book-entry, .book-entry:nth-of-type(even) { grid-template-columns: 1fr; gap: 28px; margin-bottom: 64px; }
-      .book-entry:nth-of-type(even) .book-cover-link { order: 0; }
-      .book-cover-link { width: min(210px, 64vw); height: auto; aspect-ratio: 2 / 3; margin-inline: auto; }
-      .book-copy { max-width: 580px; }
-    }
+    .post-body h2 { font-family: var(--serif); font-size: 24px; color: var(--ink); margin: 32px 0 10px; }
+    .post-body h3 { font-family: var(--serif); font-size: 20px; color: var(--ink); margin: 26px 0 8px; }
+    .post-body strong { display: block; font-family: var(--serif); font-weight: 700; font-size: 20px; color: var(--ink); margin-top: 32px; margin-bottom: 8px; }
+    .post-body em { font-style: italic; }
+    .post-hero { width: 100%; height: auto; border-radius: 24px; margin-bottom: 28px; display: block; }
+    .post-inline-img { width: 100%; height: auto; border-radius: 20px; margin: 22px 0; display: block; }
+    .post-signoff { margin-top: 48px; font-size: 17px; color: var(--gray-soft); }
+    .back-link { display: inline-block; margin-bottom: 24px; font-size: 13px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--brown); transition: opacity .15s ease; }
+    .back-link:hover { opacity: 0.7; }
   </style>
 </head>
 <body>
+
   <header class="site-header">
-    <a class="header-logo" href="../index.html" aria-label="ch&eacute;vere home"><img src="../assets/logo.png" alt="ch&eacute;vere" /></a>
-        <div class="header-actions">
+    <a class="header-logo" href="../index.html" aria-label="chévere home">
+      <img src="../assets/logo.png" alt="chévere" />
+    </a>
+    <div class="header-actions">
       <button id="mobile-menu-toggle" class="mobile-menu-toggle" type="button" aria-label="Open menu" aria-controls="site-navigation" aria-expanded="false"><i data-lucide="menu" stroke-width="1.8" aria-hidden="true"></i></button>
       <button id="search-toggle" aria-label="Search" title="Search"><i data-lucide="search" stroke-width="1.8" aria-hidden="true"></i></button>
       <a class="join-list-button" href="../index.html#newsletter">JOIN THE LIST</a>
-      <a class="header-social" href="https://www.instagram.com/itschevere/" target="_blank" rel="noopener" aria-label="Instagram" title="Instagram">
+      <a href="https://www.instagram.com/itschevere/" target="_blank" rel="noopener" aria-label="Instagram" title="Instagram">
         <svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
       </a>
-      <a class="header-social" href="https://www.tiktok.com/@itschevere" target="_blank" rel="noopener" aria-label="TikTok" title="TikTok">
+      <a href="https://www.tiktok.com/@itschevere" target="_blank" rel="noopener" aria-label="TikTok" title="TikTok">
         <svg class="tiktok-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="19" height="19"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.3 0 .59.05.87.13v-3.5a6.37 6.37 0 0 0-.87-.06A6.34 6.34 0 0 0 3.15 15.3a6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.34-6.34V8.46a8.23 8.23 0 0 0 4.77 1.48v-3.4a4.86 4.86 0 0 1-1.01.15z"/></svg>
       </a>
     </div>
     <div id="search-panel" class="search-panel" role="dialog" aria-label="Search posts">
-      <div class="search-bar-wrap"><i data-lucide="search" class="search-bar-icon" stroke-width="2" aria-hidden="true"></i><input id="search-input" type="text" placeholder="Search posts..." autocomplete="off" /><button id="search-submit" class="search-action-btn" aria-label="Search" type="button"><i data-lucide="arrow-right" stroke-width="2.5" aria-hidden="true"></i></button><button id="search-close" class="search-close-btn" aria-label="Close search" type="button"><i data-lucide="x" stroke-width="2.5" aria-hidden="true"></i></button></div>
+      <div class="search-bar-wrap">
+        <i data-lucide="search" class="search-bar-icon" stroke-width="2" aria-hidden="true"></i>
+        <input id="search-input" type="text" placeholder="Search posts..." autocomplete="off" />
+        <button id="search-submit" class="search-action-btn" aria-label="Search" type="button">
+          <i data-lucide="arrow-right" stroke-width="2.5" aria-hidden="true"></i>
+        </button>
+        <button id="search-close" class="search-close-btn" aria-label="Close search" type="button">
+          <i data-lucide="x" stroke-width="2.5" aria-hidden="true"></i>
+        </button>
+      </div>
       <div id="search-results" class="search-results"></div>
     </div>
   </header>
-    <nav class="site-nav" id="site-navigation" aria-label="Primary navigation">
+
+  <nav class="site-nav" id="site-navigation" aria-label="Primary navigation">
     <a href="../index.html">HOME</a>
     <div class="nav-item has-dropdown">
       <a href="../blog.html?cat=culture">CULTURE<i data-lucide="chevron-down" class="chev" stroke-width="2" aria-hidden="true"></i></a>
@@ -106,7 +87,7 @@
       </div>
     </div>
     <div class="nav-item has-dropdown">
-      <a href="../blog.html?cat=guides" class="active">GUIDES<i data-lucide="chevron-down" class="chev" stroke-width="2" aria-hidden="true"></i></a>
+      <a href="../blog.html?cat=guides">GUIDES<i data-lucide="chevron-down" class="chev" stroke-width="2" aria-hidden="true"></i></a>
       <div class="dropdown">
         <a href="../reading-lists.html">Reading Lists</a>
         <a href="../blog.html?cat=city-guides">City Guides</a>
@@ -117,59 +98,81 @@
     </div>
     <a href="../about.html">ABOUT</a>
   </nav>
+
   <main class="page-main">
     <a class="back-link" href="../blog.html">&larr; Back to Blog</a>
-    <p class="post-series">Seasonal Guides &middot; Summer 2026</p>
-    <span class="kicker" style="display:block;margin-bottom:8px">Books &middot; Reading Lists</span>
-    <h1 class="page-title">The Ch&eacute;vere Summer Reading Guide</h1>
-    <p class="page-tagline" style="font-size:15px;color:#8e8c88;margin-top:-4px;margin-bottom:28px">Jul 18, 2026</p>
-    <article class="post-body">
-      <img class="post-hero" src="../assets/chevere-summer-reading-edit.png" alt="Seven-panel Ch&eacute;vere Summer Reading Edit featuring the recommended book covers" />
-      <p class="post-dek">The books we&rsquo;d recommend to a friend&mdash;from literary favorites and addictive thrillers to romance, fantasy, and a few unforgettable standouts.</p>
-      <p>There is no shortage of great books to choose from, which can make deciding what to read next feel surprisingly difficult. Between BookTok favorites, literary award contenders, and the novel that's been sitting on your nightstand for months, the list only seems to get longer.</p>
-      <p>At Ch&eacute;vere, we believe the best recommendations come from the books that linger long after you've finished them. The ones you immediately want to hand to a friend, annotate in the margins, or find yourself thinking about weeks later. So instead of chasing every new release, we've put together a collection of novels that are genuinely worth your time for the rest of 2026.</p>
-      <p>Whether you're packing a book for a summer getaway, settling into a cozy fall weekend, or simply looking for your next great read, consider this your starting point.</p>
-
-      <section class="reading-section"><h2>Literary Fiction</h2><p class="section-intro">These are the novels that reward slow reading. Rich characters, thoughtful writing, and stories that stay with you long after the final page.</p>
-        <div class="book-entry"><a class="book-cover-link" href="https://www.goodreads.com/search?q=Intermezzo+Sally+Rooney" target="_blank" rel="noopener" aria-label="Intermezzo by Sally Rooney on Goodreads"><img class="book-cover" src="../assets/books/intermezzo.jpg" alt="Cover of Intermezzo by Sally Rooney" width="210" height="315" loading="lazy" decoding="async" sizes="(max-width: 680px) 64vw, 210px" /></a><div class="book-copy"><h3><a class="book-title-link" href="https://www.goodreads.com/search?q=Intermezzo+Sally+Rooney" target="_blank" rel="noopener"><em>Intermezzo</em><i data-lucide="external-link" class="external-icon" aria-hidden="true"></i></a></h3><p class="book-author">Sally Rooney</p><p>Rooney returns with another deeply human story, exploring grief, family, love, and the complicated dynamics between two brothers navigating life after loss. Like her previous novels, <em>Intermezzo</em> is quiet in all the right ways, asking readers to pay attention to the moments that often go unnoticed.</p></div></div>
-        <div class="book-entry"><a class="book-cover-link" href="https://www.goodreads.com/search?q=My+Year+of+Rest+and+Relaxation+Ottessa+Moshfegh" target="_blank" rel="noopener" aria-label="My Year of Rest and Relaxation by Ottessa Moshfegh on Goodreads"><img class="book-cover" src="../assets/books/my-year-of-rest-and-relaxation.jpg" alt="Cover of My Year of Rest and Relaxation by Ottessa Moshfegh" width="210" height="315" loading="lazy" decoding="async" sizes="(max-width: 680px) 64vw, 210px" /></a><div class="book-copy"><h3><a class="book-title-link" href="https://www.goodreads.com/search?q=My+Year+of+Rest+and+Relaxation+Ottessa+Moshfegh" target="_blank" rel="noopener"><em>My Year of Rest and Relaxation</em><i data-lucide="external-link" class="external-icon" aria-hidden="true"></i></a></h3><p class="book-author">Ottessa Moshfegh</p><p>A modern literary classic that follows a young woman attempting to sleep through an entire year in an effort to escape herself and the world around her. Equal parts dark, funny, and unsettling, it's one of those books that sparks conversation every time someone brings it up.</p></div></div>
-        <div class="book-entry"><a class="book-cover-link" href="https://www.goodreads.com/search?q=Cleopatra+and+Frankenstein+Coco+Mellors" target="_blank" rel="noopener" aria-label="Cleopatra and Frankenstein by Coco Mellors on Goodreads"><img class="book-cover" src="../assets/books/cleopatra-and-frankenstein.jpg" alt="Cover of Cleopatra and Frankenstein by Coco Mellors" width="210" height="315" loading="lazy" decoding="async" sizes="(max-width: 680px) 64vw, 210px" /></a><div class="book-copy"><h3><a class="book-title-link" href="https://www.goodreads.com/search?q=Cleopatra+and+Frankenstein+Coco+Mellors" target="_blank" rel="noopener"><em>Cleopatra and Frankenstein</em><i data-lucide="external-link" class="external-icon" aria-hidden="true"></i></a></h3><p class="book-author">Coco Mellors</p><p>Set in New York City, this novel follows a whirlwind marriage between two people trying to find themselves while navigating the expectations of love, friendship, family, and adulthood. Beautifully written and emotionally layered, it's a favorite for readers who enjoy character-driven fiction.</p></div></div>
-        <div class="book-entry"><a class="book-cover-link" href="https://www.goodreads.com/search?q=If+We+Were+Villains+M.L.+Rio" target="_blank" rel="noopener" aria-label="If We Were Villains by M.L. Rio on Goodreads"><img class="book-cover" src="../assets/books/if-we-were-villains.jpg" alt="Cover of If We Were Villains by M.L. Rio" width="210" height="315" loading="lazy" decoding="async" sizes="(max-width: 680px) 64vw, 210px" /></a><div class="book-copy"><h3><a class="book-title-link" href="https://www.goodreads.com/search?q=If+We+Were+Villains+M.L.+Rio" target="_blank" rel="noopener"><em>If We Were Villains</em><i data-lucide="external-link" class="external-icon" aria-hidden="true"></i></a></h3><p class="book-author">M.L. Rio</p><p>Part murder mystery and part Shakespearean drama, this cult favorite follows a group of elite theater students whose lives begin to imitate the tragedies they perform on stage. If you love dark academia, this one deserves a place at the top of your list.</p></div></div>
-      </section>
-
-      <section class="reading-section"><h2>Thrillers</h2><p class="section-intro">For the nights when &ldquo;just one more chapter&rdquo; somehow turns into finishing the entire book.</p>
-        <div class="book-entry"><a class="book-cover-link" href="https://www.goodreads.com/search?q=Bright+Young+Women+Jessica+Knoll" target="_blank" rel="noopener" aria-label="Bright Young Women by Jessica Knoll on Goodreads"><img class="book-cover" src="../assets/books/bright-young-women.jpg" alt="Cover of Bright Young Women by Jessica Knoll" width="210" height="315" loading="lazy" decoding="async" sizes="(max-width: 680px) 64vw, 210px" /></a><div class="book-copy"><h3><a class="book-title-link" href="https://www.goodreads.com/search?q=Bright+Young+Women+Jessica+Knoll" target="_blank" rel="noopener"><em>Bright Young Women</em><i data-lucide="external-link" class="external-icon" aria-hidden="true"></i></a></h3><p class="book-author">Jessica Knoll</p><p>Inspired by the crimes of Ted Bundy, Knoll shifts the focus away from the killer and toward the women whose lives were forever changed. More than a thriller, it's a powerful story about survival, resilience, and reclaiming the narrative.</p></div></div>
-        <div class="book-entry"><a class="book-cover-link" href="https://www.goodreads.com/book/show/59030015-the-change" target="_blank" rel="noopener" aria-label="The Change by Kirsten Miller on Goodreads"><img class="book-cover" src="../assets/books/the-change.jpg" alt="Cover of The Change by Kirsten Miller" width="210" height="315" loading="lazy" decoding="async" sizes="(max-width: 680px) 64vw, 210px" /></a><div class="book-copy"><h3><a class="book-title-link" href="https://www.goodreads.com/book/show/59030015-the-change" target="_blank" rel="noopener"><em>The Change</em><i data-lucide="external-link" class="external-icon" aria-hidden="true"></i></a></h3><p class="book-author">Kirsten Miller</p><p>Imagine a thriller with a touch of magic, a feminist revenge story, and a mystery all rolled into one. Three women discover extraordinary abilities just as a series of suspicious deaths rocks their coastal town. Unexpected, empowering, and wildly entertaining.</p></div></div>
-        <div class="book-entry"><a class="book-cover-link" href="https://www.goodreads.com/search?q=His+and+Hers+Alice+Feeney" target="_blank" rel="noopener" aria-label="His and Hers by Alice Feeney on Goodreads"><img class="book-cover" src="../assets/books/his-and-hers.jpg" alt="Cover of His &amp; Hers by Alice Feeney" width="210" height="315" loading="lazy" decoding="async" sizes="(max-width: 680px) 64vw, 210px" /></a><div class="book-copy"><h3><a class="book-title-link" href="https://www.goodreads.com/search?q=His+and+Hers+Alice+Feeney" target="_blank" rel="noopener"><em>His &amp; Hers</em><i data-lucide="external-link" class="external-icon" aria-hidden="true"></i></a></h3><p class="book-author">Alice Feeney</p><p>When a murder investigation unfolds through two unreliable narrators, every chapter raises a new question. Twisty, addictive, and impossible to predict, it's exactly what a psychological thriller should be.</p></div></div>
-        <div class="book-entry"><a class="book-cover-link" href="https://www.goodreads.com/search?q=The+God+of+the+Woods+Liz+Moore" target="_blank" rel="noopener" aria-label="The God of the Woods by Liz Moore on Goodreads"><img class="book-cover" src="../assets/books/the-god-of-the-woods.jpg" alt="Cover of The God of the Woods by Liz Moore" width="210" height="315" loading="lazy" decoding="async" sizes="(max-width: 680px) 64vw, 210px" /></a><div class="book-copy"><h3><a class="book-title-link" href="https://www.goodreads.com/search?q=The+God+of+the+Woods+Liz+Moore" target="_blank" rel="noopener"><em>The God of the Woods</em><i data-lucide="external-link" class="external-icon" aria-hidden="true"></i></a></h3><p class="book-author">Liz Moore</p><p>One of the most talked-about mysteries in recent years, Liz Moore's atmospheric novel follows the disappearance of a teenage girl at a prestigious summer camp. Family secrets, wealth, privilege, and a haunting setting make this one nearly impossible to put down.</p></div></div>
-      </section>
-
-      <section class="reading-section"><h2>Fantasy</h2><p class="section-intro">Whether you're revisiting old favorites or discovering a new world for the first time, these books make reality feel a little less interesting.</p>
-        <div class="book-entry"><a class="book-cover-link" href="https://www.goodreads.com/search?q=Fire+and+Blood+George+R.R.+Martin" target="_blank" rel="noopener" aria-label="Fire and Blood by George R.R. Martin on Goodreads"><img class="book-cover" src="../assets/books/fire-and-blood.jpg" alt="Cover of Fire &amp; Blood by George R.R. Martin" width="210" height="315" loading="lazy" decoding="async" sizes="(max-width: 680px) 64vw, 210px" /></a><div class="book-copy"><h3><a class="book-title-link" href="https://www.goodreads.com/search?q=Fire+and+Blood+George+R.R.+Martin" target="_blank" rel="noopener"><em>Fire &amp; Blood</em><i data-lucide="external-link" class="external-icon" aria-hidden="true"></i></a></h3><p class="book-author">George R.R. Martin</p><p>Already obsessed with <em>House of the Dragon</em>? This is where it all begins. The history of House Targaryen is filled with dragons, betrayals, political rivalries, and enough family drama to make every episode even better.</p></div></div>
-        <div class="book-entry"><a class="book-cover-link" href="https://www.goodreads.com/search?q=A+Court+of+Thorns+and+Roses+Sarah+J.+Maas" target="_blank" rel="noopener" aria-label="A Court of Thorns and Roses by Sarah J. Maas on Goodreads"><img class="book-cover" src="../assets/books/a-court-of-thorns-and-roses.jpg" alt="Cover of A Court of Thorns and Roses by Sarah J. Maas" width="210" height="315" loading="lazy" decoding="async" sizes="(max-width: 680px) 64vw, 210px" /></a><div class="book-copy"><h3><a class="book-title-link" href="https://www.goodreads.com/search?q=A+Court+of+Thorns+and+Roses+Sarah+J.+Maas" target="_blank" rel="noopener"><em>A Court of Thorns and Roses</em><i data-lucide="external-link" class="external-icon" aria-hidden="true"></i></a></h3><p class="book-author">Sarah J. Maas</p><p>One of the defining fantasy series of the last decade for a reason. Romance, adventure, unforgettable characters, and a world you'll want to keep returning to. If you're late to the ACOTAR phenomenon, there's still plenty of time to catch up.</p></div></div>
-        <div class="book-entry"><a class="book-cover-link" href="https://www.goodreads.com/search?q=The+Invisible+Life+of+Addie+LaRue+V.E.+Schwab" target="_blank" rel="noopener" aria-label="The Invisible Life of Addie LaRue by V.E. Schwab on Goodreads"><img class="book-cover" src="../assets/books/the-invisible-life-of-addie-larue.jpg" alt="Cover of The Invisible Life of Addie LaRue by V.E. Schwab" width="210" height="315" loading="lazy" decoding="async" sizes="(max-width: 680px) 64vw, 210px" /></a><div class="book-copy"><h3><a class="book-title-link" href="https://www.goodreads.com/search?q=The+Invisible+Life+of+Addie+LaRue+V.E.+Schwab" target="_blank" rel="noopener"><em>The Invisible Life of Addie LaRue</em><i data-lucide="external-link" class="external-icon" aria-hidden="true"></i></a></h3><p class="book-author">V.E. Schwab</p><p>A woman makes a bargain that grants her immortality&mdash;but at the cost of being forgotten by everyone she meets. Romantic, beautifully written, and quietly magical, it's a story about art, memory, and what it means to leave a lasting mark.</p></div></div>
-      </section>
-
-      <section class="reading-section"><h2>Romance</h2><p class="section-intro">Love stories that feel honest, hopeful, heartbreaking, and worth rooting for.</p>
-        <div class="book-entry"><a class="book-cover-link" href="https://www.goodreads.com/search?q=Funny+Story+Emily+Henry" target="_blank" rel="noopener" aria-label="Funny Story by Emily Henry on Goodreads"><img class="book-cover" src="../assets/books/funny-story.jpg" alt="Cover of Funny Story by Emily Henry" width="210" height="315" loading="lazy" decoding="async" sizes="(max-width: 680px) 64vw, 210px" /></a><div class="book-copy"><h3><a class="book-title-link" href="https://www.goodreads.com/search?q=Funny+Story+Emily+Henry" target="_blank" rel="noopener"><em>Funny Story</em><i data-lucide="external-link" class="external-icon" aria-hidden="true"></i></a></h3><p class="book-author">Emily Henry</p><p>Emily Henry continues to prove why she's one of today's most beloved romance writers. Equal parts witty and heartfelt, this novel delivers memorable characters, genuine chemistry, and the kind of emotional payoff that makes you want to start it all over again.</p></div></div>
-        <div class="book-entry"><a class="book-cover-link" href="https://www.goodreads.com/search?q=Lie+With+Me+Philippe+Besson" target="_blank" rel="noopener" aria-label="Lie With Me by Philippe Besson on Goodreads"><img class="book-cover" src="../assets/books/lie-with-me.jpg" alt="Cover of Lie With Me by Philippe Besson" width="210" height="315" loading="lazy" decoding="async" sizes="(max-width: 680px) 64vw, 210px" /></a><div class="book-copy"><h3><a class="book-title-link" href="https://www.goodreads.com/search?q=Lie+With+Me+Philippe+Besson" target="_blank" rel="noopener"><em>Lie With Me</em><i data-lucide="external-link" class="external-icon" aria-hidden="true"></i></a></h3><p class="book-author">Philippe Besson</p><p>A beautifully understated novel about first love, memory, and the relationships that shape us forever. It's short enough to finish in a weekend but powerful enough to stay with you much longer.</p></div></div>
-        <div class="book-entry"><a class="book-cover-link" href="https://www.goodreads.com/search?q=How+to+End+a+Love+Story+Yulin+Kuang" target="_blank" rel="noopener" aria-label="How to End a Love Story by Yulin Kuang on Goodreads"><img class="book-cover" src="../assets/books/how-to-end-a-love-story.jpg" alt="Cover of How to End a Love Story by Yulin Kuang" width="210" height="315" loading="lazy" decoding="async" sizes="(max-width: 680px) 64vw, 210px" /></a><div class="book-copy"><h3><a class="book-title-link" href="https://www.goodreads.com/search?q=How+to+End+a+Love+Story+Yulin+Kuang" target="_blank" rel="noopener"><em>How to End a Love Story</em><i data-lucide="external-link" class="external-icon" aria-hidden="true"></i></a></h3><p class="book-author">Yulin Kuang</p><p>Kuang's debut blends romance with grief, healing, and second chances. Thoughtful, funny, and emotionally rich, it's one of the strongest contemporary romances to pick up this year.</p></div></div>
-        <div class="book-entry"><a class="book-cover-link" href="https://www.goodreads.com/search?q=The+Two+Lives+of+Lydia+Bird+Josie+Silver" target="_blank" rel="noopener" aria-label="The Two Lives of Lydia Bird by Josie Silver on Goodreads"><img class="book-cover" src="../assets/books/the-two-lives-of-lydia-bird.jpg" alt="Cover of The Two Lives of Lydia Bird by Josie Silver" width="210" height="315" loading="lazy" decoding="async" sizes="(max-width: 680px) 64vw, 210px" /></a><div class="book-copy"><h3><a class="book-title-link" href="https://www.goodreads.com/search?q=The+Two+Lives+of+Lydia+Bird+Josie+Silver" target="_blank" rel="noopener"><em>The Two Lives of Lydia Bird</em><i data-lucide="external-link" class="external-icon" aria-hidden="true"></i></a></h3><p class="book-author">Josie Silver</p><p>What if you could continue living the life you lost while still trying to move forward? Josie Silver delivers an emotional story about grief, hope, and learning that loving someone doesn't always mean holding on forever.</p></div></div>
-      </section>
-
-      <section class="reading-section"><h2>Ch&eacute;vere Recommends</h2><p class="section-intro">Some books don't fit neatly into a single category&mdash;they're simply stories we think everyone should experience at least once.</p>
-        <div class="book-entry"><a class="book-cover-link" href="https://www.goodreads.com/search?q=Crying+in+H+Mart+Michelle+Zauner" target="_blank" rel="noopener" aria-label="Crying in H Mart by Michelle Zauner on Goodreads"><img class="book-cover" src="../assets/books/crying-in-h-mart.jpg" alt="Cover of Crying in H Mart by Michelle Zauner" width="210" height="315" loading="lazy" decoding="async" sizes="(max-width: 680px) 64vw, 210px" /></a><div class="book-copy"><h3><a class="book-title-link" href="https://www.goodreads.com/search?q=Crying+in+H+Mart+Michelle+Zauner" target="_blank" rel="noopener"><em>Crying in H Mart</em><i data-lucide="external-link" class="external-icon" aria-hidden="true"></i></a></h3><p class="book-author">Michelle Zauner</p><p>A deeply moving memoir exploring grief, identity, family, and the powerful connection between food and memory.</p></div></div>
-        <div class="book-entry"><a class="book-cover-link" href="https://www.goodreads.com/search?q=Remarkably+Bright+Creatures+Shelby+Van+Pelt" target="_blank" rel="noopener" aria-label="Remarkably Bright Creatures by Shelby Van Pelt on Goodreads"><img class="book-cover" src="../assets/books/remarkably-bright-creatures.jpg" alt="Cover of Remarkably Bright Creatures by Shelby Van Pelt" width="210" height="315" loading="lazy" decoding="async" sizes="(max-width: 680px) 64vw, 210px" /></a><div class="book-copy"><h3><a class="book-title-link" href="https://www.goodreads.com/search?q=Remarkably+Bright+Creatures+Shelby+Van+Pelt" target="_blank" rel="noopener"><em>Remarkably Bright Creatures</em><i data-lucide="external-link" class="external-icon" aria-hidden="true"></i></a></h3><p class="book-author">Shelby Van Pelt</p><p>Warm, hopeful, and quietly charming, this novel reminds us that healing often comes from the most unexpected places&mdash;including an exceptionally observant octopus.</p></div></div>
-        <div class="book-entry"><a class="book-cover-link" href="https://www.goodreads.com/search?q=The+House+in+the+Cerulean+Sea+T.J.+Klune" target="_blank" rel="noopener" aria-label="The House in the Cerulean Sea by T.J. Klune on Goodreads"><img class="book-cover" src="../assets/books/the-house-in-the-cerulean-sea.jpg" alt="Cover of The House in the Cerulean Sea by T.J. Klune" width="210" height="315" loading="lazy" decoding="async" sizes="(max-width: 680px) 64vw, 210px" /></a><div class="book-copy"><h3><a class="book-title-link" href="https://www.goodreads.com/search?q=The+House+in+the+Cerulean+Sea+T.J.+Klune" target="_blank" rel="noopener"><em>The House in the Cerulean Sea</em><i data-lucide="external-link" class="external-icon" aria-hidden="true"></i></a></h3><p class="book-author">T.J. Klune</p><p>A cozy fantasy about found family, kindness, and embracing what makes people different. Comforting in the very best way.</p></div></div>
-        <div class="book-entry"><a class="book-cover-link" href="https://www.goodreads.com/search?q=The+Nightingale+Kristin+Hannah" target="_blank" rel="noopener" aria-label="The Nightingale by Kristin Hannah on Goodreads"><img class="book-cover" src="../assets/books/the-nightingale.jpg" alt="Cover of The Nightingale by Kristin Hannah" width="210" height="315" loading="lazy" decoding="async" sizes="(max-width: 680px) 64vw, 210px" /></a><div class="book-copy"><h3><a class="book-title-link" href="https://www.goodreads.com/search?q=The+Nightingale+Kristin+Hannah" target="_blank" rel="noopener"><em>The Nightingale</em><i data-lucide="external-link" class="external-icon" aria-hidden="true"></i></a></h3><p class="book-author">Kristin Hannah</p><p>An unforgettable historical novel about two sisters navigating occupied France during World War II. Emotional, inspiring, and impossible to forget.</p></div></div>
-        <div class="book-entry"><a class="book-cover-link" href="https://www.goodreads.com/search?q=Eileen+Ottessa+Moshfegh" target="_blank" rel="noopener" aria-label="Eileen by Ottessa Moshfegh on Goodreads"><img class="book-cover" src="../assets/books/eileen.jpg" alt="Cover of Eileen by Ottessa Moshfegh" width="210" height="315" loading="lazy" decoding="async" sizes="(max-width: 680px) 64vw, 210px" /></a><div class="book-copy"><h3><a class="book-title-link" href="https://www.goodreads.com/search?q=Eileen+Ottessa+Moshfegh" target="_blank" rel="noopener"><em>Eileen</em><i data-lucide="external-link" class="external-icon" aria-hidden="true"></i></a></h3><p class="book-author">Ottessa Moshfegh</p><p>Strange, unsettling, and brilliantly written, <em>Eileen</em> isn't always comfortable&mdash;but that's exactly what makes it so compelling.</p></div></div>
-        <div class="book-entry"><a class="book-cover-link" href="https://www.goodreads.com/search?q=Piranesi+Susanna+Clarke" target="_blank" rel="noopener" aria-label="Piranesi by Susanna Clarke on Goodreads"><img class="book-cover" src="../assets/books/piranesi.jpg" alt="Cover of Piranesi by Susanna Clarke" width="210" height="315" loading="lazy" decoding="async" sizes="(max-width: 680px) 64vw, 210px" /></a><div class="book-copy"><h3><a class="book-title-link" href="https://www.goodreads.com/search?q=Piranesi+Susanna+Clarke" target="_blank" rel="noopener"><em>Piranesi</em><i data-lucide="external-link" class="external-icon" aria-hidden="true"></i></a></h3><p class="book-author">Susanna Clarke</p><p>Unlike anything else you'll read this year, <em>Piranesi</em> unfolds inside a mysterious labyrinth where beauty, loneliness, and imagination collide.</p></div></div>
-        <div class="book-entry"><a class="book-cover-link" href="https://www.goodreads.com/search?q=Yellowface+R.F.+Kuang" target="_blank" rel="noopener" aria-label="Yellowface by R.F. Kuang on Goodreads"><img class="book-cover" src="../assets/books/yellowface.jpg" alt="Cover of Yellowface by R.F. Kuang" width="210" height="315" loading="lazy" decoding="async" sizes="(max-width: 680px) 64vw, 210px" /></a><div class="book-copy"><h3><a class="book-title-link" href="https://www.goodreads.com/search?q=Yellowface+R.F.+Kuang" target="_blank" rel="noopener"><em>Yellowface</em><i data-lucide="external-link" class="external-icon" aria-hidden="true"></i></a></h3><p class="book-author">R.F. Kuang</p><p>Sharp, funny, and uncomfortably relevant, <em>Yellowface</em> takes aim at publishing, social media, cultural appropriation, and the stories we choose to tell.</p></div></div>
-      </section>
-
-      <section class="final-chapter"><h2>Final Chapter</h2><p>The best books aren't always the newest ones&mdash;they're the ones that stay with you. The stories you recommend without hesitation, lend to friends, or find yourself revisiting years later.</p><p>If even one of these titles earns a spot on your bookshelf before the end of the year, we'd call that a successful reading season.</p><p>And if there's a book you think belongs on every must-read list, let us know. We're always looking for our next favorite.</p></section>
-    </article>
+    
+    <span class="kicker" style="display:block;margin-bottom:8px">Books · Reading Lists</span>
+    <h1 class="page-title">The Chévere Summer Reading Guide</h1>
+    <p class="page-tagline" style="font-size:15px;color:#8e8c88;margin-top:-4px;margin-bottom:28px">By Chévere &middot; Jul 18, 2026</p>
+    <div class="post-body">
+      <img class="post-hero" src="https://newsletter.itschevere.com/api/media/filejump/70fc60bb-cf35-4abc-a627-b798427a5a75" alt="The Chévere Summer Reading Guide" />
+      <p><em>The books we&#039;d recommend to a friend — from literary favorites and addictive thrillers to romance, fantasy, and a few unforgettable standouts.</em></p>
+      <p>There is no shortage of great books to choose from, which can make deciding what to read next feel surprisingly difficult. Between BookTok favorites, literary award contenders, and the novel that&#039;s been sitting on your nightstand for months, the list only seems to get longer.</p>
+      <p>At Chévere, we believe the best recommendations come from the books that linger long after you&#039;ve finished them. The ones you immediately want to hand to a friend, annotate in the margins, or find yourself thinking about weeks later. So instead of chasing every new release, we&#039;ve put together a collection of novels that are genuinely worth your time for the rest of 2026.</p>
+      <p>Whether you&#039;re packing a book for a summer getaway, settling into a cozy fall weekend, or simply looking for your next great read, consider this your starting point.</p>
+      <h2>Literary Fiction
+These are the novels that reward slow reading. Rich characters, thoughtful writing, and stories that stay with you long after the final page.</h2>
+      <p><strong><a href="https://www.goodreads.com/search?q=Intermezzo+Sally+Rooney">Intermezzo</a></strong> by Sally Rooney<br />Rooney returns with another deeply human story, exploring grief, family, love, and the complicated dynamics between two brothers navigating life after loss. Like her previous novels, <em>Intermezzo</em> is quiet in all the right ways, asking readers to pay attention to the moments that often go unnoticed.</p>
+      <img class="post-inline-img" src="https://www.itschevere.com/assets/books/intermezzo.jpg" alt="Cover of Intermezzo by Sally Rooney" />
+      <p><strong><a href="https://www.goodreads.com/search?q=My+Year+of+Rest+and+Relaxation+Ottessa+Moshfegh">My Year of Rest and Relaxation</a></strong> by Ottessa Moshfegh<br />A modern literary classic that follows a young woman attempting to sleep through an entire year in an effort to escape herself and the world around her. Equal parts dark, funny, and unsettling, it&#039;s one of those books that sparks conversation every time someone brings it up.</p>
+      <img class="post-inline-img" src="https://www.itschevere.com/assets/books/my-year-of-rest-and-relaxation.jpg" alt="Cover of My Year of Rest and Relaxation by Ottessa Moshfegh" />
+      <p><strong><a href="https://www.goodreads.com/search?q=Cleopatra+and+Frankenstein+Coco+Mellors">Cleopatra and Frankenstein</a></strong> by Coco Mellors<br />Set in New York City, this novel follows a whirlwind marriage between two people trying to find themselves while navigating the expectations of love, friendship, family, and adulthood. Beautifully written and emotionally layered, it&#039;s a favorite for readers who enjoy character-driven fiction.</p>
+      <img class="post-inline-img" src="https://www.itschevere.com/assets/books/cleopatra-and-frankenstein.jpg" alt="Cover of Cleopatra and Frankenstein by Coco Mellors" />
+      <p><strong><a href="https://www.goodreads.com/search?q=If+We+Were+Villains+M.L.+Rio">If We Were Villains</a></strong> by M.L. Rio<br />Part murder mystery and part Shakespearean drama, this cult classic follows a group of elite theater students whose lives begin to imitate the tragedies they perform on stage. If you love dark academia, this one deserves a place at the top of your list.</p>
+      <img class="post-inline-img" src="https://www.itschevere.com/assets/books/if-we-were-villains.jpg" alt="Cover of If We Were Villains by M.L. Rio" />
+      <h2>Thrillers
+For the nights when &quot;just one more chapter&quot; somehow turns into finishing the entire book.</h2>
+      <p><strong><a href="https://www.goodreads.com/search?q=Bright+Young+Women+Jessica+Knoll">Bright Young Women</a></strong> by Jessica Knoll<br />Inspired by the crimes of Ted Bundy, Knoll shifts the focus away from the killer and toward the women whose lives were forever changed. More than a thriller, it&#039;s a powerful story about survival, resilience, and reclaiming the narrative.</p>
+      <img class="post-inline-img" src="https://www.itschevere.com/assets/books/bright-young-women.jpg" alt="Cover of Bright Young Women by Jessica Knoll" />
+      <p><strong><a href="https://www.goodreads.com/book/show/59030015-the-change">The Change</a></strong> by Kirsten Miller<br />Imagine a thriller with a touch of magic, a feminist revenge story, and a mystery all rolled into one. Three women discover extraordinary abilities just as a series of suspicious deaths rocks their coastal town. Unexpected, empowering, and wildly entertaining.</p>
+      <img class="post-inline-img" src="https://www.itschevere.com/assets/books/the-change.jpg" alt="Cover of The Change by Kirsten Miller" />
+      <p><strong><a href="https://www.goodreads.com/search?q=His+and+Hers+Alice+Feeney">His &amp; Hers</a></strong> by Alice Feeney<br />When a murder investigation unfolds through two unreliable narrators, every chapter raises a new question. Twisty, addictive, and impossible to predict, it&#039;s exactly what a psychological thriller should be.</p>
+      <img class="post-inline-img" src="https://www.itschevere.com/assets/books/his-and-hers.jpg" alt="Cover of His &amp; Hers by Alice Feeney" />
+      <p><strong><a href="https://www.goodreads.com/search?q=The+God+of+the+Woods+Liz+Moore">The God of the Woods</a></strong> by Liz Moore<br />One of the most talked-about mysteries in recent years, Liz Moore&#039;s atmospheric novel follows the disappearance of a teenage girl at a prestigious summer camp. Family secrets, wealth, privilege, and a haunting setting make this one nearly impossible to put down.</p>
+      <img class="post-inline-img" src="https://www.itschevere.com/assets/books/the-god-of-the-woods.jpg" alt="Cover of The God of the Woods by Liz Moore" />
+      <h2>Fantasy
+Whether you&#039;re revisiting old favorites or discovering a new world for the first time, these books make reality feel a little less interesting.</h2>
+      <p><strong><a href="https://www.goodreads.com/search?q=Fire+and+Blood+George+R.R.+Martin">Fire &amp; Blood</a></strong> by George R.R. Martin<br />Already obsessed with <em>House of the Dragon</em>? This is where it all begins. The history of House Targaryen is filled with dragons, betrayals, political rivalries, and enough family drama to make every episode even better.</p>
+      <img class="post-inline-img" src="https://www.itschevere.com/assets/books/fire-and-blood.jpg" alt="Cover of Fire &amp; Blood by George R.R. Martin" />
+      <p><strong><a href="https://www.goodreads.com/search?q=A+Court+of+Thorns+and+Roses+Sarah+J.+Maas">A Court of Thorns and Roses</a></strong> by Sarah J. Maas<br />One of the defining fantasy series of the last decade for a reason. Romance, adventure, unforgettable characters, and a world you&#039;ll want to keep returning to. If you&#039;re late to the ACOTAR phenomenon, there&#039;s still plenty of time to catch up.</p>
+      <img class="post-inline-img" src="https://www.itschevere.com/assets/books/a-court-of-thorns-and-roses.jpg" alt="Cover of A Court of Thorns and Roses by Sarah J. Maas" />
+      <p><strong><a href="https://www.goodreads.com/search?q=The+Invisible+Life+of+Addie+LaRue+V.E.+Schwab">The Invisible Life of Addie LaRue</a></strong> by V.E. Schwab<br />A woman makes a bargain that grants her immortality — but at the cost of being forgotten by everyone she meets. Romantic, beautifully written, and quietly magical, it&#039;s a story about art, memory, and what it means to leave a lasting mark.</p>
+      <img class="post-inline-img" src="https://www.itschevere.com/assets/books/the-invisible-life-of-addie-larue.jpg" alt="Cover of The Invisible Life of Addie LaRue by V.E. Schwab" />
+      <h2>Romance
+Love stories that feel honest, hopeful, heartbreaking, and worth rooting for.</h2>
+      <p><strong><a href="https://www.goodreads.com/search?q=Funny+Story+Emily+Henry">Funny Story</a></strong> by Emily Henry<br />Emily Henry continues to prove why she&#039;s one of today&#039;s most beloved romance writers. Equal parts witty and heartfelt, this novel delivers memorable characters, genuine chemistry, and the kind of emotional payoff that makes you want to start it all over again.</p>
+      <img class="post-inline-img" src="https://www.itschevere.com/assets/books/funny-story.jpg" alt="Cover of Funny Story by Emily Henry" />
+      <p><strong><a href="https://www.goodreads.com/search?q=Lie+With+Me+Philippe+Besson">Lie With Me</a></strong> by Philippe Besson<br />A beautifully understated novel about first love, memory, and the relationships that shape us forever. It&#039;s short enough to finish in a weekend but powerful enough to stay with you much longer.</p>
+      <img class="post-inline-img" src="https://www.itschevere.com/assets/books/lie-with-me.jpg" alt="Cover of Lie With Me by Philippe Besson" />
+      <p><strong><a href="https://www.goodreads.com/search?q=How+to+End+a+Love+Story+Yulin+Kuang">How to End a Love Story</a></strong> by Yulin Kuang<br />Kuang&#039;s debut blends romance with grief, healing, and second chances. Thoughtful, funny, and emotionally rich, it&#039;s one of the strongest contemporary romances to pick up this year.</p>
+      <img class="post-inline-img" src="https://www.itschevere.com/assets/books/how-to-end-a-love-story.jpg" alt="Cover of How to End a Love Story by Yulin Kuang" />
+      <p><strong><a href="https://www.goodreads.com/search?q=The+Two+Lives+of+Lydia+Bird+Josie+Silver">The Two Lives of Lydia Bird</a></strong> by Josie Silver<br />What if you could continue living the life you lost while still trying to move forward? Josie Silver delivers an emotional story about grief, hope, and learning that loving someone doesn&#039;t always mean holding on forever.</p>
+      <img class="post-inline-img" src="https://www.itschevere.com/assets/books/the-two-lives-of-lydia-bird.jpg" alt="Cover of The Two Lives of Lydia Bird by Josie Silver" />
+      <h2>Chévere Recommends
+Some books don&#039;t fit neatly into a single category — they&#039;re simply stories we think everyone should experience at least once.</h2>
+      <p><strong><a href="https://www.goodreads.com/search?q=Crying+in+H+Mart+Michelle+Zauner">Crying in H Mart</a></strong> by Michelle Zauner<br />A deeply moving memoir exploring grief, identity, family, and the powerful connection between food and memory.</p>
+      <img class="post-inline-img" src="https://www.itschevere.com/assets/books/crying-in-h-mart.jpg" alt="Cover of Crying in H Mart by Michelle Zauner" />
+      <p><strong><a href="https://www.goodreads.com/search?q=Remarkably+Bright+Creatures+Shelby+Van+Pelt">Remarkably Bright Creatures</a></strong> by Shelby Van Pelt<br />Warm, hopeful, and quietly charming, this novel reminds us that healing often comes from the most unexpected places — including an exceptionally observant octopus.</p>
+      <img class="post-inline-img" src="https://www.itschevere.com/assets/books/remarkably-bright-creatures.jpg" alt="Cover of Remarkably Bright Creatures by Shelby Van Pelt" />
+      <p><strong><a href="https://www.goodreads.com/search?q=The+House+in+the+Cerulean+Sea+T.J.+Klune">The House in the Cerulean Sea</a></strong> by T.J. Klune<br />A cozy fantasy about found family, kindness, and embracing what makes people different. Comforting in the very best way.</p>
+      <img class="post-inline-img" src="https://www.itschevere.com/assets/books/the-house-in-the-cerulean-sea.jpg" alt="Cover of The House in the Cerulean Sea by T.J. Klune" />
+      <p><strong><a href="https://www.goodreads.com/search?q=The+Nightingale+Kristin+Hannah">The Nightingale</a></strong> by Kristin Hannah<br />An unforgettable historical novel about two sisters navigating occupied France during World War II. Emotional, inspiring, and impossible to forget.</p>
+      <img class="post-inline-img" src="https://www.itschevere.com/assets/books/the-nightingale.jpg" alt="Cover of The Nightingale by Kristin Hannah" />
+      <p><strong><a href="https://www.goodreads.com/search?q=Eileen+Ottessa+Moshfegh">Eileen</a></strong> by Ottessa Moshfegh<br />Strange, unsettling, and brilliantly written, <em>Eileen</em> isn&#039;t always comfortable — but that&#039;s exactly what makes it so compelling.</p>
+      <img class="post-inline-img" src="https://www.itschevere.com/assets/books/eileen.jpg" alt="Cover of Eileen by Ottessa Moshfegh" />
+      <p><strong><a href="https://www.goodreads.com/search?q=Piranesi+Susanna+Clarke">Piranesi</a></strong> by Susanna Clarke<br />Unlike anything else you&#039;ll read this year, <em>Piranesi</em> unfolds inside a mysterious labyrinth where beauty, loneliness, and imagination collide.</p>
+      <img class="post-inline-img" src="https://www.itschevere.com/assets/books/piranesi.jpg" alt="Cover of Piranesi by Susanna Clarke" />
+      <p><strong><a href="https://www.goodreads.com/search?q=Yellowface+R.F.+Kuang">Yellowface</a></strong> by R.F. Kuang<br />Sharp, funny, and uncomfortably relevant, <em>Yellowface</em> takes aim at publishing, social media, cultural appropriation, and the stories we choose to tell.</p>
+      <img class="post-inline-img" src="https://www.itschevere.com/assets/books/yellowface.jpg" alt="Cover of Yellowface by R.F. Kuang" />
+      <h2>Final Chapter
+The best books aren&#039;t always the newest ones — they&#039;re the ones that stay with you. The stories you recommend without hesitation, lend to friends, or find yourself revisiting years later.</h2>
+      <p>If even one of these titles earns a spot on your bookshelf before the end of the year, we&#039;d call that a successful reading season.</p>
+      <p>And if there&#039;s a book you think belongs on every must-read list, let us know. We&#039;re always looking for our next favorite.</p>
+      <p class="post-signoff">Until next week — stay <em>chévere</em></p>
+    </div>
   </main>
+
   <script src="https://unpkg.com/lucide@latest"></script>
   <script src="../site.js?v=20260823-2"></script>
 </body>
