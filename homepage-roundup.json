@@ -3,33 +3,33 @@
   "cards": [
     {
       "category": "Watching",
-      "title": "The Gentleman, Season 2",
-      "text": "A stylish, darkly funny crime drama where British aristocracy collides with the criminal underworld. Expect power plays, secrets, and plenty of charmingly chaotic characters.",
-      "url": "https://www.netflix.com/watch/81915690?trackId=284616272&tctx=0%2C0%2Ce2959a64-8058-4c82-baeb-005ae8cea942%2Ce2959a64-8058-4c82-baeb-005ae8cea942%7C%3DeyJwYWdlSWQiOiIyZDUyMzNlOS03ODRlLTQ2MjctODQyOS0wOGVhYjAwYzNjODAvMS8vdGhlIGdlbnRsZW1hbiAvMC8wIiwibG9jYWxTZWN0aW9uSWQiOiIyIn0%3D%2C%2C%2C%2C%2C81437051%2CVideo%3A81915690%2CdetailsPageEpisodePlayButton",
-      "image_url": "https://newsletter.itschevere.com/api/media/filejump/4d0d0110-3761-4d4f-aaa6-82f008bd16bf",
-      "image_alt": "The Gentleman on Netflix",
+      "title": "The Love Hypothesis on Prime Video",
+      "text": "A highly anticipated rom-com adaptation starring Lili Reinhart and Tom Bateman. We’re settling in for a little academia, a lot of chemistry, and hopefully all the book-to-screen magic.",
+      "url": "https://www.youtube.com/watch?v=xwdamnfS6IM",
+      "image_url": "https://newsletter.itschevere.com/api/media/filejump/5ea0e715-5a63-47fc-a976-71d32240799c",
+      "image_alt": "The Love Hypothesis on Prime Video",
       "link_type": "external",
       "cta_label": "watch now"
     },
     {
-      "category": "Reading",
-      "title": "MALAS - Marcela Fuentes",
-      "text": "A vibrant, atmospheric novel about two generations of women, family secrets, and a mysterious curse along the Texas-Mexico border. It’s intimate, rebellious, and steeped in Tejano culture, with plenty of messy girlhood and complicated family dynamics.",
-      "url": "https://www.amazon.com/Malas-Novel-Marcela-Fuentes/dp/0593655788",
-      "image_url": "https://newsletter.itschevere.com/api/media/filejump/f1b02ee8-2514-4cd3-a3e5-8be0e143226a",
-      "image_alt": "malas",
+      "category": "Listening",
+      "title": "“Nicole Kidman” by Adéla",
+      "text": "Dreamy, playful, and effortlessly cool, “Nicole Kidman” has been on repeat this week. It’s giving late-night drives, good outfits, and a little main-character energy.",
+      "url": "https://open.spotify.com/track/70cHKK8bHAfJrOGVnfRG9J?si=6ed0d7c7ed444725",
+      "image_url": "https://newsletter.itschevere.com/api/media/filejump/fb8ffc75-3ee9-44c4-8eae-4ebd41859786",
+      "image_alt": "“Nicole Kidman” by Adéla",
       "link_type": "external",
-      "cta_label": "Purchase"
+      "cta_label": "Listen"
     },
     {
-      "category": "Listening",
-      "title": "\"The Chain\" by Fleetwood Mac",
-      "text": "An iconic, moody rock classic about love, loyalty, and relationships that refuse to break. It’s nostalgic, emotional, and somehow always feels right.",
-      "url": "https://www.youtube.com/watch?v=xwTPvcPYaOo&list=RDxwTPvcPYaOo&start_radio=1",
-      "image_url": "https://newsletter.itschevere.com/api/media/filejump/b7a44732-1235-4586-af74-84dd60cff4a2",
-      "image_alt": "TheChain",
+      "category": "reading",
+      "title": "Switzy: A Novel by Emma Cline",
+      "text": "A sharp and darkly funny novel that takes us into the world of celebrity, obsession, and reinvention. A perfect pick for a fall reading list with a little edge.",
+      "url": "https://www.amazon.com/dp/B0G5WTLMG8?lv=shuf&channelId=500&plpRedirect=mhFallback",
+      "image_url": "https://newsletter.itschevere.com/api/media/filejump/438b4dd1-5fcf-4fb8-b047-91438c2343dd",
+      "image_alt": "Switzy: A Novel by Emma Cline",
       "link_type": "external",
-      "cta_label": "listen"
+      "cta_label": "purchase"
     }
   ]
 }
